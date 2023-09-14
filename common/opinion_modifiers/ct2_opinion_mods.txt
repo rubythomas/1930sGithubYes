@@ -1,0 +1,17 @@
+opinion_modifiers = {
+	dutch_scand_treaty_trade = {
+		trade = yes
+		value = 20
+	}
+	dutch_scand_eco_pact = { value = 15 }
+	included_in_trade_agreement = { value = 10 }
+	norway_open_for_agreements = { value = 5 }
+	italy_aided_ukraine = { value = 25 }
+	germany_aided_ukraine = { value = 25 }
+	france_aided_ukraine = { value = 25 }
+	japan_aided_ukraine = { value = 25 }		
+	oslo_convention = { value = 8 }
+	from_aided_tag = { value = 25 }
+	from_no_aided_tag = { value = 25 }
+	from_humiliated_tag = { value = 25 }
+}

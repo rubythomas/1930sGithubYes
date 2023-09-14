@@ -1,0 +1,389 @@
+arms_trade = {
+	infantry_equip = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        		cost = 50
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 4
+		}
+		visible = {  
+			is_ai = no
+			has_tech = infantry_weapons				
+		}	
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}
+	infantry_support = {
+		icon = ger_military_buildup
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        		cost = 50
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 4
+		}
+		visible = {
+			is_ai = no
+			has_tech = tech_support	
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 1000
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}
+	artillery_pieces = {
+		icon = generic_industry
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        		cost = 50
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 4
+		}
+		visible = { 
+			is_ai = no 
+			has_tech = gw_artillery
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 400
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}
+	anti_air_pieces = { 
+		icon = generic_industry
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        cost = 50
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 3
+		}
+		visible = {	
+			is_ai = no	
+			#has_tech = interwar_antiair	
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 120
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}
+	anti_tank_pieces = {
+		icon = generic_industry
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        cost = 50
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 3
+		}
+		visible = {	
+			is_ai = no	
+			#has_tech = interwar_antitank
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 120
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}	
+	trucks = {
+		icon = generic_tank
+		available = {
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        cost = 50
+		days_remove = 100
+		modifier = { civilian_factory_use = 4	}
+		visible = { 
+			has_tech = motorised_infantry			
+			is_ai = no 
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 250
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}
+
+	early_airplanes = {
+		icon = generic_air
+		available = {
+			threat < 0.1
+			has_offensive_war = no
+		}
+		fire_only_once = no
+        cost = 50
+		days_remove = 100
+		modifier = { civilian_factory_use = 2	}
+		visible = { 	
+			is_ai = no 
+			#has_tech = early_fighter			
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 50
+			}
+		}
+		ai_will_do = {	factor = 0	}
+	}	
+	ct_mtg_license_early_destroyer = {				####   MTG Destroyer 1	####
+		icon = generic_naval
+		available = { NOT = { has_tech = early_ship_hull_light } }
+		visible = {
+			is_ai = no 
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes } 
+			NOT = { has_tech = early_ship_hull_light }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 15
+		modifier = { civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	early_ship_hull_light = 1	} }
+	}
+	ct_mtg_license_early_ship_hull_cruiser = {				####   MTG cruiser 2	####
+		icon = generic_naval
+		available = { 
+			NOT = { has_tech = early_ship_hull_cruiser }
+		}
+		visible = {
+			is_ai = no 
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes } 
+			NOT = { has_tech = early_ship_hull_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = { civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	early_ship_hull_cruiser = 1	} }
+	}
+	ct_mtg_license_basic_cruiser = {				####   MTG cruiser 2	####
+		icon = generic_naval
+		available = { 
+			has_tech = early_ship_hull_cruiser
+		}
+		visible = {
+			is_ai = no 
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes } 
+			NOT = { has_tech = basic_ship_hull_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = { civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	basic_ship_hull_cruiser = 1	} }
+	}
+	ct_mtg_basic_fire_control_system = {			####  MTG Basic Fire Control   ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			NOT = { has_tech = basic_fire_control_system }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {	set_technology = {	basic_fire_control_system = 1	} }
+	}
+	ct_mtg_license_basic_battery = {				####  1st MTG Battery   ###
+		icon = generic_naval
+		available = { is_ai = no }
+		visible = {
+			is_ai = no 
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = basic_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = { civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	basic_battery = 1	} }
+	}
+	ct_mtg_license_basic_light_battery = {			####  1st MTG Light Battery   ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+			ENG = {
+				has_opinion = {
+					target = ROOT
+					value > -11
+				}				
+			}
+		}
+		visible = {
+			is_ai = no 
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			has_tech = basic_battery
+			NOT = {  has_tech = basic_light_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	basic_light_battery = 1	} }
+	}
+
+	ct_mtg_license_basic_medium_battery = {			####  1st MTG Medium Battery   ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+			has_tech = basic_battery
+			ENG = {
+				has_opinion = {
+					target = ROOT
+					value > -11
+				}				
+			}
+		}
+		visible = {
+			is_ai = no
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = basic_medium_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1	}
+		complete_effect = {	set_technology = {	basic_medium_battery = 1	} }
+	}
+	ct_mtg_license_basic_heavy_battery = {			####  1st MTG Heavy Battery   ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+			has_tech = basic_battery
+			ENG = {
+				has_opinion = {
+					target = ROOT
+					value > -11
+				}				
+			}
+		}
+		visible = {
+			is_ai = no			
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = basic_heavy_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1 }
+		complete_effect = {	set_technology = {	basic_heavy_battery = 1	} }
+	}
+
+	ct_mtg_license_basic_secondary_battery = {		####  1st MTG Sec Battery  ###
+		icon = generic_naval
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = basic_secondary_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1 }
+		complete_effect = {	set_technology = {	basic_secondary_battery = 1	} }
+	}
+	ct_mtg_license_interwar_carrier = {	####  Interwar Carrier  ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = early_ship_hull_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1 }
+		complete_effect = {	set_technology = {	early_ship_hull_carrier = 1	} }
+	}
+	ct_mtg_license_early_torpedo = {	####  EARLY torpedo  ###
+		icon = generic_naval
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = basic_torpedo }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1 }
+		complete_effect = {	set_technology = {	basic_torpedo = 1	} }
+	}
+	ct_mtg_license_improved_secondary_battery = {	####  2nd MTG Sec Battery  ###
+		icon = generic_naval
+		available = { 
+			is_ai = no 
+			has_tech = basic_secondary_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			any_state = { is_coastal = yes }
+			NOT = { has_tech = improved_secondary_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		days_remove = 30
+		modifier = {	civilian_factory_use = 1 }
+		complete_effect = {	set_technology = {	improved_secondary_battery = 1	} }
+	}
+
+}

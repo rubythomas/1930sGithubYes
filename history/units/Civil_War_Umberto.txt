@@ -1,0 +1,164 @@
+﻿division_template = {
+	name = "Brigata del Legionario"
+	is_locked = yes
+	division_names_group = ITA_INF_01 
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "1a Brigata del Legionario"
+		location = 782  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "2a Brigata del Legionario"
+		location = 3773 
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "3a Brigata del Legionario"
+		location = 3976  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "4a Brigata del Legionario"
+		location = 6788 
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "5a Brigata del Legionario"
+		location = 6985 
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "48a Brigata del Legionario"
+		location = 9924  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "49a Brigata del Legionario"
+		location = 3773 
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "50a Brigata del Legionario"
+		location = 6788  
+		division_template = "Brigata del Legionario"
+	}
+
+	division = {
+		name = "6a Brigata del Legionario"
+		location = 11773
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "7a Brigata del Legionario"
+		location = 9924  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "8a Brigata del Legionario"
+		location = 6985 
+		division_template = "Brigata del Legionario"
+	}
+#minor
+	division = {
+		name = "9a Brigata del Legionario"
+		location = 6980  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "10a Brigata del Legionario"
+		location = 6606  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "11a Brigata del Legionario"
+		location = 6780  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "12a Brigata del Legionario"
+		location = 11598  
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "13a Brigata del Legionario"
+		location = 6626
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "14a Brigata del Legionario"
+		location = 3780
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "15a Brigata del Legionario"
+		location = 6788
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "16a Brigata del Legionario"
+		location = 6661
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "17a Brigata del Legionario"
+		location = 3901
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "18a Brigata del Legionario"
+		location = 12098
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "19a Brigata del Legionario"
+		location = 3885
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "20a Brigata del Legionario"
+		location = 9879
+		division_template = "Brigata del Legionario"
+	}
+
+#africa
+	division = {
+		name = "21a Brigata del Legionario"
+		location = 1149
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "22a Brigata del Legionario"
+		location = 1149
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "23a Brigata del Legionario"
+		location = 1118
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "24a Brigata del Legionario"
+		location = 7136
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "25a Brigata del Legionario"
+		location = 10928
+		division_template = "Brigata del Legionario"
+	}
+	division = {
+		name = "26a Brigata del Legionario"
+		location = 8043
+		division_template = "Brigata del Legionario"
+	}
+
+
+}

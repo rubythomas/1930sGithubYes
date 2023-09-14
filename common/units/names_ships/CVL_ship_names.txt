@@ -1,0 +1,186 @@
+﻿##### 
+ENG_CVL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVL
+
+	for_countries = { ENG }
+
+	can_use = { 
+		not = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_carrier light_carrier }
+	
+	prefix = "HMS "							
+	fallback_name = "Light Carrier %s"	
+
+	unique = {
+		# CVL Names
+		"Unicorn" "Colossus" "Venerable" "Vengeance" "Glory" "Pioneer" "Ocean" "Perseus" "Theseus" "Triumph" "Warrior" 
+		"Magnificent" "Powerful" "Terrible" "Majestic" "Hercules" "Leviathan"  "Argus" "Hermes" 
+		"Centaur" "Albion" "Bulwark" "Elephant" "Arrogant" "Monmouth" "Polyphemus" "Europa" "Andromeda" 
+	}
+}
+ENG_CVE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVE
+
+	for_countries = { ENG }
+
+	can_use = { 
+		not = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { 
+		ship_hull_carrier 
+		#escort_carrier 
+	}
+	
+	prefix = "HMS "							
+	fallback_name = "Escort Carrier %s"	
+
+	unique = {
+		# CVE Names
+		"Audacity" "Archer" "Avenger" "Biter" "Dasher" "Battler" "Attacker" "Hunter" "Chaser" "Fencer" "Stalker" "Pursuer"
+		"Striker" "Ravager" "Tracker" "Slinger" "Atheling" "Emperor" "Ameer" "Begum" "Trumpeter" "Empress" "Khedive" "Speaker"
+		"Nabob" "Premier" "Shah" "Patroller" "Rajah" "Ranee" "Trouncer" "Thane" "Quaeen" "Ruler" "Arbiter" "Smiter" "Puncher" "Reaper"
+	}
+}
+FRA_CVL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVL
+
+	for_countries = { FRA }
+
+	type = ship
+
+	ship_types = { ship_hull_carrier light_carrier }
+	
+	fallback_name = "%d Porte-avions léger"	
+
+	unique = {
+		"Philippe Auguste" "Louis le Lion" "Saint-Louis" "Philippe le Hardi" "Philippe le Bel" "Louis le Hutin" 
+		"Jean le Posthume" "Philippe le Long" "Charles le Bel" "Philippe de Valois" "Jean le Bon" "Charles le Sage" 
+	}
+}
+FRA_CVE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVE
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { 
+		ship_hull_carrier 
+		#escort_carrier 
+	}
+	
+	fallback_name = "%d Porte-avions d'escorte"	
+
+	unique = {
+		"Henri de La Ferté-Senneterre" "Charles de Monchy" "Jacques Rouxel" "Armand Nompar de Caumont" "Philippe de Clérambault" 
+		"César d'Albret" "Louis Foucault" "Jean de Schulemberg" "Abraham Fabert d'Esternay" "Jacques de Castelnau" "Bernardin Gigault" 
+		"François de Créquy" "Louis de Crevant" "Godefroi d'Estrades" "Philippe de Montaut-Bénac" "Frédéric-Armand de Schomberg" 
+	}
+}
+JAP_CVL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVL
+	for_countries = { JAP }
+	type = ship
+	ship_types = { ship_hull_carrier light_carrier }
+	fallback_name = "Kei kūbo %d -go"	
+	unique = {
+		# CVL Names
+		"Hosho" "Ryujo" "Hiyo" "Junyo" "Zuiho" "Shoho" "Chitose" "Chiyoda" "Ryuho" 
+	}
+}
+### ESCORT CARRIER NAMES ###
+JAP_CVE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVE
+	for_countries = { JAP }
+	type = ship
+	ship_types = { 
+ship_hull_carrier
+#escort_carrier 
+}
+	fallback_name = "Goei kūbo %d -go"	
+	unique = {
+		"Taiyo" "Chuyo" "Unyo" "Kaiyo" "Shinyo" "Akitsu Maru" "Nigitsu Maru" "Shimane Maru" "Yamashio Maru"
+		"Kumano Maru" "Otakisan Maru"
+	}
+}
+SOV_CVL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVL
+	for_countries = { SOV }
+	type = ship
+	ship_types = { ship_hull_carrier light_carrier }
+	fallback_name = "Legkiy Avianosets %d"	
+	unique = {
+			# Fictional names start here
+			"Moskva" "Leningrad" "Orel" "Kiev" "Minsk" "Novorossiysk" "Kharkov" "Baku" "Riga" "Ulyanovsk" "Tblisi" "Admiral Gorshkov" "Leonid Brezhnev" "Admiral Kuznetsov" 
+	}
+}
+SOV_CVE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVE
+	for_countries = { SOV }
+	type = ship
+	ship_types = { 
+ship_hull_carrier 
+#escort_carrier 
+}
+	fallback_name = "Eskort Avianosets %d"	
+
+	unique = {
+			# Fictional names start here
+			"Moskva" "Leningrad" "Orel" "Kiev" "Minsk" "Novorossiysk" "Kharkov" "Baku" "Riga" "Ulyanovsk" "Tblisi" "Admiral Gorshkov" "Leonid Brezhnev" "Admiral Kuznetsov" 
+	}
+}
+USA_CVL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVL
+	for_countries = { USA }
+	type = ship
+	ship_types = { ship_hull_carrier light_carrier }
+	prefix = "USS "							
+	fallback_name = "Light Carrier CVL-%d"	
+	unique = {
+		# CVL Names
+		"Independence" "Princeton" "Belleau Wood" "Cowpens" "Monterey" "Cabot" "Bataan" "San Jacinto" "Saipan" "Wright"
+		"Bull Run" "Pea Ridge" "Shiloh" "Winchester" "Seven Pines" "Frederickburg" "Chickasaw Bayou" "Gettysburg" "Sabine Pass" "Chickamauga"
+		"Cold Harbor" "Vicksburg" "Atlanta" "Chattanooga" "Franklin" "Appomattox" "Chancellorsville" "Rockford" "Sun Prairie" 
+	}
+}
+
+### ESCORT CARRIER NAMES ###
+USA_CVE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CVE
+	for_countries = { USA }
+	type = ship
+	ship_types = { 
+ship_hull_carrier 
+#escort_carrier 
+}	
+	prefix = "USS "	
+	fallback_name = "Escort Carrier CVE-%d"	
+	unique = {
+		# CVE Bogue Class
+		"Bogue" "Altamaha" "Breton" "Card" "Copahee" "Core" "Croatan" "Hamlin" "Nassau" "St George" "Prince William" "Chatham" "Glacier" "Pybus" "Baffins" "Bolinas" "Bastian" "Carnegie" "Cordova" 
+		"Delgada" "Edisto" "Estero" "Jamaica" "Keweenaw" "Prince" "Niatic" "Perdido" "St Andrews" "St Joseph" "St Simon" "Willapa" "Winjah" 
+		# CVE Sangamon Class Names
+		"Sangamon" "Suwannee" "Chenango" "Santee" "Langley"
+		# CVE CASABLANCA CLASS
+		"Casablanca" "Liscome Bay" "Coral Sea" "Anzio" "Corregidor" "Mission Bay" "Guadalcanal" "Manila Bay" "Natoma Bay" "Midway" "St Lo" "Tripoli" "Wake Island" "White Plains"
+		"Solomons" "Kalinin Bay" "Kasaan Bay" "Fanshaw Bay" "Kitkun Bay" "Tulagi" "Gambier Bay" "Nehenta Bay" "Hoggatt Bay" "Kadasahan Bay" "Marcus Island" "Savo Island" "Ommaney Bay" 
+		"Petrof Bay" "Rudyerd Bay" "Saginaw Bay" "Sargent Bay" "Shamrock Bay" "Shipley Bay" "Sitkoh Bay" "Steamer Bay" "Cape Esperance" "Takanis Bay" "Thetis Bay" "Makassar Strait"
+		"Windham Bay" "Makin Sound" "Lunga Point" "Bismarck Sea" "Salamaua" "Hollandia" "Kwajalein" "Admiralty Islands" "Bougainville" "Matanikau" "Attu" "Roi" "Munda"
+		# CVE Commencement Bay Class
+		"Commencement Bay" "Block Island" "Gilbert Islands" "Vermillion Bay" "Kula Gulf" "Cape Gloucester" "Salerno Bay" "Totem Bay" "Vella Gulf" "Frosty Bay" "Sibony" "Puget Sound" 
+		"Mosser Bay" "Williamette" "Rendova" "Portage Bay" "Bairoko" "Badoeng Strait" "Saltery Bay" "Saidor" "Sandy Bay" "Sicily" "Trocadero Bay" "Point Cruz" "Mindoro" "Rabaul" "Tinian"
+		"Bastogne" "Eniwetok" "Lingayen" "Okinawa"
+	}
+}
+
+
+
+
+
+
+
+

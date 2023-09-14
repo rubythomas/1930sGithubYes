@@ -1,0 +1,4 @@
+#ADDED
+RUS = "countries/Russia.txt"
+MIT = "countries/Mittelafrika.txt"
+HKO = "countries/HongKong.txt"

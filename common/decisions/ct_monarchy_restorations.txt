@@ -1,0 +1,276 @@
+# Categories:
+ct_monarchy_restorations = {
+	ct_kirill_enthroned = {				####
+		icon = generic_prepare_civil_war
+		available = { 
+			is_ai = no			 
+		}
+		visible = {
+			OR = {
+				original_tag = ENG
+				original_tag = GER
+				original_tag = FRA
+				original_tag = HUN
+				original_tag = ITA
+			}
+			OR = {
+				SOV = {	is_puppet_of = ROOT	}
+				SOV = {	is_subject_of = ROOT }
+			}
+			NOT = { 
+				SOV = { 
+					has_country_leader = {
+						name = "Kirill I"
+						ruling_only = yes
+					}
+			 	} 
+			}
+			has_government = neutrality		
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {	
+			SOV = {
+				create_country_leader = {
+					name = "Kirill I"
+					desc = "POLITICS_Kirill_DESC"
+					picture = "Portrait_Russia_Kirill_Vladimirovich.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_field_marshal = {
+					name = "Anton Denikin"
+					picture = "Portrait_Russia_Anton_Denikin.dds"
+					traits = { old_guard logistics_wizard offensive_doctrine }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 3
+				}
+				create_corps_commander = {
+					name = "Anatoly Pepelyayev"
+					picture = "Portrait_Russia_Anatoly_Pepelyayev.dds"
+					traits = { trickster winter_specialist }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = {
+					name = "Alexander Kutepov"
+					picture = "Portrait_Russia_Alexander_Kutepov.dds"
+					traits = { harsh_leader infantry_officer }
+					skill = 4
+					attack_skill = 2
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 3
+				}
+				create_corps_commander = {
+					name = "Vladimir Vitkovsky"
+					picture = "Portrait_Russia_Vladimir_Vitkovsky.dds"
+					traits = { }
+					skill = 2
+					attack_skill = 1
+					defense_skill = 3
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				create_corps_commander = {
+					name = "Viktorin Molchanov"
+					picture = "Portrait_Russia_Viktorin_Molchanov.dds"
+					traits = { }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = {
+					name = "Yuri Danilov"
+					picture = "Portrait_Russia_Yuri_Danilov.dds"
+					traits = { }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+				}
+			}
+		}
+	}
+
+	ct_wilhelm_habsburg_enthroned = {				####
+		icon = generic_prepare_civil_war
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			OR = {
+				original_tag = ENG
+				original_tag = SPR			
+				original_tag = GER
+				original_tag = SOV
+				original_tag = HUN
+				original_tag = FRA			
+				original_tag = ITA
+			}
+			OR = {
+				UKR = {	is_puppet_of = ROOT	}
+				UKR = {	is_subject_of = ROOT }
+			}
+			NOT = { 
+				UKR = { 
+					has_country_leader = {
+						name = "Wilhelm von Habsburg"
+						ruling_only = yes
+					}
+			 	} 
+			}
+			has_government = neutrality	
+		}
+		ai_will_do = { factor = 1 }
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {	
+			UKR = {
+				create_country_leader = {
+					name = "Wilhelm von Habsburg"
+					desc = "POLITICS_Wilhelm_von_Habsburg_DESC"
+					picture = "Portrait_Ukraine_Wilhelm_von_Habsburg.dds"
+					expire = "1965.1.1"
+					ideology = centrism
+					traits = {
+					}
+				}
+			}
+		}
+	}
+
+	ct_jean_enthroned = {				####
+		icon = generic_prepare_civil_war
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			OR = {
+				original_tag = ENG
+				original_tag = GER
+				original_tag = SOV
+				original_tag = HUN
+				original_tag = ITA
+			}
+			OR = {
+				FRA = {	is_puppet_of = ROOT	}
+				FRA = {	is_subject_of = ROOT }
+			}
+			NOT = { 
+				FRA = { 
+					has_country_leader = {
+						name = "Jean III"
+						ruling_only = yes
+					}
+			 	} 
+			}
+			has_government = neutrality	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {	
+			FRA = {
+				create_country_leader = {
+					name = "Jean III"
+					desc = "POLITICS_JEAN_DESC"
+					picture = "Portrait_France_Jean_dOrleans.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				}
+			}
+		}
+	}
+	ct_wilhelm_enthroned = {				####
+		icon = generic_prepare_civil_war
+		available = { 
+			is_ai = no
+		}
+		visible = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = SOV
+				original_tag = HUN
+				original_tag = ITA
+			}
+			OR = {
+				GER = {	is_puppet_of = ROOT	}
+				GER = {	is_subject_of = ROOT }
+			}
+			NOT = { 
+				GER = { 
+					has_country_leader = {
+						name = "Wilhelm II"
+						ruling_only = yes
+					}
+			 	} 
+			}
+			NOT = { 
+				GER = { 
+					has_country_leader = {
+						name = "Wilhelm III"
+						ruling_only = yes
+					}
+			 	} 
+			}
+			has_government = neutrality	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {	
+			GER = {
+				create_country_leader = {
+					name = "Wilhelm III"
+					desc = "POLITICS_WILHELM_III_DESC"
+					picture = GFX_portrait_ger_wilhelm_iii
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				}
+			}
+		}
+	}
+	ct_saxon_army_officer = {				####
+		icon = generic_prepare_civil_war
+		available = { 	is_ai = no	}
+		visible = {
+			NOT = {	original_tag = GER	}
+			owns_state = 65
+			has_government = neutrality	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 10
+		complete_effect = {	
+			create_corps_commander = {
+				name = "Friedrich von Sachsen"
+				portrait_path = "gfx/leaders/GER/Portrait_Germany_Friedrich_Christian_von_Sachsen.dds"
+				traits = { politically_connected }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+			}
+		}
+	}
+}

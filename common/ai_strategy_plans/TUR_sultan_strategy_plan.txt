@@ -1,0 +1,77 @@
+TUR_napoleonic_plan = {
+	name = "TUR sultan plan"
+	desc = ""
+	enable = {
+		original_tag = TUR
+		OR = {
+			has_country_flag = TUR_AI_SULTAN
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = SULTAN
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+		}
+	}
+	ai_national_focuses = {
+		TUR_social_modernization
+		TUR_improve_primary_education
+		TUR_soviet_aid
+		TUR_begin_five_year_plan
+		TUR_expand_the_mining_industry
+		TUR_soviet_civil_assistance
+		TUR_central_bank
+		TUR_nationalize_heavy_industry
+		TUR_rare_minerals_exploitation
+		TUR_sumerbank
+		TUR_etibank
+		TUR_end_five_year_plan
+		TUR_sose_ve_kopruler_reisligi
+		TUR_turkish_language_association
+		TUR_abolition_titles_bynames
+		TUR_end_five_year_plan
+		TUR_begin_2nd_five_year_plan
+		TUR_attract_foreign_capital
+		TUR_kesikkopru_mine
+		TUR_avnik_mine
+		TUR_raman_oil_field
+		TUR_law_no_6327
+		TUR_subsidized_sarsilmaz_expansion
+		TUR_end_2nd_five_year_plan
+		TUR_surname_law
+		TUR_prohibited_garments
+		TUR_introduce_metric_system
+		TUR_act_1580
+		TUR_universal_suffrage
+		TUR_improve_primary_education2
+		TUR_return_of_sultan
+		TUR_re_establish_caliphate
+		TUR_national_press_propaganda
+		TUR_sultan_guard
+		TUR_reviving_militarism
+		TUR_extra_tech_slot_early3
+		TUR_army_modernization
+		TUR_planned_mobilizaton
+		TUR_muslim_alliance
+		TUR_anti_colonialism
+		TUR_syria
+		TUR_jordan
+		TUR_palistine	
+	}			
+	research = {
+
+	}
+	ideas = {
+
+	}
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}

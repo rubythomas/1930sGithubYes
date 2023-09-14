@@ -1,0 +1,85 @@
+FRA_napoleonic_plan = {
+	name = "FRA napoleonic plan"
+	desc = ""
+	enable = {
+		original_tag = FRA
+		OR = {
+			has_country_flag = FRA_AI_NAPOLEONIC
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = NAPOLEONIC
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+		}
+	}
+	ai_national_focuses = {
+		FRA_support_monarchy	
+		FRA_royal_fascism
+		FRA_crown_napoleon	
+		FRA_support_napoleon
+		
+		FRA_extra_research_slot_pre
+		FRA_pre_industrial_expansion		
+		FRA_pre_military_factories		
+		FRA_rhone_arms		
+		FRA_de_dion_bouton
+		FRA_mining_initiative
+		
+		FRA_pre_research_slot
+		FRA_conscription
+		FRA_social_wellfare_legislation
+		FRA_the_maginot_line
+		FRA_pre_army
+		FRA_aggressive_focus
+		FRA_new_ideas
+		FRA_voluntary_military_youth
+		FRA_woo_italy
+		FRA_military_youth
+		FRA_motorized_focus
+		FRA_mechanized_focus
+		FRA_light_medium_armor
+		FRA_army_reform
+		FRA_army_of_aggression
+		FRA_industrial_cartels
+		FRA_algerie_france 				
+		FRA_colonial_industry 			
+		FRA_colonial_military_factories 
+		FRA_metropolitan_france
+		FRA_industrial_expansion
+		FRA_military_factories
+		FRA_extra_research_slot 
+		FRA_divide_switzerland
+		FRA_iraqi_oil
+		FRA_mosul_exploration_initiative
+		FRA_jet_effort 
+		FRA_wallonia
+		FRA_integrate_wallonia
+		FRA_puppet_belgium
+		FRA_finish_the_job
+		FRA_secure_lowcountries		
+		FRA_air_focus 						FRA_provide_industial_incentives
+		FRA_fighter_focus 				
+		FRA_cas_focus 						
+		FRA_heavy_fighter_focus 					
+		FRA_air_doctrine 
+		FRA_improved_screen_ships	
+		FRA_naval_doctrine 	
+	}			
+	research = {
+
+	}
+	ideas = {
+
+	}
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}

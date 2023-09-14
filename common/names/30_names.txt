@@ -1,0 +1,22 @@
+﻿UKR = {
+	male = {
+		names = { 
+			Aleksander Alexei Andrei Anton Boris Dmytro Fyodor Gennady 
+            Giorgi Grigoriy Igor Ilya Ivan Kirill Konstantin Lavr Leonid Lev Maxim 
+            Mikhail Nikita Nikolai Oleksander Pavel Pyotr Stepan Semyon Sergei 
+            Valery Vasily Viktor Vladislav Yehor Yegor Yevgeny Yuriy
+		}
+	}
+	female = {
+		names = { Jelena Ludmila Ella Svetlana Margarita Elena Natalya Lydia Valentina Olga Alexandra Sofia Albina }
+	}
+	surnames = { 
+		Avramenko Antonov Azarov Badanov Bohuslavka Budyonny Chibisov Denikin 
+        Dragomirov Frolov Golivin Grishin Gurko Hashchenko Ivannikov Koshetz Konstantinov Kozhushko  
+        Kucherenko Kuropatkin Lazarev Lyatoshinsky Movchan Nakhimov Nebogatov 
+        Nikolaevich Nikitin Ostrovsky Pasiuha Putyatin Romanov Rozhestvensky Skobelev 
+        Shuvalov Surkov Trochenko Yegorov Yemetz Vorontsov Voroshilov Zavoyko
+	
+	}
+	callsigns = { Shield Sledge Daring Swift Gale Endurance Ghost Gold Defense Thrust Snowflake White Guardian Raider Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Volga }
+}

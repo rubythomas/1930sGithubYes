@@ -1,0 +1,95 @@
+# Categories:
+ct_military_category = {
+	joint_service_maneuvers = { 
+		icon = decision_generic_prepare_civil_war
+		available = {
+				command_power > 99
+		}
+		visible = {
+			has_war = no
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = no
+		cost = 10
+		days_re_enable = 100
+		complete_effect = {
+			army_experience = 3
+			navy_experience = 3
+			air_experience = 3
+		}
+		complete_effect = {
+			add_command_power = -100
+		}
+	}
+	war_support_speech = { 
+		icon = decision_generic_prepare_civil_war
+		available = {
+			has_war_support < 0.95
+		}
+		visible = {
+			is_ai = no
+			is_subject = no
+		} 
+		ai_will_do = {
+			factor = 0
+		} 
+		fire_only_once = no
+		cost = 25
+		days_re_enable = 90
+		complete_effect = {
+			add_war_support = 0.05
+			add_manpower = 500
+		}
+	}		
+
+	arrest_communist_refugees = {  
+		icon = decision_generic_prepare_civil_war
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_subject = no
+			has_idea = GER_communist_refugees
+		} 
+		ai_will_do = {
+			factor = 0
+		} 
+		fire_only_once = no
+		cost = 10
+		complete_effect = {
+			remove_ideas = GER_communist_refugees
+		}
+	}	
+
+	german_sub_facilities = {  
+		icon = decision_generic_prepare_civil_war
+		available = {
+			GER = { has_government = democratic	}
+		}
+		visible = {
+			date < 1933.1.1
+			has_dlc = "Man the Guns"
+			GER = { has_government = democratic	}
+			SOV = { has_government = communism }
+			OR  = {
+				tag = SOV
+				tag = GER
+			}
+			is_ai = no
+			is_subject = no
+		} 
+		ai_will_do = {	factor = 1	} 
+		fire_only_once = yes
+		cost = 10
+		complete_effect = {
+			GER = {  navy_experience = 30	}
+			SOV = {
+				set_technology = {	improved_ship_torpedo_launcher = 1	}
+				navy_experience = 10
+			}			
+		}
+	}	
+}

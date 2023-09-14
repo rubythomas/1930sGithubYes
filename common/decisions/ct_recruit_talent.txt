@@ -1,0 +1,378 @@
+# Categories:
+ct_recruit_category = {
+	ct_recruit_spanish_officers = {
+		icon = infiltrate_state
+		available = {
+			41 = { is_core_of = ROOT }
+			OR = {
+				166 = { is_core_of = ROOT }			
+				169 = { is_core_of = ROOT }				
+			}
+		}
+		visible = {
+			owns_state = 41
+			owns_state = 166
+			owns_state = 169
+			SPR = {	exists = no	}
+			NOT = {	original_tag = SPR }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			create_corps_commander = {
+				name = "Vicente Rojo"
+				portrait_path = "gfx/leaders/SPR/Portrait_Spain_Vicente_Rojo.dds"			
+				traits = { brilliant_strategist infantry_officer }
+				skill = 4
+				attack_skill = 4
+				defense_skill = 4
+				planning_skill = 4
+				logistics_skill = 3
+			}
+			#create_corps_commander = {
+			#	name = "Carlos Asensio Cabanillas"
+			#	portrait_path = "gfx/leaders/SPR/Portrait_Spain_Carlos_Asensio_Cabanillas.dds"
+			#	traits = { infantry_officer }
+			#	skill = 4
+			#	attack_skill = 4
+			#	defense_skill = 3
+			#	planning_skill = 2
+			#	logistics_skill = 3
+			#}			
+			create_corps_commander = {
+				name = "Heli de Tella"
+				portrait_path = "gfx/leaders/SPR/Portrait_Spain_Heli_de_Tella.dds"
+				traits = { war_hero brilliant_strategist }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			set_country_flag = recruited_spr_generals
+		}
+	}
+	ct_recruit_austrian_officers = {
+		icon = infiltrate_state
+		available = {
+			4 = { is_core_of = ROOT }
+			OR = {
+				153 = { is_core_of = ROOT }			
+				152 = { is_core_of = ROOT }				
+			}
+		}
+		visible = {
+			owns_state = 4
+			owns_state = 153
+			owns_state = 152
+			AUS = {	exists = no	}
+			NOT = {	
+				original_tag = AUS
+				original_tag = GER
+				original_tag = HUN
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			create_corps_commander = {
+				name = "Alexander Lohr"
+				portrait_path = "gfx/leaders/AUS/Portrait_Austria_Alexander_Lohr.dds"
+				traits = { trickster }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Lothar Rendulic"
+				portrait_path = "gfx/leaders/AUS/Portrait_Austria_Lothar_Rendulic.dds"
+				traits = {  infantry_officer commando panzer_leader trait_mountaineer }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			set_country_flag = recruited_aus_generals
+		}
+	}
+	ct_recruit_romanian_officers = {
+		icon = infiltrate_state
+		available = {
+			46 = { is_core_of = ROOT }
+			OR = {
+				81 = { is_core_of = ROOT }			
+				79 = { is_core_of = ROOT }				
+			}
+		}
+		visible = {
+			owns_state = 46
+			owns_state = 79
+			owns_state = 81
+			ROM = {	exists = no	}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			create_corps_commander = {
+				name = "Ioan Mihail Racovita"
+				portrait_path = "gfx/leaders/ROM/Portrait_romania_ioan_mihail_racovita.dds"
+				traits = { hill_fighter }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Gheorghe Avramescu"
+				portrait_path = "gfx/leaders/ROM/Portrait_romania_gheorghe_avramescu.dds"
+				traits = { }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				name = "Dumitru Damaceanu"
+				portrait_path = "gfx/leaders/ROM/Portrait_Romania_Dumitru_Damaceanu.dds"
+				traits = { politically_connected trickster }
+				skill = 4
+				attack_skill = 4
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				name = "Nicolae Costescu"
+				portrait_path = "gfx/leaders/ROM/Portrait_Romania_Nicolae_Costescu.dds"
+				traits = { }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			set_country_flag = recruited_romanian_generals
+		}
+	}
+	ct_recruit_yugoslavic_officers = {
+		icon = infiltrate_state
+		available = {
+			102 = { is_core_of = ROOT }
+			OR = {
+				104 = { is_core_of = ROOT }			
+				107 = { is_core_of = ROOT }				
+			}
+		}
+		visible = {
+			owns_state = 102
+			owns_state = 104
+			owns_state = 107
+			YUG = {	exists = no	}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			create_corps_commander = {
+				name = "Vladimir Čukavac"
+				portrait_path = "gfx/leaders/YUG/Portrait_Yugoslavia_vladimir_cukavac.dds"
+				traits = { trickster  }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			create_field_marshal = {
+				name = "Danilo Kalafatović"
+				portrait_path = "gfx/leaders/YUG/Portrait_Yugoslavia_danilo_kalafatovic.dds"
+				traits = {  }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				name = "Jaka Avšič"
+				portrait_path = "gfx/leaders/YUG/Portrait_Yugoslavia_Jaka_Avsic.dds"
+				traits = { }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Dragoljub Mihailovic"
+				portrait_path = "gfx/leaders/YUG/Portrait_Yugoslavia_Dragoljub_Mihailovic.dds"
+				traits = { }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_navy_leader = {
+				name = "Marijan Polić"
+				portrait_path = "gfx/leaders/YUG/Portrait_Yugoslavia_marijan_polic.dds"
+				traits = { old_guard_navy navy_career_officer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				maneuvering_skill = 1
+				coordination_skill = 2
+			}
+			set_country_flag = recruited_yugo_generals
+		}
+	}
+	ct_recruit_hungarian_officers = {
+		icon = infiltrate_state
+		available = {
+			155 = { is_core_of = ROOT }
+			OR = {
+				811 = { is_core_of = ROOT }			
+				154 = { is_core_of = ROOT }				
+			}
+		}
+		visible = {
+			owns_state = 155
+			HUN = {	exists = no	}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+	create_corps_commander = {
+		name = "Bela Marschalko"
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Bela_Marschalko.dds"
+		traits = { infantry_officer }
+		skill = 1
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 1
+	}
+	create_corps_commander = {
+		name = "Vilmos Nagy"
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Vilmos_Nagy.dds"
+		traits = { infantry_officer skilled_staffer }
+		skill = 3
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 2
+	}
+	create_corps_commander = {
+		name = "Janos Ternegg"
+		portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Kalman_Ternegg.dds"
+		traits = {  }
+		skill = 1
+		attack_skill = 2
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 2
+	}
+			create_corps_commander = {
+				name = "Kalman Ternegg"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Kalman_Ternegg.dds"
+				traits = { bearer_of_artillery }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Denk Gusztáv"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Denk_Gusztav.dds"
+				traits = { old_guard cavalry_leader }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Béla Aggteleky"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Bela_Aggteleky.dds"
+				traits = {  }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "Vörös János"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Voros_Janos.dds"
+				traits = {  }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			create_corps_commander = {
+				name = "László Dezső"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Dezso_Laszlo.dds"
+				traits = { career_officer }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				name = "Andras Littay"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Andras_Littay.dds"
+				traits = {  }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 3
+			}
+			set_country_flag = recruited_hungary_generals
+		}
+	}
+
+}

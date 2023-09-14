@@ -1,0 +1,157 @@
+﻿###########################
+# Bulgarian Events
+###########################
+add_namespace = ctbulg
+
+#Demand Macedonia
+country_event = {
+	id = ctbulg.0
+	title = ctbulg.0.t
+	desc = ctbulg.0.d
+	picture = GFX_report_event_vienna_award_negotiations	
+	is_triggered_only = yes	
+	immediate = { set_country_flag = ctbulg.0_fired	}	
+	#make demands
+	option = {
+		name = ctbulg.0.a
+		trigger = {
+			#Italie possède la région
+			106 = {
+				CONTROLLER = {
+					OR = {
+						tag = ITA
+						is_subject_of = ITA
+					}
+				}
+			}			
+		}
+		ITA = { country_event = ctbulg.1 }
+	}
+	option = {
+		name = ctbulg.0.a
+		trigger = {
+			#Allemagne possède la région
+			106 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_subject_of = GER
+					}
+				}
+			}			
+		}
+		GER = { country_event = ctbulg.1 }
+	}
+}
+#Acceptation de la Macédoine
+country_event = {
+	id = ctbulg.1
+	title = ctbulg.1.t
+	desc = ctbulg.1.d
+	picture = GFX_report_event_hitler_croatia_handshake	
+	is_triggered_only = yes
+	option = { # Accept
+		name = ctbulg.1.a
+		ai_chance = { factor = 90 }
+		effect_tooltip = {
+			BUL = { transfer_state = 106 }
+		}
+		BUL = {
+			country_event = { days = 1 id = ctbulg.2 }
+		}
+	}
+}
+country_event = {
+	id = ctbulg.2
+	title = ctbulg.2.t
+	desc = ctbulg.2.d
+	picture = GFX_report_event_hitler_handshake	
+	is_triggered_only = yes	
+	option = {
+		name = ctbulg.2.a
+		BUL = { 
+			transfer_state = 106
+		}
+		add_named_threat = { threat = 0.3 name = ctbulg.2_threat }
+		#Faire une news
+		#hidden_effect = {
+		#	news_event = { days = 1 id = news.21 }
+		#}
+	}
+}
+#Demande la Thrace
+country_event = {
+	id = ctbulg.3
+	title = ctbulg.3.t
+	desc = ctbulg.3.d
+	picture = GFX_report_event_vienna_award_negotiations	
+	is_triggered_only = yes	
+	immediate = { set_country_flag = ctbulg.3_fired	}
+	#make demands
+	option = {
+		name = ctbulg.3.a
+		trigger = {
+			#Italie possède la région
+			184 = {
+				CONTROLLER = {
+					OR = {
+						tag = ITA
+						is_subject_of = ITA
+					}
+				}
+			}			
+		}
+		ITA = { country_event = ctbulg.4 }
+	}
+	option = {
+		name = ctbulg.3.a
+		trigger = {
+			#Allemagne possède la région
+			184 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_subject_of = GER
+					}
+				}
+			}			
+		}
+		GER = { country_event = ctbulg.4 }
+	}
+}
+#Acceptation de la Macédoine
+country_event = {
+	id = ctbulg.4
+	title = ctbulg.4.t
+	desc = ctbulg.4.d
+	picture = GFX_report_event_hitler_croatia_handshake	
+	is_triggered_only = yes	
+	option = { # Accept
+		name = ctbulg.4.a
+		ai_chance = { factor = 90 }
+		effect_tooltip = {
+			BUL = { transfer_state = 184 }
+		}
+		BUL = {
+			country_event = { days = 1 id = ctbulg.5 }
+		}
+	}
+}
+country_event = {
+	id = ctbulg.5
+	title = ctbulg.5.t
+	desc = ctbulg.5.d
+	picture = GFX_report_event_hitler_handshake	
+	is_triggered_only = yes	
+	option = {
+		name = ctbulg.5.a
+		BUL = { 
+			transfer_state = 184
+		}
+		add_named_threat = { threat = 0.3 name = ctbulg.5_threat }
+		#Faire une news
+		#hidden_effect = {
+		#	news_event = { days = 1 id = news.21 }
+		#}
+	}
+}

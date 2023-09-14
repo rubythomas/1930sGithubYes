@@ -1,0 +1,666 @@
+ideas = {
+	###############################################################################
+	country = {
+		NOR_great_depression = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.025
+				industrial_capacity_dockyard = -0.025
+			}
+		}
+		NOR_idea_tva = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = NOR_idea_tva
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = -0.025
+			}
+		}
+		NOR_trade_fleet = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = NOR_con
+			
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.5
+					instant = yes
+				}
+			}
+		}
+		NOR_rearm_navy = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_navy_bonus
+			
+			modifier = {
+				industrial_capacity_dockyard = +0.05
+			}
+		}
+		NOR_transport = {
+			picture = generic_air_bonus
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			equipment_bonus = {
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.20
+				}
+			}		
+		}
+		NOR_soc_ref1 = {
+			picture = NOR_ref_soc
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				democratic_drift = 0.05
+				democratic_acceptance = 85
+			}		
+		}
+		NOR_soc_ref2 = {
+			picture = NOR_ref_soc
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				democratic_drift = 0.10
+				democratic_acceptance = 100
+			}		
+		}
+		NOR_soc_ref3 = {
+			picture = NOR_ref_soc
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			rule = {
+				can_create_factions = yes
+			}
+			modifier = {
+				democratic_drift = 0.15
+				democratic_acceptance = 125
+			}		
+		}
+		NOR_ns = {
+			picture = NOR_ns
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_cost = -0.1
+				war_support_factor = 0.1
+			}		
+		}
+		NOR_recherche = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			picture = generic_research_bonus
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.03
+			}
+		}
+		NOR_fortification = {
+			picture = FRA_fortification_focus
+			allowed = {
+				original_tag = NOR
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_coastal_bunker_factor = 0.1
+			}
+		}
+		NOR_economie = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_goods_red_bonus
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+		}
+		NOR_resist = {
+			picture = nor_resist
+			allowed = {
+				original_tag = "NOR"
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.05	
+			}
+		}
+	}
+	###################################################################################
+
+	political_advisor = {
+
+		NOR_halvdan_koht = {
+
+			picture = generic_political_advisor_europe_1
+
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { smooth_talking_charmer }
+		}
+
+		NOR_adolf_indrebo = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { captain_of_industry }
+		}
+######################################################
+		NOR_trygve_halvdan_lie = {
+
+			picture = generic_political_advisor_europe_3
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { popular_figurehead }
+		}
+######################################################
+	}
+
+	army_chief = {
+		
+		NOR_otto_ruge = {			
+			picture = generic_army_europe_4			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { army_chief_offensive_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		carl_fleischer = {		#########ADDED########		
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { army_chief_organizational_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_kristian_laake = {			
+			picture = generic_army_europe_1			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { army_chief_defensive_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		NOR_bjarne_oen = {			
+			picture = generic_air_europe_1			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { air_chief_safety_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_ole_reistad = {			
+			picture = generic_air_europe_3			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { air_chief_reform_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_hjalmar_riiser_larsen = {			
+			picture = generic_air_europe_3			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { air_chief_all_weather_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	navy_chief = {
+
+		NOR_edgar_otto = {			
+			picture = generic_navy_europe_1			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { navy_chief_naval_aviation_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_henry_diesen = {			
+			picture = generic_navy_europe_2			
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { navy_chief_decisive_battle_2 }			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	theorist = {
+		NOR_konrad_sundlo = {
+			ledger = army
+			picture = generic_army_europe_2
+
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+		
+		NOR_tryggve_gran = {
+			ledger = air
+			picture = generic_air_europe_1
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				air_doctrine = 0.07
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+		NOR_skule_storheil = {
+			ledger = navy
+			picture = generic_navy_europe_3
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}
+
+	}
+
+
+	high_command = {
+
+		NOR_alfred_roscher-lund = {
+			ledger = army
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { army_concealment_3 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		NOR_jacob_von_der_lippe = {
+			ledger = navy
+			picture = generic_navy_europe_2
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { navy_chief_naval_aviation_3 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_birger_ljungberg = {
+			ledger = army
+			picture = birger_ljungberg
+			allowed = {
+				original_tag = NOR
+			}
+			traits = { army_commando_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_wilhelm_von_tangen-hansteen = {
+			picture = wilhelm_von_tangen_hansteen
+			ledger = army
+			allowed = {
+				original_tag = NOR
+			}
+			
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	aircraft_manufacturer = {
+			
+		designer = yes
+		
+		NOR_marinens_flyvebaatfabrikk = {
+			
+			picture = generic_air_manufacturer_1
+			
+			cost = 75
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+			
+			equipment_bonus = {
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		kjeller_flyfabrikk = {
+			
+			picture = generic_air_manufacturer_2
+			
+			cost = 75
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# licenced and built fokker C.V bombers
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	naval_manufacturer = {
+		
+		designer = yes
+		
+		horten_naval_yard = {
+			
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			equipment_bonus = {
+				# mer research
+			}
+			
+			traits = { naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+
+	materiel_manufacturer = {
+		
+		designer = yes
+		
+		kongsberg = {
+			
+			picture = generic_infantry_equipment_manufacturer_1
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			equipment_bonus = {
+				# rifles and pistols
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+			}
+		}
+	
+		raufoss_ammunisjonsfabrikker = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			equipment_bonus = {
+				# rifles and pistols
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+	
+		NOR_honefoss_karosserifabrikk = {
+			# technically not a military manufacturer. Remove if problem.
+			
+			picture = generic_motorized_equipment_manufacturer_3
+
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			equipment_bonus = {
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+
+	industrial_concern = {
+		
+		NOR_tandbergs_radiofabrikk = {
+			
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				electronics = 0.1
+			}
+			
+			traits = { electronics_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		NOR_norsk_hydro = {
+
+			picture = generic_refining_concern_1
+		
+			allowed = {
+				original_tag = NOR
+			}
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}	
+}

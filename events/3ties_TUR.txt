@@ -1,0 +1,414 @@
+﻿add_namespace = cttur
+
+country_event = { #MenemenIncident
+	id = cttur.1
+	title = cttur.1.t
+	desc = cttur.1.d
+	picture = GFX_report_event_polish_army
+	trigger = {
+		tag = TUR
+		AND = {
+			date > 1930.12.23
+			date < 1931.12.31
+			NOT = { has_country_flag = ct_menemen }
+		}
+	}
+	fire_only_once = yes
+	#harshTreatment
+	option = {
+		name = cttur.1.o1
+		ai_chance = {
+			base = 50
+		}
+		set_country_flag = ct_menemen
+		add_ideas = TUR_marginalized_muslim_community
+	}
+	#sendthemaRebuke
+	option = {
+		name = cttur.1.o2
+		ai_chance = {
+			base = 0
+		}
+		set_country_flag = ct_menemen
+		add_stability = -0.25
+		add_political_power = -200
+	}
+}
+
+country_event = { #kemalDead
+	id = cttur.2
+	title = cttur.2.t
+	desc = cttur.2.d
+	picture = GFX_report_event_funeral
+	trigger = {
+		tag = TUR
+		AND = {
+			date > 1938.11.9
+			NOT = { has_country_flag = ct_ataturk_fallen }
+		}
+	}
+	fire_only_once = yes
+	option = {
+		name = cttur.2.o1
+		set_country_flag = ct_ataturk_fallen
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_country_flag = ct_turk_sultan_back }
+					NOT = { has_country_flag = ct_turk_commy }
+				}
+			}
+			create_country_leader = {
+				name = "Ismet Inönü"
+				desc = "POLITICS_ISMET_INÖNÜ_DESC"
+				picture = "Portrait_Turkey_Ismet_Inonu.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					#
+				}
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = cttur.3
+	title = cttur.3.t
+	desc = cttur.3.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.3.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = IRQ }
+	}
+	option = { #nope
+		name = cttur.3.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { 
+	id = cttur.4
+	title = cttur.4.t
+	desc = cttur.4.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.4.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = PER }
+	}
+	option = { #nope
+		name = cttur.4.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { 
+	id = cttur.5
+	title = cttur.5.t
+	desc = cttur.5.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.5.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = SAU }
+	}
+	option = { #nope
+		name = cttur.5.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { 
+	id = cttur.6
+	title = cttur.6.t
+	desc = cttur.6.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.6.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = AFG }
+	}
+	option = { #nope
+		name = cttur.6.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { 
+	id = cttur.7
+	title = cttur.7.t
+	desc = cttur.7.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.7.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = OMA }
+	}
+	option = { #nope
+		name = cttur.7.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { 
+	id = cttur.8
+	title = cttur.8.t
+	desc = cttur.8.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.8.o1
+		ai_chance = { factor = 100 }
+		TUR = { add_to_faction = YEM }
+	}
+	option = { #nope
+		name = cttur.8.o2
+		ai_chance = { factor = 0 }
+	}
+}
+
+#############################
+
+country_event = { #freeSYRia
+	id = cttur.9
+	title = cttur.9.t
+	desc = cttur.9.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #giveUPsyria
+		name = cttur.9.o1
+		ai_chance = { factor = 100 }
+		TUR = { country_event = { id = cttur.10 } }
+	}
+	option = { #nope
+		name = cttur.9.o2
+		ai_chance = { factor = 0 }
+		TUR = { country_event = { id = cttur.11 } }
+	}
+}
+country_event = { 
+	id = cttur.10
+	title = cttur.10.t
+	desc = cttur.10.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.10.o1
+		FRA = { 
+			release = SYR
+		}
+		TUR = { 
+			add_to_faction = SYR
+	 		puppet = SYR
+		}
+	}
+}
+country_event = { 
+	id = cttur.11
+	title = cttur.11.t
+	desc = cttur.11.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.11.o1
+		if = {
+			limit = { 
+				FRA = {
+					OR = {
+						owns_state = 553
+						owns_state = 554
+						owns_state = 677
+						owns_state = 680
+					}
+				} 
+			}			
+			create_wargoal = {
+				type = take_state_focus
+				target = FRA
+				generator = { 680 677 553 554  }
+			}
+		}
+	}
+}
+
+##############################
+
+country_event = { #freeJORdan
+	id = cttur.12
+	title = cttur.12.t
+	desc = cttur.12.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #giveUPjordan
+		name = cttur.12.o1
+		ai_chance = { factor = 100 }
+		TUR = { country_event = { id = cttur.13 } }
+	}
+	option = { #nope
+		name = cttur.12.o2
+		ai_chance = { factor = 0 }
+		TUR = { country_event = { id = cttur.14 } }
+	}
+}
+country_event = { 
+	id = cttur.13
+	title = cttur.13.t
+	desc = cttur.13.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.13.o1
+		ENG = { 
+			release = JOR
+		}
+		TUR = { 
+			add_to_faction = JOR
+	 		puppet = JOR
+		}
+	}
+}
+country_event = { 
+	id = cttur.14
+	title = cttur.14.t
+	desc = cttur.14.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.14.o1
+		if = {
+			limit = { 
+				ENG = {
+					owns_state = 455
+				} 
+			}			
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 455 }
+			}
+		}
+	}
+}
+
+##############################
+
+country_event = { #freePAListine
+	id = cttur.15
+	title = cttur.15.t
+	desc = cttur.15.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #giveUPpalistine
+		name = cttur.15.o1
+		ai_chance = { factor = 100 }
+		TUR = { country_event = { id = cttur.16 } }
+	}
+	option = { #nope
+		name = cttur.15.o2
+		ai_chance = { factor = 0 }
+		TUR = { country_event = { id = cttur.17 } }
+	}
+}
+country_event = { 
+	id = cttur.16
+	title = cttur.16.t
+	desc = cttur.16.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.16.o1
+		ENG = { 
+			release = PAL
+		}
+		TUR = { 
+			add_to_faction = PAL
+	 		puppet = PAL
+		}
+	}
+}
+country_event = { 
+	id = cttur.17
+	title = cttur.17.t
+	desc = cttur.17.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.17.o1
+		if = {
+			limit = { 
+				ENG = {
+					owns_state = 454
+				} 
+			}			
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 454 }
+			}
+		}
+	}
+}
+
+##############################
+
+country_event = { #gimmeNorthSyria
+	id = cttur.18
+	title = cttur.18.t
+	desc = cttur.18.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #giveUPpalistine
+		name = cttur.18.o1
+		ai_chance = { factor = 100 }
+		TUR = { country_event = { id = cttur.19 } }
+	}
+	option = { #nope
+		name = cttur.18.o2
+		ai_chance = { factor = 0 }
+		TUR = { country_event = { id = cttur.20 } }
+	}
+}
+country_event = { 
+	id = cttur.19
+	title = cttur.19.t
+	desc = cttur.19.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.19.o1
+		TUR = { 
+			transfer_state = 677
+			transfer_state = 680
+		}
+	}
+}
+country_event = { 
+	id = cttur.20
+	title = cttur.20.t
+	desc = cttur.20.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = { #joinFaction
+		name = cttur.20.o1
+		if = {
+			limit = { 
+				FRA = {
+					owns_state = 677
+					owns_state = 680
+				} 
+			}			
+			create_wargoal = {
+				type = take_state_focus
+				target = FRA
+				generator = { 680 677 }
+			}
+		}
+	}
+}

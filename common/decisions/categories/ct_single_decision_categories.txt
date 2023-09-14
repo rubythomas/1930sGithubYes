@@ -1,0 +1,29 @@
+SOV_improve_war_eco = {
+	allowed = {
+		original_tag = SOV
+	}
+	visible = {
+		has_defensive_war_with = GER
+	}
+		
+}
+GER_dec_ROM = {
+	icon = generic_prospect_for_resources
+	
+	allowed = {
+		original_tag = GER
+	}
+
+	visible = {
+		#has_completed_focus = GER_ROM_oil
+	}
+}
+JAP_chi_col = {
+	icon = generic_political_actions
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_intervene_in_china
+	}
+}

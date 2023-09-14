@@ -1,0 +1,173 @@
+﻿add_namespace = ctfin
+
+country_event = { #Lapua Movement marches june
+	id = ctfin.1
+	title = ctfin.1.t
+	desc = ctfin.1.d
+	picture = GFX_fra_com
+	fire_only_once = yes		
+	trigger = {
+		tag = FIN
+		AND = {
+			date > 1930.6.1
+			date < 1930.6.30
+			NOT = { has_country_flag = ct_fin_lapua_one }
+		}
+	}
+	option = {
+		name = ctfin.1.o1
+		set_country_flag = ct_fin_lapua_one
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = { #Lapua Movement marches july
+	id = ctfin.2
+	title = ctfin.2.t
+	desc = ctfin.2.d
+	picture = GFX_report_event_german_troops
+	fire_only_once = yes		
+	trigger = {
+		tag = FIN
+		AND = {
+			date > 1930.7.1
+			date < 1930.7.30
+			NOT = { has_country_flag = ct_fin_lapua_two }
+		}
+	}
+	option = {
+		name = ctfin.2.o1
+		set_country_flag = ct_fin_lapua_two
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.06
+		}
+		add_stability = -0.10
+	}
+}
+
+country_event = { #Lapua Movement marches july
+	id = ctfin.3
+	title = ctfin.3.t
+	desc = ctfin.3.d
+	picture = GFX_report_event_german_troops
+	fire_only_once = yes		
+	trigger = {
+		tag = FIN
+		AND = {
+			date > 1932.2.20
+			date < 1932.3.28
+			NOT = { has_country_flag = ct_fin_rebel }
+		}
+	}
+	option = {
+		name = ctfin.3.o1
+		ai_chance = { factor = 90 }
+		set_country_flag = ct_fin_rebel
+		set_country_flag = ct_fin_ban_lapua
+		add_stability = 0.05
+		add_political_power = 50
+	}
+	option = {
+		name = ctfin.3.o2
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = ct_fin_rebel
+		set_country_flag = ct_fin_lapua_wins
+		set_politics = {
+			ruling_party = fascism
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.20
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news_1930.24 }
+		}
+		add_stability = -0.10
+	}
+}
+
+country_event = { #Lapua provokation
+	id = ctfin.4
+	title = ctfin.4.t
+	desc = ctfin.4.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #no war
+		name = ctfin.4.o1
+		ai_chance = { factor = 1 }
+		add_stability = -0.10
+	}
+	option = { #ultimatum
+		name = ctfin.4.o2
+		ai_chance = { factor = 99 }
+		FIN = { country_event = { id = ctfin.5 hours = 24 } } 
+		add_stability = 0.05
+		add_political_power = 100
+	}
+}
+
+country_event = { #Ultimatum to FIN
+	id = ctfin.5
+	title = ctfin.5.t
+	desc = ctfin.5.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #no war pls we so sorry
+		name = ctfin.5.o1
+		ai_chance = { factor = 1 }
+		add_stability = -0.10
+	}
+	option = { #go boil your hat
+		name = ctfin.5.o2
+		ai_chance = { factor = 99 }
+		hidden_effect = {
+			news_event = { hours = 6 id = news_1930.25 }
+		}
+		SWE = { 
+			declare_war_on = {
+   	 			target = FIN
+   				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { #Kallio PM
+	id = ctfin.6
+	title = ctfin.6.t
+	desc = ctfin.6.d
+	picture = GFX_report_event_king_speech
+	fire_only_once = yes		
+	trigger = {
+		tag = FIN
+		AND = {
+			date > 1936.10.1
+			NOT = { has_country_flag = ct_kallio }
+		}
+	}
+	option = {
+		name = ctfin.6.o1
+		set_country_flag = ct_kallio
+		create_country_leader = {
+			name = "Kyösti Kallio"
+			desc = "POLITICS_KYÖSTI_KALLIO_DESC"
+			picture = "gfx/leaders/FIN/Portrait_Finland_Kyosti_Kallio.dds"
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {
+				#
+			}
+		}
+	}
+}

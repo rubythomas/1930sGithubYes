@@ -1,0 +1,74 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_decision_cat_mittelafrica"
+		texturefile = "gfx/interface/decisions/decision_cat_mittelafrica.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_cat_mittelafrica"
+		texturefile = "gfx/interface/decisions/decision_cat_mittelafrica.dds"
+	}
+
+	#############################Allemagne
+	
+	spriteType = {
+		name = "GFX_decision_ss_ger"
+		texturefile = "gfx/interface/decisions/decision_ss_ger.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_nor"
+		texturefile = "gfx/interface/decisions/decision_ss_nor.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_hol"
+		texturefile = "gfx/interface/decisions/decision_ss_hol.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_ita"
+		texturefile = "gfx/interface/decisions/decision_ss_ita.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_raj"
+		texturefile = "gfx/interface/decisions/decision_ss_raj.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_fra"
+		texturefile = "gfx/interface/decisions/decision_ss_fra.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_rom"
+		texturefile = "gfx/interface/decisions/decision_ss_rom.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_cro"
+		texturefile = "gfx/interface/decisions/decision_ss_cro.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_hun"
+		texturefile = "gfx/interface/decisions/decision_ss_hun.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_spr"
+		texturefile = "gfx/interface/decisions/decision_ss_spr.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_bel"
+		texturefile = "gfx/interface/decisions/decision_ss_bel.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_est"
+		texturefile = "gfx/interface/decisions/decision_ss_est.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_lat"
+		texturefile = "gfx/interface/decisions/decision_ss_lat.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_blr"
+		texturefile = "gfx/interface/decisions/decision_ss_blr.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_ss_ukr"
+		texturefile = "gfx/interface/decisions/decision_ss_ukr.dds"
+	}
+	
+}

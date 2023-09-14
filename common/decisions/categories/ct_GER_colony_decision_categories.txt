@@ -1,0 +1,40 @@
+		####################
+		### MITTELAFRIKA ##
+		####################
+mittelafrika_category = {
+	icon = ger_mittelafrika
+	picture = GFX_decision_cat_mittelafrica
+	allowed = {
+		is_subject = no
+	}
+	visible = {
+		is_ai = no
+	}
+}
+cbn_category = {
+	icon = power_struggle
+	allowed = {
+		is_subject = no
+	}
+	visible = {
+		original_tag = GER
+	}
+}
+chi_ost_category = {
+	icon = power_struggle
+	allowed = {
+		is_subject = no
+	}
+	visible = {
+		original_tag = GER
+	}
+}
+ostindien_category = {
+	icon = power_struggle
+	allowed = {
+		is_subject = no
+	}
+	visible = {
+		original_tag = GER
+	}
+}

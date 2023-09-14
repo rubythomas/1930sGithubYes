@@ -1,0 +1,157 @@
+﻿
+division_template = {
+	name = "Division d'Armistice"		
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Motorisée"
+
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+		motorized = { x = 3 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      
+		artillery = { x = 0 y = 1 }  
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Alpine"	
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }	
+		mountaineers = { x = 2 y = 1 }	
+		mountaineers = { x = 2 y = 2 }	
+		mountaineers = { x = 3 y = 0 }	
+		
+	}
+}
+division_template = {
+	name = "Division de Cavalerie" 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      
+	}
+}
+
+division_template = {
+	name = "Brigade de Chars Légers" 	
+
+	priority = 2
+	
+		regiments = {
+			motorized = { x = 0 y = 0 }
+			motorized = { x = 0 y = 1 }
+			motorized = { x = 0 y = 2 }
+			light_armor = { x = 1 y = 0 }
+			light_armor = { x = 1 y = 1 }
+			light_armor = { x = 1 y = 2 }
+	    	light_armor = { x = 2 y = 0 }
+			light_armor = { x = 2 y = 1 }
+			light_armor = { x = 2 y = 2 }
+			light_armor = { x = 2 y = 3 }
+		}
+
+		support = {
+        	engineer = { x = 0 y = 0 }
+        	recon = { x = 0 y = 1 }
+		}
+}
+
+##### OOB #####
+units = {
+	division= {
+		name = "1. Division d'Armistice"
+		location = 3594
+		division_template = "Division d'Armistice" 
+		start_experience_factor = 0.3
+	}
+	division= {
+		name = "2. Division d'Armistice"
+		location = 3594
+		division_template = "Division d'Armistice" 
+		start_experience_factor = 0.3
+	}
+	
+
+
+	### METRPOLITAN FRANCE ###
+	navy = {			
+		name = "1. Armée Navale"			
+		base = 1145
+		location = 1145		
+		ship = { name = "Achille" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "Le Polonais" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "La Gracieuse" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "Inflexible" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "Le Magnanime" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "Le Juste" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = VFR } } }
+		ship = { name = "Foudroyant" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = VFR } } }
+		ship = { name = "Duguay-Trouin" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = VFR } } }
+		ship = { name = "L'Ambitieux" definition = heavy_cruiser equipment = { heavy_cruiser_2 = { amount = 1 owner = VFR } } }
+		ship = { name = "Amiral Charner" definition = battleship equipment = { battleship_1 = { amount = 1 owner = VFR } } }
+	}
+	navy = {			
+		name = "1. Escadron Sous-Marins" 			
+		base =  1145
+		location = 1145 
+		ship = { name = "Espadon" definition = submarine equipment = { submarine_1 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "L'Orient" definition = submarine equipment = { submarine_1 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "Solitaire" definition = submarine equipment = { submarine_1 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "Jean Bart" definition = submarine equipment = { submarine_1 = { amount = 1 owner = VFR version_name = "630 Series" } } }
+		ship = { name = "Centaure" definition = submarine equipment = { submarine_1 = { amount = 1 owner = VFR version_name = "630 Series" } } }				
+	}
+}
+
+### Air Wings
+air_wings = {
+	21 = {
+		fighter_equipment_0 = {
+			owner = "VFR" 
+			amount = 75
+		}
+		tac_bomber_equipment_1 =  {
+			owner = "FRA" 
+			amount = 25
+		}
+		nav_bomber_equipment_1 = {
+			owner = "FRA" 
+			amount = 25
+		}
+	}
+}

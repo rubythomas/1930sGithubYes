@@ -1,0 +1,391 @@
+﻿add_namespace = ctjap
+
+country_event = {
+	id = ctjap.1
+	title = ctjap.1.t
+	desc = ctjap.1.d
+	picture = GFX_report_event_chinese_soldiers_fighting	
+	is_triggered_only = yes
+	option = {
+		name = ctjap.1.o1
+		ai_chance = {base=99}
+		JAP = {
+			transfer_state = 328
+			transfer_state = 610
+			transfer_state = 714
+			transfer_state = 715
+			transfer_state = 716
+			transfer_state = 717
+			transfer_state = 761
+		}
+	}
+
+	option = {
+		name = ctjap.1.o2
+		ai_chance = {base=1}
+		JAP = {
+			add_state_claim = 610
+			add_state_claim = 714
+			add_state_claim = 715
+			add_state_claim = 716
+			add_state_claim = 717
+			add_state_claim = 761
+			effect_tooltip = {
+				create_wargoal = {
+					type = annex_everything
+					target = CHI
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctjap.2
+	title = ctjap.2.t
+	desc = ctjap.2.d
+	picture = GFX_report_event_chinese_soldiers_02	
+	is_triggered_only = yes
+	option = {
+		name = ctjap.2.o1
+		ai_chance = {base=99}
+		JAP = {
+			transfer_state = 609
+			transfer_state = 611
+			transfer_state = 612
+		}
+	}
+
+	option = {
+		name = ctjap.2.o2
+		ai_chance = {base=1}
+		JAP = {
+			add_state_claim = 609
+			add_state_claim = 611
+			add_state_claim = 612
+			effect_tooltip = {
+				create_wargoal = {
+					type = annex_everything
+					target = CHI
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctjap.3
+	title = ctjap.3.t
+	desc = ctjap.3.d
+	picture = GFX_report_event_chinese_soldiers_02	
+	is_triggered_only = yes
+	option = {
+		name = ctjap.3.o1
+		ai_chance = {base=99}
+		if = {
+			limit = {
+				715 = {
+					OR = {
+						is_controlled_by = JAP
+						any_other_country = {
+							controls_state = 715
+							is_in_faction_with = JAP
+							JAP = { is_faction_leader = yes }
+						}
+					}
+				}
+			}
+			release_puppet = MAN
+			MAN = {
+				load_oob = "MAN_1930"
+			}
+		}
+	}
+	option = {
+		name = ctjap.3.o2
+		ai_chance = {base=1}
+		add_political_power = -50
+		add_stability = -0.05
+	}
+	option = {
+		name = ctjap.3.o3
+		ai_chance = {base=0}
+		if = {
+			limit = {
+				715 = {
+					OR = {
+						is_controlled_by = JAP
+						any_other_country = {
+							controls_state = 715
+							is_in_faction_with = JAP
+							JAP = { is_faction_leader = yes }
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = "Play as Manchukuo"
+			release_puppet = MAN
+			MAN = {
+				load_oob = "MAN_1930"
+				change_tag_from = JAP
+			}
+			
+		}
+	}
+}
+
+country_event = {
+	id = ctjap.4
+	title = ctjap.4.t
+	desc = ctjap.4.d
+	picture = GFX_report_event_chinese_soldiers_02	
+	is_triggered_only = yes
+	option = {
+		name = ctjap.4.o1
+		ai_chance = {base=99}
+		JAP = {
+			transfer_state = 609
+			transfer_state = 611
+			transfer_state = 612
+			country_event = ctjap.5
+		}
+	}
+	option = {
+		name = ctjap.4.o2
+		ai_chance = {base=1}
+		JAP = {
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+		}
+	}
+}
+country_event = {
+	id = ctjap.5
+	title = ctjap.5.t
+	desc = ctjap.5.d
+	picture = GFX_report_event_chinese_soldiers_02	
+	is_triggered_only = yes
+	option = {
+		name = ctjap.5.o1
+		ai_chance = {base=99}
+		add_political_power = 50
+		if = {
+			limit = {
+				611 = {
+					OR = {
+						is_controlled_by = JAP
+						any_other_country = {
+							controls_state = 611
+							is_in_faction_with = JAP
+							JAP = { is_faction_leader = yes }
+						}
+					}
+				}
+			}
+			release_puppet = MEN
+			MEN = {
+				load_oob = "MEN_1922"
+			}
+		}
+	}
+	option = {
+		name = ctjap.5.o2
+		ai_chance = {base=1}
+		add_political_power = -25
+		add_stability = -0.01
+	}
+}
+country_event = {
+	id = ctjap.6
+	title = ctjap.6.t
+	desc = ctjap.6.d
+	picture = GFX_gen_chimie	
+	fire_only_once = yes	
+	trigger = {
+		tag = JAP
+		has_war_with = CHI
+	}	
+	mean_time_to_happen = { days = 5 }	
+	option = {
+		name = ctjap.6.a
+		ai_chance = {
+			factor = 100
+		}
+		add_timed_idea = { idea = idea_chimie days = 90 }
+		CHI = { add_manpower = -240000 }
+		add_named_threat = { threat = 0.5 name = ctjap.6_threat }
+		hidden_effect = {
+			news_event = { hours = 6 id = news.1001 }
+		}
+		
+	}
+	option = {
+		name = ctjap.6.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+# country_event = {
+	# id = ctjap.7
+	# title = ctjap.7.t
+	# desc = ctjap.7.d
+	# picture = GFX_war_surrender_jap	
+	# fire_only_once = yes	
+	# trigger = {
+		# tag = JAP
+		# NOT = { has_global_flag = white_peace_japan }
+		# OR = {
+			# NOT = { country_exists = CHI }
+			# CHI = { is_puppet_of = JAP }
+		# }
+		# OR = {
+			# AND = {
+				# country_exists = SIK
+				# NOT = { 
+					# SIK = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+			# AND = {
+				# country_exists = XSM
+				# NOT = { 
+					# XSM = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+			# AND = {
+				# country_exists = SHX
+				# NOT = { 
+					# SHX = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+			# AND = {
+				# country_exists = PRC
+				# NOT = { 
+					# PRC = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+			# AND = {
+				# country_exists = YUN
+				# NOT = { 
+					# YUN = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+			# AND = {
+				# country_exists = GXC
+				# NOT = { 
+					# GXC = { 
+						# is_puppet_of = JAP 
+						# is_ai = no
+					# } 
+				# }
+			# }
+		# }
+	# }	
+	# mean_time_to_happen = { days = 5 }	
+	# option = {
+		# name = ctjap.7.a
+		# ai_chance = {
+			# factor = 100
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = SIK
+					# NOT = { SIK = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = SIK transfer_troops = no }
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = XSM
+					# NOT = { XSM = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = XSM transfer_troops = no }
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = SHX
+					# NOT = { SHX = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = SHX transfer_troops = no }
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = PRC
+					# NOT = { PRC = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = PRC transfer_troops = no }
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = YUN
+					# NOT = { YUN = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = YUN transfer_troops = no }
+		# }
+		# if = {
+			# limit = {
+				# AND = {
+					# country_exists = GXC
+					# NOT = { GXC = { is_puppet_of = JAP } }
+				# }
+			# }
+			# annex_country = { target = GXC transfer_troops = no }
+		# }
+		
+		# hidden_effect = {
+			# news_event = { hours = 6 id = news.1010 }
+		# }
+		
+	# }
+# }
+
+country_event = { #Junnosuke Inoue Assasin
+	id = ctjap.8
+	title = ctjap.8.t
+	desc = ctjap.8.d
+	picture = GFX_report_event_chinese_soldiers_02	
+	fire_only_once = yes		
+	trigger = {
+		tag = JAP
+		date > 1932.2.8
+	}
+	mean_time_to_happen = { days = 1 }
+	option = { #dont get involved 
+		name = ctjap.8.o1
+		ai_chance = {base=99}
+		add_war_support = 0.05
+	}
+	option = { #get involved 
+		name = ctjap.8.o2
+		ai_chance = {base=1}
+		add_stability = 0.05
+		add_political_power = -50
+	}
+}

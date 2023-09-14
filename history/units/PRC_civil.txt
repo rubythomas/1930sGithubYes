@@ -1,0 +1,440 @@
+﻿division_template = {
+	name = "People's Liberation Army"			# Binary Infantry Corps
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
+	}
+}
+
+units = {
+
+	division = {
+		name = "1 People's Liberation Division"
+		location = 8049
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "2 People's Liberation Division"
+		location = 8049
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "3 People's Liberation Division"
+		location = 8049
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "4 People's Liberation Division"
+		location = 8049
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "5 People's Liberation Division"
+		location = 8049
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "6 People's Liberation Division"
+		location = 1069
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "7 People's Liberation Division"
+		location = 1069
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "8 People's Liberation Division"
+		location = 1069
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "9 People's Liberation Division"
+		location = 1069
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "10 People's Liberation Division"
+		location = 1069
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "11 People's Liberation Division"
+		location = 10733
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "12 People's Liberation Division"
+		location = 12156
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "13 People's Liberation Division"
+		location = 5007
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "14 People's Liberation Division"
+		location = 7208
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "15 People's Liberation Division"
+		location = 1458
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "16 People's Liberation Division"
+		location = 10000
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "17 People's Liberation Division"
+		location = 10000
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "18 People's Liberation Division"
+		location = 10000
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "19 People's Liberation Division"
+		location = 10000
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "20 People's Liberation Division"
+		location = 10000
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "21 People's Liberation Division"
+		location = 4205
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "22 People's Liberation Division"
+		location = 4205
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "23 People's Liberation Division"
+		location = 4205
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "24 People's Liberation Division"
+		location = 4205
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "25 People's Liberation Division"
+		location = 4205
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "26 People's Liberation Division"
+		location = 1150
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "27 People's Liberation Division"
+		location = 1150
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "28 People's Liberation Division"
+		location = 1150
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "29 People's Liberation Division"
+		location = 1150
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "30 People's Liberation Division"
+		location = 1150
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "31 People's Liberation Division"
+		location = 11771
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "32 People's Liberation Division"
+		location = 11771
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "33 People's Liberation Division"
+		location = 11771
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "34 People's Liberation Division"
+		location = 11771
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "35 People's Liberation Division"
+		location = 11771
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "36 People's Liberation Division"
+		location = 4572
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "37 People's Liberation Division"
+		location = 4572
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "38 People's Liberation Division"
+		location = 4572
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "39 People's Liberation Division"
+		location = 4572
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "40 People's Liberation Division"
+		location = 4572
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "41 People's Liberation Division"
+		location = 11752
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "42 People's Liberation Division"
+		location = 11752
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "43 People's Liberation Division"
+		location = 11752
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "44 People's Liberation Division"
+		location = 11752
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "45 People's Liberation Division"
+		location = 11752
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "46 People's Liberation Division"
+		location = 1811
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "47 People's Liberation Division"
+		location = 1502
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "48 People's Liberation Division"
+		location = 12485
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "49 People's Liberation Division"
+		location = 4506
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "50 People's Liberation Division"
+		location = 7582
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "51 People's Liberation Division"
+		location = 12093
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "52 People's Liberation Division"
+		location = 1084
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "53 People's Liberation Division"
+		location = 7189
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "54 People's Liberation Division"
+		location = 7160
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "55 People's Liberation Division"
+		location = 10072
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "56 People's Liberation Division"
+		location = 10043
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "57 People's Liberation Division"
+		location = 12015
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "58 People's Liberation Division"
+		location = 4181
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "59 People's Liberation Division"
+		location = 1124
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "60 People's Liberation Division"
+		location = 9971
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "61 People's Liberation Division"
+		location = 517
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "62 People's Liberation Division"
+		location = 4939
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "63 People's Liberation Division"
+		location = 10880
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "64 People's Liberation Division"
+		location = 7659
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "65 People's Liberation Division"
+		location = 10451
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "66 People's Liberation Division"
+		location = 1590
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "67 People's Liberation Division"
+		location = 6904
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "68 People's Liberation Division"
+		location = 9776
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "69 People's Liberation Division"
+		location = 952
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "70 People's Liberation Division"
+		location = 4495
+		division_template = "People's Liberation Army"
+		start_experience_factor = 0.4
+	}
+}

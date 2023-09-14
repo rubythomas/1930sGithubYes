@@ -1,0 +1,59 @@
+﻿add_namespace = twentiesswe
+country_event = {
+	id = twentiesswe.1
+	title = twentiesswe.1.t
+	desc = twentiesswe.1.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = SWE
+		AND = {
+			date > 1930.10.5
+			NOT = { has_country_flag = ct_swe_ekman2 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesswe.1.o1
+		set_country_flag = ct_swe_ekman2
+		create_country_leader = {
+			name = "Carl Ekman"
+			desc = "POLITICS_CARL_EKMAN_DESC"
+			picture = "Portrait_SWE_Carl_Gustaf_Ekman.dds"
+			expire = "1965.1.1"
+
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+country_event = {
+	id = twentiesswe.2
+	title = twentiesswe.2.t
+	desc = twentiesswe.2.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = SWE
+		AND = {
+			date > 1932.9.22
+			NOT = { has_country_flag = ct_swe_hansson }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesswe.2.o1
+		set_country_flag = ct_swe_hansson
+		create_country_leader = {
+			name = "Per Albin Hansson"
+			desc = "POLITICS_PER_ALBIN_HANSSON_DESC"
+			picture = "Portrait_Sweden_Per_Albin_Hansson.dds"
+			expire = "1965.1.1"
+
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}

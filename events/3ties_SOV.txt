@@ -1,0 +1,102 @@
+﻿add_namespace = ctsov
+country_event = {
+	id = ctsov.1
+	title = ctsov.1.t
+	desc = ctsov.1.d
+	picture = GFX_report_event_fascist_speech
+	trigger = {
+		NOT = { has_global_flag = ct_stupid_sov_ai }
+		SOV = { is_ai = yes }
+		tag = SOV
+		has_army_manpower = { size < 699999 }
+		date>1938.12.31
+		date<1940.5.31
+	}
+	fire_only_once = yes
+	option = {
+		name = ctsov.1.o1
+		load_oob = "SOV_1922"
+		add_political_power = 400
+		add_equipment_to_stockpile = {
+    			type = infantry_equipment
+   			amount = 500000
+    			producer = SOV
+		}
+		add_equipment_to_stockpile = {
+    			type = fighter_equipment_1
+   			amount = 200
+    			producer = SOV
+		}
+		set_global_flag = ct_stupid_sov_ai
+	}
+}
+
+country_event = { #menshevik trial
+	id = ctsov.4
+	title = ctsov.4.t
+	desc = ctsov.4.d
+	picture = GFX_report_event_soviet_purge_trial
+	is_triggered_only = yes
+
+	option = { #guilty
+		name = ctsov.4.o1
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = vladimir_groman
+		hidden_effect = {
+			remove_ideas = vladimir_groman
+		}
+		set_country_flag = ct_purged_stalin
+		add_political_power = 50
+	}
+	option = { #notguilty
+		name = ctsov.4.o2
+		ai_chance = { factor = 0 }
+		add_political_power = -25
+	}
+}
+
+country_event = {
+	id = ctsov.5
+	title = ctsov.5.t
+	desc = ctsov.5.d
+	picture = GFX_report_event_fascist_speech
+	trigger = {
+		NOT = { has_global_flag = ct_stupid_cw_sov_ai }
+		SOV = { is_ai = yes }
+		RUS = { is_ai = yes }		
+		tag = SOV
+		has_army_manpower = { size < 559999 }
+		has_war_with = RUS
+	}
+	fire_only_once = yes
+	option = {
+		name = ctsov.5.o1
+		load_oob = "SOV_cw"
+		add_political_power = 100
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 30000
+			producer = SOV
+		}
+		RUS = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 20000
+				producer = RUS
+			}		
+		}
+		set_global_flag = ct_stupid_cw_sov_ai
+	}
+}
+
+country_event = {
+	id = ctsov.6
+	title = ctsov.6.t
+	desc = ctsov.6.d
+	picture = GFX_report_event_soviet_tanks_snow
+	is_triggered_only = yes
+	option = {
+		name = ctsov.6.o1
+	}
+}

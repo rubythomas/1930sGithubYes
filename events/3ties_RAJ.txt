@@ -1,0 +1,254 @@
+﻿add_namespace = ctraj
+
+country_event = {
+	id = ctraj.1
+	title = ctraj.1.t
+	desc = ctraj.1.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		NOT = { ENG = { has_completed_focus = ENG_begin_rapid_decolonization } }
+		tag = RAJ
+		AND = {
+			date > 1931.4.18
+			NOT = { 
+				has_country_flag = ct_raj_willingdon
+				has_country_flag = ct_commy_india 
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctraj.1.o1
+		set_country_flag = ct_raj_willingdon
+		create_country_leader = {
+			name = "Lord Willingdon"
+			desc = "POLITICS_LORD_WILLINGDON_DESC"
+			picture = "gfx/leaders/RAJ/Portrait_RAJ_Lord_Willingdon2.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {		
+			}
+		}
+	}
+}
+country_event = {
+	id = ctraj.2
+	title = ctraj.2.t
+	desc = ctraj.2.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		NOT = { ENG = { has_completed_focus = ENG_begin_rapid_decolonization } }
+		tag = RAJ
+		AND = {
+			date > 1936.4.17
+			NOT = { 
+				has_country_flag = ct_ire_linlith 
+				has_country_flag = ct_commy_india
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctraj.2.o1
+		set_country_flag = ct_ire_linlith
+		create_country_leader = {
+			name = "Lord Linlithgow"
+			desc = "POLITICS_LORD_LINLITHGOW_DESC"
+			picture = "gfx/leaders/RAJ/Portrait_British_Raj_Lord_Linlithgow.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {		
+			}
+		}
+	}
+}
+country_event = { #civil disobedience eng notify
+	id = ctraj.3
+	title = ctraj.3.t
+	desc = ctraj.3.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		NOT = { ENG = { has_completed_focus = ENG_begin_rapid_decolonization } }
+		tag = ENG
+		date > 1930.3.1
+		NOT = { has_country_flag = ct_civil_disobedience }
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctraj.3.o1
+		hidden_effect = {
+			RAJ = { country_event = { id = ctraj.4 } }
+		}
+		set_country_flag = ct_civil_disobedience
+		effect_tooltip = {		
+			RAJ = { add_stability = -0.025 }
+		}
+	}
+}
+country_event = { #civil disobedience raj notify
+	id = ctraj.4
+	title = ctraj.4.t
+	desc = ctraj.4.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctraj.4.o1
+		set_country_flag = ct_civil_disobedience
+		add_stability = -0.025
+	}
+}
+
+
+
+country_event = {  #steady - Chittagong armory raid - ENG
+	id = ctraj.5
+	title = ctraj.5.t
+	desc = ctraj.5.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		NOT = { ENG = { has_completed_focus = ENG_begin_rapid_decolonization } }
+		tag = ENG
+		date > 1930.4.1
+		has_country_flag = ct_steady_india
+	} 
+	option = {
+		name = ctraj.5.o1
+		hidden_effect = {
+			RAJ = { country_event = { id = ctraj.6 } }
+		}
+		effect_tooltip = {		
+			RAJ = { add_stability = -0.075 }
+		}
+	}
+}
+country_event = { #steady - Chittagong armory raid - RAJ notify
+	id = ctraj.6
+	title = ctraj.6.t
+	desc = ctraj.6.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctraj.6.o1
+		add_stability = -0.075
+	}
+}
+country_event = { #commy india - Chittagong armory raid - RAJ notify
+	id = ctraj.7
+	title = ctraj.7.t
+	desc = ctraj.7.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctraj.7.o1
+		if = {
+			limit = { tag = ENG }
+			custom_effect_tooltip = RAJ_commy_tt
+		}
+		if = {
+			limit = { tag = RAJ }
+			hidden_effect = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.35
+				}
+				random_owned_controlled_state = {
+					prioritize = { 429 425 }
+					RAJ = { set_capital = PREV }
+				}
+				if = {
+					set_temp_variable = { ideology_val = party_popularity@communism }
+					scale_var_civil_war_size_by_autonomy_and_var_ideology_val = yes
+					start_civil_war = {
+						ruling_party = communism
+						ideology = neutrality
+						size = civil_war_size
+						capital = 439
+					}
+				}
+				create_country_leader = {
+					name = "Surya Sen"
+					desc = "POLITICS_Surya_Sen_DESC"
+					picture = "Portrait_RAJ_Surya_Sen.dds"
+					expire = "1965.1.1"
+					ideology = stalinism
+					traits = {
+						ct30_master_da
+					}
+				}
+				random_other_country = {
+					limit = {
+						original_tag = RAJ
+						has_government = neutrality
+					}
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.15
+					}
+				}	
+				division_template = {
+					name = "Revolutionary Division"
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+					}
+				}
+				create_corps_commander = {
+					name = "Pritilata Waddedar"
+					picture = "gfx/leaders/RAJ/Portrait_RAJ_Pritilata_Waddedar.dds"
+					traits = { politically_connected trait_reckless }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"4th Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}
+					create_unit = {
+						division = "name = \"5th Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}	
+				}
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"6th Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}
+					create_unit = {
+						division = "name = \"7th Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}	
+				}
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"1st Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}
+					create_unit = {
+						division = "name = \"3rd Infantry Division\" division_template = \"Revolutionary Division\" start_experience_factor = 0.5" 
+						owner = RAJ
+					}	
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0 #type of equipment, from file
+					amount = 12000 #amount
+					producer = SOV #Name of country that "built" the equipment
+				}
+			}
+		}
+	}
+}

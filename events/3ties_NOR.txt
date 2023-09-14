@@ -1,0 +1,346 @@
+﻿add_namespace = ctnor
+
+country_event = { #nygaardsvold PM
+	id = ctnor.1
+	title = ctnor.1.t
+	desc = ctnor.1.d
+	picture = GFX_report_event_king_speech
+	fire_only_once = yes	
+	trigger = {
+		tag = NOR
+		#has_completed_focus = NOR_onward_to_freedom
+		AND = {
+			date > 1935.3.20
+			NOT = { has_country_flag = ct_nygaardsvold }
+		}
+	}
+	option = {
+		name = ctnor.1.o1
+		set_country_flag = ct_nygaardsvold
+		create_country_leader = {
+			name = "Johan Nygaardsvold"
+			desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+			picture = "Portrait_Norway_Johan_Nygaardsvold.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+				#
+			}
+		}
+	}
+}
+
+country_event = { #1930 Election
+	id = ctnor.2
+	title = ctnor.2.t
+	desc = ctnor.2.d
+	picture = GFX_report_event_king_speech
+	fire_only_once = yes
+	is_triggered_only = yes	
+	#trigger = {
+	#	tag = NOR
+	#	AND = {
+	#		date > 1930.10.1
+	#		date < 1930.12.31
+	#		NOT = { has_country_flag = ct_norway_1930_election }
+	#	}
+	#}
+	option = {		#Continue with Mickle the pickle
+		name = ctnor.2.o1
+		set_country_flag = ct_norway_1930_election
+	}
+	option = {		#Labor wins
+		name = ctnor.2.o2
+		set_country_flag = ct_norway_1930_election
+		create_country_leader = {
+			name = "Johan Nygaardsvold"
+			desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+			picture = "Portrait_Norway_Johan_Nygaardsvold.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	option = {		#Farmers win
+		name = ctnor.2.o3
+		set_country_flag = ct_norway_1930_election
+		create_country_leader = {
+			name = "Johan Nygaardsvold"
+			desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+			picture = "Portrait_Norway_Johan_Nygaardsvold.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { #commy plot
+	id = ctnor.3
+	title = ctnor.3.t
+	desc = ctnor.3.d
+	picture = GFX_report_event_stalin_propaganda
+	is_triggered_only = yes
+	option = {
+		name = ctnor.3.o1
+	}
+}
+
+country_event = { #invite finland
+	id = ctnor.4
+	title = ctnor.4.t
+	desc = ctnor.4.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { #yes
+		name = ctnor.4.o1
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = ct_fin_accepts_invite
+		random_other_country = {
+			limit = {
+				original_tag = HOL
+				has_government = democratic
+			}
+			add_opinion_modifier = {				
+				target = FIN
+				modifier = dutch_scand_eco_pact
+			}			
+		}
+		random_other_country = {
+			limit = {
+				original_tag = BEL
+				has_government = democratic
+			}
+			add_opinion_modifier = {				
+				target = FIN
+				modifier = dutch_scand_eco_pact
+			}		
+		}
+		NOR = {
+			add_opinion_modifier = {
+				target = FIN
+				modifier = dutch_scand_eco_pact
+			}		
+		}
+		FIN = {
+			add_opinion_modifier = {
+				target = NOR
+				modifier = norway_open_for_agreements
+			}
+			add_opinion_modifier = {
+				target = NOR
+				modifier = oslo_convention
+			}
+			add_opinion_modifier = {
+				target = SWE
+				modifier = oslo_convention
+			}
+			add_opinion_modifier = {				
+				target = DEN
+				modifier = oslo_convention
+			}
+		} 
+		random_other_country = {
+			limit = {
+				original_tag = DEN
+				has_government = democratic
+			}
+			add_opinion_modifier = {
+				target = FIN
+				modifier = oslo_convention
+			}
+		}
+	}	
+	option = { #no
+		name = ctnor.4.o2
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				is_historical_focus_on = no
+			}
+		}
+		set_country_flag = ct_fin_rejects_invite
+	}
+}
+
+country_event = { #vote of no conf - defeat vote of no conf
+	id = ctnor.5
+	title = ctnor.5.t
+	desc = ctnor.5.d
+	picture = GFX_report_event_ast_parliament_house
+	is_triggered_only = yes
+	option = { #coalition survives
+		name = ctnor.5.o1
+		add_political_power = 40
+	}
+}
+
+country_event = { #vote of no conf - new demo gov
+	id = ctnor.6
+	title = ctnor.6.t
+	desc = ctnor.6.d
+	picture = GFX_report_event_ast_parliament_house
+	is_triggered_only = yes
+	option = { #coalition survives
+		name = ctnor.6.o1
+		if = {
+			limit = { has_completed_focus = NOR_talks_with_labor }
+			create_country_leader = {
+				name = "Johan Nygaardsvold"
+				desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+				picture = "Portrait_Norway_Johan_Nygaardsvold.dds"
+				expire = "1965.1.1"
+				ideology = socialism
+				traits = {				}
+			}
+		}
+		if = {
+			limit = { has_completed_focus = NOR_talks_with_center }
+			create_country_leader = {
+				name = "Jens Hundseid"
+				desc = "POLITICS_Jens_Hundseid_DESC"
+				picture = "Portrait_Norway_Jens_Hundseid.dds"
+				expire = "1965.1.1"
+				ideology = liberalism
+				traits = {				}
+			}
+		}
+	}
+}
+
+country_event = { #vote of no conf - commy gov
+	id = ctnor.7
+	title = ctnor.7.t
+	desc = ctnor.7.d
+	picture = GFX_report_event_ast_parliament_house
+	is_triggered_only = yes
+	option = { #coalition survives
+		name = ctnor.7.o1
+			set_politics = {	ruling_party = communism	}
+			add_ideas = army_unrest
+	}
+}
+
+country_event = { #greenland_crisis 
+	id = ctnor.8
+	title = ctnor.8.t
+	desc = ctnor.8.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = { #peaceful mediation
+		name = ctnor.8.o1
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = ct_greenland_crisis_mediation
+	}
+	option = { #ultimatum to den
+		name = ctnor.8.o2
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 1000
+				is_historical_focus_on = no
+			}
+		}	
+		set_country_flag = ct_greenland_crisis_ultimatum
+		DEN = { country_event = { id = ctnor.9 } }
+	}
+}
+
+country_event = { #ultimatum to den 
+	id = ctnor.9
+	title = ctnor.9.t
+	desc = ctnor.9.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = { #give up greenland
+		name = ctnor.9.o1
+		ai_chance = { 
+			factor = 10 
+		}
+		NOR = { country_event = { id = ctnor.11 } }
+		effect_tooltip = {	NOR = { transfer_state = 101 }	}
+	}
+	option = { #nope
+		name = ctnor.9.o2
+		ai_chance = { 
+			factor = 10
+		}	
+		NOR = { country_event = { id = ctnor.10 } }
+		effect_tooltip = {
+			NOR = {
+				create_wargoal = {
+					type = take_state_focus
+					target = DEN
+					generator = { 101 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #den refuses ultimatum 
+	id = ctnor.10
+	title = ctnor.10.t
+	desc = ctnor.10.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = ctnor.10.o1
+		create_wargoal = {
+			type = take_state_focus
+			target = DEN
+			generator = { 101 } 
+		}
+	}
+}
+country_event = { #den accepts ultimatum 
+	id = ctnor.11
+	title = ctnor.11.t
+	desc = ctnor.11.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = ctnor.11.o1
+		NOR = { 
+			transfer_state = 101 
+			set_country_flag = ct_puppet_denmark
+		}
+	}
+}
+
+country_event = { #customs_union
+	id = ctnor.12
+	title = ctnor.12.t
+	desc = ctnor.12.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = { #join
+		name = ctnor.12.o1
+		ai_chance = { 
+			factor = 10 
+		}
+		set_country_flag = ct_kalmar_ready
+	}
+	option = { #nope
+		name = ctnor.12.o2
+		ai_chance = { 
+			factor = 0
+		}	
+		set_country_flag = ct_kalmar_rejected
+	}
+}

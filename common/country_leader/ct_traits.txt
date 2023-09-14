@@ -1,0 +1,98 @@
+leader_traits = {
+	ct30_Britih_Pawn = {
+		name = "British Pawn"
+		random = no
+		political_power_factor = -0.35
+		stability_factor = -0.15	
+		army_core_attack_factor = 0.10
+		army_core_defence_factor = 0.15
+		consumer_goods_factor = -0.1
+		industrial_capacity_factory = 0.3
+	}
+	ct30_kingfish = {
+		random = no
+		political_power_factor = 0.25	
+	}
+	ct30_master_da = {
+		random = no
+		army_core_attack_factor = 0.05
+		army_core_defence_factor = 0.05
+		political_power_factor = 0.1	
+	}
+	ct30_visionary_socialist = {
+		random = no
+		political_power_factor = 0.1
+		stability_factor = 0.05	
+	}
+	ct30_popular_reformer = {
+		random = no
+		political_power_factor = 0.2
+	}
+	ct30_father_of_poor = {
+		random = no
+		political_power_factor = 0.25
+	}
+	#France
+	FRA_resist_parti = {
+		sprite = 7
+		random = no
+		resistance_damage_to_garrison_on_our_occupied_states = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	great_war_hero = {
+		war_support_factor = 0.05
+		stability_factor = 0.05
+		army_core_attack_factor = 0.05
+		army_core_defence_factor = 0.05
+	}
+	admires_germany = {
+		random = no
+		ai_strategy = {
+			type = befriend
+			id = "GER"			
+			value = 200
+		}
+		ai_strategy = {
+			type = alliance
+			id = "GER"			
+			value = 200
+		}
+		ai_will_do = { factor = 1 }
+	}
+	combat_fascism = {
+		random = no
+		targeted_modifier = {
+			tag = BRA
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = VEN
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = DOM
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = ARG
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = ELS
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = MEX
+			generate_wargoal_tension_against = -2.00
+		}
+		targeted_modifier = {
+			tag = PRU
+			generate_wargoal_tension_against = -2.00
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

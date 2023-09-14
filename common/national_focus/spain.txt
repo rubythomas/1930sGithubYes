@@ -1,0 +1,4759 @@
+focus_tree = {
+	id = spain_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SPR
+			is_puppet = no
+		}
+	}
+	
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 20 y = 1400 }
+	shared_focus = EU_codify_legal_code
+	focus = {
+		id = SPR_seize_abandoned_colonies
+		icon = GFX_focus_AST_never_gallipoli
+		allow_branch = { ENG = { has_completed_focus = ENG_begin_rapid_decolonization } }
+		x = 2
+		y = 2
+		cost = 8
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = { 
+					owns_state = 540
+					country_exists = ZAM 
+				}
+				ZAM = { country_event = { id = ctgeneric.9 } }
+			}
+			if = {
+				limit = { 
+					owns_state = 540
+					country_exists = MLW
+				}
+				MLW = { country_event = { id = ctgeneric.9 } }
+			}
+			if = {
+				limit = { 
+					owns_state = 540
+					country_exists = KEN
+				}
+				KEN = { country_event = { id = ctgeneric.9 } }
+			}	
+			#if = {
+				#limit = { NGA = { country_exists = yes } }
+				NGA = { country_event = { id = ctgeneric.9 } }
+			#}						
+		}
+	}
+
+
+	focus = {
+		id = SPR_reform_monarchy
+		icon = GFX_focus_generic_home_defense
+		mutually_exclusive = { focus = SPR_no_reform }
+		mutually_exclusive = { focus = SPR_royal_fascism }
+		available = {
+			NOT = { has_country_flag = ct_spr }
+		}
+		x = 11
+		y = 0
+		cost = 0.2
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = SPR_center_tt
+		}
+	}
+ 
+	focus = {
+		id = SPR_democratic_monarchy
+		icon = GFX_focus_spr_maintain_the_republic
+		prerequisite = { focus = SPR_reform_monarchy }
+		mutually_exclusive = { focus = SPR_bourbon_renovation }
+		x = 3
+		y = 1
+		relative_position_id = SPR_reform_monarchy
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {		
+		}
+	}
+
+	focus = {
+		id = SPR_bourbon_renovation
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = SPR_reform_monarchy }
+		mutually_exclusive = { focus = SPR_democratic_monarchy }
+		x = -3
+		y = 1
+		relative_position_id = SPR_reform_monarchy
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {
+	
+		}
+	}
+
+	focus = { 
+		id = SPR_dismiss_military_plotters
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = SPR_bourbon_renovation }
+		x = 0
+		y = 1
+		relative_position_id = SPR_bourbon_renovation
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {	
+			remove_unit_leader = 444
+			remove_unit_leader = 1104
+		}
+	}
+
+	focus = {
+		id = SPR_extra_tech_slot_neutrality
+		icon = GFX_focus_research
+		text = extra_tech_slot
+		prerequisite = { focus = SPR_dismiss_military_plotters }
+		x = 0
+		y = 2
+		relative_position_id = SPR_dismiss_military_plotters
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = { 
+		id = SPR_revive_spanish_dominance
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SPR_extra_tech_slot_neutrality }
+		x = 0
+		y = 2
+		relative_position_id = SPR_extra_tech_slot_neutrality
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {	
+			set_rule = { can_create_factions = yes }
+			create_faction = "imperium_hispanicum"
+			add_political_power = 50
+		}
+	}
+
+	focus = { 
+		id = SPR_enact_catalonian_settlement 
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = SPR_dismiss_military_plotters }
+		x = -1
+		y = 1
+		relative_position_id = SPR_dismiss_military_plotters
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {	remove_ideas = catalan_nationalism	}
+	}
+
+	focus = {  
+		id = SPR_lower_taxes
+		icon = GFX_focus_gold
+		prerequisite = { focus = SPR_dismiss_military_plotters }
+		x = 1
+		y = 1
+		relative_position_id = SPR_dismiss_military_plotters
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {	
+			add_timed_idea = {
+				idea = low_taxes
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_end_royal_extravagence
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = SPR_lower_taxes }
+		prerequisite = { focus = SPR_cut_military_spending }
+		x = 1
+		y = 1
+		relative_position_id = SPR_lower_taxes
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {	
+			remove_ideas = lower_class_despiration
+			set_global_flag = scw_over
+			set_country_flag = ct_spr
+			create_corps_commander = {
+				name = "Juan Carlos De Bourben"
+				picture = "Portrait_Spain_Juan_Carlos_De_Bourben.dds"
+				traits = { politically_connected }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_redirect_royal_revenues
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SPR_end_royal_extravagence }
+		x = -1
+		y = 1
+		relative_position_id = SPR_end_royal_extravagence
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {	
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_trusted_by_the_people
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SPR_end_royal_extravagence }
+		x = 1
+		y = 1
+		relative_position_id = SPR_end_royal_extravagence
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {	
+			add_stability = 0.10
+			add_country_leader_trait = dictator
+		}
+	}
+
+	focus = {
+		id = SPR_support_militarism
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = SPR_end_royal_extravagence }
+		x = 0
+		y = 2
+		available = {	has_completed_focus = SPR_artillery_regiments	}
+		relative_position_id = SPR_end_royal_extravagence
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {	
+			add_war_support = 0.1
+			swap_ideas = {
+				add_idea = spanish_army2
+			    remove_idea = spanish_army
+			}
+		}
+	}	
+
+	focus = {
+		id = SPR_bye_alph
+		icon = GFX_focus_hun_elect_a_king
+		prerequisite = { focus = SPR_democratic_monarchy }
+		x = 0
+		y = 1
+		relative_position_id = SPR_democratic_monarchy
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.1
+			country_event = { id = ctspain.1 days = 1 }
+			set_country_flag =  ct_juancarlos
+			set_country_flag =  ct_alphonso_XIII_abdicated
+		}
+	}
+
+	focus = {
+		id = SPR_political_reformation
+		icon = GFX_focus_generic_strike_at_democracy3
+		prerequisite = { focus = SPR_bye_alph }
+		x = 0
+		y = 1
+		relative_position_id = SPR_bye_alph
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			remove_ideas = desire4_political_representation
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SPR_cut_military_spending
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SPR_bye_alph focus = SPR_dismiss_military_plotters }
+		x = -3
+		y = 1
+		relative_position_id = SPR_bye_alph
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+			    idea = low_military_budget
+			    days = 365
+			}
+			add_political_power = 50
+		}
+	}	
+	
+	focus = {
+		id = SPR_replace_sanjurjo
+		icon = GFX_focus_sanjurjo
+		prerequisite = { focus = SPR_bye_alph focus = SPR_strengthen_civil_guard }
+		x = 2
+		y = 1
+		relative_position_id = SPR_bye_alph
+		cost = 7.2
+		available_if_capitulated = yes
+		completion_reward = {
+				remove_unit_leader = 444
+		}
+	}
+
+	focus = {
+		id = SPR_economic_reformation
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = SPR_replace_sanjurjo }
+		prerequisite = { focus = SPR_political_reformation }
+		x = 0
+		y = 1
+		relative_position_id = SPR_political_reformation
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+			    idea = economic_recovery_funding
+			    days = 365
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SPR_unforgotten_masses
+		icon = GFX_focus_people
+		prerequisite = { focus = SPR_economic_reformation }
+		prerequisite = { focus = SPR_cut_military_spending }
+		x = 2
+		y = 2
+		relative_position_id = SPR_cut_military_spending
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			remove_ideas = lower_class_despiration
+			add_political_power = 50
+			set_global_flag = scw_over
+			set_country_flag = ct_spr
+		}
+	}
+
+	focus = {
+		id = SPR_extra_tech_slot
+		icon = GFX_focus_research
+		text = extra_tech_slot
+		prerequisite = { focus = SPR_unforgotten_masses focus = SPR_corporate_state }
+		x = 2
+		y = 1
+		relative_position_id = SPR_unforgotten_masses
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = SPR_idealistic_youth
+		icon = GFX_focus_generic_military_academy
+		available = {
+			has_country_flag = ct_spr
+		}
+		prerequisite = { focus = SPR_economic_reformation }
+		x = 2
+		y = 0
+		relative_position_id = SPR_unforgotten_masses
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = idealistic_youth
+		}
+	}	
+
+	focus = {
+		id = SPR_invite_foreign_investors
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = SPR_economic_recovery2 }
+		x = 3
+		y = 1
+		relative_position_id = SPR_economic_recovery2
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+
+	focus = {
+		id = SPR_the_great_gamble
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = SPR_unforgotten_masses }
+		available = {
+			has_country_flag = ct_spr
+			has_government = democratic
+			date > 1938.12.31
+			has_army_manpower = { size > 599999 } #55-60 div
+			FRA = { controls_state = 461 }
+			GER = { has_government = fascism }
+			NOT = {
+				AND = {
+					FRA = { is_in_faction_with = SPR }
+					has_war = yes
+				}
+			}	
+		}
+		bypass = { 
+			OR = {
+				FRA = { is_puppet_of = SPR }
+				461 = { CONTROLLER = {	has_war_with = SPR	}	}
+				SPR = { controls_state = 461 }
+			}
+		}
+		cancel = {	is_puppet = yes }
+		x = 0
+		y = 2
+		relative_position_id = SPR_unforgotten_masses
+		cost = 5
+		ai_will_do = {	factor = 1	}
+		available_if_capitulated = yes
+		completion_reward = {	FRA = {	country_event = { id = twentiesfra.7 }	}	}
+	}
+	
+	focus = { 
+		id = SPR_brinksmanship
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = SPR_unforgotten_masses focus = SPR_trusted_by_the_people }		
+		x = -1
+		y = -1
+		relative_position_id = SPR_the_great_gamble
+		cost = 5
+		ai_will_do = {
+			factor = 80
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = brinkmanship
+		}
+	}	
+
+	focus = {
+		id = SPR_no_reform
+		icon = GFX_goal_generic_political_pressure
+		mutually_exclusive = { focus = SPR_reform_monarchy }
+		mutually_exclusive = { focus = SPR_royal_fascism }
+		x = 3
+		y = 0
+		cost = 52.2
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			set_country_flag = ct_spr
+			custom_effect_tooltip = SPR_none_tt
+		}
+	}
+
+	focus = {
+		id = SPR_royal_fascism
+		icon = GFX_goal_generic_political_pressure
+		mutually_exclusive = { focus = SPR_no_reform }
+		mutually_exclusive = { focus = SPR_reform_monarchy }
+		available = {
+			NOT = { has_country_flag = ct_spr }
+		}
+		x = 19
+		y = 0
+		cost = 0.2 
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+				custom_effect_tooltip = SPR_right_tt			
+			hidden_effect = {
+				create_country_leader = {
+					name = "Alfonso XIII"
+					desc = ""
+					picture = "Portrait_Spain_Alfonso_XIII.dds"
+					ideology = fascism_ideology
+					traits = {
+					}
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+			}
+		}
+	}	
+		
+	focus = {
+		id = SPR_strengthen_civil_guard
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = SPR_royal_fascism }
+		x = 0
+		y = 2
+		relative_position_id = SPR_royal_fascism
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = 120
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_white_terror
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = SPR_strengthen_civil_guard }
+		x = -1
+		y = 1
+		relative_position_id = SPR_strengthen_civil_guard
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			remove_ideas = desire4_political_representation
+			add_political_power = 100
+			add_timed_idea = {
+			    idea = white_terror
+			    days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_crush_catalan
+		icon = GFX_focus_catalan_impaled
+		prerequisite = { focus = SPR_strengthen_civil_guard }
+		x = 1
+		y = 1
+		relative_position_id = SPR_strengthen_civil_guard
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			remove_ideas = catalan_nationalism
+		}
+	}
+
+	focus = {
+		id = SPR_national_press_propaganda
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = SPR_strengthen_civil_guard }
+		x = 0
+		y = 2
+		relative_position_id = SPR_strengthen_civil_guard
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_war_support = 0.2
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = SPR_vertical_labor_union
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SPR_white_terror }
+		prerequisite = { focus = SPR_replace_sanjurjo }
+		x = -2
+		y = 2
+		relative_position_id = SPR_strengthen_civil_guard
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = SPR_planned_mobilizaton
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SPR_vertical_labor_union }
+		x = 0
+		y = 2
+		relative_position_id = SPR_vertical_labor_union
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_planned_mobilizaton"
+			if = {
+				limit = {
+					has_idea = partial_economic_mobilisation
+				}
+				add_ideas = war_economy
+			}
+			else_if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+				}
+				add_ideas = partial_economic_mobilisation
+			}
+			else_if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				add_ideas = low_economic_mobilisation
+			}
+			else_if = {
+				limit = {
+					has_idea = isolation
+				}
+				add_ideas = civilian_economy
+			}
+		}
+	}
+	focus = {
+		id = SPR_corporate_state
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_vertical_labor_union }
+		prerequisite = { focus = SPR_national_press_propaganda }
+		x = -1
+		y = 3
+		relative_position_id = SPR_strengthen_civil_guard
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				41 = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+				169 = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+			}
+		}
+		completion_reward = {
+			remove_ideas = lower_class_despiration
+			set_global_flag = scw_over
+			set_country_flag = ct_spr
+			set_politics = { ruling_party = fascism elections_allowed = no }
+			41 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}					
+				}
+			}
+			169 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}					
+				}
+			}
+		} 
+	}
+	focus = {
+		id = SPR_formalize_fascist_state
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SPR_corporate_state }
+		x = 1
+		y = 1
+		relative_position_id = SPR_corporate_state
+		cost = 5
+		bypass = {
+			has_government = fascism
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus formalize_fascist_state"
+			if = {
+				limit = {
+					NOT = {
+						has_government = fascism
+					}
+				}
+				set_politics = { ruling_party = fascism	}
+			}
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = SPR_military_youth
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = SPR_corporate_state }
+		x = 0
+		y = 2
+		relative_position_id = SPR_corporate_state
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = military_youth_focus
+			set_rule = { can_send_volunteers = yes }
+			if = {
+				limit = { has_government = fascism }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_birthright
+		icon = GFX_focus_generic_support_the_left_right
+		available = {
+			has_country_flag = ct_spr
+		}
+		x = 2
+		y = 3
+		cost = 0.2
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+		}
+	}
+	focus = {  
+		id = SPR_demand_malay
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = SPR_birthright }
+		available = {	has_country_flag = ct_spr	}
+		x = -1
+		y = 2
+		relative_position_id = SPR_birthright
+		cost = 8
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			SIA = { country_event = { id = ctgeneric.6 days = 1 } }
+		}
+	}
+	focus = {
+		id = SPR_conscription
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SPR_birthright }
+		x = 0
+		y = 1
+		relative_position_id = SPR_birthright
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_idea = limited_conscription }
+					NOT = { has_idea = extensive_conscription }
+				}
+				add_ideas = limited_conscription
+			}
+		}
+	}
+	focus = {
+		id = SPR_german_guns
+		icon = GFX_focus_mauser_concessions
+		prerequisite = { focus = SPR_conscription }
+		available = { 
+			OR = {
+				has_civil_war = yes	
+				is_ai = no
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPR_conscription
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			ROOT = { 
+				add_timed_idea = {
+			    		idea = SOV_mauser_payment
+			    		days = 250
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 30000
+					producer = GER
+				}
+			}
+			GER = { 
+				add_timed_idea = {
+			    		idea = GER_mauser_repayment 
+			    		days = 250
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_portugal
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SPR_birthright }
+		will_lead_to_war_with = POR
+		available = {
+			is_puppet = no
+			OR = {
+				has_army_manpower = { size > 119999 }	
+				is_ai = no				
+			}		
+		}
+		cancel = {
+			NOT = { country_exists = POR }
+		}
+		x = -2
+		y = 1
+		relative_position_id = SPR_birthright
+		cost = 5
+		historical_ai = {
+			NOT = {
+				any_home_area_neighbor_country = {
+					has_war_with = ROOT					
+				}		
+			}
+		}
+		bypass = {
+			has_war_with = POR
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_army_manpower = { size < 199999 }
+					any_home_area_neighbor_country = {
+						has_war_with = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_integrate_rif
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SPR_birthright }
+		available = {
+			has_country_flag = ct_spr
+			owns_state = 290
+		}
+		x = 1
+		y = 2
+		relative_position_id = SPR_birthright
+		cost = 8
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_state_core = 290	
+			290 = { set_state_name = "Rif" }
+			290 = {
+				add_resource = {
+					type = steel
+					amount = 24
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = SPR_yemen
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SPR_birthright }
+		will_lead_to_war_with = ITA
+		available = {
+			is_puppet = no
+			#has_army_manpower = { size > 249999 }		
+		}
+		cancel = {
+			NOT = { country_exists = YEM }
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPR_birthright
+		cost = 5
+		historical_ai = {
+			NOT = {
+				any_home_area_neighbor_country = {
+					has_war_with = ROOT					
+				}		
+			}
+		}
+		bypass = {
+			has_war_with = YEM
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = YEM
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_prospect_for_yem_oil
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = SPR_yemen }
+		available = {
+			ROOT = {
+				controls_state = 293
+			}
+		}
+		bypass = {
+			293 = {
+				has_state_flag = sirte_oil_developed
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPR_yemen
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 15
+				state = 293
+			}
+			293 = {
+				set_state_flag = sirte_oil_developed
+			}
+		}
+	}
+
+	focus = { 
+		id = SPR_strike_france 
+		icon = GFX_focus_attack_france
+		prerequisite = { focus = SPR_german_guns focus = SPR_prospect_for_yem_oil focus = SPR_integrate_portugal }
+		will_lead_to_war_with = ITA
+		available = {
+			is_puppet = no
+			has_army_manpower = { size > 249999 }		
+		}
+		cancel = {
+			NOT = { country_exists = FRA }
+		}
+		x = -2
+		y = 1
+		relative_position_id = SPR_prospect_for_yem_oil
+		cost = 5
+		historical_ai = {
+			NOT = {
+				any_home_area_neighbor_country = {
+					has_war_with = ROOT					
+				}		
+			}
+		}
+		bypass = {
+			has_war_with = FRA
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FRA
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_integrate_southern_france
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPR_strike_france }
+		available = {
+			has_country_flag = ct_spr
+			owns_state = 19
+			owns_state = 31
+			owns_state = 22
+			owns_state = 25
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPR_strike_france 
+		cost = 10
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_state_core = 31
+			add_state_core = 19
+			add_state_core = 22
+			add_state_core = 25
+			#112 = { set_state_name = "Lisboa" }
+			112 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_integrate_portugal
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPR_birthright }
+		available = {
+			has_country_flag = ct_spr
+			owns_state = 112
+			owns_state = 179
+			owns_state = 180
+			owns_state = 181
+			owns_state = 795
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPR_portugal
+		cost = 10
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_state_core = 112
+			add_state_core = 179
+			add_state_core = 180
+			add_state_core = 181
+			add_state_core = 795
+			add_state_core = 697
+			add_state_core = 698
+			112 = { set_state_name = "Lisboa" }
+			180 = { set_state_name = "Oporto" }
+			112 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+			180 = {
+				add_resource = {
+					type = steel
+					amount = 6
+				}
+			}	
+			181 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			795 = {
+				add_resource = {
+					type = tungsten
+					amount = 5
+				}
+			}			
+			if = {
+				limit = {
+					has_full_control_of_state = 540
+				}
+				540 = {
+					add_resource = {
+						type = oil
+						amount = 20
+					}
+				}
+			}	
+		}
+	}
+
+	############################
+	######### INDUSTRY #########
+	############################
+	focus = {
+		id = SPR_30_tech_slot
+		available = {
+			has_country_flag = ct_spr
+		}
+		icon = GFX_focus_research
+		text = extra_tech_slot
+		x = 25
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 4000
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1 
+		}
+	}
+
+	focus = { 
+		id = SPR_hire_botin 
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = SPR_30_tech_slot }
+		x = -2
+		y = 1
+		relative_position_id = SPR_30_tech_slot
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = emilio_botin
+		}
+	}
+
+	focus = {
+		id = SPR_ini 
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = SPR_30_tech_slot }
+		x = 0 
+		y = 1
+		relative_position_id = SPR_30_tech_slot
+		cost = 10
+		ai_will_do = {
+			factor = 80
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_expand_irizar
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_ini }
+		x = -3
+		y = 1
+		relative_position_id = SPR_ini
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+	focus = {
+		id = SPR_expand_caf 
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_expand_irizar }
+		x = 0
+		y = 2
+		relative_position_id = SPR_expand_irizar
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_abengoa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_ini }
+		x = 3
+		y = 1
+		relative_position_id = SPR_ini
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_expand_fcc
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_abengoa }
+		x = 0
+		y = 2 
+		relative_position_id = SPR_abengoa
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = fcc_industry
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+
+	focus = {  
+		id = SPR_spanish_highways
+		icon = GFX_goal_generic_construct_infrastructure
+		text = SPR_spanish_highways
+		prerequisite = { focus = SPR_ini }
+		x = 0
+		y = 1
+		relative_position_id = SPR_ini
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			41 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			170 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			168 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			166 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			176 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			171 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}	
+
+	focus = {
+		id = SPR_economic_stabilization
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SPR_spanish_highways }
+		prerequisite = { focus = SPR_expand_irizar focus = SPR_abengoa }
+		available = { 
+			OR = {
+				date > 1931.7.1	
+				is_ai = no			
+			}
+		}
+		x = 0
+		y = 1 
+		relative_position_id = SPR_spanish_highways
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			USA_great_depression_level_down = yes	
+		}
+	}
+
+	focus = { 
+		id = SPR_expand_construcciones_aeronauticas
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_spanish_highways }
+		x = -2
+		y = 1
+		relative_position_id = SPR_spanish_highways
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}
+	focus = {
+		id = SPR_aya
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_spanish_highways }
+		x = 2
+		y = 1
+		relative_position_id = SPR_spanish_highways
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_resources  
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = SPR_economic_stabilization }
+		x = 0
+		y = 2
+		relative_position_id = SPR_spanish_highways
+		cost = 10
+		ai_will_do = {
+			factor = 40 
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+    					type = steel
+    					amount = 24
+   					#state = 117
+				}
+				add_resource = {
+					type = aluminium
+					amount = 12
+				   #state = 117
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+					type = oil
+					amount = 4
+				   #state = 117
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+					type = chromium
+					amount = 6
+				   #state = 117
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_economic_recovery
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = SPR_expand_construcciones_aeronauticas focus = SPR_aya }
+		prerequisite = { focus = SPR_resources }
+		prerequisite = { focus = SPR_expand_fcc focus = SPR_expand_caf }
+		x = 0
+		y = 1
+		relative_position_id = SPR_resources 
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			USA_great_depression_level_down = yes
+		}
+	}
+
+	focus = {
+		id = SPR_talgo 
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_resources }
+		x = -2
+		y = 0
+		relative_position_id = SPR_economic_recovery
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}
+	focus = {
+		id = SPR_grupo_gea_perona 
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_resources }
+		x = 2
+		y = 0
+		relative_position_id = SPR_economic_recovery
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}	
+	focus = {
+		id = SPR_prospect_for_oil
+		icon = GFX_goal_generic_production
+		text = SPR_prospect_for_oil
+		prerequisite = { focus = SPR_economic_recovery }
+		available = {	SPR = {	controls_state = 699	}	}
+		bypass = {	699 = {		has_state_flag = rio_oro_oil_developed	}	}
+		x = 0
+		y = 1
+		relative_position_id = SPR_economic_recovery
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {	factor = 1	}	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 6
+				state = 699
+			}
+			699 = {	set_state_flag = rio_oro_oil_developed	}
+		}
+	}
+	
+	focus = {
+		id = SPR_colonial_infrastructure
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = SPR_prospect_for_oil }
+		x = 1
+		y = 1
+		relative_position_id = SPR_prospect_for_oil
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			178  = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			699 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			290 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			783 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			177 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_cepsa_refineries
+		icon = GFX_goal_generic_oil_refinery
+		text = SPR_cepsa_refineries
+		prerequisite = { focus = SPR_prospect_for_oil }
+		available = {
+			SPR = {	controls_state = 178 }
+			178 = {	NOT = {	has_state_flag = cepsa_developed	}	}
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPR_prospect_for_oil
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {	factor = 1	}	
+		completion_reward = {
+			178 = {
+				set_state_flag = cepsa_developed
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}	
+		
+		}
+	}	
+	
+
+	focus = {
+		id = SPR_economic_recovery2
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = SPR_grupo_gea_perona focus = SPR_talgo }
+		#prerequisite = { focus = SPR_colonial_infrastructure focus = SPR_cepsa_refineries }
+		x = 1
+		y = 1
+		relative_position_id = SPR_cepsa_refineries
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			USA_great_depression_level_down = yes
+			if = {
+				limit = { has_idea = idea_depression_paralysis }
+				remove_ideas = {	idea_depression_paralysis	}
+			}		
+		}
+	}
+
+	focus = { 
+		id = SPR_iron_exploration_initiative  
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = SPR_economic_recovery2 }
+		x = -3
+		y = 1
+		relative_position_id = SPR_economic_recovery2
+		cost = 8
+		ai_will_do = {
+			factor = 40 
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+    					type = steel
+    					amount = 16
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_mining_techniques
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = SPR_ecia }
+		x = 1
+		y = 1
+		relative_position_id = SPR_ecia
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				technology = excavation1
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_expand_economic_prioritization
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPR_pegaso }
+		x = -1
+		y = 1
+		relative_position_id = SPR_pegaso
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {	is_on_continent = europe	}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {	is_on_continent = europe	}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {	is_on_continent = europe	}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {	is_on_continent = europe	}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				#limit = {	is_on_continent = europe }
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_pegaso
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_economic_recovery2 }
+		x = -1
+		y = 1
+		relative_position_id = SPR_economic_recovery2
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}
+	
+	focus = {
+		id = SPR_ecia 
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_economic_recovery2 }
+		x = 1
+		y = 1
+		relative_position_id = SPR_economic_recovery2
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				NOT = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_on_continent = europe
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							arms_factory > 0
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+							is_on_continent = europe
+						}
+					}					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_on_continent = europe
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}		
+			}
+		}
+	}
+
+	focus = { 
+		id = SPR_autarky
+		icon = GFX_goal_generic_construct_civilian
+		available = {
+			date > 1935.12.31
+		}
+		prerequisite = { focus = SPR_economic_recovery2 }
+		x = 0
+		y = 2
+		relative_position_id = SPR_economic_recovery2
+		cost = 8
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_autarky"
+			add_tech_bonus = {
+				name = SPR_autarky
+				bonus = 0.5
+				uses = 2
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
+			}
+			add_ideas = GER_autarky_idea
+		}
+	}
+	focus = {
+		id = SPR_rationalized_production
+		icon = GFX_goal_generic_production2
+		dynamic = yes
+		prerequisite = { focus = SPR_autarky }
+		mutually_exclusive = { focus = SPR_state_controlled_industry }
+		available = {
+			NOT = { 
+				has_government = communism 
+				has_government = fascism
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPR_autarky
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SPR_industrial_effort_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_rationalized_production"
+			USA_great_depression_level_down = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+		}
+	}
+	focus = {
+		id = SPR_subsidize_auto_industry
+		icon = GFX_goal_generic_consumer_goods
+		dynamic = yes
+		prerequisite = { focus = SPR_rationalized_production }
+		x = 0
+		y = 1
+		relative_position_id = SPR_rationalized_production
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SPR_industrial_effort_2_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_rationalized_production"
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+		}
+	}
+	
+	focus = {
+		id = SPR_state_controlled_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		prerequisite = { focus = SPR_autarky }
+		mutually_exclusive = { focus = SPR_rationalized_production }
+		available = {
+			NOT = { 
+				has_government = democratic
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPR_autarky
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SPR_industrial_effort_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_state_controlled_industry"
+			USA_great_depression_level_down = yes
+			swap_ideas = {
+				remove_idea = GER_autarky_idea
+				add_idea = GER_autarky_idea2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			custom_effect_tooltip = GER_stifled_initiative_tt
+		}
+	}
+	
+	focus = {
+		id = SPR_order_industrial_cartels
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		prerequisite = { focus = SPR_state_controlled_industry }
+		x = 0
+		y = 1
+		relative_position_id = SPR_state_controlled_industry
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SPR_industrial_effort_2_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_order_industrial_cartels"
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SPR_industrial_effort_2IC
+			}
+		}
+	}
+	
+	focus = {
+		id = SPR_coal_liquidization
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = SPR_autarky }
+		x = -2
+		y = 1
+		relative_position_id = SPR_autarky
+		cost = 10
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_coal_liquidization"
+			add_tech_bonus = {
+				name = SPR_coal_liquidization
+				bonus = 0.75
+				uses = 1
+				category = synth_resources
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SPR_synthetic_rubber
+		icon = GFX_focus_generic_rubber
+		prerequisite = { focus = SPR_coal_liquidization }
+		x = 0
+		y = 1
+		relative_position_id = SPR_coal_liquidization
+		cost = 10
+		ai_will_do = {
+			factor = 4
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_synthetic_rubber"
+			modify_building_resources = {
+			   building = synthetic_refinery
+			   resource = rubber
+			   amount = 2
+			}
+		}
+	}
+	focus = {
+		id = SPR_extra_tech_slot7
+		icon = GFX_focus_research
+		text = extra_tech_slot
+		prerequisite = { focus = SPR_order_industrial_cartels focus = SPR_synthetic_rubber focus = SPR_subsidize_auto_industry }
+		x = 0
+		y = 1
+		relative_position_id = SPR_subsidize_auto_industry
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_extra_tech_slot"
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = SPR_expand_economic_prioritization2
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = SPR_extra_tech_slot7 }
+		x = 1
+		y = 1
+		relative_position_id = SPR_extra_tech_slot7
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {  
+		id = SPR_extra_research_slot_max
+		icon = GFX_focus_research2
+		prerequisite = { focus = SPR_extra_tech_slot7 }
+		x = 0
+		y = 2
+		relative_position_id = SPR_extra_tech_slot7
+		available = {
+			num_of_factories > 200
+		}
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_extra_research_slot_max"
+			add_research_slot = 1
+		} 
+	}
+	
+	#########################################################################
+	#########################################################################
+	########      I N D U S T R Y      S P A I N         E N D      ########
+	#########################################################################
+	#########################################################################
+	#focus = {
+	#	id = SPR_30_tech_slot_max
+	#	available = { 	
+	#		num_of_factories > 100
+	#	}
+	#	icon = GFX_focus_research2
+	#	prerequisite = { focus = SPR_extra_tech_slot }
+	#	x = 0
+	#	y = 2
+	#	relative_position_id = SPR_extra_tech_slot
+	#	cost = 10
+	#	ai_will_do = {
+	#		factor = 10
+	#	}
+	#	available_if_capitulated = yes
+	#	completion_reward = {
+	#		add_research_slot = 1 
+	#	}
+	#}
+####################################################
+######################### AIR ######################
+####################################################
+	focus = {
+		id = SPR_air_bases
+		icon = GFX_goal_generic_construction
+		available = {
+			has_country_flag = ct_spr
+		}
+		x = 52
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			random_state = {
+				limit = { has_state_flag = SPR_air_base_expansion_1 }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = SPR_air_base_expansion_1 }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = SPR_air_base_expansion_1 }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = SPR_air_base_expansion_1 }
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 117 }
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_air_base_expansion_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 158 }
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_air_base_expansion_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 736 }
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SPR_air_base_expansion_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 2 }
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 2
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SPR_air_base_expansion_1
+			}	
+		}
+	}
+
+	focus = {
+		id = SPR_air_innovation
+		icon = GFX_goal_generic_build_airforce
+		text = air_innovation
+		prerequisite = { focus = SPR_air_bases }
+		x = 0
+		y = 1
+		relative_position_id = SPR_air_bases
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 1
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = jet_fighter1
+				technology = jet_fighter2
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = SPR_bomber_effort
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = SPR_air_innovation }
+		x = -1
+		y = 1
+		relative_position_id = SPR_air_innovation
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+
+			add_tech_bonus = {
+				name = SPR_bomber_effort
+				bonus = 1.0
+				uses = 1
+				technology = tactical_bomber2
+				technology = tactical_bomber3
+			}
+			add_tech_bonus = {
+				name = SPR_bomber_effort
+				bonus = 1.0
+				uses = 1
+				technology = CAS2
+				technology = CAS3
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_naval_air_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		text = naval_air_effort
+		prerequisite = { focus = SPR_air_innovation }
+		x = 1
+		y = 1
+		relative_position_id = SPR_air_innovation
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = naval_air_effort
+				bonus = 1.0
+				uses = 1
+				technology = naval_bomber1
+				technology = naval_bomber2
+				technology = naval_bomber3
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_air_innovation_2
+		icon = GFX_goal_generic_build_airforce
+		text = air_innovation_2
+		prerequisite = { focus = SPR_bomber_effort focus = SPR_naval_air_effort }
+		x = 1
+		y = 1
+		relative_position_id = SPR_bomber_effort
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 1
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = jet_fighter1
+				technology = jet_fighter2
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_jet_engine_effort
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = SPR_air_innovation_2 }
+		x = 0
+		y = 1
+		relative_position_id = SPR_air_innovation_2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+		# Caproni Campini N.1
+			add_tech_bonus = {
+				name = SPR_jet_engine_effort
+				bonus = 1.0
+				uses = 1
+				technology = jet_engines
+				technology = jet_fighter1
+			}
+		}
+	}	
+	############################
+	######## LAND FORCE ########
+	############################
+	focus = {
+		id = SPR_army_modernization
+		icon = GFX_goal_generic_army_doctrines
+		available = {
+			has_country_flag = ct_spr
+		}
+		x = 35
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 70
+			modifier = {
+				factor = 1.2
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = SPR_planned_mobilizaton3
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SPR_army_modernization }
+		available = {
+			has_war_support > 0.45
+		}
+		x = 3
+		y = 1
+		relative_position_id = SPR_army_modernization
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus SPR_planned_mobilizaton3"
+			if = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				add_ideas = service_by_requirement
+			}
+			else_if = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				add_ideas = extensive_conscription
+			}
+			else_if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				add_ideas = limited_conscription
+			}
+			else_if = {
+				limit = {
+					has_idea = disarmed_nation
+				}
+				add_ideas = volunteer_only
+			}
+			if = {
+				limit = {
+					has_idea = partial_economic_mobilisation
+				}
+				add_ideas = war_economy
+			}
+			else_if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+				}
+				add_ideas = partial_economic_mobilisation
+			}
+			else_if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				add_ideas = low_economic_mobilisation
+			}
+			else_if = {
+				limit = {
+					has_idea = isolation
+				}
+				add_ideas = civilian_economy
+			}
+		}
+	}	
+
+	focus = {
+		id = SPR_motorize_the_cavalry
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = SPR_army_modernization }
+		x = -3
+		y = 1
+		relative_position_id =  SPR_army_modernization
+		cost = 8
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 1.2
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_motorize_the_cavalry
+				bonus = 1.25
+				technology = motorised_infantry
+			}
+			division_template = {
+				name = "Motorised Division" 
+				division_names_group = SPR_MOT_01
+				regiments = {
+					motorized = { x = 0 y = 0 }
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+					motorized = { x = 1 y = 0 }
+					motorized = { x = 1 y = 1 }
+					motorized = { x = 1 y = 2 }
+					motorized = { x = 2 y = 0 }
+					motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
+				}
+				support = {
+        			artillery = { x = 0 y = 0 }
+				}
+			}
+			custom_effect_tooltip = Big_Motor_Division
+		}
+	}
+
+	focus = {
+		id = SPR_motorized_logistics
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = SPR_motorize_the_cavalry }
+		x = -2
+		y = 1
+		relative_position_id = SPR_motorize_the_cavalry
+		cost = 8
+		ai_will_do = {
+			factor = 40
+			modifier = {
+				factor = 1.2
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_motorized_logistics
+				bonus = 1.0
+				uses = 2
+				category = hospital_tech
+				category = logistics_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_armored_cavalry
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = SPR_motorize_the_cavalry }
+		x = 0
+		y = 1
+		relative_position_id = SPR_motorize_the_cavalry
+		cost = 8
+		ai_will_do = {
+			factor = 40
+			modifier = {
+				factor = 1.5
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_armored_cavalry
+				bonus = 1.0
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_tank_conversions
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = SPR_armored_cavalry }
+		mutually_exclusive = { focus = SPR_modern_tanks }
+		x = -2
+		y = 2
+		relative_position_id = SPR_motorize_the_cavalry
+		cost = 8
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = YUG_idea_tank_conversions
+		}
+	}
+
+	focus = {
+		id = SPR_modern_tanks
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SPR_armored_cavalry }
+		mutually_exclusive = { focus = SPR_tank_conversions }
+		x = 0
+		y = 2
+		relative_position_id = SPR_motorize_the_cavalry
+		cost = 8
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 3
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_modern_tanks
+				bonus = 1.0
+				uses = 1
+				category = armor
+			}
+			division_template = {
+				name = "Armored Division"
+				division_names_group = SPR_ARM_01
+				regiments = {
+					light_armor = { x = 0 y = 0 }
+					light_armor = { x = 0 y = 1 }
+					light_armor = { x = 0 y = 2 }
+					light_armor = { x = 1 y = 0 }
+					light_armor = { x = 1 y = 1 }
+					light_armor = { x = 1 y = 2 }
+					motorized = { x = 2 y = 0 }
+	   				motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
+				}
+				support = {
+        				artillery = { x = 0 y = 0 }
+				}
+			}
+			custom_effect_tooltip = Big_Panzer_Division
+		}
+	}
+
+	focus = {
+		id = SPR_tank_licenses
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SPR_modern_tanks }
+		x = 1
+		y = 3
+		relative_position_id = SPR_motorize_the_cavalry
+		cost = 8
+		ai_will_do = {
+			factor = 60
+			modifier = {
+				factor = 1.2
+				is_in_faction_with = GER
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = YUG_tank_licenses
+		}
+	}
+
+	focus = {
+		id = SPR_army_innovation
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = SPR_modern_tanks }
+		available = {
+			OR = {		
+				date > 1935.12.31
+				is_ai = no
+			} 
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPR_modern_tanks
+		cost = 8
+		ai_will_do = {
+			factor = 40
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			#custom_effect_tooltip = available_chief_of_army
+			#show_ideas_tooltip = alan_brooke			
+		}
+	}
+
+	focus = {
+		id = SPR_small_arms
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SPR_army_modernization }
+		x = -1
+		y = 1
+		relative_position_id = SPR_army_modernization
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_small_arms
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_domestic_artillery_production
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SPR_small_arms }
+		x = 0
+		y = 1
+		relative_position_id = SPR_small_arms
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_domestic_artillery_production
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_anti_tank_defenses
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = SPR_domestic_artillery_production }
+		x = 0
+		y = 2
+		relative_position_id = SPR_small_arms
+		cost = 8
+		ai_will_do = {
+			factor = 60
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_anti_tank_defenses
+				bonus = 0.75
+				uses = 1
+				category = cat_anti_tank
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_mountain_brigades
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SPR_army_modernization }
+		x = 1
+		y = 1
+		relative_position_id = SPR_army_modernization
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_mountain_brigades
+				bonus = 1.50
+				uses = 1
+				category = mountaineers_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_independent_engineer_regiments
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SPR_mountain_brigades }
+		x = 0
+		y = 1
+		relative_position_id = SPR_mountain_brigades
+		cost = 8
+		ai_will_do = {
+			factor = 50
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_independent_engineer_regiments
+				bonus = 1.50
+				uses = 1
+				category = engineers_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_motorized_recon_companies
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SPR_independent_engineer_regiments }
+		x = 0
+		y = 2
+		relative_position_id = SPR_mountain_brigades
+		cost = 8
+		ai_will_do = {
+			factor = 40
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_motorized_recon_companies
+				bonus = 1.5
+				uses = 1
+				category = recon_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_tactical_training
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = SPR_anti_tank_defenses focus = SPR_motorized_recon_companies }
+		x = -1
+		y = 1
+		relative_position_id = SPR_motorized_recon_companies
+		cost = 5
+		ai_will_do = {
+			factor = 5
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			every_army_leader = {
+				add_logistics = 1
+				add_planning = 1
+			}
+		}
+	}
+	focus = {
+		id = SPR_form_parachute_battalions
+		icon = GFX_focus_generic_paratrooper
+		prerequisite = { focus = SPR_motorized_recon_companies }
+		x = 1
+		y = 1
+		relative_position_id = SPR_motorized_recon_companies
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_form_parachute_battalions
+				bonus = 1.5
+				uses = 1
+				category = para_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_army_maneuvers
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SPR_army_modernization }
+		x = 5
+		y = 1
+		relative_position_id = SPR_army_modernization
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_army_maneuvers
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_supremacy_of_offense
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SPR_army_maneuvers }
+		mutually_exclusive = { focus = SPR_supremacy_of_defense }
+		x = -1
+		y = 1
+		relative_position_id = SPR_army_maneuvers
+		cost = 8
+		ai_will_do = {
+			factor = 30
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_supremacy_of_offense
+				bonus = 1.0
+				uses = 2
+				category = cat_mobile_warfare
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_supremacy_of_defense
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SPR_army_maneuvers }
+		mutually_exclusive = { focus = SPR_supremacy_of_offense }
+		x = 1
+		y = 1
+		relative_position_id = SPR_army_maneuvers
+		cost = 8
+		ai_will_do = {
+			factor = 60
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_supremacy_of_defense
+				bonus = 1.0
+				uses = 2
+				category = cat_grand_battle_plan
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = { 
+		id = SPR_artillery_regiments
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = SPR_supremacy_of_offense focus = SPR_supremacy_of_defense }
+		x = 0
+		y = 2
+		relative_position_id = SPR_army_maneuvers
+		cost = 8
+		ai_will_do = {
+			factor = 70
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = spanish_army
+		}
+	}
+
+	############################
+	########### NAVY ###########
+	############################
+	focus = {
+		id = SPR_ships_for_empire
+		icon = GFX_goal_generic_navy_cruiser
+		available = {
+			has_country_flag = ct_spr
+		}
+		x = 46
+		y = 0
+		cost = 3 
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+				category = bb_tech
+				category = bc_tech	
+			}
+		}
+	}
+	focus = {
+		id = SPR_carrier_focus
+		prerequisite = { focus = SPR_ships_for_empire focus = SPR_air_bases }
+		icon = GFX_goal_generic_navy_carrier
+		x = 4
+		y = 1
+		relative_position_id = SPR_ships_for_empire
+		cost = 5
+		ai_will_do = {
+			factor = 0.25
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 20
+			add_tech_bonus = {
+				name = uk_carrier_focus
+				bonus = 1.5
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+	focus = {
+		id = SPR_dockyard_expansion
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SPR_ships_for_empire }
+		available = { 
+			OR = {
+				date > 1934.12.31
+				is_ai = no
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPR_ships_for_empire
+		cost = 5
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+	focus = {
+		id = SPR_dockyard_expansion_france
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SPR_dockyard_expansion }
+		available = {
+			owns_state = 21
+			owns_state = 14
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPR_dockyard_expansion
+		cost = 5
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 21 }
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 14 }
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = SPR_dockyard_expansion_port
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SPR_dockyard_expansion }
+		available = {
+			owns_state = 112
+			owns_state = 179
+			owns_state = 180
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPR_dockyard_expansion
+		cost = 8
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}	
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}		
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id =  SPR_navy_man
+		icon = GFX_goal_generic_construct_naval_dockyard
+		available = {
+			has_country_flag = ct_spr
+		}
+		x = -3
+		y = 0
+		relative_position_id = SPR_ships_for_empire
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 50
+		}
+	}
+	focus = {
+		id =  SPR_navy_man2
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPR_navy_man }
+		x = -2
+		y = 1
+		relative_position_id = SPR_ships_for_empire
+		cost = 5
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 50
+		}
+	}
+
+	focus = {
+		id = SPR_mare_nostrum
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = SPR_navy_man }
+		#prerequisite = { focus = SPR_ships_for_empire }
+		available = { 
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPR_navy_man
+		cost = 10
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}				
+			}
+			add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_naval_facilities
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SPR_mare_nostrum }
+		x = 0
+		y = 2
+		relative_position_id = SPR_mare_nostrum
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}				
+			}
+			169 = { #done
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 1048
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 1048
+						instant_build = yes
+					}
+				}
+			}
+			448 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 1149
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 1149
+						instant_build = yes
+					}
+				}
+			}
+			171 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 758
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 758
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_carrier_effort
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SPR_mare_nostrum }
+		x = 1
+		y = 1
+		relative_position_id = SPR_mare_nostrum
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = cv_bonus
+				bonus = 1.0
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_capital_ships
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = SPR_mare_nostrum }
+		x = 3
+		y = 1
+		relative_position_id = SPR_mare_nostrum
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = bb_bonus
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+				category = bc_tech
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_atlantic_fleet
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPR_carrier_effort }
+		prerequisite = { focus = SPR_capital_ships }
+		x = 1
+		y = 2
+		relative_position_id = SPR_carrier_effort
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+		add_ideas = HOL_naval_heritage
+			add_tech_bonus = {
+				name = SPR_atlantic_fleet
+				bonus = 1.0
+				uses = 1
+				category = cv_tech
+			}
+			add_tech_bonus = {
+				name = SPR_atlantic_fleet
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = SPR_marines_and_landing_craft
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SPR_atlantic_fleet }
+		x = 0
+		y = 1
+		relative_position_id = SPR_atlantic_fleet
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_marines_and_landing_craft
+				bonus = 1.0
+				uses = 1
+				technology = marines
+				technology = marines2
+			}
+			add_tech_bonus = {
+				name = SPR_marines_and_landing_craft
+				bonus = 1.0
+				uses = 1
+				technology = transport
+				technology = landing_craft
+				technology = tank_landing_craft
+			}
+		}
+	}	
+	
+	focus = {
+		id = SPR_light_ship_effort
+		icon = GFX_goal_generic_navy_cruiser
+		#prerequisite = { focus = SPR_navy_man }
+		prerequisite = { focus = SPR_ships_for_empire }
+		available = { 
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPR_ships_for_empire
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				name = con_def_bonus
+				bonus = 1.0
+				uses = 1
+				technology = convoy_sailing
+				technology = convoy_sailing_ti
+				technology = convoy_sailing_bs
+			}
+			add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_escort_effort
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = SPR_light_ship_effort }
+		x = 1
+		y = 1
+		relative_position_id = SPR_light_ship_effort
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPR_escort_effort
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				name = SPR_escort_effort
+				bonus = 1.0
+				uses = 2
+				technology = convoy_escorts
+				technology = convoy_escorts_bs
+				technology = escort_carriers
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		text = submarine_effort
+		prerequisite = { focus = SPR_light_ship_effort }
+		x = -1
+		y = 2
+		relative_position_id = SPR_light_ship_effort
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 2
+				technology = submarine_operations
+				technology = undersea_blockade
+				technology = convoy_interdiction
+				technology = submarine_offensive
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_sea_wolves
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = SPR_submarine_effort }
+		x = -1
+		y = 3
+		relative_position_id = SPR_submarine_effort
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			#has_completed_focus = SPR_german_millitary_cooperation
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = SPR_sea_wolves
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				name = SPR_sea_wolves
+				bonus = 1.0
+				uses = 2
+				category = submarine_doctrine
+			}
+		}
+	}
+}

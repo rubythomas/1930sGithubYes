@@ -1,0 +1,558 @@
+﻿add_namespace = cthun
+
+# Czech Referendum - event for Czech to allow it
+country_event = {
+	id = cthun.1
+	title = cthun.1.t
+	desc = cthun.1.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = cthun.1.a
+		ai_chance = {
+			factor = 80
+
+		}
+		if = {
+			limit = {
+				AND = {
+					NOT = { HUN = { has_completed_focus = HUN_reintegrate_the_railroads } }
+					NOT = { CZE = { has_opinion = { target = HUN value > 75 } } }
+				}
+			}
+			random_list = {
+				80 = { CZE = { country_event = { id = cthun.2 hours = 4 } } } #country votes yes
+				20 = { CZE = { country_event = { id = cthun.3 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						HUN = { has_completed_focus = HUN_reintegrate_the_railroads } 
+						NOT = { CZE = { has_opinion = { target = HUN value > 75 } } }
+					}
+					AND = {
+						NOT = { HUN = { has_completed_focus = HUN_reintegrate_the_railroads } }
+						CZE = { has_opinion = { target = HUN value > 75 } } 
+					}
+				}
+			}
+			random_list = {
+				90 = { CZE = { country_event = { id = cthun.2 hours = 24 } } } #country votes yes
+				10 = { CZE = { country_event = { id = cthun.3 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					HUN = { has_completed_focus = HUN_reintegrate_the_railroads } 
+					CZE = { has_opinion = { target = HUN value > 75 } } 
+				}
+			}
+			random_list = {
+				99 = { CZE = { country_event = { id = cthun.2 hours = 24 } } } #country votes yes
+				1 = { CZE = { country_event = { id = cthun.3 hours = 24 } } } #country votes no
+			}
+		}
+	}
+}
+#country votes yes
+country_event = {
+	id = cthun.2 
+	title = cthun.2.t
+	desc = cthun.2.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = cthun.2.a
+		custom_effect_tooltip = GAME_OVER_TT
+		HUN = { country_event = { id = cthun.4 } }
+		
+	}
+
+}
+
+#country votes no
+country_event = {
+	id = cthun.3 
+	title = cthun.3.t
+	desc = cthun.3.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = cthun.3.a
+		HUN = { country_event = { id = cthun.5 } }
+	}
+
+}
+#country votes yes - hungary
+country_event = {
+	id = cthun.4 
+	title = cthun.4.t
+	desc = cthun.4.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = cthun.4.a
+		CZE = {
+			every_unit_leader = {
+				set_nationality = HUN
+			}
+		}
+		HUN = { annex_country = { target = CZE transfer_troops = yes } }
+		HUN = { set_country_flag = CZE_annexed_peacefully } # Used to change division name lists for HUN
+		HUN = { 
+			add_state_core = 69
+			add_state_core = 9
+			add_state_core = 75
+			add_state_core = 74
+			add_state_core = 72
+			add_state_core = 70
+			add_state_core = 71
+			add_state_core = 73
+			add_state_core = 664
+		}
+	}
+}
+
+#country votes no - hungary
+country_event = {
+	id = cthun.5 
+	title = cthun.5.t
+	desc = cthun.5.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = cthun.5.a
+	}
+}
+country_event = {
+	id = cthun.10
+	title = cthun.10.t
+	desc = cthun.10.d
+	picture = GFX_report_event_vienna_award_negotiations
+	is_triggered_only = yes	
+	immediate = { set_country_flag = cthun.10_fired	}
+	#make demands
+	option = {
+		name = cthun.10.a
+		trigger = {
+			#Italie possède la région
+			45 = {
+				CONTROLLER = {
+					OR = {
+						tag = ITA
+						is_subject_of = ITA
+					}
+				}
+			}			
+		}
+		ITA = { country_event = cthun.11 }
+	}
+	option = {
+		name = cthun.10.a
+		trigger = {
+			#Allemagne possède la région
+			45 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_subject_of = GER
+					}
+				}
+			}			
+		}
+		GER = { country_event = cthun.11 }
+	}
+}
+country_event = {
+	id = cthun.11
+	title = cthun.11.t
+	desc = cthun.11.d
+	picture = GFX_report_event_hitler_croatia_handshake	
+	is_triggered_only = yes	
+	option = { # Accept
+		name = cthun.11.a
+		ai_chance = { factor = 90 }
+		effect_tooltip = {
+			HUN = { transfer_state = 45 }
+		}
+		HUN = {
+			country_event = { days = 1 id = cthun.12 }
+		}
+	}
+}
+country_event = {
+	id = cthun.12
+	title = cthun.12.t
+	desc = cthun.12.d
+	picture = GFX_report_event_hitler_handshake	
+	is_triggered_only = yes	
+	option = {
+		name = cthun.12.a
+		HUN = { 
+			transfer_state = 45
+		}
+		add_named_threat = { threat = 0.3 name = cthun.12_threat }
+	}
+}
+
+country_event = { #Austria Hungary demands ger to return silesia and bavaria
+	id = cthun.13
+	title = cthun.13.t
+	desc = cthun.13.d
+	picture = GFX_report_event_polish_army
+	is_triggered_only = yes
+	option = { #GER submits to HUN
+		name = cthun.13.o1
+		ai_chance = { 
+			factor = 25 
+		}
+		effect_tooltip = {
+			if = {
+				limit = { GER = { owns_state = 52 } }
+				HUN = { transfer_state = 52 }
+			}
+			if = {
+				limit = { GER = { owns_state = 53 } }
+				HUN = { transfer_state = 53 }
+			}
+			if = {
+				limit = { 
+					GER = { owns_state = 66 } 
+					HUN = { owns_state = 69 }
+				}
+				HUN = { transfer_state = 66 }
+			}
+			if = {
+				limit = { 
+					GER = { owns_state = 67 } 
+					HUN = { owns_state = 74 }
+				}
+				HUN = { transfer_state = 67 }
+			}
+		}
+		HUN = { country_event = { id = cthun.15 days = 1 } }
+	}
+	option = { #bring it on punk 
+		name = cthun.13.o2
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = HUN
+					ratio > 0.5
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_other_country = {
+					is_major = yes
+					is_in_faction_with = GER
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		HUN = { country_event = { id = cthun.14 days = 1 } }
+		effect_tooltip = {
+			HUN = {
+				declare_war_on = {
+					target = GER
+					type = take_state
+					generator = { 66 67 52 53 }
+				}
+			}
+		}
+	}
+}
+
+# GER Refuses to give up
+country_event = {
+	id = cthun.14
+	title = cthun.14.t
+	desc = cthun.14.d
+	picture = GFX_report_event_fascist_speech
+	is_triggered_only = yes
+	option = {
+		name = cthun.14.o1
+		create_wargoal = {
+			type = take_state_focus
+			target = GER
+			generator = { 66 67 52 53 } 
+		}
+	}
+}
+
+# GER gives up
+country_event = {
+	id = cthun.15
+	title = cthun.15.t
+	desc = cthun.15.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = cthun.15.o1
+			if = {
+				limit = { GER = { owns_state = 52 } }
+				HUN = { transfer_state = 52 }
+			}
+			if = {
+				limit = { GER = { owns_state = 53 } }
+				HUN = { transfer_state = 53 }
+			}
+			if = {
+				limit = { 
+					GER = { owns_state = 66 } 
+					HUN = { owns_state = 69 }
+				}
+				HUN = { transfer_state = 66 }
+			}
+			if = {
+				limit = { 
+					GER = { owns_state = 67 } 
+					HUN = { owns_state = 74 }
+				}
+				HUN = { transfer_state = 67 }
+			}
+	}
+}
+
+# GER ASKED TO PARTI POLAND
+country_event = { #GERMANY AGREES
+	id = cthun.16
+	title = cthun.16.t
+	desc = cthun.16.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	option = {
+		name = cthun.16.o1
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				is_in_faction_with = POL
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		POL = { country_event = { id = cthun.18 days = 1 } }
+	}
+	option = {  #tag REFUSES
+		name = cthun.16.o2
+		ai_chance = {
+			factor = 0.1
+			modifier = {
+				factor = 1000
+				is_in_faction_with = POL
+			}
+			modifier = {
+				factor = 1000
+				has_war = yes
+			}
+		}
+		if = {
+			limit = { tag = GER }
+			HUN = { country_event = { id = cthun.17 days = 1 } }
+		}
+		if = {
+			limit = { tag = HUN }
+			GER = { country_event = { id = cthun.17 days = 1 } }
+		}
+		
+	}
+}
+
+country_event = {   #tag REFUSES
+	id = cthun.17
+	title = cthun.17.t
+	desc = cthun.17.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = cthun.17.o1
+		add_political_power = -100
+	}
+}
+
+#POLAND ASKED TO PARTI 
+country_event = { 
+	id = cthun.18
+	title = cthun.18.t
+	desc = cthun.18.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #POLAND AGREES
+		name = cthun.16.o1
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				POL = { is_in_faction = YES }
+			}
+			modifier = {
+				factor = 0
+				HUN = { has_war = YES }
+			}
+		}
+		set_global_flag = ct_poland_partitioned
+		HUN = { country_event = { id = cthun.20 } }
+		GER = { country_event = { id = cthun.21 } }
+	}
+	option = {  #POLAND REFUSES
+		name = cthun.18.o2
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				POL = { is_in_faction = YES }
+			}
+		}
+		effect_tooltip = {
+			HUN = {
+				declare_war_on = {
+					target = POL
+					type = take_state
+					generator = { 88 89 91 }
+				}
+			}
+		}
+		effect_tooltip = {
+			GER = {
+				declare_war_on = {
+					target = POL
+					type = take_state
+					generator = { 85 86 762 }
+				}
+			}
+		}
+		hidden_effect = {
+			GER = { country_event = { id = cthun.19 days = 1 } }
+			HUN = { country_event = { id = cthun.19 days = 1 } }
+		}
+	}
+}
+
+country_event = {   #POLAND REFUSES
+	id = cthun.19
+	title = cthun.19.t
+	desc = cthun.19.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = cthun.19.o1
+		GER = {
+			create_wargoal = {
+				type = take_state_focus
+				target = POL
+				generator = { 85 86 762 }
+			}
+		}
+		HUN = {
+			create_wargoal = {
+				type = take_state_focus
+				target = POL
+				generator = { 88 89 91 }
+			}
+		}
+	}
+}
+
+# poland gives up TO HUNGARY
+country_event = {
+	id = cthun.20
+	title = cthun.20.t
+	desc = cthun.20.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {
+		name = cthun.20.o1
+			if = {
+				limit = { POL = { owns_state = 88 } }
+				HUN = { transfer_state = 88 }
+			}
+			if = {
+				limit = { 
+					POL = { owns_state = 89 } 
+					HUN = { owns_state = 73 }
+				}
+				HUN = { transfer_state = 89 }
+			}
+			if = {
+				limit = { 
+					POL = { owns_state = 91 } 
+					HUN = { owns_state = 73 }
+				}
+				HUN = { transfer_state = 91 }
+			}
+	}
+}
+
+# poland gives up TO GERMANY
+country_event = {
+	id = cthun.21
+	title = cthun.21.t
+	desc = cthun.21.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {
+		name = cthun.21.o1
+		if = {
+			limit = { POL = { owns_state = 85 } }
+			GER = { transfer_state = 85 }
+		}
+		if = {
+			limit = { POL = { owns_state = 86 } }
+			GER = { transfer_state = 86 }
+		}
+		if = {
+			limit = { POL = { owns_state = 87 } }
+			GER = { transfer_state = 87 }
+		}
+		if = {
+			limit = { POL = { owns_state = 98 } }
+			GER = { transfer_state = 98 }
+		}		
+		if = {
+			limit = { POL = { owns_state = 762 } }
+			GER = { transfer_state = 762 }
+		}
+	}
+}
+
+# 
+country_event = {
+	id = cthun.22
+	title = cthun.22.t
+	desc = cthun.22.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	fire_only_once = YES
+	trigger = {
+		OR = {
+			tag = HUN	
+			tag = AUS	
+		}
+		has_dlc = "Man the Guns"
+		owns_state = 103
+		owns_state = 107
+	}
+	option = {
+		name = cthun.22.o1
+		hidden_effect = {
+			load_oob = "YUG_1930_naval_mtg"
+		}
+
+	}
+}

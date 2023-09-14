@@ -1,0 +1,94 @@
+TUR_historical_plan = {
+	name = "TUR historical plan"
+	desc = ""
+
+	enable = {
+		original_tag = TUR
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = TUR_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = TUR_AI_RANDOM_COMMUNIST_HISTORICAL
+			has_game_rule = {
+				rule = TUR_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		#dumbFOCUSESTtoEATtime
+		TUR_army_modernization
+		TUR_navy_focus
+		TUR_air_focus
+		TUR_improved_screen_ships		
+		TUR_motorize_the_cavalry
+		TUR_fighter_focus
+		#1930
+		TUR_social_modernization
+		TUR_improve_primary_education
+		TUR_soviet_aid
+		TUR_begin_five_year_plan
+		TUR_expand_the_mining_industry
+		TUR_soviet_civil_assistance
+		TUR_central_bank
+		TUR_nationalize_heavy_industry
+		TUR_rare_minerals_exploitation
+		TUR_sumerbank
+		TUR_etibank
+		TUR_end_five_year_plan
+		TUR_sose_ve_kopruler_reisligi
+		TUR_turkish_language_association
+		TUR_abolition_titles_bynames
+		TUR_end_five_year_plan
+		TUR_begin_2nd_five_year_plan
+		TUR_attract_foreign_capital
+		TUR_kesikkopru_mine
+		TUR_avnik_mine
+		TUR_raman_oil_field
+		TUR_law_no_6327
+		TUR_subsidized_sarsilmaz_expansion
+		TUR_end_2nd_five_year_plan
+		TUR_surname_law
+		TUR_prohibited_garments
+		TUR_introduce_metric_system
+		TUR_act_1580
+		TUR_universal_suffrage
+		TUR_improve_primary_education2
+		#Divergence
+		TUR_reform_turkey
+		TUR_pen_sword
+		TUR_idealistic_youth
+		TUR_law_4305
+		TUR_extra_tech_slot_early2
+		TUR_law_2780
+		TUR_safety_in_isolation
+		TUR_the_ataturk_line	
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		captain_of_industry = 10
+		popular_figurehead = 5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

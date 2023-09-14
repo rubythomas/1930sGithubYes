@@ -1,0 +1,104 @@
+USA_confederate_plan = {
+	name = "Rise of the Confederacy"
+	desc = "Plan for the US to elect Al Smith in 1932 and disolve into chaos and civil war"
+
+	enable = {
+		OR = {
+			tag = USA
+			OR = {
+				has_country_flag = USA_AI_CSA
+				has_game_rule = {
+					rule = USA_ai_behavior
+					option = CONFEDERATE
+				}
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+		}
+	}
+
+	ai_national_focuses = {
+		USA_a_house_divided
+		USA_smith 
+		USA_stabilize_america
+		USA_establish_political_order
+		USA_defeat_csa
+		USA_german_guns
+		USA_vincent_trammel_act
+		USA_national_prosperity_program
+		USA_outlaw_sitdown_strikes
+		USA_encourage_industrial_rationalization
+		USA_abandon_prohibition
+		USA_balance_budget
+		USA_monetary_deflation
+		USA_bank_reform_act
+		USA_progress_and_liberty
+		USA_selective_training_act
+		USA_war_department
+		USA_war_plans_division
+		USA_hoover
+		USA_industrial_progression
+		USA_hoovers_propaganda
+		USA_norris_la_guardia
+		USA_smoot_hawley
+		USA_30_tech_slot
+		USA_rfc
+		USA_panam_expands_clippers
+		USA_ford_expands_internationally
+		USA_dont_pay_the_vets
+		USA_democratic_national_convention
+		USA_protectionist_tariffs
+		USA_institute_of_american_sciences
+		USA_de_regulate_the_banking_sector
+		USA_privatize_the_TVA
+		USA_national_employment_strategy
+		USA_defeat_usb 
+		#1941
+		USA_maritime_commission
+		USA_lend_lease_act
+		USA_office_of_scientific_research_and_development
+		USA_louisiana_maneuvers
+		USA_support_rock_island
+		#1942
+		USA_tank_experiments
+		USA_tank_destroyer_doctrine
+		USA_combined_bomber_offensive
+		USA_bureau_of_ships
+		USA_carrier_primacy
+		#1943
+		USA_wartime_industry
+		USA_build_the_pentagon
+		USA_army_of_the_united_states
+		USA_womens_armed_service_integration_act
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "CSA"			
+		value = 200
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

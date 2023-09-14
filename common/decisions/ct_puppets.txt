@@ -1,0 +1,1916 @@
+# Categories:
+ct_generic_category = {
+	#ct_take_arms_factories = {				####   Gun Factory Siezure	####
+	#	icon = infiltrate_state
+	#	available = { is_ai = no }
+	#	visible = {	NOT = { has_government = democratic } FROM = { num_of_military_factories > 0 } }
+	#	ai_will_do = { factor = 0 }
+	#	fire_only_once = no
+	#	cost = 25
+	#	target_array = subjects
+	#	target_trigger = {	FROM = { OR = {	is_puppet_of = ROOT	is_subject_of = ROOT }	} }
+	#	complete_effect  = { 
+	#		FROM = { 
+	#			random_owned_controlled_state = {	
+	#				limit = {	arms_factory > 0 }
+	#				remove_building = {	type = arms_factory	level = 1	}
+	#			}				
+	#		} 
+	#		random_owned_controlled_state = {
+	#			limit = {
+	#				ROOT = { has_full_control_of_state = PREV }
+	#				is_core_of = ROOT
+	#				free_building_slots = {	building = arms_factory	size > 0 include_locked = yes	}
+	#			}
+	#			add_extra_state_shared_building_slots = 1
+	#			add_building_construction = { type = arms_factory	level = 1	instant_build = yes	}
+	#		}
+	#	}
+	#}
+
+	ct_take_entire_navy = {				####   Naval Siezure	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {	
+			FROM = { has_navy_size = { size > 4 } }	
+			FROM = { has_navy_size = { size < 25 } }	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = no
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect  = { FROM = { transfer_navy = { target = ROOT }	} }
+	}	
+
+	ct_take_entire_navy_medium = {				####   Naval Siezure	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {	
+			FROM = { has_navy_size = { size > 24 } }	
+			FROM = { has_navy_size = { size < 60 } }	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = no
+		cost = 75
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect  = { FROM = { transfer_navy = { target = ROOT }	} }
+	}	
+
+	ct_take_entire_navy_large = {				####   Naval Siezure	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			threat > 0.75
+		 }
+		visible = {	
+			FROM = { has_navy_size = { size > 60 } }	
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = no
+		cost = 150
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect  = { FROM = { transfer_navy = { target = ROOT }	} }
+	}
+
+	ct_mtg_subject_early_submarine = {				####   MTG submarine 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_ship_hull_submarine }
+			NOT = { has_tech = early_ship_hull_submarine }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_ship_hull_submarine = 1	} }
+	}
+	ct_mtg_subject_basic_submarine = {				####   MTG submarine 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_submarine
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_ship_hull_submarine }
+			NOT = { has_tech = basic_ship_hull_submarine }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_ship_hull_submarine = 1	} }
+	}
+	ct_mtg_subject_improved_submarine = {			####   MTG submarine 3	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_ship_hull_submarine
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_ship_hull_submarine }
+			NOT = { has_tech = improved_ship_hull_submarine }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_ship_hull_submarine = 1	} }
+	}	
+	ct_subject_early_submarine = {					####  No MTG submarine 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_submarine }
+			NOT = { has_tech = early_submarine }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_submarine = 1	}	}
+	}
+	ct_subject_basic_submarine = {					####  No MTG submarine 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = early_submarine
+		}
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_submarine }
+			NOT = { has_tech = basic_submarine }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_submarine = 1	}	}
+	}
+	ct_mtg_subject_early_cruiser = {				####   MTG cruiser 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_ship_hull_cruiser }
+			NOT = { has_tech = early_ship_hull_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_ship_hull_cruiser = 1	} }
+	}
+	ct_mtg_subject_basic_cruiser = {				####   MTG cruiser 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_cruiser
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_ship_hull_cruiser }
+			NOT = { has_tech = basic_ship_hull_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_ship_hull_cruiser = 1	} }
+	}
+	ct_mtg_subject_improved_cruiser = {				####   MTG cruiser 3	####
+		icon = infiltrate_state
+		available = {
+			is_ai = no 
+			has_tech = basic_ship_hull_cruiser
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_ship_hull_cruiser }
+			NOT = { has_tech = improved_ship_hull_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_ship_hull_cruiser = 1	} }
+	}	
+	ct_mtg_subject_basic_cruiser_armor = {			####  1st MTG Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_ship_hull_cruiser
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_cruiser_armor_scheme }
+			NOT = { has_tech = basic_cruiser_armor_scheme }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_cruiser_armor_scheme = 1	} }
+	}
+	ct_subject_early_cruiser = {					####  No MTG cruiser 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_light_cruiser has_tech = early_heavy_cruiser }
+			NOT = { has_tech = early_light_cruiser has_tech = early_heavy_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	
+			set_technology = {	
+				early_light_cruiser = 1
+				early_heavy_cruiser = 1	
+			} 	
+		}
+	}
+	ct_subject_basic_cruiser = {					####  No MTG cruiser 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = early_light_cruiser
+		}
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_light_cruiser }
+			NOT = { has_tech = basic_light_cruiser }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_light_cruiser = 1	}	}
+	}
+	ct_mtg_subject_early_destroyer = {				####   MTG Destroyer 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_ship_hull_light }
+			NOT = { has_tech = early_ship_hull_light }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_ship_hull_light = 1	} }
+	}
+	ct_mtg_subject_basic_destroyer = {				####   MTG Destroyer 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_light
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_ship_hull_light }
+			NOT = { has_tech = basic_ship_hull_light }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_ship_hull_light = 1	} }
+	}
+	ct_mtg_subject_improved_destroyer = {			####   MTG Destroyer 3	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_ship_hull_light
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_ship_hull_light }
+			NOT = { has_tech = improved_ship_hull_light }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_ship_hull_light = 1	} }
+	}	
+	ct_mtg_subject_sonar = {						####   MTG sonar	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_light
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = sonar }
+			NOT = { has_tech = sonar }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	sonar = 1	} }
+	}
+	ct_mtg_subject_improved_sonar = {				####   MTG improved sonar	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = sonar
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_sonar }
+			NOT = { has_tech = improved_sonar }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_sonar = 1	} }
+	}
+	ct_mtg_subject_basic_depth_charges = {			####   MTG depth charges 1   ####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_light
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_depth_charges }
+			NOT = { has_tech = basic_depth_charges }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_depth_charges = 1	} }
+	}
+	ct_subject_early_destroyer = {					####  No MTG Destroyer 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_destroyer }
+			NOT = { has_tech = early_destroyer }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_destroyer = 1	}	}
+	}
+	ct_subject_basic_destroyer = {					####  No MTG Destroyer 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = early_destroyer
+		}
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_destroyer }
+			NOT = { has_tech = basic_destroyer }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_destroyer = 1	}	}
+	}
+	ct_mtg_subject_early_carrier = {				####   MTG carrier 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_ship_hull_carrier }
+			NOT = { has_tech = early_ship_hull_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_ship_hull_carrier = 1	} }
+	}
+	ct_mtg_subject_basic_carrier = {				####   MTG carrier 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_carrier
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_ship_hull_carrier }
+			NOT = { has_tech = basic_ship_hull_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_ship_hull_carrier = 1	} }
+	}
+	ct_mtg_subject_improved_carrier = {				####   MTG carrier 3	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_ship_hull_carrier
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_ship_hull_carrier }
+			NOT = { has_tech = improved_ship_hull_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_ship_hull_carrier = 1	} }
+	}	
+	ct_subject_early_carrier = {					####  No MTG carrier 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_carrier }
+			NOT = { has_tech = early_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_carrier = 1	}	}
+	}
+	ct_subject_basic_carrier = {					####  No MTG carrier 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = early_carrier
+		}
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_carrier }
+			NOT = { has_tech = basic_carrier }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_carrier = 1	}	}
+	}
+	ct_mtg_subject_early_battleship = {				####   MTG battleship 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_ship_hull_heavy }
+			NOT = { has_tech = early_ship_hull_heavy }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_ship_hull_heavy = 1	} }
+	}
+	ct_mtg_subject_basic_battleship = {				####   MTG battleship 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_heavy
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_ship_hull_heavy }
+			NOT = { has_tech = basic_ship_hull_heavy }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_ship_hull_heavy = 1	} }
+	}
+	ct_subject_early_battleship = {					####  No MTG battleship 1	####
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = early_battleship }
+			NOT = { has_tech = early_battleship }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_battleship = 1	} set_technology = {	early_battlecruiser = 1	} 	}
+	}
+	ct_subject_basic_battleship = {					####  No MTG battleship 2	####
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = early_battleship
+		}
+		visible = {
+			NOT = { has_dlc = "Man the Guns" }
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_battleship }
+			NOT = { has_tech = basic_battleship }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_battleship = 1	}	}
+	}
+	ct_mtg_subject_basic_battery = {				####  1st MTG Battery   ###
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_battery }
+			NOT = { has_tech = basic_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_battery = 1	} }
+	}
+
+	ct_mtg_subject_basic_light_battery = {			####  1st MTG Light Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_light_battery }
+			NOT = { has_tech = basic_light_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_light_battery = 1	} }
+	}
+	ct_mtg_subject_improved_light_battery = {		####  2nd MTG Light Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_light_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_light_battery }
+			NOT = { has_tech = improved_light_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_light_battery = 1	} }
+	}	
+	ct_mtg_subject_basic_medium_battery = {			####  1st MTG Medium Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_medium_battery }
+			NOT = { has_tech = basic_medium_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_medium_battery = 1	} }
+	}
+	ct_mtg_subject_basic_heavy_battery = {			####  1st MTG Heavy Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_heavy_battery }
+			NOT = { has_tech = basic_heavy_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_heavy_battery = 1	} }
+	}
+	ct_mtg_subject_improved_heavy_battery = {		####  2nd MTG Heavy Battery   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_heavy_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_heavy_battery }
+			NOT = { has_tech = improved_heavy_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_heavy_battery = 1	} }
+	}
+	ct_mtg_subject_basic_torpedo = {				####  1st MTG Torpedo   ###
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_torpedo }
+			NOT = { has_tech = basic_torpedo }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_torpedo = 1	} }
+	}
+	ct_mtg_subject_improved_torpedo = {				####  2nd MTG Torpedo   ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_torpedo
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_ship_torpedo_launcher }
+			NOT = { has_tech = improved_ship_torpedo_launcher }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_ship_torpedo_launcher = 1	} }
+	}
+	ct_mtg_subject_basic_secondary_battery = {		####  1st MTG Sec Battery  ###
+		icon = infiltrate_state
+		available = { is_ai = no }
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_secondary_battery }
+			NOT = { has_tech = basic_secondary_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_secondary_battery = 1	} }
+	}
+	ct_mtg_subject_improved_secondary_battery = {	####  2nd MTG Sec Battery  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_secondary_battery
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_secondary_battery }
+			NOT = { has_tech = improved_secondary_battery }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_secondary_battery = 1	} }
+	}
+	ct_mtg_subject_battleship_armor = {				####  1st MTG Battleship Armor  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = early_ship_hull_heavy
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = basic_heavy_armor_scheme }
+			NOT = { has_tech = basic_heavy_armor_scheme }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_heavy_armor_scheme = 1	} }
+	}
+	ct_mtg_subject_improved_battleship_armor = {	####  2nd MTG Battleship Armor  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+			has_tech = basic_heavy_armor_scheme
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+			FROM = { any_state = { is_coastal = yes } }
+			FROM = { has_tech = improved_heavy_armor_scheme }
+			NOT = { has_tech = improved_heavy_armor_scheme }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_heavy_armor_scheme = 1	} }
+	}	
+	ct_subject_early_fighter = {					####  early fighter  ###
+		icon = infiltrate_state
+		available = { 	is_ai = no 	}
+		visible = {
+			FROM = { has_tech = early_fighter }
+			NOT = { has_tech = early_fighter }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_fighter = 1	} }
+	}
+	ct_subject_CAS1 = {								####  CAS1  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = early_fighter
+			has_tech = air_engine
+		}
+		visible = {
+			FROM = { has_tech = CAS1 }
+			NOT = { has_tech = CAS1 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	CAS1 = 1	} }
+	}
+	ct_subject_CAS2 = {								####  CAS2  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = CAS1
+		}
+		visible = {
+			FROM = { has_tech = CAS2 }
+			NOT = { has_tech = CAS2 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	CAS2 = 1	} }
+	}	
+	ct_subject_naval_bomber1 = {					####  naval bomber1  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = early_fighter
+			has_tech = air_engine
+		}
+		visible = {
+			FROM = { has_tech = naval_bomber1 }
+			NOT = { has_tech = naval_bomber1 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	naval_bomber1 = 1	} }
+	}
+	ct_subject_naval_bomber2 = {					####  naval bomber 2  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = naval_bomber1
+		}
+		visible = {
+			FROM = { has_tech = naval_bomber2 }
+			NOT = { has_tech = naval_bomber2 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	naval_bomber2 = 1	} }
+	}	
+	ct_subject_fighter1 = {							####  fighter1  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = early_fighter
+			has_tech = air_engine
+		}
+		visible = {
+			FROM = { has_tech = fighter1 }
+			NOT = { has_tech = fighter1 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	fighter1 = 1	} }
+	}
+	ct_subject_fighter2 = {							####  fighter 2  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = fighter1
+		}
+		visible = {
+			FROM = { has_tech = fighter2 }
+			NOT = { has_tech = fighter2 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	fighter2 = 1	} }
+	}	
+	ct_subject_early_bomber = {						####  early bomber  ###
+		icon = infiltrate_state
+		available = { 	is_ai = no 	}
+		visible = {
+			FROM = { has_tech = early_bomber }
+			NOT = { has_tech = early_bomber }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	early_bomber = 1	} }
+	}
+	ct_subject_interwar_antiair = {					####  interwar antiair  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = gw_artillery
+		}
+		visible = {
+			FROM = { has_tech = interwar_antiair }
+			NOT = { has_tech = interwar_antiair }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	interwar_antiair = 1	} }
+	}
+	ct_subject_interwar_antitank = {				####  interwar antitank  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = gw_artillery
+		}
+		visible = {
+			FROM = { has_tech = interwar_antitank }
+			NOT = { has_tech = interwar_antitank }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	interwar_antitank = 1	} }
+	}	
+	ct_subject_gwtank = {							####  gw tank  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no 
+		}
+		visible = {
+			FROM = { has_tech = gwtank }
+			NOT = { has_tech = gwtank }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	gwtank = 1	} }
+	}
+	ct_subject_basic_light_tank = {					####  light tank 1  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = gwtank
+		}
+		visible = {
+			FROM = { has_tech = basic_light_tank }
+			NOT = { has_tech = basic_light_tank }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_light_tank = 1	} }
+	}
+	ct_subject_improved_light_tank = {				####  light tank 2  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = basic_light_tank
+		}
+		visible = {
+			FROM = { has_tech = improved_light_tank }
+			NOT = { has_tech = improved_light_tank }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	improved_light_tank = 1	} }
+	}
+	ct_subject_basic_heavy_tank = {					####  heavy tank 1  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = gwtank
+		}
+		visible = {
+			FROM = { has_tech = basic_heavy_tank }
+			NOT = { has_tech = basic_heavy_tank }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	basic_heavy_tank = 1 } }
+	}
+	ct_subject_support_recon = {					####  recon 1  ###
+		icon = infiltrate_state
+		available = { 
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_recon }
+			NOT = { has_tech = tech_recon }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_recon = 1 } }
+	}
+	ct_subject_support_engineers = {				####  engineers 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_engineers }
+			NOT = { has_tech = tech_engineers }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_engineers = 1 } }
+	}
+	ct_subject_support_field_hospital = {			####  field hospital 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_field_hospital }
+			NOT = { has_tech = tech_field_hospital }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_field_hospital = 1 } }
+	}
+	ct_subject_support_signal_company = {			####  signal company 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_signal_company }
+			NOT = { has_tech = tech_signal_company }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_signal_company = 1 } }
+	}
+	ct_subject_support_maintenance_company = {		####  maintenance company 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_maintenance_company }
+			NOT = { has_tech = tech_maintenance_company }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_maintenance_company = 1 } }
+	}
+	ct_subject_support_military_police = {			####  military police 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = tech_support
+		}
+		visible = {
+			FROM = { has_tech = tech_military_police }
+			NOT = { has_tech = tech_military_police }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	tech_military_police = 1 } }
+	}
+	ct_subject_radio = {							####  radio  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = electronic_mechanical_engineering
+		}
+		visible = {
+			FROM = { has_tech = radio }
+			NOT = { has_tech = radio }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	radio = 1 } }
+	}
+	ct_subject_radio_detection = {					####  radar 1  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = radio
+		}
+		visible = {
+			FROM = { has_tech = radio_detection }
+			NOT = { has_tech = radio_detection }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	radio_detection = 1 } }
+	}
+	ct_subject_decimetric_radar = {					####  radar 2  ###
+		icon = infiltrate_state
+		available = {
+			is_ai = no
+			has_tech = radio_detection
+		}
+		visible = {
+			FROM = { has_tech = decimetric_radar }
+			NOT = { has_tech = decimetric_radar }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	decimetric_radar = 1 } }
+	}
+	ct_subject_scout_plane1 = {						####  scout plane1  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = air_engine
+		}
+		visible = {
+			FROM = { has_tech = scout_plane1 }
+			NOT = { has_tech = scout_plane1 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	scout_plane1 = 1	} }
+	}
+	ct_subject_strategic_bomber1 = {						####  strategic bomber1  ###
+		icon = infiltrate_state
+		available = { 	
+			is_ai = no 	
+			has_tech = air_engine
+		}
+		visible = {
+			FROM = { has_tech = strategic_bomber1 }
+			NOT = { has_tech = strategic_bomber1 }
+		}
+		ai_will_do = { factor = 0 }
+		fire_only_once = yes
+		cost = 25
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	set_technology = {	strategic_bomber1 = 1	} }
+	}
+
+
+	ct_generic_puppet = {
+		icon = eng_propaganda_campaigns
+		#days_re_enable = 50
+		available = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+			FROM = { compare_autonomy_progress_ratio > 0.19	}
+		}
+		visible = {
+			has_dlc = "Together for Victory"
+			#NOT = { has_government = democratic }
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+				compare_autonomy_progress_ratio > 0.19
+			}
+		}
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	
+			FROM = { 
+				add_autonomy_ratio = {	value = -0.25	}	
+				set_country_flag = ct_prepared_for_integ
+			}	
+			custom_effect_tooltip = ct_annex_puppet_tt
+		}
+		cost = 50
+		ai_will_do = {	factor = 0 }
+	}
+	ct_generic_puppet_annex = { 
+		icon = eng_propaganda_campaigns
+		#days_re_enable = 50
+		available = {
+			FROM = {	
+				OR = {	is_puppet_of = ROOT	is_subject_of = ROOT	}	
+				has_country_flag = ct_prepared_for_integ
+			}
+			
+		}
+		visible = {
+			has_dlc = "Together for Victory"
+			NOT = { has_government = democratic }
+			FROM = {
+				OR = {	is_puppet_of = ROOT	is_subject_of = ROOT }
+				has_country_flag = ct_prepared_for_integ
+			}
+		}
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				has_country_flag = ct_prepared_for_integ
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {	
+			FROM = { transfer_navy = { target = ROOT }	}	
+			annex_country = { target = FROM transfer_troops = yes }
+		}
+		cost = 100
+		ai_will_do = {	factor = 0 }
+	}	
+
+	ct_generic_puppet_resource = {
+		icon = eng_propaganda_campaigns
+		#days_re_enable = 50
+		available = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+			FROM = {
+				OR = {
+					owns_state = 425
+					owns_state = 672
+					owns_state = 719 #natal - chrom
+					owns_state = 46 #romania 
+					owns_state = 181 #por  - tungs
+					owns_state = 229 #Baku SOV - oil 70
+					owns_state = 233 #Caucaus Mount -chrom35
+					owns_state = 291 #IRQ oil-15
+					owns_state = 336 #singapor - everything999
+					owns_state = 335 #java #rubberoil
+					owns_state = 343 #TUR chrom25
+					owns_state = 342
+					owns_state = 341
+					owns_state = 375 #texas oil999
+				}
+
+			}
+		}
+		visible = {
+			always = no
+			#has_dlc = "Together for Victory"
+			#NOT = { has_government = democratic }
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+				OR = {
+					owns_state = 425
+					owns_state = 672
+					owns_state = 719 #natal - chrom
+					owns_state = 46 #romania 
+					owns_state = 181 #por  - tungs
+					owns_state = 229 #Baku SOV - oil 70
+					owns_state = 233 #Caucaus Mount -chrom35
+					owns_state = 291 #IRQ oil-15
+					owns_state = 336 #singapor - everything999
+					owns_state = 335 #java #rubberoil
+					owns_state = 343 #TUR chrom25
+					owns_state = 342
+					owns_state = 341
+					owns_state = 375 #texas oil999
+				}
+			}
+		}
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_puppet_of = ROOT	
+					is_subject_of = ROOT				
+				}
+			}
+		}
+		complete_effect = {
+			FROM = { 
+				IF = {
+					limit = {	owns_state = 425	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 425 } }				
+				} 
+				IF = {
+					limit = {	owns_state = 672	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 672 } }				
+				}
+				IF = {
+					limit = {	owns_state = 719	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 719 } }				
+				}
+				IF = {
+					limit = {	owns_state = 46		}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 46 } }				
+				}
+				IF = {
+					limit = {	owns_state = 181	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 181 } }				
+				}	
+				IF = {
+					limit = {	owns_state = 229	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 229 } }				
+				}
+				IF = {
+					limit = {	owns_state = 233	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 233 } }				
+				}
+				IF = {
+					limit = {	owns_state = 291	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 291 } }				
+				}
+				IF = {
+					limit = {	owns_state = 336	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 336 } }				
+				}
+				IF = {
+					limit = {	owns_state = 335	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 335 } }				
+				}
+				IF = {
+					limit = {	owns_state = 343	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 343 } }				
+				}
+				IF = {
+					limit = { owns_state = 342		}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 342 } }				
+				}
+				IF = {
+					limit = {	owns_state = 341	}
+					ROOT = { give_resource_rights = { receiver = ROOT state = 341 } }				
+				}
+				IF = {
+					limit = { owns_state = 375 }
+					ROOT = { give_resource_rights = { receiver = ROOT state = 375 } }				
+				}
+			}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+
+}

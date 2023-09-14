@@ -1,0 +1,237 @@
+bookmarks = {
+	bookmark = {
+		name = "1930_NAME"
+		desc = "1930_DESC"
+		date = 1930.1.1.12
+		picture = "GFX_select_date_1930"
+		default_country = "GER"
+		default = yes
+		
+		"FRA"={
+			history = "FRA_1930_DESC"
+			ideology = democratic
+			ideas = {
+				FRA_victors_of_wwi
+				FRA_disjointed_government
+				great_depression
+			}
+			focuses = {
+				FRA_initiate_government_reform
+				FRA_the_maginot_line
+				FRA_revise_versailles
+			}
+		}
+		"USA"={
+			history = "USA_1930_DESC"
+			ideology = democratic
+			ideas = {
+				usa_segregation
+				undisturbed_isolation
+				idea_tva
+			}
+			focuses = {
+				USA_rfc
+				USA_fdr
+				USA_nra
+			}
+		}
+		"ENG"={
+			history = "ENG_1930_DESC"
+			ideology = democratic
+			ideas = {
+				stiff_upper_lip
+				ENG_the_war_to_end_all_wars
+				george_v
+			}
+			focuses = {
+				ENG_statute_westminster
+				tizard_mission_focus
+				ENG_leave_gold
+			}
+		}
+
+		"GER"={
+			history = "GER_1930_DESC"
+			ideology = democratic
+			ideas = {
+				idea_Reichswehr
+				GER_mefo_bills_1
+				GER_Wehrmacht
+			}
+			focuses = {
+				GER_weimar
+				GER_nsdap
+				GER_long_knives
+			}
+		}
+		"ITA"={
+			history = "ITA_1930_DESC"
+			ideology = fascism
+			ideas = {
+				vittoria_mutilata
+				regio_esercito
+				victor_emmanuel
+			}	
+			focuses = {
+				ITA_pact_of_steel
+				ITA_iri
+				ITA_italy_first
+			}		
+		}
+		"JAP"={
+			history = "JAP_1930_DESC"
+			ideology = fascism
+			ideas = {
+				state_shintoism
+				idea_gekokujo
+			}	
+			focuses = {
+				JAP_mukden_incident
+				JAP_manchukuo
+			}			
+		}
+		"SOV"={
+			history = "SOV_1930_DESC"
+			ideology = communism
+			ideas = {
+				trotskyite_plot
+				home_of_revolution
+				idea_Sov_Famine
+			}
+			focuses = {
+				SOV_nkvd
+				SOV_stalin_constitution
+				SOV_collectivization
+			}	
+		}
+
+		"---"={
+			history = "OTHER_1930_DESC"
+		}
+
+
+		# minors from DLC ####
+		"TUR"={
+			minor = yes
+			history = "TUR_1930_DESC"
+			ideology = neutrality
+			ideas = {
+				TUR_marginalized_muslim_community
+				TUR_agrarian_society
+				TUR_village_institutes
+			}
+			focuses = {
+				TUR_muslim_alliance
+				TUR_law_2780
+				TUR_central_bank
+			}
+		}
+		"HUN"={
+			minor = yes
+			history = "HUN_1930_DESC"
+			ideology = neutrality
+			ideas = {
+				HUN_the_hungarian_red_army
+				HUN_treaty_of_triannon
+				HUN_secret_rearmament
+			}
+			focuses = {
+				HUN_assassinate_horthy
+				HUN_proclaim_the_restoration_of_austria_hungary
+				HUN_renounce_the_treaty_of_trianon
+			}
+		}
+		"FIN"={
+			minor = yes
+			history = "FIN_1930_DESC"
+			ideology = neutrality
+			ideas = {	
+				quantite
+				FIN_fortification
+				qualite
+			}
+			focuses = {
+				FIN_support_gov
+				FIN_lapua_movement
+				FIN_qualite
+			}
+		}
+		"SWE"={
+			minor = yes
+			history = "SWE_1930_DESC"
+			ideology = democratic
+			ideas = {	
+				en_svensk_tiger
+				neutrality_idea
+				great_depression
+			}
+			focuses = {
+				SWE_support_the_left
+				SWE_spirit_of_charles
+				SWE_crown_gustav_vi
+			}
+		}
+		#"NOR"={
+		#	minor = yes
+		#	history = "NOR_1930_DESC"
+		#	ideology = democratic
+		#	ideas = {	
+		#		NOR_ns
+		#		NOR_recherche
+		#		NOR_idea_tva
+		#	}
+		#	focuses = {
+		#		NOR_found_nasjonal_samling
+		#		NOR_revive_kalmar_union
+		#		NOR_norse_october
+		#	}
+		#}
+		"GRE"={
+			minor = yes
+			history = "GRE_1930_DESC"
+			ideology = democratic
+			ideas = {	
+				ct_repayment
+				great_depression
+				national_youth_organisation
+			}
+			focuses = {
+				GRE_tackle_turkey
+				GRE_stoke_cypriot_enosis
+				GRE_support_status_quo
+			}
+		}		
+		"BRA"={
+			minor = yes
+			history = "BRA_1930_DESC"
+			ideology = neutrality
+			ideas = {
+				estado_novo
+				labor_alliance
+				coronelismo
+			}
+			focuses = {
+				BRA_nationalist_rhetoric
+				BRA_1930_election
+				BRA_integralists_mbga
+			}
+		}
+		"POL"={
+			minor = yes
+			history = "POL_1930_DESC"
+			ideology = neutrality
+			ideas = {
+				great_depression
+			}
+			focuses = {
+				POL_the_baltic_alliance
+				POL_draw_closer_to_britain
+				POL_seek_accommodation_with_germany
+			}
+		}
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+	}
+}

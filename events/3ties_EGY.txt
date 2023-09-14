@@ -1,0 +1,23 @@
+﻿add_namespace = ctegy
+
+country_event = {
+	id = ctegy.1
+	title = ctegy.1.t
+	desc = ctegy.1.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = ctegy.1.o1
+					add_autonomy_ratio = {
+						value = 0.5
+					}
+		create_country_leader = {
+			name = "Farouk I"
+			desc = ""
+			picture = "Portrait_Egypt_Farouk_I.dds"
+			ideology = despotism
+			traits = { hedonist }
+		}
+	}
+}

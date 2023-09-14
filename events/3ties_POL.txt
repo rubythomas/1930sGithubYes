@@ -1,0 +1,151 @@
+﻿add_namespace = ctpol
+
+country_event = { #poland demand to ger to return silesia and ost prussen
+	id = ctpol.1
+	title = ctpol.1.t
+	desc = ctpol.1.d
+	picture = GFX_report_event_polish_army
+	is_triggered_only = yes
+	option = { #GER submits to POL
+		name = ctpol.1.o1
+		ai_chance = { 
+			factor = 25 
+		}
+		effect_tooltip = {
+			if = {
+				limit = { GER = { owns_state = 66 } }
+				POL = { transfer_state = 66 }
+			}
+			if = {
+				limit = { GER = { owns_state = 67 } }
+				POL = { transfer_state = 67 }
+			}
+			if = {
+				limit = { GER = { owns_state = 5 } }
+				POL = { transfer_state = 5 }
+			}
+			if = {
+				limit = { GER = { owns_state = 763 } }
+				POL = { transfer_state = 763 }
+			}
+		}
+		POL = { country_event = { id = ctpol.3 days = 1 } }
+	}
+	option = { #bring it on punk 
+		name = ctpol.1.o2
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = POL
+					ratio > 0.7
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_other_country = {
+					is_major = yes
+					is_in_faction_with = GER
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		POL = { country_event = { id = ctpol.2 days = 1 } }
+		effect_tooltip = {
+			POL = {
+				declare_war_on = {
+					target = GER
+					type = take_state
+					generator = { 66 67 5 763 }
+				}
+			}
+		}
+	}
+}
+
+# GER Refuses to give up ostland
+country_event = {
+	id = ctpol.2
+	title = ctpol.2.t
+	desc = ctpol.2.d
+	picture = GFX_report_event_fascist_speech
+	is_triggered_only = yes
+	option = {
+		name = ctpol.2.o1
+		create_wargoal = {
+			type = take_state_focus
+			target = GER
+			generator = { 66 67 5 763 } 
+		}
+		#hidden_effect = {
+		#	news_event = { id = news.203 hours = 6 }
+		#}
+	}
+}
+
+# GER gives up ostland
+country_event = {
+	id = ctpol.3
+	title = ctpol.3.t
+	desc = ctpol.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ctpol.3.o1
+		if = {
+			limit = { GER = { owns_state = 66 } }
+			POL = { transfer_state = 66 }
+		}
+		if = {
+			limit = { GER = { owns_state = 67 } }
+			POL = { transfer_state = 67 }
+		}
+		if = {
+			limit = { GER = { owns_state = 5 } }
+			POL = { transfer_state = 5 }
+		}
+		if = {
+			limit = { GER = { owns_state = 763 } }
+			POL = { transfer_state = 763 }
+		}
+		#hidden_effect = {
+		#	news_event = { id = news.203 hours = 6 }
+		#}
+	}
+}
+
+country_event = {
+	id = ctpol.4
+	title = ctpol.4.t
+	desc = ctpol.4.d
+	picture = GFX_report_event_funeral
+	fire_only_once = yes		
+	trigger = {
+		tag = POL
+		date > 1935.5.1
+		date < 1935.5.31
+		NOT = { has_country_flag = ct_pilsudski }
+		NOT = {	
+			is_puppet = yes	
+			is_subject = yes
+		}
+	}
+	option = {
+		name = ctpol.4.o1
+		set_country_flag = ct_pilsudski
+		create_country_leader = {
+			name = "Ignacy Moscicki"
+			desc = "POLITICS_IGNACY_MOSCICKI_DESC"
+			picture = "Portrait_Poland_Ignacy_Moscicki.dds"
+			expire = "1965.1.1"
+			ideology = oligarchism
+			traits = {
+				#
+			}
+		}
+	}
+}

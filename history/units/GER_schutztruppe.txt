@@ -1,0 +1,43 @@
+﻿division_template = {
+	name = "Schutztruppe" # International volunteers -- poor equipment, no experience (militia)
+	division_names_group = GER_ST_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "Mbaiki Division"
+		location = 6039 
+		division_template = "Schutztruppe"
+	}
+	division = {
+		name = "Ukamas Division"
+		location = 2176 
+		division_template = "Schutztruppe"
+	}
+	division = {
+		name = "Keetmanshoop Division"
+		location = 1951
+		division_template = "Schutztruppe"
+	}
+	division = {
+		name = "Fianga Division"
+		location = 8183
+		division_template = "Schutztruppe"
+	}
+	division = {
+		name = "Mubi Division"
+		location = 5054
+		division_template = "Schutztruppe"
+	}
+	division = {
+		name = "Marua Division"
+		location = 2196
+		division_template = "Schutztruppe"
+	}
+
+}

@@ -1,0 +1,281 @@
+# Categories:
+ct_CSA_category = {
+	CSA_reconstruction_usa = {
+		icon = generic_political_discourse
+		available = {
+			USA = {
+				exists = NO
+			}
+			owns_state = 378
+			owns_state = 357
+		}
+		visible = {
+			tag = CSA
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 25
+        complete_effect = {
+			every_state = {
+				limit = {
+						is_core_of = USA
+				}
+				add_core_of = ROOT
+			}
+			set_country_flag = ct_reconstruction_usa
+		}
+	}
+
+	ct_CSA_reconstruction_usb = {
+		icon = generic_political_discourse
+		available = {
+			USB = {
+				exists = NO
+			}
+			owns_state = 393
+		}
+		visible = {
+			tag = CSA
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 25
+        complete_effect = {
+			every_state = {
+				limit = {
+						is_core_of = USB
+				}
+				add_core_of = ROOT
+			}
+			set_country_flag = ct_reconstruction_usb
+		}
+	}	
+
+	ct_CSA_army_off_reconstruction_usb = {
+		icon = generic_political_discourse
+		available = {
+			USA = {
+				exists = NO
+			}
+			has_country_flag = ct_reconstruction_usb
+		}
+		visible = {
+			tag = CSA
+			is_subject = no
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		cost = 100
+        complete_effect = {
+			create_navy_leader = { #IL
+				name = "Arthur Radford"
+				picture = "Portrait_USA_Arthur_Radford.dds"
+				traits = { air_controller }
+				skill = 2
+				id = 7702
+				attack_skill = 2
+				defense_skill = 3
+				maneuvering_skill = 2
+				coordination_skill = 3
+			}
+			create_navy_leader = { #WI
+				name = "Ralph Ofstie"
+				picture = "Portrait_USA_Ralph_Ofstie.dds"
+				traits = { fleet_protector ironside ground_pounder }
+				skill = 3
+				id = 7704
+				attack_skill = 3
+				defense_skill = 2
+				maneuvering_skill = 2
+				coordination_skill = 3
+			}
+			create_navy_leader = { #MI
+				name = "Aubrey Fitch"
+				picture = "Portrait_USA_Aubrey_W_Fitch.dds"
+				traits = { navy_career_officer aviation_enthusiast superior_tactician }
+				skill = 4
+				id = 7708
+				attack_skill = 5
+				defense_skill = 4
+				maneuvering_skill = 6
+				coordination_skill = 4
+			}
+			create_navy_leader = { #IN
+				name = "Jonas Ingram"
+				picture = "Portrait_USA_Jonas_Ingram.dds"
+				traits = { blockade_runner }
+				skill = 2
+				id = 7711
+				attack_skill = 4
+				defense_skill = 3
+				maneuvering_skill = 3
+				coordination_skill = 6
+			}
+			create_navy_leader = { #MI
+				name = "Thomas C. Hart"
+				picture = "Portrait_USA_Thomas_C._Hart.dds"
+				traits = {  }
+				skill = 2
+				id = 7713
+				attack_skill = 2
+				defense_skill = 2
+				maneuvering_skill = 3
+				coordination_skill = 3
+			}
+			create_navy_leader = { #MN
+				name = "Walden L. Ainsworth"
+				picture = "Portrait_USA_Walden_Ainsworth.dds"
+				traits = { ironside ground_pounder }
+				skill = 4
+				id = 7714
+				attack_skill = 4
+				defense_skill = 4
+				maneuvering_skill = 4
+				coordination_skill = 3
+			}
+			create_corps_commander = { #IL
+				name = "Charles Billingslea"
+				picture = "Portrait_USA_Charles_Billingslea.dds"
+				traits = {  }
+				skill = 2
+				id = 7724
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			create_corps_commander = { #MI
+				name = "Emil Reinhardt"
+				picture = "Portrait_USA_Emil_Reinhardt.dds"
+				traits = { }
+				skill = 2
+				id = 7731
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			create_corps_commander = { #IL
+				name = "Hobart Gay"
+				picture = "Portrait_USA_Hobart_Gay.dds"
+				traits = { armor_officer trait_reckless }
+				skill = 4
+				id = 7737
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 3
+			}
+			create_corps_commander = { #IN
+				name = "John Millikin"
+				picture = "Portrait_USA_John_Millikin.dds"
+				traits = { old_guard trait_cautious }
+				skill = 1
+				id = 7745
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = { #IA
+				name = "Robert Grow"
+				picture = "Portrait_USA_Robert_W._Grow.dds"
+				traits = { panzer_leader }
+				skill = 2
+				id = 7755
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			create_corps_commander = { #IA
+				name = "Roscoe Woodruff"
+				picture = "Portrait_USA_Roscoe_Woodruff.dds"
+				traits = {  }
+				skill = 3
+				id = 7757
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 4
+			}
+			create_corps_commander = { #IA
+				name = "Vernon Prichard"
+				picture = "Portrait_USA_Vernon_E_Prichard.dds"
+				traits = { armor_officer }
+				skill = 2
+				id = 7763
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 3
+			}
+			create_corps_commander = { #IL
+				name = "Walter Short"
+				picture = "Portrait_USA_Walter_Short.dds"
+				traits = { old_guard }
+				skill = 1
+				id = 7765
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = { #IL
+				name = "Mark Clark"
+				picture = "Portrait_USA_Mark_W_Clark.dds"
+				traits = { infantry_officer trait_reckless }
+				skill = 3
+				id = 7774
+				attack_skill = 4
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			create_corps_commander = { #Minnesota
+				name = "Leslie McNair"
+				picture = "Portrait_USA_Lesley_McNair.dds"
+				traits = {  old_guard career_officer armor_officer }
+				skill = 3
+				id = 7777
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 4
+				logistics_skill = 2
+			}
+			create_navy_leader = { #IA
+				name = "Frank Jack Fletcher"
+				picture = "Portrait_USA_Frank_Jack_Fletcher.dds"
+				traits = { gunnery_expert spotter }
+				skill = 3
+				id = 7792
+				attack_skill = 2
+				defense_skill = 2
+				maneuvering_skill = 3
+				coordination_skill = 1
+			}
+		}
+	}
+
+
+}

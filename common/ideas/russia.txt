@@ -1,0 +1,624 @@
+ideas = {
+	country = {
+		communist_past = {
+			removal_cost = -1
+			allowed = {
+				always = yes 
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = communist_people
+			modifier = {
+				stability_factor = -0.2	
+			}
+		}
+		communist_past2 = {
+			removal_cost = -1
+			allowed = {
+				always = yes 
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = communist_people
+			modifier = {
+				stability_factor = -0.1	
+			}
+		}
+	}
+	political_advisor = {
+		kirill = {	
+			cost = 100		
+			allowed = {
+				original_tag = "RUS"
+			}
+			available = {
+				has_global_flag = ct_tzar
+			}
+			traits = { popular_figurehead }
+		}
+		vladimir_antonov = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { captain_of_industry }
+		}
+		alexander_kazembek = {
+			picture = generic_political_advisor_europe_5
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { compassionate_gentleman }
+		}
+		nikolai_avksentiev = {
+			picture = generic_political_advisor_europe_6
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { war_industrialist }
+		}
+		wassily_leontief = {
+			picture = generic_political_advisor_south_america_2
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { financial_expert }
+		}
+		aleksandr_galpern = {
+			picture = generic_navy_south_america_3
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { prince_of_terror }
+		}
+		peter_struve = {
+			picture = generic_political_advisor_south_america_3
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { editor }
+		}
+		viktor_chernov = {
+			picture = generic_political_advisor_europe_4
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { silent_workhorse }
+		}
+		vasily_maklakov = {
+			picture = generic_political_advisor_europe_3
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { smooth_talking_charmer }
+		}
+		vladimir_kravchenko = {
+			picture = generic_political_advisor_europe_1
+			allowed = {
+				original_tag = "RUS"
+			}
+			traits = { communist_revolutionary }
+			do_effect = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}	
+		RUS_alexander_kerensky = {
+			picture = alexander_kerensky
+			allowed = {
+				original_tag = "RUS"
+			}
+			available = {
+				if = {
+					limit = { has_dlc = "Man the Guns" }	
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+			traits = { democratic_reformer }
+			do_effect = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		RUS_konstantin_rodzaevsky = {
+			picture = konstantin_rodzaevsky
+			allowed = {
+				original_tag = "RUS"
+			}
+			available = {
+				has_country_flag = ct_rodzaevsky
+			}
+			traits = { fascist_demagogue }
+			do_effect = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	army_chief = {
+		RUS_anton_denikin = {
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			traits = { army_chief_drill_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_alexander_kutepov = {
+			allowed = {
+				original_tag = RUS
+
+			}
+			traits = { army_chief_offensive_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_ivan_bagramyan = {
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { army_chief_planning_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}	
+	}
+	navy_chief = {
+		RUS_pyotr_smirnov = {
+			picture = pyotr_smirnov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { navy_chief_naval_aviation_1 }
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		RUS_mikhail_frinovsky = {
+			picture = mikhail_frinovsky
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { navy_chief_commerce_raiding_1 }
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		RUS_nikolay_kuznetsov = {
+			picture = nikolay_kuznetsov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { navy_chief_reform_2 }
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		RUS_ivan_yumashev = {
+			picture = ivan_yumashev
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			ai_will_do = {
+				factor = 0.2
+			}
+		}	
+	}
+	
+	air_chief = {
+		RUS_alexander_novikov = {	
+			picture = alexander_novikov	
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { air_chief_reform_3 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_konstantin_vershinin = {
+			picture = konstantin_vershinin	
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { air_chief_ground_support_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_yakov_smushkevich = {
+			picture = yakov_smushkevich	
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { air_chief_safety_2 } 
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_pavel_rychagov = {
+			picture = pavel_rychagov	
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { air_chief_all_weather_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}	
+	}
+	high_command = {
+		RUS_aleksandr_vasilevsky = {
+			ledger = army
+			picture = aleksandr_vasilevsky
+			allowed = {
+				original_tag = RUS
+			}
+			available = 
+			{
+				has_completed_focus = RUS_soviet_military_leadership
+			}
+			traits = { army_regrouping_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		anatoly_pepelyayev = {
+			ledger = army
+			allowed = {
+				original_tag = RUS
+
+			}
+			traits = { army_infantry_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		andrei_shkuro = {
+			ledger = army
+			picture = generic_army_europe_2
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { army_commando_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		dmitrii_fedotoff_white = {
+			ledger = army
+			picture = generic_army_europe_5
+			allowed = {
+				original_tag = RUS
+			}
+			traits = { army_logistics_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_ivan_konev = {
+			ledger = army
+			picture = ivan_konev
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_country_flag = rejoined_russian_military
+			}
+			traits = { army_artillery_2 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		RUS_konstantin_rokossovsky = {
+			ledger = army
+			picture = konstantin_rokossovsky
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_country_flag = rejoined_russian_military
+			}
+			traits = { army_armored_3 }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	tank_manufacturer = {
+		designer = yes
+		RUS_morozov_design_bureau = {
+			picture = morozov_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { fast_tank_manufacturer }
+			modifier = {
+			}
+		}
+		RUS_astrov_design_bureau = {
+			picture = astrov_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { medium_tank_manufacturer }
+			modifier = {
+			}
+		}
+		RUS_okmo = {
+			picture = okmo
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_okmo
+			}
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { heavy_tank_manufacturer }
+			modifier = {
+			}
+		}
+	}
+	aircraft_manufacturer = {
+		designer = yes
+		RUS_mig_design_bureau = {
+			picture = mig_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_mig
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { light_aircraft_manufacturer }
+			modifier = {
+			}
+		}
+		RUS_ilyushin_design_bureau = {
+			picture = ilyushin_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_ilyushin
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { medium_aircraft_manufacturer }
+			modifier = {
+			}
+		}
+		
+		RUS_tupolev_design_bureau = {
+			picture = tupolev_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { heavy_aircraft_manufacturer }
+			modifier = {
+			}
+		}
+		RUS_yakovlev_design_bureau = {
+			picture = yakovlev_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_yakovlev
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { naval_aircraft_manufacturer }
+			modifier = {
+			}
+		}
+	}	
+	industrial_concern = {
+		RUS_stalingrad_tractor_factory = {
+			picture = stalingrad_tractor_factory
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_completed_focus = RUS_stalingrad_tractor_factory
+			}
+			research_bonus = {
+				industry = 0.10
+			}
+			traits = { industrial_concern }
+			modifier = {
+			}
+		}
+		RUS_leningrad_polytechnical_institute = {
+			picture = leningrad_polytechnical_institute
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				owns_state = 195
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			traits = { electronics_concern }
+			modifier = {
+			}
+		}
+	}
+	materiel_manufacturer = {
+		designer = yes
+		RUS_grabin_design_bureau = {
+			picture = grabin_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				owns_state = 252
+			}
+			research_bonus = {
+				artillery = 0.10
+			}
+			traits = { artillery_manufacturer }
+			modifier = {
+			}
+		}	
+		RUS_tula_arms_plant = {
+			picture = tula_arms_plant
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				owns_state = 223
+			}
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			traits = { infantry_equipment_manufacturer }
+			modifier = {
+			}
+		}
+		RUS_gaz = {
+			picture = gaz
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				owns_state = 252
+				has_completed_focus = RUS_gaz
+			}
+			research_bonus = {
+				motorized_equipment = 0.10
+				mot_rockets = 0.50
+			}
+			traits = { motorized_equipment_manufacturer }
+			modifier = {
+			}
+		}
+	}
+	naval_manufacturer = {
+		designer = yes
+		RUS_nevskoye_design_bureau = {
+			picture = nevskoye_design_bureau
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			traits = { naval_manufacturer }
+			modifier = {
+			}
+		}
+	}
+	theorist = {	
+		yevgeny_miller = {
+			ledger = army
+			picture = generic_air_europe_2
+			allowed = {
+				original_tag = RUS
+			}
+			cost = 250
+			research_bonus = {
+				cat_mass_assault = 0.10
+			}
+			traits = { mass_assault_expert }
+		}
+		pyotr_krasnov = {
+			ledger = army
+			picture = generic_army_europe_6
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			traits = { military_theorist }
+		}
+		alexander_de_seversky = {
+			ledger = air
+			picture = generic_air_europe_3
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			traits = { air_warfare_theorist }
+		}
+		vladimir_yurkevich = {
+			ledger = navy
+			picture = generic_air_arab_3
+			allowed = {
+				original_tag = RUS
+			}
+			research_bonus = {
+				air_doctrine = 0.07
+			}
+			traits = { naval_theorist }
+		}
+	}
+	
+}

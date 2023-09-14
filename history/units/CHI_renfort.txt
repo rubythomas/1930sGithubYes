@@ -1,0 +1,135 @@
+﻿division_template = {
+					name = "Young KMT Division"
+					priority = 1
+	
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 2 y = 0 }
+					}
+				}
+
+units = {
+	division= {
+		name = "1. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "2. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "3. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "4. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "5. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "6. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "7. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "8. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "9. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "10. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "11. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "12. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "13. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "14. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "15. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "16. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "17. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "18. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "19. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+	division= {
+		name = "20. Young KMT"
+		location = 7940
+		division_template = "Young KMT Division"
+		start_experience_factor = 0
+	}
+}

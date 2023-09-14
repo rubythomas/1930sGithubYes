@@ -1,0 +1,144 @@
+spriteTypes = {
+	################################################################################################
+	#France
+	spriteType = {
+		name = "GFX_news_event_18_juin_event"
+		texturefile = "gfx/event_pictures/18_juin_event.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_b1bis"
+		texturefile = "gfx/event_pictures/b1bis.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_com"
+		texturefile = "gfx/event_pictures/fra_com.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_com_new"
+		texturefile = "gfx/event_pictures/fra_com_new.dds"
+	}
+	#USA-Vichy
+	spriteType = {
+		name = "GFX_news_event_prepare_af"
+		texturefile = "gfx/event_pictures/prepare_af.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_petain_hitler"
+		texturefile = "gfx/event_pictures/petain_hitler.dds"
+	}
+	#Allemagne
+	spriteType = {
+		name = "GFX_rommel_atlantic"
+		texturefile = "gfx/event_pictures/rommel_atlantic.dds"
+	}
+	spriteType = {
+		name = "GFX_mur_atl"
+		texturefile = "gfx/event_pictures/mur_atl.dds"
+	}
+	spriteType = {
+		name = "GFX_dis_gob"
+		texturefile = "gfx/event_pictures/dis_gob.dds"
+	}
+	spriteType = {
+		name = "GFX_enigma_n"
+		texturefile = "gfx/event_pictures/enigma_n.dds"
+	}
+	spriteType = {
+		name = "GFX_sto_e"
+		texturefile = "gfx/event_pictures/sto_e.dds"
+	}
+	spriteType = {
+		name = "GFX_guerre_sm"
+		texturefile = "gfx/event_pictures/guerre_sm.dds"
+	}
+	spriteType = {
+		name = "GFX_jet_it_jp"
+		texturefile = "gfx/event_pictures/jet_it_jp.dds"
+	}
+	#Japon
+	spriteType = {
+		name = "GFX_gen_chimie"
+		texturefile = "gfx/event_pictures/gen_chimie.dds"
+	}
+	spriteType = {
+		name = "GFX_blesse_chi"
+		texturefile = "gfx/event_pictures/blesse_chi.dds"
+	}
+	spriteType = {
+		name = "GFX_war_surrender_jap"
+		texturefile = "gfx/event_pictures/war_surrender_jap.dds"
+	}
+	spriteType = {
+		name = "GFX_war_surrender_jap_new"
+		texturefile = "gfx/event_pictures/war_surrender_jap_new.dds"
+	}
+	#Union Soviétique
+	spriteType = {
+		name = "GFX_sov_prc"
+		texturefile = "gfx/event_pictures/sov_prc.dds"
+	}
+	spriteType = {
+		name = "GFX_inv_iran"
+		texturefile = "gfx/event_pictures/inv_iran.dds"
+	}
+	#Angleterre
+	spriteType = {
+		name = "GFX_turing_n"
+		texturefile = "gfx/event_pictures/turing_n.dds"
+	}
+	spriteType = {
+		name = "GFX_fin_hou"
+		texturefile = "gfx/event_pictures/fin_hou.dds"
+	}
+	#USA
+	spriteType = {
+		name = "GFX_d_day"
+		texturefile = "gfx/event_pictures/d_day.dds"
+	}
+	spriteType = {
+		name = "GFX_ll_act"
+		texturefile = "gfx/event_pictures/ll_act.dds"
+	}
+	#Chine
+	spriteType = {
+		name = "GFX_yellow_river"
+		texturefile = "gfx/event_pictures/yellow_river.dds"
+	}
+	#Pétrole Roumain
+	spriteType = {
+		name = "GFX_controle_pet"
+		texturefile = "gfx/event_pictures/controle_pet.dds"
+	}
+	#Roumanie
+	spriteType = {
+		name = "GFX_rom_barba"
+		texturefile = "gfx/event_pictures/rom_barba.dds"
+	}
+	#Tchécoslovaquie
+	spriteType = {
+		name = "GFX_char_cze"
+		texturefile = "gfx/event_pictures/char_cze.dds"
+	}
+	#Finlande
+	spriteType = {
+		name = "GFX_fin_ife"
+		texturefile = "gfx/event_pictures/fin_ife.dds"
+	}
+	spriteType = {
+		name = "GFX_fin_ww"
+		texturefile = "gfx/event_pictures/fin_ww.dds"
+	}
+	#Italie
+	spriteType = {
+		name = "GFX_coup_irq"
+		texturefile = "gfx/event_pictures/coup_irq.dds"
+	}
+	#Suède
+	spriteType = {
+		name = "GFX_swe_train"
+		texturefile = "gfx/event_pictures/swe_train.dds"
+	}
+}
+	
+	
+	

@@ -1,0 +1,90 @@
+ideas = {
+	# MILITARY
+	political_advisor = {
+		theodore_swann = {
+			picture = generic_political_advisor_south_america_3
+			allowed = {
+				tag = CSA
+			}
+			traits = { captain_of_industry }
+		}
+		sam_rayburn = {
+			picture = ivanoe_bonomi
+			allowed = {
+				tag = CSA
+			}
+			traits = { silent_workhorse }
+		}
+		martin_dies_jr = {
+			picture = generic_army_south_america_4
+			allowed = {
+				tag = CSA
+			}
+			available = {
+			}
+			traits = { anti_communist_crusader }
+		}
+		carl_vinson = {
+			picture = generic_army_europe_4
+			allowed = {
+				tag = CSA
+			}
+			available = {
+			}
+			traits = { quartermaster_general }
+		}
+		huey_long = {
+			picture = generic_army_europe_6
+			allowed = {
+				tag = CSA
+			}
+			available = {
+				has_country_flag = ct_huey_prez
+			}
+			cost = 100	
+			traits = { popular_figurehead }
+		}
+		walter_george = {
+			picture = generic_political_advisor_europe_4
+			allowed = {
+				tag = CSA
+			}
+			cost = 100
+			available = {
+				has_completed_focus = CSA_experts_in_finance
+			}
+			traits = { financial_expert }
+		} 
+		richard_russell = {
+			picture = generic_political_advisor_europe_1
+			allowed = {
+				tag = CSA
+			}
+			traits = { war_industrialist }
+		}	
+	}
+	industrial_concern = {	
+		humble_oil = {
+			allowed = {
+				OR = {
+					tag = USA	
+					tag = CSA		
+					tag = USB					
+				}
+			}
+			available = {
+				owns_state = 375
+			}
+			#cost = 100
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.1
+			}
+			traits = { refinery_concern }
+			ai_will_do = {
+				factor = 5
+			}
+		}
+	}
+	
+}

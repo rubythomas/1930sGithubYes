@@ -1,0 +1,288 @@
+﻿add_namespace = ctmit
+
+country_event = {
+	id = ctmit.1
+	title = ctmit.1.t
+	desc = ctmit.1.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	fire_only_once = no
+	option = { # Accept
+		name = ctmit.1.o1
+        hidden_effect = {    
+		    MIT = { add_state_core = 773 }
+			GER = { release_puppet = MIT }
+		    	MIT = { 
+					every_state = {
+						limit = {
+							AND = {
+								is_owned_by = GER
+								OR = {
+									region = 182									
+									region = 183									
+									region = 184
+									region = 185
+									region = 126									
+									region = 127
+									region = 128
+									region = 139
+									region = 140									
+									region = 17
+								}
+							}
+						}
+						MIT = {
+							add_state_core = PREV
+							transfer_state = PREV
+						}
+					}
+					if = {
+						limit = { GER = { has_government = democratic } }
+						add_ideas = GER_colonial_state
+						create_country_leader = {
+							name = "Lettow Vorbeck"
+							desc = "POLITICS_Lettow_Vorbeck_DESC"
+							picture = "Portrait_Mittelafrika_Lettow_Vorbeck.dds"
+							expire = "1965.1.1"
+							ideology = conservatism
+							traits = {	}
+						}
+						set_popularities = {
+							democratic = 73	
+							fascism = 5	
+							communism = 3
+							neutrality = 19
+						}
+					}
+					if = {
+						limit = { GER = { has_government = neutrality } }
+						add_ideas = GER_colonial_state
+						create_country_leader = {
+							name = "Lettow Vorbeck"
+							desc = "POLITICS_Lettow_Vorbeck_DESC"
+							picture = "Portrait_Mittelafrika_Lettow_Vorbeck.dds"
+							expire = "1965.1.1"
+							ideology = despotism
+							traits = {
+							#
+							}
+						}
+						set_popularities = {
+							democratic = 22	
+							fascism = 6	
+							communism = 3
+							neutrality = 69
+						}
+					}
+					if = {
+						limit = { GER = { has_government = fascism } }
+						add_ideas = GER_nazi_colonial_state
+						create_country_leader = {
+							name = "Rudolf Diels"
+							desc = "POLITICS_Rudolf_Diels_DESC"
+							picture = "Portrait_Mittelafrika_Rudolf_Diels.dds"
+							expire = "1965.1.1"
+							ideology = nazism
+							traits = {
+								fascist_militia_leader
+							}
+						}
+						set_popularities = {
+							democratic = 22	
+							fascism = 56	
+							communism = 3
+							neutrality = 19
+						}
+					}
+				
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctmit.2
+	title = ctmit.2.t
+	desc = ctmit.2.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ctmit.2.o1
+			hidden_effect = {    
+		    	MIT = {   
+		        	if = {
+						limit = { FRA = { owns_state = 539 } }
+						transfer_state = 539
+		        		add_state_core = 539
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 722 } }
+						transfer_state = 722
+		        			add_state_core = 722
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 772 } }
+						transfer_state = 772
+		        			add_state_core = 772
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 660 } }
+						transfer_state = 660
+		        			add_state_core = 660
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 774 } }
+						transfer_state = 774
+		        		add_state_core = 774
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 775 } }
+						transfer_state = 775
+		        			add_state_core = 775
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 515 } }
+						transfer_state = 515
+		        			add_state_core = 515
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 556 } }
+						transfer_state = 556
+		        			add_state_core = 556
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 272 } }
+						transfer_state = 272
+		        			add_state_core = 272
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 543 } }
+						transfer_state = 543
+		        			add_state_core = 543
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 557 } }
+						transfer_state = 557
+		        			add_state_core = 557
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 778 } }
+						transfer_state = 778
+		        		add_state_core = 778
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 779 } }
+						transfer_state = 779
+		        		add_state_core = 779
+					}	
+		        	if = {
+						limit = { FRA = { owns_state = 780 } }
+						transfer_state = 780
+		        		add_state_core = 780
+					}						
+		        	if = {
+						limit = { FRA = { owns_state = 781 } }
+						transfer_state = 781
+		        		add_state_core = 781
+					}
+		        	if = {
+						limit = { FRA = { owns_state = 776 } }
+						transfer_state = 776
+		        			add_state_core = 776
+					}
+				}
+			}
+	}
+}
+
+country_event = {
+	id = ctmit.3
+	title = ctmit.3.t
+	desc = ctmit.3.d
+	picture = GFX_report_event_german_reichstag_gathering
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = ctmit.3.o1
+		hidden_effect = {    
+			MIT = {   
+				if = {
+					limit = { ENG = { owns_state = 700  } }
+					transfer_state = 700
+					add_state_core = 700
+				}
+				if = {
+					limit = { ENG = { owns_state = 701 } }
+					transfer_state = 701
+						add_state_core = 701
+				}
+				if = {
+					limit = { ENG = { owns_state = 274 } }
+					transfer_state = 274
+						add_state_core = 274
+				}
+				if = {
+					limit = { ENG = { owns_state = 558 } }
+					transfer_state = 558
+						add_state_core = 558
+				}
+				if = {
+					limit = { ENG = { owns_state = 542 } }
+					transfer_state = 542
+					add_state_core = 542
+				}
+				if = {
+					limit = { ENG = { owns_state = 545 } }
+					transfer_state = 545
+						add_state_core = 545
+				}
+				if = {
+					limit = { ENG = { owns_state = 770 } }
+					transfer_state = 770
+						add_state_core = 770
+				}
+				if = {
+					limit = { ENG = { owns_state = 771 } }
+					transfer_state = 771
+						add_state_core = 771
+				}
+				if = {
+					limit = { ENG = { owns_state = 546 } }
+					transfer_state = 546
+						add_state_core = 546
+				}
+				if = {
+					limit = { ENG = { owns_state = 547 } }
+					transfer_state = 547
+						add_state_core = 547
+				}
+				if = {
+					limit = { ENG = { owns_state = 548 } }
+					transfer_state = 548
+						add_state_core = 548
+				}
+				if = {
+					limit = { ENG = { owns_state = 549 } }
+					transfer_state = 549
+						add_state_core = 549
+				}
+				if = {
+					limit = { ENG = { owns_state = 551 } }
+					transfer_state = 551
+					add_state_core = 551
+				}	
+				if = {
+					limit = { ENG = { owns_state = 767 } }
+					transfer_state = 767
+					add_state_core = 767
+				}						
+				if = {
+					limit = { ENG = { owns_state = 269 } }
+					transfer_state = 269
+					add_state_core = 269
+				}
+			}
+		}
+	}
+}

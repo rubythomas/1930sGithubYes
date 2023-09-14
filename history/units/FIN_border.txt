@@ -1,0 +1,82 @@
+﻿division_template = {
+	name = "Border Guard"
+	
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	division= {
+		name = "1. Border Guard"
+		location = 9140
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "2. Border Guard"
+		location = 11085
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "3. Border Guard"
+		location = 197
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "4. Border Guard"
+		location = 9158
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "5. Border Guard"
+		location = 3073
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "6. Border Guard"
+		location = 7
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "7. Border Guard"
+		location = 11156
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "8. Border Guard"
+		location = 6153
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "9. Border Guard"
+		location = 9176
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "10. Border Guard"
+		location = 9150
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	division= {
+		name = "11. Border Guard"
+		location = 3060
+		division_template = "Border Guard"
+		start_experience_factor = 0.2
+	}
+	
+}

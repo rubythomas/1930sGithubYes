@@ -1,0 +1,355 @@
+﻿add_namespace = ctbra
+
+country_event = {
+	id = ctbra.1
+	title = ctbra.1.t
+	desc = ctbra.1.d
+	picture = GFX_fra_com
+	trigger = {
+		AND = {
+			tag = BRA
+			date > 1930.3.30
+			date < 1931.3.30			
+		}
+	}
+	fire_only_once = yes	
+	#Vargas
+	option = { 
+		name = ctbra.1.o1
+		ai_chance = {
+			base = 0
+		}
+		country_event = { id = ctbra.2 days = 30 }
+		country_event = { id = ctbra.7 days = 180 }
+	}
+	#Prestes
+	option = {
+		name = ctbra.1.o2
+		ai_chance = {
+			base = 100
+		}
+		country_event = { id = ctbra.2 days = 34 }
+		country_event = { id = ctbra.4 days = 45 }
+	}
+}
+
+country_event = { #ANL decries fraud in election
+	id = ctbra.2
+	title = ctbra.2.t
+	desc = ctbra.2.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = { #publicly deny allegations
+		name = ctbra.2.o1
+		add_stability = -0.1
+		country_event = { id = ctbra.3 days = 35 }
+	}
+}
+
+country_event = { #João Pessoa was assassinated
+	id = ctbra.3
+	title = ctbra.3.t
+	desc = ctbra.3.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+	option = { #focus on calming the public
+		name = ctbra.3.o1
+		ai_chance = {
+			base = 100
+		}
+		add_stability = -0.1
+	}
+	option = { #remind the public of his cowardly assassination - martyr
+		name = ctbra.3.o2
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.15
+		add_political_power = 150
+	}
+}
+
+country_event = { #Vargas publishes manefesto
+	id = ctbra.4
+	title = ctbra.4.t
+	desc = ctbra.4.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #ignore his outburst
+		name = ctbra.4.o1
+		add_stability = -0.1
+		country_event = { id = ctbra.5 days = 45 }
+	}
+}
+country_event = { #Junta seizes power
+	id = ctbra.5
+	title = ctbra.5.t
+	desc = ctbra.5.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #
+		name = ctbra.5.o1
+		add_stability = -0.25
+		custom_effect_tooltip = BRA_fall_gov_tt		
+		hidden_effect = {
+			create_country_leader = {
+				name = "Fallen Government"
+				desc = ""
+				picture = "Portrait_Soviet_Fallen.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			country_event = { id = ctbra.6 days = 4 }
+		}
+	}
+}
+
+country_event = { #Vargas seizes power
+	id = ctbra.6
+	title = ctbra.6.t
+	desc = ctbra.6.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #
+		name = ctbra.6.o1	
+		set_country_flag = ct_vargas_seizes_power
+		create_country_leader = {
+			name = "Getúlio Vargas"
+			desc = "POLITICS_GETULIO_VARGAS_DESC"
+			picture = "Portrait_Brazil_Getulio_Vargas.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+		set_country_flag = ct_30bra_election
+	}
+}
+
+country_event = { #Vargas assumes office post election op B!
+	id = ctbra.7
+	title = ctbra.7.t
+	desc = ctbra.7.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #
+		name = ctbra.7.o1	
+		set_country_flag = ct_vargas_elected
+		create_country_leader = {
+			name = "Getúlio Vargas"
+			desc = "POLITICS_GETULIO_VARGAS_DESC"
+			picture = "Portrait_Brazil_Getulio_Vargas.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+		set_country_flag = ct_30bra_election
+	}
+}
+
+country_event = { #1934 constitution
+	id = ctbra.8
+	title = ctbra.8.t
+	desc = ctbra.8.d
+	picture = GFX_report_event_ast_parliament_house
+	is_triggered_only = yes
+	option = { #left
+		name = ctbra.8.o1
+		ai_chance = { factor = 0 }
+		custom_effect_tooltip = BRA_left_tt		
+		hidden_effect = {
+			set_country_flag = ct_30bra_left	
+		}
+	}
+	option = { #center
+		name = ctbra.8.o2
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = BRA_center_tt		
+		hidden_effect = {
+			set_country_flag = ct_30bra_center
+		}
+	}
+	option = { #right
+		name = ctbra.8.o3
+		ai_chance = { factor = 0 }
+		custom_effect_tooltip = BRA_right_tt		
+		hidden_effect = {
+			set_country_flag = ct_30bra_right
+		}
+	}
+}
+
+country_event = { #commy seizes power
+	id = ctbra.9
+	title = ctbra.9.t
+	desc = ctbra.9.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #
+		name = ctbra.9.o1
+		add_stability = -0.1
+		remove_ideas = strikes_3
+		set_politics = {
+			ruling_party = communism
+		}	
+	}
+}
+
+country_event = { #1932 coup attempt
+	id = ctbra.10
+	title = ctbra.10.t
+	desc = ctbra.10.d
+	picture = GFX_report_event_chinese_soldiers_01
+	fire_only_once = yes		
+	trigger = {
+		tag = BRA
+		date > 1932.2.15		
+		has_country_flag = ct_vargas_seizes_power
+		NOT = { has_country_flag = ct_32_revo }
+	}
+	option = { #vargas wins
+		name = ctbra.10.o1
+		ai_chance = { factor = 100 }
+		add_stability = -0.05
+		set_country_flag = ct_32_revo
+	}
+	option = { #prestes wins
+		name = ctbra.10.o2
+		ai_chance = { factor = 0 }
+		add_stability = -0.1
+		set_country_flag = ct_32_revo
+		create_country_leader = {
+			name = "Julio Prestes"
+			desc = "POLITICS_Julio_Prestes_DESC"
+			picture = "Portrait_Brazil_Julio_Prestes.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+	}
+}
+
+country_event = { #1932 coup attempt
+	id = ctbra.11
+	title = ctbra.11.t
+	desc = ctbra.11.d
+	picture = GFX_report_event_chinese_soldiers_01
+	fire_only_once = yes		
+	trigger = {
+		tag = BRA
+		date > 1932.2.15
+		has_country_flag = ct_vargas_elected
+	}
+	option = { #vargas wins
+		name = ctbra.11.o1
+		ai_chance = { factor = 100 }
+		add_stability = -0.04
+		set_country_flag = ct_32_revo
+	}
+	option = { #prestes wins
+		name = ctbra.11.o2
+		ai_chance = { factor = 0 }
+		add_stability = -0.15
+		set_country_flag = ct_32_revo
+		create_country_leader = {
+			name = "Julio Prestes"
+			desc = "POLITICS_Julio_Prestes_DESC"
+			picture = "Portrait_Brazil_Julio_Prestes.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+	}
+}
+
+country_event = { #salgado coup 
+	id = ctbra.12
+	title = ctbra.12.t
+	desc = ctbra.12.d
+	picture = GFX_report_event_fascist_militia
+	is_triggered_only = yes
+	option = { #salgado
+		name = ctbra.12.o1
+		add_stability = -0.05
+		set_country_flag = ct_salgado	
+		create_country_leader = {
+			name = "Plínio Salgado"
+			desc = "POLITICS_PLINIO_SALGADO_DESC"
+			picture = "Portrait_Brazil_Plinio_Salgado.dds"
+			expire = "1965.1.1"
+			ideology = fascism_ideology
+			traits = {
+				#
+			}
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.20
+		}
+	}
+}
+
+country_event = { #aggresive usa note 
+	id = ctbra.13
+	title = ctbra.13.t
+	desc = ctbra.13.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #usa backs down
+		name = ctbra.13.o1
+		ai_chance = { 
+			factor = 95
+			modifier = {
+				factor = 0
+				date > 1940.1.1
+			}
+		}
+		USA = {
+			every_other_country = {
+				limit = {
+					is_guaranteed_by = USA
+					NOT = {
+						tag = CAN
+						tag = MEX
+						tag = PAN
+					}
+				}
+				add_ai_strategy = {
+					type = dont_defend_ally_borders
+					id = PREV
+					value = 200
+				}
+				add_ai_strategy = {
+					type = dont_join_wars_with
+					id = PREV
+					value = 200
+				}
+				diplomatic_relation = {
+					country = PREV
+					relation = guarantee
+					active = no
+				}
+			}				
+		}
+	}
+	option = { #usa pushes back
+		name = ctbra.13.o2
+		ai_chance = { 
+			factor = 5 
+		}
+		USA = { add_political_power = -50 }
+		BRA = { add_political_power = -50 }		
+	}	
+}

@@ -1,0 +1,326 @@
+add_namespace = ctgeneric
+
+country_event = {  #amicable anschlus
+	id = ctgeneric.1
+	title = ctgeneric.1.t
+	desc = ctgeneric.1.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctgeneric.1.o1
+		ai_chance = {
+			factor = 90
+			modifier = { # Decrease chance if FROM is at war 
+				FROM = { has_war = yes }
+				factor = 0.5
+			}
+			modifier = {
+				factor = 0.05 #if you are in a faction, maybe refuse
+				is_faction_leader = no
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 0
+				is_puppet = yes
+				NOT = { is_puppet_of = FROM } #puppeted ROOT wouldn't surrender to FROM
+			}
+			modifier = {
+				factor = 1000
+				has_opinion = { target = FROM value > 50 } #opinion
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		hidden_effect = {
+			every_state = {
+				limit = { is_owned_by = ROOT }
+				FROM = {
+					add_state_core = PREV
+				}
+			}
+			FROM = { country_event = { id = ctgeneric.4 hours = 8 } }
+		}
+	}
+	option = { #nope
+		name = ctgeneric.1.o2
+		ai_chance = {
+			factor = 1
+		}
+		FROM = { country_event = { id = ctgeneric.3 } } #country votes no
+	}
+}
+
+#country votes no
+country_event = {
+	id = ctgeneric.3 
+	title = ctgeneric.3.t
+	desc = ctgeneric.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.3.o1
+		#FROM = { country_event = { id = ctgeneric.5 } }
+	}
+
+}
+#country votes yes - sender recieves notice
+country_event = {
+	id = ctgeneric.4 
+	title = ctgeneric.4.t
+	desc = ctgeneric.4.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.4.o1
+		hidden_effect = {
+			FROM = {
+				every_unit_leader = {
+					set_nationality = ROOT
+				}
+			}
+			ROOT = { annex_country = { target = FROM transfer_troops = yes } }
+			ROOT = { set_country_flag = target_annexed_peacefully } # Used to change division name lists for FROM
+		}
+	}
+}
+
+#country votes no 
+country_event = {
+	id = ctgeneric.5 
+	title = ctgeneric.5.t
+	desc = ctgeneric.5.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.5.o1
+	}
+}
+
+country_event = {  #demand northern maylay
+	id = ctgeneric.6
+	title = ctgeneric.6.t
+	desc = ctgeneric.6.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctgeneric.6.o1
+		ai_chance = {
+			factor = 95
+			modifier = { # Decrease chance if FROM is at war 
+				FROM = { has_war = yes }
+				factor = 0.5
+			}
+			modifier = {
+				factor = 0.05 #if you are in a faction, maybe refuse
+				is_faction_leader = no
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 0
+				is_puppet = yes
+				NOT = { is_puppet_of = FROM } #puppeted ROOT wouldn't surrender to FROM
+			}
+		}
+		hidden_effect = {
+			FROM = { country_event = { id = ctgeneric.8 hours = 8 } }
+		}
+	}
+	option = { #nope
+		name = ctgeneric.6.o2
+		ai_chance = {
+			factor = 5
+		}
+		FROM = { country_event = { id = ctgeneric.7 } } #country votes no
+		ROOT = {
+			create_wargoal = {
+				type = annex_everything
+				target = SIA
+			}
+		}
+	}
+}
+
+#SIA votes no
+country_event = {
+	id = ctgeneric.7 
+	title = ctgeneric.7.t
+	desc = ctgeneric.7.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgeneric.7.o1
+	}
+}
+
+#SIA votes yes - ROOT recieves notice
+country_event = {
+	id = ctgeneric.8
+	title = ctgeneric.8.t
+	desc = ctgeneric.8.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.8.o1
+		ROOT = {
+			transfer_state = 724 #Northern Malay Peninsula
+		}
+	}
+}
+
+country_event = {  #demand for annexation - use only for macro vs. micro contries - ai factors arent balanced.
+	id = ctgeneric.9
+	title = ctgeneric.9.t
+	desc = ctgeneric.9.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctgeneric.9.o1
+		ai_chance = {
+			factor = 90
+			modifier = { #chance if FROM is at war 
+				FROM = { has_war = yes }
+				factor = 10
+			}
+			modifier = {
+				factor = 0 #if you are in a faction refuse
+				is_faction_leader = no
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 0
+				is_puppet = yes
+				NOT = { is_puppet_of = FROM } #puppeted ROOT wouldn't surrender to FROM
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		hidden_effect = {
+			FROM = { country_event = { id = ctgeneric.11 hours = 8 } }
+		}
+	}
+	option = { #nope
+		name = ctgeneric.9.o2
+		ai_chance = {
+			factor = 1
+		}
+		FROM = { country_event = { id = ctgeneric.10 } } #country votes no
+	}
+}
+
+#country votes no
+country_event = {
+	id = ctgeneric.10 
+	title = ctgeneric.10.t
+	desc = ctgeneric.10.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.10.o1
+		#FROM = { country_event = { id = ctgeneric.5 } }
+	}
+
+}
+#country votes yes - sender recieves notice
+country_event = {
+	id = ctgeneric.11 
+	title = ctgeneric.11.t
+	desc = ctgeneric.11.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.11.o1
+		hidden_effect = {
+			ROOT = { annex_country = { target = FROM } }
+		}
+	}
+}
+
+country_event = {  #demand puppet - use only on small or dismembered nations
+	id = ctgeneric.12
+	title = ctgeneric.12.t
+	desc = ctgeneric.12.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = { #sure
+		name = ctgeneric.12.o1
+		ai_chance = {
+			factor = 90
+			modifier = { # Decrease chance if FROM is at war 
+				FROM = { has_war = yes }
+				factor = 0.5
+			}
+			modifier = {
+				factor = 0.05 #if you are in a faction, maybe refuse
+				is_faction_leader = no
+				is_in_faction = yes
+			}
+			modifier = {
+				factor = 0
+				is_puppet = yes
+				NOT = { is_puppet_of = FROM } #puppeted ROOT wouldn't surrender to FROM
+			}
+			modifier = {
+				factor = 1000
+				FROM = { has_army_manpower = {	size > 500000 } }
+			}
+		}
+		FROM = { country_event = { id = ctgeneric.14 hours = 8 } }
+	}
+	option = { #nope
+		name = ctgeneric.12.o2
+		ai_chance = {
+			factor = 1
+		}
+		FROM = { country_event = { id = ctgeneric.13 } } #country votes no
+	}
+}
+
+#country votes no
+country_event = {
+	id = ctgeneric.13 
+	title = ctgeneric.13.t
+	desc = ctgeneric.13.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.13.o1
+		FROM = { country_event = { id = ctgeneric.15 } }
+	}
+
+}
+#country votes yes - sender recieves notice
+country_event = {
+	id = ctgeneric.14 
+	title = ctgeneric.14.t
+	desc = ctgeneric.14.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctgeneric.14.o1
+		puppet = FROM
+	}
+}
+
+#country votes no 
+country_event = {
+	id = ctgeneric.15 
+	title = ctgeneric.15.t
+	desc = ctgeneric.15.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgeneric.15.o1
+	}
+}

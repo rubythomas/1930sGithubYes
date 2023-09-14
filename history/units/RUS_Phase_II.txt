@@ -1,0 +1,83 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Strelkovaya Diviziya"	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+division_template = {
+	name = "Kavaleriyskaya Diviziya" 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+##### OOB #####
+units = {			
+	division= {			
+		name = "7. Strelkovaya Diviziya"		
+		location = 7785
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}	
+	division= {			
+		name = "8. Strelkovaya Diviziya"		
+		location = 12543
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "9. Strelkovaya Diviziya"		
+		location = 12660
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "10. Strelkovaya Diviziya"		
+		location = 7691
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "11. Strelkovaya Diviziya"		
+		location = 1845
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "12. Strelkovaya Diviziya"		
+		location = 12591
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "3. Kavaleriyskaya Diviziya"		
+		location = 9604
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.3
+
+	}
+	division= {			
+		name = "4. Kavaleriyskaya Diviziya"		
+		location = 7772
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.3
+
+	}					
+}				

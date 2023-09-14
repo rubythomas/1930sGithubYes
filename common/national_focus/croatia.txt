@@ -1,0 +1,234 @@
+focus_tree = {
+	id = croatia_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CRO
+		}	
+	}
+	
+	default = no
+	reset_on_civilwar = no
+	
+	focus = {
+		id = CRO_in_sta
+		icon = GFX_focus_YUG_banovina_of_croatia
+		x = 6
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150	
+		}
+	}
+	focus = {
+		id = CRO_reb
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = CRO_in_sta }
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = -0.2 }
+			add_popularity = { ideology = communism popularity = 0.05 }
+			add_popularity = { ideology = neutrality popularity = 0.05 }
+			add_stability = 0.2
+			add_war_support = 0.2
+		}
+	}
+	focus = {
+		id = CRO_coded_mess
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = CRO_reb }
+		x = 3
+		y = 3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = code_message
+				bonus = 0.5
+				uses = 1
+				category = encryption_tech
+				category = decryption_tech
+			}
+		}
+	}
+	focus = {
+		id = CRO_extra_tech_slot
+		icon = GFX_focus_research
+		prerequisite = { focus = CRO_coded_mess }
+		x = 3
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = croatian_propaganda
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = CRO_reb }
+		x = 5
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = indoctrination_focus
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = croatian_fanaticism
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = croatian_propaganda }
+		x = 5
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = CRO_mil1
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = CRO_in_sta }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = CRO_doctrine
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = CRO_mil1 }
+		x = 7
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = CRO_military_youth
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CRO_mil1 }
+		x = 9
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
+	}
+	focus = {
+		id = CRO_paramilitarism
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = CRO_military_youth }
+		prerequisite = { focus = CRO_doctrine }
+		x = 8
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
+	}
+	
+
+}

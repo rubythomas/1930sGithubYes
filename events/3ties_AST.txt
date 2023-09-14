@@ -1,0 +1,32 @@
+﻿add_namespace = twentiesast
+
+country_event = {
+	id = twentiesast.2
+	title = twentiesast.2.t
+	desc = twentiesast.2.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = AST
+		AND = {
+			date > 1932.1.4
+			NOT = { has_country_flag = ct_ast_lyons }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesast.2.o1
+		set_country_flag = ct_ast_lyons
+		create_country_leader = {
+			name = "Joseph Lyons"
+
+			desc = "POLITICS_JOSEPH_LYONS_DESC"
+			picture = "Portrait_AST_Joseph_Lyons.dds"
+			expire = "1965.1.1"
+
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}

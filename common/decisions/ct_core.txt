@@ -1,0 +1,405 @@
+# Categories:
+ct_ANY_category = {
+	ANY_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.09	}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			NOT = { 
+				#AND = {
+					original_tag = GRE
+				#	has_completed_focus = GRE_spirit_of_alexander	}				
+				original_tag = ENG
+				original_tag = JAP
+				original_tag = SPR				
+				original_tag = FRA
+				original_tag = ITA	
+				original_tag = USA			
+			}
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }    
+				is_in_home_area = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 7
+		days_remove = 150
+		cost = 50
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.1	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					is_in_home_area = yes
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+	USA_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.04	}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			original_tag = USA	
+			any_owned_state = {
+				NOT = { is_core_of = ROOT } 
+				state_population > 19999
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 100
+		cost = 25
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.05	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  NOT = {	is_core_of = ROOT }  }
+				add_core_of = ROOT
+			}	
+		}
+	}
+	ENG_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.04	}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			OR = {
+				#AND = {
+					original_tag = ITA
+					original_tag = SPR
+				#	ITA = { NOT = { has_completed_focus = ITA_spirit_of_alexander } }
+				#}
+				#AND = {
+					original_tag = FRA
+				#	FRA = { NOT = { has_completed_focus = FRA_spirit_of_napoleon } }
+				#}	
+				original_tag = ENG							
+			}
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }    
+				is_on_continent = europe
+				state_population > 19999
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 150
+		cost = 50
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.05	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					is_on_continent = europe
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+	FRA_spirit_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.04	}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			OR = {
+				AND = {
+					original_tag = FRA
+					FRA = { has_completed_focus = FRA_spirit_of_napoleon }
+				}	
+				AND = {
+					original_tag = FRA
+					FRA = { has_completed_focus = FRA_spirit_of_napoleon }
+				}	
+				AND = {
+					original_tag = SWE
+					SWE = { has_completed_focus = SWE_spirit_of_charles }
+				}
+				AND = {
+					original_tag = GER
+					GER = { has_completed_focus = GER_stoke_european_patriotism }
+				}
+				AND = {
+					original_tag = HUN
+					HUN = { has_completed_focus = HUN_stoke_european_patriotism }
+				}	
+			}
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }    
+				is_on_continent = europe
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 75
+		cost = 30
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.05	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					is_on_continent = europe
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+	EU_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.04	}
+		visible = {
+			has_country_flag = ct_formed_eu
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }    
+				is_on_continent = europe
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 30
+		cost = 10
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.05	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					is_on_continent = europe
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+	JAP_statehood = {
+		icon = generic_form_nation
+		available = {	political_power_daily > 0.09	}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			original_tag = JAP
+			any_owned_state = {
+				NOT = { is_core_of = ROOT }    
+				is_on_continent = asia
+				state_population > 60000
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 150
+		cost = 50
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.1	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					is_on_continent = asia
+					state_population > 60000
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+	
+	GRE_statehood = {
+		icon = generic_form_nation
+		available = {	
+			political_power_daily > 0.01
+			has_completed_focus = GRE_spirit_of_alexander	
+		}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			original_tag = GRE
+			any_owned_state = {
+				NOT = { is_core_of = ROOT } 
+				OR = { 
+					is_on_continent = europe
+					is_on_continent = africa
+					is_on_continent = asia
+					is_on_continent = middle_east
+				}   
+				state_population > 19999
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 75
+		cost = 25
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.02	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					OR = { 
+						is_on_continent = europe
+						is_on_continent = africa
+						is_on_continent = asia
+						is_on_continent = middle_east
+					} 
+					state_population > 19999
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+
+	ITA_statehood = {
+		icon = generic_form_nation
+		available = {	
+			political_power_daily > 0.01
+			has_completed_focus = ITA_roman_resurgance	
+		}
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			}
+			has_completed_focus = ITA_roman_resurgance	
+			original_tag = ITA
+			any_owned_state = {
+				NOT = { is_core_of = ROOT } 
+				OR = { 
+					is_on_continent = europe
+					is_on_continent = africa
+					is_on_continent = middle_east
+				}   
+				state_population > 19999
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 3
+		days_remove = 75
+		cost = 25
+		highlight_states = { state = PREV }
+		modifier = { political_power_gain = -0.02	}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	is_core_of = ROOT }  
+					OR = { 
+						is_on_continent = europe
+						is_on_continent = africa
+						is_on_continent = middle_east
+					} 
+					state_population > 19999
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}
+
+	ANY_statehood_colony = {
+		icon = generic_form_nation
+		available = {
+			political_power_daily > 0.5
+		} 
+		visible = {
+			OR = {
+				is_subject = no
+				is_ai = no
+			} 
+			any_owned_state = {
+				NOT = { 
+					is_core_of = ROOT
+					is_in_home_area = yes
+				}    
+
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		days_re_enable = 7
+		days_remove = 365
+		cost = 500
+		highlight_states = { state = PREV }
+		modifier = {
+			political_power_gain = -0.5
+		}
+		remove_effect = {
+			random_owned_state = {
+				limit = {  
+					NOT = {	
+						is_core_of = ROOT 
+						is_in_home_area = yes				
+					}  
+				}
+				add_core_of = ROOT
+			}	
+		}
+	}	
+}

@@ -1,0 +1,47 @@
+﻿division_template = {
+	name = "Sanjiao Jun"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Qibing Jun"	
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+units = {
+	division = {
+		name = "37 Bubing Shi"
+		location = 7014
+		division_template = "Sanjiao Jun"
+	}
+	division = {
+		name = "1 Fujian Jingbei"
+		location = 12076
+		division_template = "Sanjiao Jun"
+	}
+	division = {
+		name = "2 Fujian Jingbei"
+		location = 4042
+		division_template = "Sanjiao Jun"
+	}
+	division = {
+		name = "3 Fujian Jingbei"
+		location = 7179
+		division_template = "Qibing Jun"
+	}
+	division = {
+		name = "3 Nanking Jingbei"
+		location = 11919
+		division_template = "Qibing Jun"	
+	}
+}

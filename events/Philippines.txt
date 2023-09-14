@@ -1,0 +1,20 @@
+﻿add_namespace = philippines
+
+country_event = {
+	id = philippines.1
+	title = philippines.1.t
+	desc = philippines.1.d
+	picture = GFX_ll_act
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PHI
+		has_war = yes
+	}
+	
+	option = {
+		name = philippines.1.a 
+		remove_ideas = phi_nda		
+	}
+}

@@ -1,0 +1,280 @@
+German_alternate_kaiser = {
+	name = "German Alternate plan to restore the Kaiser"
+	desc = "Wir wollen unsren Kaiser Wilhelm wiederhaben!"
+
+	enable = {
+		original_tag = GER
+		OR = {
+			has_country_flag = GER_AI_RANDOM_KAISER
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = KAISER
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		GER_weimar
+		GER_University_Hamburg
+		GER_invoke_48
+		GER_monarchist_germany
+		GER_DNVP_vote_expans
+		GER_unleash_stahlhelm
+		GER_limited_ag_reform
+		GER_anti_nazi_front
+		GER_wittelsbach_restoration
+		GER_buy_off_zentrum
+		GER_end_kaiser_banishment
+		GER_kaiser_for_prez
+		GER_end_elections
+		GER_bismarkian_legislation
+		GER_secure_the_new_state
+		GER_die_wacht_am_rhineland
+		GER_free_and_equal
+		GER_revive_the_kaiserreich
+		GER_military_staff_exp
+		GER_return_of_the_kaiser
+		GER_porsche
+		GER_clandestine_rearmament
+		GER_auto_union
+		GER_german_militarism
+		GER_four_year_plan
+		GER_army_innovation
+		GER_grosraumwirtschaft
+		GER_autarky
+		GER_hermann_goring_werke
+		GER_kdf_wagen
+		GER_extra_tech_slot
+		GER_autobahn
+		GER_german_war_economy
+		GER_imperial_militarism
+		GER_bulwark_against_bolshevism
+		GER_see_to_the_eastern_front
+		GER_naval_rearmament
+		GER_naval_effort
+		GER_safeguard_the_baltic
+		GER_danzig_for_guarantees
+		GER_rebuild_the_high_seas_fleet
+		GER_support_the_finns
+		GER_our_place_in_the_sun
+		GER_the_central_powers
+		GER_rekindle_imperial_sentiment
+		GER_prepare_for_the_next_blockade
+		GER_pride_of_the_modern_germany
+		GER_break_the_anglo_french_colonial_hegemony
+		GER_prepare_italian_coup
+		GER_assassinate_mussolini
+		GER_anti_comintern_pact_unaligned
+		GER_anti_soviet_pact_unaligned
+		GER_schlieffen_once_more
+		GER_reinstate_imperial_possessions
+	}
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	ideas = {
+		hjalmar_schacht = 10
+		walther_funk = 3
+		wilhelm_groener = 8
+		GER_alfred_hugenberg = 1
+		GER_carl_friedrich_goerdeler = 2
+	}
+	traits = {
+		captain_of_industry = 5
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+	focus_factors = {		
+	}
+}
+
+German_alternate_democratic = {
+	name = "German Alternate plan to restore democracy"
+	desc = "UNITY! JUSTICE! FREEDOM!"
+	enable = {
+		original_tag = GER
+		OR = {
+			has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+		GER_weimar
+		GER_University_Hamburg
+		GER_democratic_germany
+		GER_demo_revenge
+		GER_our_faction
+		GER_aus_customs_union
+		GER_aus_union_referendum
+		GER_sudetenland_situation
+		GER_polish_situation
+		GER_finnish_fusion
+		GER_SDP_vote_expans
+		GER_bav_autonomy
+		GER_currency_deflation
+		GER_outlaw_paramilitaries
+		GER_cancel_wage_cuts
+		GER_winterhilfswerk
+		GER_blackmail_hindenburg
+		GER_emergency_welfare_support
+		GER_wheel_and_deal
+		GER_reform_constitution
+		GER_expel_the_extremists
+		GER_saarland3
+		GER_request_versailles_modification
+		GER_request_colonies
+		GER_name_new_chancellor
+		GER_a_conservative_chancellor
+		GER_porsche
+		GER_clandestine_rearmament
+		GER_auto_union
+		GER_four_year_plan
+		GER_autarky
+		GER_wirtschaftswunder
+		GER_subsidize_auto_industry
+		GER_extra_tech_slot
+		GER_autobahn
+		GER_finnish_pact
+		GER_actually_youssr_suck
+		GER_tackle_communist
+ 		GER_army_modernization
+		GER_establish_luftwaffe
+		GER_air_innovation
+		GER_army_innovation
+		GER_coal_liquidization
+		GER_synthetic_rubber
+		GER_grosraumwirtschaft
+		GER_german_war_economy
+	}
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	ideas = {
+		hjalmar_schacht = 8
+		wilhelm_groener = 10
+		otto_gessler = 4
+		walther_funk = 3
+		GER_julius_leber = 2
+	}
+	traits = {
+		captain_of_industry = 5
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+	focus_factors = {		
+	}
+}
+
+German_pacifist_democratic = {
+	name = "German pacifist plan"
+	desc = "Peace at all costs!"
+	enable = {
+		original_tag = GER
+		OR = {
+			has_country_flag = GER_AI_RANDOM_PACIFIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = PACIFIST
+			}
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+		GER_weimar
+		GER_University_Hamburg
+		GER_democratic_germany
+		GER_no_revenge
+		GER_embrace_pacifism
+		GER_allow_bavarian_secession
+		GER_SDP_vote_expans
+		GER_bav_autonomy
+		GER_currency_deflation
+		GER_outlaw_paramilitaries
+		GER_cancel_wage_cuts
+		GER_winterhilfswerk
+		GER_blackmail_hindenburg
+		GER_emergency_welfare_support
+		GER_wheel_and_deal
+		GER_reform_constitution
+		GER_expel_the_extremists
+		GER_join_allies
+		GER_saarland3
+		GER_request_versailles_modification
+		GER_request_colonies
+		GER_name_new_chancellor
+		GER_a_conservative_chancellor
+		GER_porsche
+		GER_clandestine_rearmament
+		GER_auto_union
+		GER_four_year_plan
+		GER_autarky
+		GER_wirtschaftswunder
+		GER_subsidize_auto_industry
+		GER_extra_tech_slot
+		GER_autobahn
+		GER_finnish_pact
+		GER_actually_youssr_suck
+		GER_tackle_communist
+ 		GER_army_modernization
+		GER_establish_luftwaffe
+		GER_air_innovation
+		GER_army_innovation
+		GER_coal_liquidization
+		GER_synthetic_rubber
+		GER_grosraumwirtschaft
+		GER_german_war_economy
+	}
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	ideas = {
+		hjalmar_schacht = 8
+		wilhelm_groener = 10
+		otto_gessler = 4
+		walther_funk = 3
+		GER_julius_leber = 2
+	}
+	traits = {
+		captain_of_industry = 5
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+	focus_factors = {		
+	}
+}

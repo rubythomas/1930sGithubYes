@@ -1,0 +1,24 @@
+#	Example:
+# 
+#	example_trigger = {
+#		tag = GER
+#		is_ai = no
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		exampel_trigger = yes
+#	}
+# 
+
+TUR_cannot_form_kurdish_collaboration_government = {
+	custom_trigger_tooltip = {
+		tooltip = TUR_cannot_form_kurdish_collaboration_government_tt
+		AND = {
+			FROM = { original_tag = KUR }
+			original_tag = TUR
+		}
+	}
+}

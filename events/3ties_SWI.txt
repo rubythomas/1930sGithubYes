@@ -1,0 +1,29 @@
+﻿add_namespace = ctswi
+
+country_event = {
+	id = ctswi.1
+	title = ctswi.1.t
+	desc = ctswi.1.d
+	picture = GFX_report_event_swiss
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = ctswi.1.o1
+		ai_chance = {
+			base = 10
+		}
+		ITA = {
+			country_event = { id = ctita.1 }
+		}
+	}
+	#no deal
+	option = {
+		name = ctswi.1.o2
+		ai_chance = {
+			base = 0
+		}
+		FRA = {
+			country_event = { id = twentiesfra.8 }
+		}
+	}
+}

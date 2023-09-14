@@ -1,0 +1,3 @@
+ct_monarchy_restorations = {
+	icon = generic_political_actions
+}

@@ -1,0 +1,214 @@
+GRE_alternate_fascist_plan = {
+	name = "GRE fascist plan"
+	desc = ""
+
+	enable = {
+		original_tag = GRE
+		OR = {
+			has_country_flag = GRE_AI_METAXAS
+			has_game_rule = {
+				rule = GRE_ai_behavior
+				option = METAXAS
+			}
+		}
+	}
+
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		#1930
+		GRE_support_monarchy
+		GRE_assassinate_venizelos
+		GRE_royal_fascism
+		GRE_industry
+		GRE_tech_slot
+		#1931
+		GRE_metaxas_authority
+		GRE_support_metaxas
+		GRE_seize_power
+		GRE_industrial_incentives
+		GRE_rural_electrification
+		GRE_expand_pyrkal
+		#1932	
+		GRE_military_modernization		
+		GRE_expand_hellenic_army_arsenals
+		GRE_industrial_stim
+		GRE_abandon_gold
+		GRE_war_preperations
+		GRE_develop_greek_ship_building
+		GRE_industrial_incentives
+		GRE_army_engineers
+		#1933
+		GRE_early_plane_models
+		GRE_conscription 
+		GRE_halyvourgiki_hellenic_steel_industry_s_a
+		GRE_expand_glavanis_kazazis
+		GRE_road_building
+		#1934
+		GRE_mining
+		GRE_diomidis
+		GRE_reconstruction2
+		GRE_expand_heavy_metals_prod
+		GRE_reconstruction
+		#1935		
+		GRE_further_industrial_incentives
+		GRE_d_p_skouras		
+		GRE_peteinaris
+		GRE_extra_tech_slot	
+		GRE_air_base_expansion
+		GRE_demand_toskeria
+		#1936
+		GRE_organize_national_rallies
+		GRE_national_youth_organisation
+		GRE_the_megali_idea
+		GRE_stoke_cypriot_enosis
+		GRE_demand_enosis
+		#1937
+		GRE_repay_debts		
+		GRE_seek_accommodation_with_germany
+		GRE_econ_ties_with_germany
+		GRE_actually_turkey_sucks
+		GRE_anti_air_artillery
+		GRE_prepare_for_the_next_war
+		#1938
+		GRE_tank_development
+		GRE_the_defence_of_greece
+		GRE_pre_air_base_expansion
+		GRE_standardisation_of_equipment
+		GRE_modernising_the_cavalry
+		GRE_romanian_bridgehead_strategy
+		GRE_north_forts
+		#1939		
+		GRE_study_foreign_tanks
+		GRE_air_innovations
+		GRE_artillery_modernisation
+		GRE_fighter_modernisation
+		GRE_bulgarian_fort		
+		GRE_army_modernisation
+		GRE_tackle_turkey 
+		GRE_integrate_turkey
+	}
+	research = {
+	}
+	ideas = {
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+
+GRE_alternate_unaligned_plan = {
+	name = "Greek Monarchist plan"
+	desc = "Greece becomes an authoritarian monarchy and will reconquer the Empire!"
+
+	enable = {
+		original_tag = GRE
+		OR = {
+			has_country_flag = GRE_AI_GEORGEII
+			has_game_rule = {
+				rule = GRE_ai_behavior
+				option = GEORGEII
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		#1930
+		GRE_support_monarchy
+		GRE_assassinate_venizelos
+		GRE_monarchy
+		GRE_industry
+		GRE_tech_slot
+		#1931
+		GRE_crown_george_II
+		GRE_royal_tour
+		GRE_support_george
+		GRE_industrial_incentives
+		GRE_rural_electrification
+		GRE_expand_pyrkal
+		#1932	
+		GRE_military_modernization		
+		GRE_expand_hellenic_army_arsenals
+		GRE_industrial_stim
+		GRE_abandon_gold
+		GRE_war_preperations
+		GRE_develop_greek_ship_building
+		GRE_industrial_incentives
+		GRE_army_engineers
+		#1933
+		GRE_early_plane_models
+		GRE_conscription 
+		GRE_halyvourgiki_hellenic_steel_industry_s_a
+		GRE_expand_glavanis_kazazis
+		GRE_road_building
+		#1934
+		GRE_mining
+		GRE_diomidis
+		GRE_reconstruction2
+		GRE_expand_heavy_metals_prod
+		GRE_reconstruction
+		#1935		
+		GRE_further_industrial_incentives
+		GRE_d_p_skouras		
+		GRE_peteinaris
+		GRE_extra_tech_slot	
+		GRE_air_base_expansion
+		GRE_demand_toskeria
+		#1936
+		GRE_organize_national_rallies
+		GRE_foreign_policy
+		GRE_abandon_neutrality
+		GRE_the_megali_idea
+		GRE_stoke_cypriot_enosis
+		GRE_demand_enosis
+		#1937
+		GRE_repay_debts		
+		GRE_church_appeal_for_austerity
+		GRE_actually_turkey_sucks
+		GRE_anti_air_artillery
+		GRE_prepare_for_the_next_war
+		#1938
+		GRE_tank_development
+		GRE_the_defence_of_greece
+		GRE_pre_air_base_expansion
+		GRE_standardisation_of_equipment
+		GRE_modernising_the_cavalry
+		GRE_romanian_bridgehead_strategy
+		GRE_north_forts
+		#1939		
+		GRE_study_foreign_tanks
+		GRE_air_innovations
+		GRE_artillery_modernisation
+		GRE_fighter_modernisation
+		GRE_bulgarian_fort		
+		GRE_army_modernisation
+		GRE_tackle_turkey 
+		GRE_integrate_turkey
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

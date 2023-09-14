@@ -1,0 +1,127 @@
+﻿division_template = {
+	name = "Juntuán"
+	regiments = {
+		infantry = { x = 0 y = 0 }	
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	priority = 0 # garrison
+}
+division_template = {
+	name = "Sanjiao Jun"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Qibing Jun"	
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name = "39 Bubing Shi"
+		location = 9974
+		division_template = "Qibing Jun"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "1 Fujian Jingbei"
+		location = 9974
+		division_template = "Sanjiao Jun"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "2 Fujian Jingbei"
+		location = 4169
+		division_template = "Juntuán"	
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "3 Fujian Jingbei"
+		location = 4196
+		division_template = "Qibing Jun"
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "Shanghai Jingbei"
+		location = 7014
+		division_template = "Juntuán"	
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "Lu zhan Shi"
+		location = 7014
+		division_template = "Juntuán"	
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "Shui Jing Tuan"
+		location = 10076
+		division_template = "Sanjiao Jun"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "8 Lujun Shi"
+		location = 4925
+		division_template = "Juntuán"
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "11 Lujun Shi"
+		location = 4925
+		division_template = "Juntuán"
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "14 Bubing Shi"
+		location = 12076
+		division_template = "Sanjiao Jun"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		name = "1 Nanking Jingbei"
+		location = 11913
+		division_template = "Juntuán"
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "3 Nanking Jingbei"
+		location = 11913
+		division_template = "Juntuán"	
+		start_equipment_factor = 0.7
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "CHI"
+		}
+		requested_factories = 3
+		progress = 0.55
+		efficiency = 10
+	}
+}

@@ -1,0 +1,136 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Strelkovaya Diviziya"			# Rifle Division
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 1x 152mm bn + 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Gornostrelkovaya Diviziya"		# Motor Rifle Division
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }	
+		mountaineers = { x = 2 y = 1 }	
+		mountaineers = { x = 2 y = 2 }	
+		mountaineers = { x = 3 y = 0 }	
+		mountaineers = { x = 3 y = 1 }	
+		mountaineers = { x = 3 y = 2 }	
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Kavaleriyskaya Diviziya" 	# Kavaleriyskaya Diviziya
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "NKVD Pogranichnaya Diviziya"			# NKVD Border Guard Division - Garrison units (lolder experience, older equipment)
+	regiments = {
+		infantry = { x = 0 y = 0 }	
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+##### OOB #####
+units = {
+	##### (North West Theatre) -- Archangelsk #####
+	division= {			
+		name = "Strelkovaya Diviziya"		
+		location = 9203
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}			
+	division= {			
+		name = "Strelkovaya Diviziya"		
+		location = 142
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}				
+	division= {			
+		name = "Strelkovaya Diviziya"		
+		location = 3134
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}			
+	#division= {	# "27ya 'Omskaya' Strelk. Div."		
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 27
+	#	}
+	#	location = 104
+	#	division_template = "Strelkovaya Diviziya"
+	#	start_experience_factor = 0.2
+	#	start_equipment_factor = 0.85
+	#}					
+	#division= {	# "33ya 'Belorusskaya' Strelk. Div."		
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 33
+	#	}
+	#	location = 9120
+	#	division_template = "Strelkovaya Diviziya"
+	#	start_experience_factor = 0.2
+	#	start_equipment_factor = 0.85
+	#}		
+	division= {			
+		name = "Strelkovaya"		
+		location = 6380
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}
+	### (Leningrad Army Group) -- Leningrad ###
+	division= {			
+		name = "NKVD Pogranichnaya Diviziya"		
+		location = 6174
+		division_template = "NKVD Pogranichnaya Diviziya"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.7
+	}					
+	division= {			
+		name = "Strelk. Div."		
+		location = 415
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}							
+	division= {			
+		name = "Kav. Div."		
+		location = 6293
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+}					

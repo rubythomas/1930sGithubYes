@@ -1,0 +1,112 @@
+GRE_historical_plan = {
+	name = "GRE historical plan"
+	desc = ""
+
+	enable = {
+		original_tag = GRE
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = GRE_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = GRE_AI_RANDOM_COMMUNIST_HISTORICAL
+			has_game_rule = {
+				rule = GRE_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		#has_government = fascism
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		#1930
+		GRE_support_status_quo
+		GRE_industry
+		GRE_tech_slot
+		GRE_industrial_incentives
+		GRE_rural_electrification
+		GRE_military_modernization
+		GRE_deflationary_policies		
+		#1931	
+		GRE_anti_air_artillery
+		GRE_build_republican_support	
+		GRE_army_engineers
+		GRE_early_plane_models
+		GRE_expand_pyrkal
+		#1932
+		GRE_air_base_expansion
+		GRE_prepare_for_the_next_war
+		GRE_tank_development
+		GRE_conscription 	
+		GRE_special_forces
+		#1933
+		GRE_the_defence_of_greece
+		GRE_pre_air_base_expansion
+		GRE_expand_hellenic_army_arsenals
+		GRE_industrial_stim
+		GRE_abandon_gold
+		#1934
+		GRE_standardisation_of_equipment
+		GRE_modernising_the_cavalry
+		GRE_romanian_bridgehead_strategy
+		GRE_develop_greek_ship_building
+		GRE_industrial_incentives
+		#1935
+		GRE_halyvourgiki_hellenic_steel_industry_s_a
+		GRE_expand_glavanis_kazazis
+		GRE_road_building
+		GRE_strengthen_government_support
+		#1936
+		GRE_fighter_modernisation
+		GRE_expand_heavy_metals_prod
+		GRE_reconstruction
+		GRE_bulgarian_fort		
+		#1937
+		GRE_study_foreign_tanks
+		GRE_air_innovations
+		GRE_mining
+		GRE_diomidis
+		GRE_north_forts
+		GRE_reconstruction2
+		#1938		
+		GRE_defensive_strategems
+		GRE_artillery_modernisation
+		GRE_further_industrial_incentives
+		GRE_d_p_skouras		
+		GRE_peteinaris
+		GRE_extra_tech_slot
+		#1939
+		GRE_stimulated_growth
+		GRE_church_appeal_for_austerity
+		GRE_army_modernisation
+		GRE_foreign_policy
+		GRE_turkey_friend
+		GRE_abandon_neutrality
+		GRE_why_we_fight
+		GRE_subsidize_auto_industry
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		popular_figurehead = 3
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

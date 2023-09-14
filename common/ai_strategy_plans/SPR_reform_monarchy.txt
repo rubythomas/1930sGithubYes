@@ -1,0 +1,83 @@
+BRA_fascism_plan = {
+	name = "SPR reform monarchy plan"
+	desc = ""
+
+	enable = {
+		original_tag = SPR
+		OR = {
+			has_country_flag = SPR_AI_REFORM_MONARCHY
+			has_game_rule = {
+				rule = SPR_ai_behavior
+				option = REFORM_MONARCHY
+			}
+		}
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		SPR_reform_monarchy
+ 		SPR_bye_alph
+		SPR_political_reformation
+		SPR_cut_military_spending
+		SPR_replace_sanjurjo
+		SPR_economic_reformation
+		SPR_unforgotten_masses
+		SPR_30_tech_slot
+		SPR_ini 
+		SPR_spanish_highways
+		SPR_abengoa
+		SPR_expand_irizar
+		SPR_expand_caf 
+		SPR_invite_foreign_investors
+		SPR_expand_fcc
+		SPR_economic_stabilization
+		SPR_expand_construcciones_aeronauticas
+		SPR_resources  
+		SPR_grupo_gea_perona 
+		SPR_economic_recovery
+		SPR_conscription
+		SPR_idealistic_youth
+		SPR_talgo 
+		SPR_prospect_for_oil		
+ 		SPR_cepsa_refineries
+		SPR_colonial_infrastructure
+		SPR_economic_recovery2
+		#SPR_coal_liquification
+		SPR_mining_techniques
+		SPR_expand_economic_prioritization
+		SPR_pegaso
+		SPR_ecia 
+		SPR_extra_tech_slot
+		SPR_birthright
+		SPR_integrate_rif
+		SPR_hire_botin 
+		#SPR_30_tech_slot_max
+		SPR_air_bases
+		SPR_air_innovation
+		SPR_army_modernization
+		SPR_army_maneuvers
+		SPR_small_arms
+		SPR_supremacy_of_offense
+		SPR_artillery_regiments
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		popular_figurehead = 5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

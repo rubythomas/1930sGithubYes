@@ -1,0 +1,29 @@
+﻿add_namespace = ctirq
+
+country_event = {
+	id = ctirq.1
+	title = ctirq.1.t
+	desc = ctirq.1.d
+	picture = GFX_report_event_iraq_oil
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = ctirq.1.o1
+		ai_chance = {
+			base = 10
+		}
+		FRA = {
+			country_event = { id = twentiesfra.11 }
+		}
+	}
+	#no deal
+	option = {
+		name = ctirq.1.o2
+		ai_chance = {
+			base = 0
+		}
+		FRA = {
+			country_event = { id = twentiesfra.10 }
+		}
+	}
+}

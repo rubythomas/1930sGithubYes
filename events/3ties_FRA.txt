@@ -1,0 +1,572 @@
+﻿add_namespace = twentiesfra
+
+############################## French Election ##################################
+country_event = { #Edouard Herriot 1932
+	id = twentiesfra.1
+	title = twentiesfra.1.t
+	desc = twentiesfra.1.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes			
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1932.6.2
+			NOT = { has_country_flag = ct_fra_herriot }
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.1.o1
+		set_country_flag = ct_fra_herriot
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Edouard Herriot"
+			desc = "POLITICS_EDOUARD_HERRIOT_DESC"
+			picture = "Portrait_FRA_Edouard_Herriot.dds"
+			expire = "1945.1.16"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { #Gaston Doumergue
+	id = twentiesfra.2
+	title = twentiesfra.2.t
+	desc = twentiesfra.2.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1934.2.8
+			NOT = { has_country_flag = ct_fra_doumergue }
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.2.o1
+		set_country_flag = ct_fra_doumergue
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Gaston Doumergue"
+			desc = "POLITICS_GASTON_DOUMERGUE_DESC"
+			picture = "Portrait_FRA_Gaston_Doumergue.dds"
+			expire = "1938.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+country_event = { #Leon Blum 36
+	id = twentiesfra.3
+	title = twentiesfra.3.t
+	desc = twentiesfra.3.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1936.6.3
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+			NOT = { has_country_flag = ct_fra_blum1 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.3.o1
+		set_country_flag = ct_fra_blum1
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Leon Blum"
+			desc = "POLITICS_LEON_BLUM_DESC"
+			picture = "Portrait_FRA_Leon_Blum.dds"
+			expire = "1945.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+country_event = { #Leon Blum2 38
+	id = twentiesfra.4
+	title = twentiesfra.4.t
+	desc = twentiesfra.4.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1938.3.12
+			NOT = { has_country_flag = ct_fra_blum2 }
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.4.o1
+		set_country_flag = ct_fra_blum2
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Leon Blum"
+			desc = "POLITICS_LEON_BLUM_DESC"
+			picture = "Portrait_FRA_Leon_Blum.dds"
+			expire = "1945.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = {
+	id = twentiesfra.5
+	title = twentiesfra.5.t
+	desc = twentiesfra.5.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1934.1.28
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+			NOT = { has_country_flag = ct_fra_daladier1 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.5.o1
+		set_country_flag = ct_fra_daladier1
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Édouard Daladier"
+			desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
+			picture = "Portrait_France_Edouard_Daladier.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+				stout_defender
+			}
+		}
+	}
+}
+
+country_event = {
+	id = twentiesfra.6
+	title = twentiesfra.6.t
+	desc = twentiesfra.6.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date > 1938.4.8
+			NOT = { has_country_flag = ct_jean_iii }
+			NOT = { has_country_flag = ct_napoleon_vi }
+			NOT = { has_country_flag = ct_fra_daladier2 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesfra.6.o1
+		set_country_flag = ct_fra_daladier2
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Édouard Daladier"
+			desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
+			picture = "Portrait_France_Edouard_Daladier.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+				stout_defender
+			}
+		}
+	}
+}
+
+country_event = {#greatgamble spr
+	id = twentiesfra.7
+	title = twentiesfra.7.t
+	desc = twentiesfra.7.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = twentiesfra.7.o1
+		ai_chance = {
+			base = 10
+		}
+		ENG = {	country_event = { id = cteng.4 } }
+	}
+	#no deal
+	option = {
+		name = twentiesfra.7.o2
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { #swiss war
+	id = twentiesfra.8
+	title = twentiesfra.8.t
+	desc = twentiesfra.8.d
+	picture = GFX_report_event_swiss
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.8.o1
+		create_wargoal = {
+			type = annex_everything
+			target = SWI
+		}
+	}
+}
+country_event = { #swiss surrender
+	id = twentiesfra.9
+	title = twentiesfra.9.t
+	desc = twentiesfra.9.d
+	picture = GFX_report_event_swiss
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.9.o1
+	}
+}
+country_event = { #iraq war
+	id = twentiesfra.10
+	title = twentiesfra.10.t
+	desc = twentiesfra.10.d
+	picture = GFX_report_event_iraq_oil
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.10.o1
+		create_wargoal = {
+			type = annex_everything
+			target = IRQ
+		}
+	}
+}
+country_event = { #iraq surrenders
+	id = twentiesfra.11
+	title = twentiesfra.11.t
+	desc = twentiesfra.11.d
+	picture = GFX_report_event_iraq_oil
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.11.o1
+		transfer_state = 676
+	}
+}
+
+country_event = { #war
+	id = twentiesfra.12
+	title = twentiesfra.12.t
+	desc = twentiesfra.12.d
+	picture = GFX_report_event_wallonia
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.12.o1
+		create_wargoal = {
+			type = annex_everything
+			target = BEL
+		}
+	}
+}
+country_event = { #surrenders
+	id = twentiesfra.13
+	title = twentiesfra.13.t
+	desc = twentiesfra.13.d
+	picture = GFX_report_event_wallonia
+	is_triggered_only = yes
+	option = {
+		name = twentiesfra.13.o1
+		transfer_state = 34
+		transfer_state = 808
+	}
+}
+
+country_event = { #fascistgov
+	id = twentiesfra.14
+	title = twentiesfra.14.t
+	desc = twentiesfra.14.d
+	picture = GFX_report_event_french_liberation
+	fire_only_once = yes		
+	trigger = {
+		tag = FRA
+		AND = {
+			date < 1931.6.1
+			fascism > 0.50
+		}
+	}
+	option = { 
+		name = twentiesfra.14.o1
+		set_country_flag = ct_fascismfra_gov	
+		set_politics = { ruling_party = fascism	}
+	}
+}
+#18 juin
+country_event = {
+	id = twentiesfra.15
+	title = twentiesfra.15.t
+	desc = twentiesfra.15.d
+	picture = GFX_news_event_18_juin_event	
+	is_triggered_only = yes
+	#mean_time_to_happen = { days = 2 }	
+	option = {
+		name = twentiesfra.15.a
+	}
+}
+#B1Bis
+country_event = {
+	id = twentiesfra.16
+	title = twentiesfra.16.t
+	desc = twentiesfra.16.d
+	picture = GFX_news_event_b1bis
+	fire_only_once = yes
+	mean_time_to_happen = { days = 2 }
+    	trigger = {
+        		original_tag = FRA
+        		has_government = democratic
+       		has_tech = basic_heavy_tank
+    	}
+	option = {
+		name = twentiesfra.16.a
+		create_equipment_variant = {
+			name = "B1 bis"
+			type = heavy_tank_equipment_1
+			parent_version = 0
+			upgrades = {
+				tank_armor_upgrade = 2
+				tank_reliability_upgrade = 1
+			}
+		}
+	}
+}
+#Révolte Communiste
+#country_event = {
+#	id = twentiesfra.17
+#	title = twentiesfra.17.t
+#	desc = twentiesfra.17.d
+#	picture = GFX_fra_com
+#	fire_only_once = yes
+#	trigger = {
+  #      		original_tag = FRA
+ #       		has_government = democratic
+#       	 	communism > 0.5
+ #  	 }
+	#mean_time_to_happen = { days = 2 }
+#	option = {
+#		name = twentiesfra.17.a
+#		add_timed_idea = { idea = fra_com days = 365 }
+#		hidden_effect =  {
+#			news_event = { hours = 6 id = news.1012 }
+#		}
+#	}
+#}
+
+#laval_1 1-27-31
+country_event = {
+	id = twentiesfra.18
+	title = twentiesfra.18.t
+	desc = twentiesfra.18.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes
+	trigger = {
+        		original_tag = FRA
+			date > 1931.1.26
+        		has_government = democratic
+   	 }
+	option = {
+		name = twentiesfra.18.a
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Pierre Laval"
+			desc = ""
+			picture = "Portrait_France_Pierre_Laval.dds"
+			expire = "1948.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#laval_1 1-27-31
+country_event = {
+	id = twentiesfra.19
+	title = twentiesfra.19.t
+	desc = twentiesfra.19.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes
+	trigger = {
+        		original_tag = FRA
+			date > 1935.6.6
+        		has_government = democratic
+   	 }
+	option = {
+		name = twentiesfra.19.a
+		add_stability = -0.01
+		create_country_leader = {
+			name = "Pierre Laval"
+			desc = ""
+			picture = "Portrait_France_Pierre_Laval.dds"
+			expire = "1948.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#assassin Prez Doumer
+country_event = {
+	id = twentiesfra.20
+	title = twentiesfra.20.t
+	desc = twentiesfra.20.d
+	picture = GFX_report_event_funeral
+	fire_only_once = yes
+	trigger = {
+        		original_tag = FRA
+			date > 1932.5.5
+        		has_government = democratic
+   	 }
+	option = {
+		name = twentiesfra.20.o1
+		add_stability = -0.05
+	}
+}
+
+
+#Yên Bái mutiny
+country_event = {
+	id = twentiesfra.21
+	title = twentiesfra.21.t
+	desc = twentiesfra.21.d
+	picture = GFX_report_event_japanese_soldiers_01
+	fire_only_once = yes
+	trigger = {
+		
+        		original_tag = FRA
+			date > 1930.2.10
+        		has_government = democratic
+   	 }
+	option = { #crush rebels
+		name = twentiesfra.21.o1
+		ai_chance = { factor = 40 }
+		add_stability = -0.02
+	}
+	option = { #negotiate dominion stat
+		name = twentiesfra.21.o2
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			release_puppet = VIN
+			add_autonomy_ratio = {
+				value = 0.5
+			}
+			#add_ideas = { 
+			#	limited_conscription
+			#}
+			set_politics = {
+				ruling_party = democratic
+			}
+		}
+	}
+	option = { #negotiate dominion - switch tag to play as Vietnam
+		name = twentiesfra.21.o3
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			release_puppet = VIN
+			add_autonomy_ratio = {
+				value = 0.5
+			}
+			VIN = { change_tag_from = ROOT }
+			#add_ideas = { 
+			#	limited_conscription
+			#}
+			set_politics = {
+				ruling_party = democratic
+			}
+		}
+	}
+}
+
+
+#spain gets demand for catalonia - SPR = { has_idea = german_advisors }
+country_event = {
+	id = twentiesfra.22
+	title = twentiesfra.22.t
+	desc = twentiesfra.22.d
+	picture = GFX_report_event_french_british_officers
+	is_triggered_only = yes
+	option = { #submit
+		name = twentiesfra.22.o1 
+		ai_chance = {
+			base = 40
+			modifier = {
+				add = -50
+				FRA = { has_army_size = { size < 35 } }
+			}
+			modifier = {
+				add = 100
+				FRA = { has_army_size = { size > 34 } }
+			}
+			modifier = {
+				add = 20
+				is_in_faction_with = FRA
+			}
+		}
+		FRA = {	country_event = { id = twentiesfra.23 }	}
+	}
+	option = { #nope
+		name = twentiesfra.22.o2
+		ai_chance = { factor = 1 }
+		FRA = {	country_event = { id = twentiesfra.24 }	}
+	}
+}
+
+#spain gives up catalonia
+country_event = {
+	id = twentiesfra.23
+	title = twentiesfra.23.t
+	desc = twentiesfra.23.d
+	picture = GFX_report_event_french_british_officers
+	is_triggered_only = yes
+	option = { #SPRsubmits
+		name = twentiesfra.23.o1
+		165 = { add_core_of = FRA }
+		FRA = { transfer_state = 165 }
+	}
+	option = { #SPRsubmits but we still attack
+		name = twentiesfra.23.o2
+		165 = { add_core_of = FRA }
+		FRA = { transfer_state = 165 }
+		create_wargoal = {
+			type = annex_everything
+			target = SPR
+		}		
+	}	
+}
+
+#spain doesn't give up catalonia
+country_event = {
+	id = twentiesfra.24
+	title = twentiesfra.24.t
+	desc = twentiesfra.24.d
+	picture = GFX_report_event_french_british_officers
+	is_triggered_only = yes
+	option = { #submit
+		name = twentiesfra.24.o1
+		165 = { add_core_of = FRA }
+		create_wargoal = {
+			type = annex_everything
+			target = SPR
+		}
+	}
+}

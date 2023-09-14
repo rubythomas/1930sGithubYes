@@ -1,0 +1,9 @@
+afrique_category = {
+	icon = power_struggle
+	allowed = {
+		is_subject = no
+	}
+	visible = {
+		original_tag = FRA
+	}
+}

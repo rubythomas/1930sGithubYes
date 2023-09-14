@@ -1,0 +1,860 @@
+﻿add_namespace = ctrus
+country_event = {
+	id = ctrus.1
+	title = ctrus.1.t
+	desc = ctrus.1.desc
+	picture = GFX_report_event_soviet_tanks_snow
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_controlled_by = SOV
+				}
+				RUS = {
+					add_state_core = PREV
+				}
+			}
+		}
+	}
+	option = {   #goWithTzar
+		name = ctrus.1.a
+		trigger = {
+			has_global_flag = ct_tzar
+		}
+		RUS = { change_tag_from = ROOT }
+		RUS = { 
+			hidden_effect = {
+				transfer_state = 408
+				inherit_technology = ROOT
+				load_oob = "RUS_Phase_I"							add_ideas = { 
+					limited_conscription
+					partial_economic_mobilisation 
+				}
+				#news_event = { hours = 6 id = news_1930.1 }
+				complete_national_focus = RUS_return_of_tzar
+				create_corps_commander = {
+					name = "Andrey Vlasov"
+					picture = "Portrait_Soviet_Andrey_Vlasov.dds"
+					traits = { winter_specialist infantry_officer }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 1
+					logistics_skill = 3
+				}
+			} 
+		}
+		SOV = { 
+			hidden_effect = {
+				create_country_leader = {
+					name = "Fallen Government"
+					desc = ""
+					picture = "Portrait_Soviet_Fallen.dds"
+					expire = "1953.3.1"
+					ideology = stalinism
+					traits = {
+					}
+				}
+				remove_unit_leader = 412
+				country_event = { id = ctrus.2 days = 14 }
+				country_event = { id = ctrus.11 days = 19 }
+				country_event = { id = ctrus.29 days = 35 }				
+			} 
+		}
+	}
+	option = {   #goWithKerensky
+		name = ctrus.1.b
+		trigger = {
+			has_global_flag = ct_kerensky
+		}
+		RUS = { change_tag_from = ROOT }
+		RUS = { 
+			hidden_effect = {
+				transfer_state = 408
+				inherit_technology = ROOT
+				load_oob = "RUS_Phase_I"
+				add_ideas = { 
+					limited_conscription
+					partial_economic_mobilisation 
+				}
+				set_politics = {
+					ruling_party = democratic
+				}
+				#news_event = { hours = 6 id = news_1930.1 }
+				complete_national_focus = RUS_pursue_democracy
+				create_corps_commander = {
+					name = "Andrey Vlasov"
+					picture = "Portrait_Soviet_Andrey_Vlasov.dds"
+					traits = { winter_specialist infantry_officer }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 1
+					logistics_skill = 3
+				}
+			} 
+		}
+		SOV = { 
+			hidden_effect = {
+				create_country_leader = {
+					name = "Fallen Government"
+					desc = ""
+					picture = "Portrait_Soviet_Fallen.dds"
+					expire = "1953.3.1"
+					ideology = despotism
+					traits = {
+					}
+				}
+				remove_unit_leader = 412
+				country_event = { id = ctrus.2 days = 14 }
+				country_event = { id = ctrus.11 days = 19 }
+				country_event = { id = ctrus.29 days = 35 }	
+			} 
+		}
+	}
+	option = {   #stayWithUSSR
+		name = ctrus.1.c
+		trigger = {
+			OR = {
+				has_global_flag = ct_kerensky
+				has_global_flag = ct_tzar
+			}
+		}
+		RUS = { 
+			hidden_effect = {
+				transfer_state = 408 
+				inherit_technology = ROOT
+				load_oob = "RUS_Phase_I"
+				add_ideas = { 
+					limited_conscription
+					partial_economic_mobilisation 
+				}
+				create_corps_commander = {
+					name = "Andrey Vlasov"
+					picture = "Portrait_Soviet_Andrey_Vlasov.dds"
+					traits = { winter_specialist infantry_officer }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				if = {
+					limit = { has_global_flag = ct_kerensky }
+					set_politics = { 
+						ruling_party = democratic 
+					}
+					complete_national_focus = RUS_pursue_democracy
+				}
+				if = {
+					limit = { has_global_flag = ct_tzar }
+					complete_national_focus = RUS_return_of_tzar
+				}
+			} 
+		}
+		SOV = { 
+			hidden_effect = {
+				create_country_leader = {
+					name = "Fallen Government"
+					desc = ""
+					picture = "Portrait_Soviet_Fallen.dds"
+					expire = "1953.3.1"
+					ideology = stalinism
+					traits = {
+					}
+				}
+				remove_unit_leader = 412
+				country_event = { id = ctrus.2 days = 14 }
+				country_event = { id = ctrus.11 days = 19 }
+				country_event = { id = ctrus.29 days = 35 }	
+			} 
+		}
+	}
+}
+country_event = { #byUKR
+	id = ctrus.2
+	title = ctrus.2.t
+	desc = ctrus.2.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			SOV = { release = UKR }
+			UKR = {
+				load_oob = "UKR_ukrexit"
+				add_ideas = { 
+					communist_past #-20% stab , communist_past2 
+				}
+				#every_state = {
+				#	limit = {	is_controlled_by = UKR	}
+				#	add_state_core = UKR
+				#}
+				set_politics = {
+					ruling_party = neutrality
+					last_election = "1918.1.1"
+					election_frequency = 48
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Ukrainian Congress"
+					desc = ""
+					picture = "Portrait_Soviet_Fallen.dds"
+					expire = "1953.3.1"
+					ideology = despotism
+					traits = {
+					}
+				}
+				navy_experience = 5
+			}
+		}
+	}
+	option = {#crap as SOV
+		name = ctrus.2.a
+	}
+	option = {#play as Ukraine
+		name = ctrus.2.b
+		trigger = {
+			is_ai = no
+		}
+		UKR = { change_tag_from = ROOT }
+	}
+}
+country_event = { #phase2russ
+	id = ctrus.3
+	title = ctrus.3.t
+	desc = ctrus.3.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			RUS = { 
+				transfer_state = 409
+				transfer_state = 560
+				transfer_state = 561
+				transfer_state = 562
+				transfer_state = 657
+				load_oob = "RUS_Phase_II"
+			}
+		}
+	}
+	option = {
+		name = ctrus.3.a
+	}
+}
+country_event = { #phase3russ
+	id = ctrus.5
+	title = ctrus.5.t
+	desc = ctrus.5.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			RUS = { 
+				transfer_state = 563
+				transfer_state = 564
+				transfer_state = 565
+				transfer_state = 566
+				transfer_state = 574
+				transfer_state = 575
+				transfer_state = 637
+				transfer_state = 644
+				load_oob = "RUS_Phase_III"
+			}
+		}
+	}
+	option = {
+		name = ctrus.5.a
+	}
+}
+
+country_event = { #phase4russ
+	id = ctrus.7
+	title = ctrus.7.t
+	desc = ctrus.7.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			RUS = { 
+				transfer_state = 40
+				transfer_state = 516
+				transfer_state = 567
+				transfer_state = 568
+				transfer_state = 569
+				transfer_state = 570
+				transfer_state = 576
+				transfer_state = 577
+				transfer_state = 578
+				transfer_state = 654
+				load_oob = "RUS_Phase_IV"
+			}
+		}
+	}
+	option = {
+		name = ctrus.7.a
+	}
+}
+
+#Russia proposes NAP to ROOT
+country_event = {
+	id = ctrus.8
+	title = ctrus.8.t
+	desc = ctrus.8.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	#Accept NAP
+	option = {
+		name = ctrus.8.a
+		ai_chance = {
+			base = 20
+		}
+		trigger = {
+
+			NOT = { tag = JAP }
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		FROM = { country_event = { id = ctrus.9 days = 1 } }
+	}
+	#Refuse NAP
+	option = {
+		name = ctrus.8.b
+		ai_chance = {
+			base = 0
+		}
+		FROM = { country_event = { id = ctrus.10 days = 1 } }	
+	}
+	#Jap Agrees
+	option = {
+		name = ctrus.8.c
+		ai_chance = {
+			base = 50
+		}
+		trigger = {
+
+			tag = JAP
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		FROM = { country_event = { id = ctrus.9 days = 1 } }	
+	}
+}
+
+#ROOT accepts
+country_event = {
+	id = ctrus.9
+	title = ctrus.9.t
+	desc = ctrus.9.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ctrus.9.a
+		ai_chance = {
+			base = 10
+		}
+		effect_tooltip = {
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+}
+#ROOT denies
+country_event = {
+	id = ctrus.10
+	title = ctrus.10.t
+	desc = ctrus.10.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = ctrus.10.a
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+country_event = { #byUKR
+	id = ctrus.11
+	title = ctrus.11.t
+	desc = ctrus.11.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			SOV = { 
+				release = BLR
+			}
+			BLR = { 
+				load_oob = "BLR_exit"
+				add_ideas = { 
+					limited_conscription
+				}
+			}
+		}
+	}
+	option = {
+		name = ctrus.11.a
+	}
+}
+country_event = { #phase5russ
+	id = ctrus.12
+	title = ctrus.12.t
+	desc = ctrus.12.desc
+	picture = GFX_report_event_german_volunteers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			RUS = { 
+				transfer_state = 403
+				transfer_state = 404
+				transfer_state = 405
+				transfer_state = 571
+				transfer_state = 572
+				transfer_state = 573
+				transfer_state = 579
+				transfer_state = 580
+				transfer_state = 582
+				transfer_state = 583
+				transfer_state = 586
+				transfer_state = 588
+				transfer_state = 589
+				transfer_state = 590
+				transfer_state = 581
+				transfer_state = 653
+				transfer_state = 732
+				transfer_state = 742
+				load_oob = "RUS_Phase_V"
+			}
+		}
+	}
+	option = {
+		name = ctrus.12.a
+	}
+}
+
+country_event = { #phase
+	id = ctrus.13
+	title = ctrus.13.t
+	desc = ctrus.13.desc
+	picture = GFX_report_event_soviet_tanks
+	fire_only_once = yes	
+	trigger = {
+		tag = RUS
+		AND = {
+			has_war = no 
+			owns_state = 195
+			owns_state = 217
+			owns_state = 219
+			NOT = { has_country_flag = ct_won_civil_war }
+		}
+	}
+	option = {
+		name = ctrus.13.a
+		hidden_effect = {
+			add_stability = -0.25
+			add_war_support = -0.4
+			set_country_flag = ct_won_civil_war
+			add_ideas = communist_past
+			set_capital = 195
+			195 = { set_state_name = "St. Petersburg" }
+			set_province_name = { id = 3151 name = "St. Petersburg" }
+			247 = { set_state_name = "Tver" }
+			set_province_name = { id = 6245 name = "Tver" }
+			217 = { set_state_name = "Tsaritsyn" }
+			set_province_name = { id = 3529 name = "Tsaritsyn" }
+		}
+	}
+}
+
+# Ukraine Referendum - event to allow it
+country_event = {
+	id = ctrus.14
+	title = ctrus.14.t
+	desc = ctrus.14.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctrus.14.a
+		ai_chance = {
+			factor = 80
+		}
+		if = {
+			limit = {
+				UKR = { has_opinion = { target = RUS value < 0 } }
+			}
+			random_list = {
+				10 = { UKR = { country_event = { id = ctrus.15 hours = 4 } } } #country votes yes
+				90 = { UKR = { country_event = { id = ctrus.16 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					UKR = { has_opinion = { target = RUS value > 0 } }
+					UKR = { has_opinion = { target = RUS value < 51 } }
+				}
+			}
+			random_list = {
+				80 = { UKR = { country_event = { id = ctrus.15 hours = 24 } } } #country votes yes
+				20 = { UKR = { country_event = { id = ctrus.16 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				UKR = { has_opinion = { target = RUS value > 50 } }
+			}
+			random_list = {
+				99 = { UKR = { country_event = { id = ctrus.15 hours = 24 } } } #country votes yes
+				1 = { UKR = { country_event = { id = ctrus.16 hours = 24 } } } #country votes no
+			}
+		}
+	}
+}
+#Ukraine votes yes
+country_event = {
+	id = ctrus.15 
+	title = ctrus.15.t
+	desc = ctrus.15.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctrus.15.a
+		custom_effect_tooltip = GAME_OVER_TT
+		RUS = { country_event = { id = ctrus.17 } }	
+	}
+}
+#Ukraine votes no
+country_event = {
+	id = ctrus.16 
+	title = ctrus.16.t
+	desc = ctrus.16.desc
+	picture = GFX_report_event_election_vote	
+	is_triggered_only = yes
+	option = {
+		name = ctrus.16.a
+		RUS = { country_event = { id = ctrus.18 } }
+	}
+}
+#Ukraine votes yes
+country_event = {
+	id = ctrus.17 
+	title = ctrus.17.t
+	desc = ctrus.17.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctrus.17.a
+		RUS = { annex_country = { target = UKR transfer_troops = yes } }
+		RUS = { set_country_flag = UKR_annexed_peacefully } # Used to change division name
+	}
+}
+#Ukraine votes no
+country_event = {
+	id = ctrus.18 
+	title = ctrus.18.t
+	desc = ctrus.18.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctrus.18.a
+	}
+}
+
+# Finnish Referendum - event to allow it
+country_event = {
+	id = ctrus.19
+	title = ctrus.19.t
+	desc = ctrus.19.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctrus.19.a
+		ai_chance = {
+			factor = 80
+		}
+		if = {
+			limit = {
+				FIN = { has_opinion = { target = RUS value < 0 } }
+			}
+			random_list = {
+				10 = { FIN = { country_event = { id = ctrus.20 hours = 4 } } } #country votes yes
+				90 = { FIN = { country_event = { id = ctrus.21 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					FIN = { has_opinion = { target = RUS value > 0 } }
+					FIN = { has_opinion = { target = RUS value < 51 } }
+				}
+			}
+			random_list = {
+				60 = { FIN = { country_event = { id = ctrus.20 hours = 24 } } } #country votes yes
+				40 = { FIN = { country_event = { id = ctrus.21 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				FIN = { has_opinion = { target = RUS value > 50 } }
+			}
+			random_list = {
+				90 = { FIN = { country_event = { id = ctrus.20 hours = 24 } } } #country votes yes
+				10 = { FIN = { country_event = { id = ctrus.21 hours = 24 } } } #country votes no
+			}
+		}
+	}
+}
+#Fin votes yes
+country_event = {
+	id = ctrus.20 
+	title = ctrus.20.t
+	desc = ctrus.20.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.20.a
+		custom_effect_tooltip = GAME_OVER_TT
+		RUS = { country_event = { id = ctrus.22 } }
+		
+	}
+
+}
+#Fin votes no
+country_event = {
+	id = ctrus.21 
+	title = ctrus.21.t
+	desc = ctrus.21.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.21.a
+		RUS = { country_event = { id = ctrus.23 } }
+	}
+
+}
+#Fin votes yes
+country_event = {
+	id = ctrus.22 
+	title = ctrus.22.t
+	desc = ctrus.22.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctrus.22.a
+		FIN = {
+			every_unit_leader = {
+				set_nationality = RUS
+			}
+		}
+		RUS = { annex_country = { target = FIN transfer_troops = yes } }
+		RUS = { set_country_flag = FIN_annexed_peacefully } # Used to change division name lists for RUS
+		RUS = { 
+			add_state_core = 146
+			add_state_core = 147
+			add_state_core = 148
+			add_state_core = 149
+			add_state_core = 150
+			add_state_core = 111
+			add_state_core = 722
+		}
+	}
+}
+#Fin votes no
+country_event = {
+	id = ctrus.23 
+	title = ctrus.23.t
+	desc = ctrus.23.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.23.a
+	}
+}
+
+# BLR Referendum - event to allow it
+country_event = {
+	id = ctrus.24
+	title = ctrus.24.t
+	desc = ctrus.24.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	
+	option = { #sure
+		name = ctrus.24.a
+		ai_chance = {
+			factor = 80
+		}
+		if = {
+			limit = {
+				BLR = { has_opinion = { target = RUS value < 0 } }
+			}
+			random_list = {
+				10 = { BLR = { country_event = { id = ctrus.25 hours = 4 } } } #country votes yes
+				90 = { BLR = { country_event = { id = ctrus.26 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					BLR = { has_opinion = { target = RUS value > 0 } }
+					BLR = { has_opinion = { target = RUS value < 51 } }
+				}
+			}
+			random_list = {
+				60 = { BLR = { country_event = { id = ctrus.25 hours = 24 } } } #country votes yes
+				40 = { BLR = { country_event = { id = ctrus.26 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				BLR = { has_opinion = { target = RUS value > 50 } }
+			}
+			random_list = {
+				90 = { BLR = { country_event = { id = ctrus.25 hours = 24 } } } #country votes yes
+				10 = { BLR = { country_event = { id = ctrus.26 hours = 24 } } } #country votes no
+			}
+		}
+	}
+}
+#BLR votes yes
+country_event = {
+	id = ctrus.25 
+	title = ctrus.25.t
+	desc = ctrus.25.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.25.a
+		custom_effect_tooltip = GAME_OVER_TT
+		RUS = { country_event = { id = ctrus.27 } }
+		
+	}
+
+}
+
+#BLR votes no
+country_event = {
+	id = ctrus.26 
+	title = ctrus.26.t
+	desc = ctrus.26.desc
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.26.a
+		RUS = { country_event = { id = ctrus.28 } }
+	}
+
+}
+#BLR votes yes
+country_event = {
+	id = ctrus.27 
+	title = ctrus.27.t
+	desc = ctrus.27.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.27.a
+		BLR = {
+			every_unit_leader = {
+				set_nationality = RUS
+			}
+		}
+		RUS = { annex_country = { target = BLR transfer_troops = yes } }
+		RUS = { set_country_flag = BLR_annexed_peacefully } # Used to change division name
+	}
+}
+
+#BLR votes no
+country_event = {
+	id = ctrus.28 
+	title = ctrus.28.t
+	desc = ctrus.28.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+
+	option = {
+		name = ctrus.28.a
+	}
+}
+
+country_event = { #
+	id = ctrus.29
+	title = ctrus.29.t
+	desc = ctrus.29.desc
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	immediate = {
+		news_event = { id = news_1930.33 }
+		hidden_effect = {
+			SOV = { 
+				release = ARM
+				release = AZR
+				release = GEO
+			}
+			ARM = {
+				load_oob = "2RCW_ARM"
+				230 = { add_building_construction = {	type = arms_factory		level = 1		instant_build = yes		} }
+				add_ideas = { 	communist_past2 	}
+				set_popularities = {
+					democratic = 30
+					fascism = 15
+					communism = 5
+					neutrality = 50
+				}
+				set_politics = {	ruling_party = neutrality	last_election = "1918.1.1"	election_frequency = 48		elections_allowed = no	}
+			}
+			AZR = {
+				load_oob = "2RCW_AZR"
+				229 = { add_building_construction = {	type = arms_factory		level = 1		instant_build = yes		} }
+				add_ideas = { 	communist_past2 	}
+				set_popularities = {
+					democratic = 35
+					fascism = 10
+					communism = 5
+					neutrality = 50
+				}
+				set_politics = {	ruling_party = neutrality	last_election = "1918.1.1"	election_frequency = 48		elections_allowed = no	}
+			}
+			GEO = {
+				add_state_core = 233
+				transfer_state = 233
+				load_oob = "2RCW_GEO"
+				231 = { add_building_construction = {	type = arms_factory		level = 1		instant_build = yes		} }
+				create_faction = caucasus_pact
+				add_to_faction = GEO
+				add_to_faction = ARM
+				add_to_faction = AZR
+				add_ideas = { 	communist_past2 	}
+				set_popularities = {
+					democratic = 25
+					fascism = 20
+					communism = 5
+					neutrality = 50
+				}
+				set_politics = {	ruling_party = neutrality	last_election = "1918.1.1"	election_frequency = 48		elections_allowed = no	}
+			}	
+		}
+	}
+	option = {
+		name = ctrus.29.a
+	}
+}

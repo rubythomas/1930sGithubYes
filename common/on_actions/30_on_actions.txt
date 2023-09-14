@@ -1,0 +1,46 @@
+on_actions = {
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { 
+						tag = SOV 
+						has_war_with = RUS
+					}
+					surrender_progress > 0.80
+				}
+				RUS = { annex_country = { target = FROM } }
+				news_event = { id = news_1930.31 }
+				add_named_threat = { threat = -20 }
+			}
+			if = {
+				limit = {
+					FROM = { 
+						tag = RUS
+						has_war_with = SOV
+					}
+					surrender_progress > 0.80
+				}
+				SOV = { annex_country = { target = FROM } }
+				news_event = { id = news_1930.32 }
+				add_named_threat = { threat = -20 }
+			}
+		}
+	}
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = SOV	
+					OR = { is_subject_of = RUS is_puppet_of = RUS }
+				}
+				SOV = { transfer_navy = { target = RUS } }
+				RUS = { annex_country = { target = SOV } }
+				add_named_threat = { threat = -20 }
+			}
+		}
+	}
+
+}

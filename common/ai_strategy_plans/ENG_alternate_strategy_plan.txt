@@ -1,0 +1,449 @@
+ENG_alternate_democratic_plan = {
+	name = "United Kingdom Anti-German Interventionist Democratic plan"
+	desc = "UK comes after the continental warmongerers. No more appeasement!"
+	enable = {
+		original_tag = ENG
+		OR = {
+			AND = {
+				has_completed_focus = ENG_steady_as_she_goes
+				NOT = { has_completed_focus = ENG_home_defence }
+				GER = { has_war = yes }
+				GER = { has_government = fascism }
+			}
+			OR = {
+				has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+				has_game_rule = {
+					rule = ENG_ai_behavior 
+					option = DEMOCRATIC_ALTERNATE
+				}
+			}
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+		ENG_military_training_act
+		ENG_disarmament
+		ENG_statute_westminster
+		ENG_special_areas_act
+		ENG_rally_the_party
+		ENG_depression_budget_cuts
+		ENG_steady_as_she_goes
+		ENG_industrial_modernization
+		ENG_special_mining_initiative
+		ENG_english_electric
+		ENG_austin
+		ENG_30_tech_slot
+		ENG_leave_gold
+		ENG_bp
+		ENG_roads
+		ENG_call_on_keynes
+		ENG_rolls_royce
+		ENG_financial_reconstruction
+		ENG_autarky
+		ENG_rationalized_production
+		ENG_subsidize_auto_industry
+		ENG_extra_tech_slot7
+		ENG_coal_mines_act
+		ENG_agricultural_marketing_act
+		ENG_unemployment_act
+		ENG_conscription
+		ENG_british_shipping_act
+		ENG_rearmament
+		ENG_tank_focus
+		ENG_housing_act
+		ENG_general_election
+		ENG_housing_act2
+		ENG_abandon_10_year_rule
+		ENG_limited_rearmament_focus
+		shadow_scheme_focus
+		air_defense_focus
+		radar_focus
+		uk_industrial_focus
+		royal_ordinance_focus
+		uk_small_arms_focus
+		uk_empire_focus
+	}
+	research = {
+	}
+	ideas = {
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+ENG_decolonization_democratic_plan = {
+	name = "United Kingdom Decolonization Democratic plan"
+	desc = "UK releases the countries it has colonized."
+	enable = {
+		original_tag = ENG
+		OR = {
+			OR = {
+				has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_DECOLONIZATION
+				has_game_rule = {
+					rule = ENG_ai_behavior 
+					option = DEMOCRATIC_DECOLONIZATION
+				}
+			}
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+		ENG_depression_budget_cuts	#385mc
+		ENG_begin_rapid_decolonization 
+		ENG_steady_as_she_goes
+		ENG_coal_mines_act
+		ENG_general_election
+		ENG_industrial_modernization
+		ENG_30_tech_slot   
+		ENG_statute_westminster		
+		ENG_leave_gold  
+		ENG_disarmament
+		ENG_rally_the_party			
+		ENG_roads					#700
+		ENG_special_mining_initiative  
+		ENG_agricultural_marketing_act #805
+		ENG_english_electric
+		ENG_special_areas_act			#945
+		ENG_military_modernization
+		ENG_combat_engineers			#1015
+		ENG_call_on_keynes
+		ENG_housing_act				#1120
+		ENG_her_proudest_bays		
+		ENG_rolls_royce
+		ENG_strengthen_battleship_arm	#1360
+		ENG_bp
+		ENG_austin		
+		ENG_housing_act2				
+		ENG_emperial_war_planning		#1605 / 1934
+		ENG_motorized_focus
+		ENG_unemployment_act
+		ENG_Sydney_Camm				#1800
+		ENG_british_shipping_act
+		uk_empire_focus  			#1900	/1935
+		ENG_tank_focus
+		ENG_financial_reconstruction
+		uk_service_focus  				
+		ENG_ats 						
+		ENG_abandon_10_year_rule		#2230   / 1936
+		ENG_conscription
+		ENG_autarky
+		ENG_coal_liquidization
+		ENG_air_prep
+		air_rearmament_focus
+		ENG_limited_rearmament_focus
+		ENG_rationalized_production
+		ENG_army_innovation 
+		ENG_military_training_act
+		ENG_subsidize_auto_industry
+		ENG_extra_tech_slot7
+		ENG_home_defence #April 20 1939
+		shadow_scheme_focus #May 20 1936	
+		uk_industrial_focus #July 30 1936
+		royal_ordinance_focus #October 10 1936	
+		uk_small_arms_focus #December 20 1936
+		uk_empire_focus  #May 10 1937	
+		uk_service_focus  #July 20 1937
+		uk_colonial_focus #September 30 1937	
+		uk_asia_focus #December 10 1937
+		uk_burma_focus #February 20 1938	
+		air_defense_focus #April 30 1938
+		radar_focus #July 10 1938
+		air_rearmament_focus#September 20 1938
+		ENG_issue_gasmasks#June 30 1939
+		fighter_command_focus #November 20 1939
+		bomber_command_focus #January 30 1940
+		coastal_command_focus #April 10 1940
+		aircraft_production_focus #June 20 1940	
+		naval_rearmament_focus #August 30 1940
+		crypto_bomb_focus #January 20 1941	
+		tizard_mission_focus#March 30 1941	
+		ENG_special_air_service#June 10 1941
+		uk_destroyer_focus#August 20 1941
+		uk_waves_focus#October 30 1941	
+		uk_convoy_focus#January 10
+		ENG_chiefs_of_staff_committee	#March 20 1942
+		maud_focus#May 30 1942	
+		uk_mediterranean_focus#August 10 1942
+		uk_carrier_focus#October 20 1942	
+ 		hongkong_focus#December 30 1942	
+ 		uk_iraq_focus#March 10 1943
+ 		uk_rock_focus#May 20 1943
+ 		singapore_focus#July 30 1943
+ 		peninsular_focus
+ 		uk_amphibious_focus
+ 		uk_protect_suez
+		uk_malta_focus
+		uk_commonwealth_focus
+		uk_canada_focus
+		uk_australia_focus
+		uk_new_zealand_focus
+		uk_south_africa_focus
+		UK_secret_focus
+		uk_jet_focus
+	}
+	research = {
+	}
+	ideas = {
+	}
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+
+ENG_alternate_communist_plan = {
+	name = "United Kingdom Communist plan"
+	desc = "UK becomes communist and will spread the Revolution!"
+
+	enable = {
+		original_tag = ENG
+		OR = {
+			has_completed_focus = ENG_concessions_to_the_trade_unions
+			has_country_flag = ENG_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = COMMUNIST
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		ENG_industrial_modernization
+		ENG_special_mining_initiative
+		ENG_english_electric
+		ENG_austin
+		ENG_30_tech_slot
+		ENG_leave_gold
+		ENG_bp
+		ENG_roads
+		ENG_call_on_keynes
+		ENG_rolls_royce
+		ENG_financial_reconstruction
+		ENG_for_the_good_of_the_revolution
+		ENG_a_change_in_course
+		ENG_red_dawn
+		ENG_infiltrate_labor
+		ENG_popular_front
+		ENG_encourage_labor_disputes
+		ENG_promise_constitutional_methods
+		ENG_disguise_our_goals
+		ENG_secret_commintern_support
+		ENG_gain_TUC_support
+		ENG_instigate_labor_strikes
+		ENG_provoke_a_general_strike 
+		ENG_communism_and_empire
+		ENG_eoconomic_mobil2
+		ENG_concessions_to_the_trade_unions
+		ENG_great_purge
+		ENG_the_fate_of_the_royal_family
+		ENG_introduce_political_commissars
+		ENG_progress_cult
+		ENG_autarky
+		ENG_state_controlled_industry
+		ENG_order_industrial_cartels
+		ENG_extra_tech_slot7
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ENG_alternate_unaligned_plan = {
+	name = "United Kingdom Monarchist plan"
+	desc = "UK becomes an authoritarian monarchy and will reconquer the Empire!"
+
+	enable = {
+		original_tag = ENG
+		OR = {
+			has_country_flag = ENG_abdication_crisis_morganatic_marriage
+			has_country_flag = ENG_abdication_crisis_normal_marriage
+			has_country_flag = ENG_AI_RANDOM_NEUTRALITY
+			has_game_rule = {
+				rule = ENG_ai_behavior
+				option = NEUTRALITY
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		ENG_industrial_modernization
+		ENG_special_mining_initiative
+		ENG_english_electric
+		ENG_austin
+		ENG_30_tech_slot
+		ENG_leave_gold
+		ENG_bp
+		ENG_roads
+		ENG_call_on_keynes
+		ENG_rolls_royce
+		ENG_financial_reconstruction
+		ENG_autarky
+		ENG_state_controlled_industry
+		ENG_order_industrial_cartels
+		ENG_extra_tech_slot7
+		ENG_a_change_in_course
+		ENG_red_dawn
+		ENG_infiltrate_labor
+		ENG_popular_front
+		ENG_encourage_labor_disputes
+		ENG_promise_constitutional_methods
+		ENG_disguise_our_goals
+		ENG_secret_commintern_support
+		ENG_gain_TUC_support
+		ENG_instigate_labor_strikes
+		ENG_provoke_a_general_strike 
+		ENG_the_kings_party
+		ENG_wolves_inside_the_walls
+		ENG_rule_and_reign
+		ENG_an_imperial_union
+		ENG_bannermen_forward
+		ENG_eoconomic_mobil2
+		ENG_reclaim_dominions
+		ENG_for_king_and_country
+		ENG_a_united_kingdom
+		ENG_a_new_empire
+
+
+
+
+
+		ENG_brinkmanship
+		ENG_eoconomic_mobil3
+		ENG_reunite_ireland
+		ENG_integrate_ireland 
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ENG_alternate_fascist_plan = {
+	name = "United Kingdom Fascist plan"
+	desc = "UK becomes fascist and will reconquer the Empire!"
+
+	enable = {
+		original_tag = ENG
+		OR = {
+			has_completed_focus = ENG_organize_the_blackshirts
+			has_country_flag = ENG_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		ENG_industrial_modernization
+		ENG_call_on_keynes		
+		#ENG_special_mining_initiative
+		ENG_english_electric
+		ENG_austin
+		ENG_30_tech_slot
+		ENG_leave_gold
+		ENG_bp
+		ENG_roads
+		ENG_rolls_royce
+		ENG_financial_reconstruction
+		ENG_autarky
+		ENG_state_controlled_industry
+		ENG_order_industrial_cartels
+		ENG_extra_tech_slot7
+
+		ENG_a_change_in_course
+		ENG_organize_the_blackshirts
+		ENG_new_party
+		ENG_form_buf
+		ENG_british_fascism
+		ENG_denounce_international_fascist_outrages
+		ENG_denounce_communists
+		ENG_court_conservative_support
+		ENG_battle_of_cable_street
+		ENG_promise_moderation
+		ENG_accept_provisional_prime_minister
+		ENG_give_rothermere_the_bbc
+		ENG_organize_national_rallies
+		ENG_abandon_10_year_rule2
+		ENG_gerrymander_anti_fascist_mps
+		ENG_new_faction
+		ENG_national_housing_program
+		ENG_invent_communist_plot 
+		ENG_mass_deportations
+		ENG_ubiquitous_propaganda
+		ENG_eoconomic_mobil
+		ENG_military_training_act2
+		ENG_recruit_youth
+		ENG_rearmament
+		royal_ordinance_focus
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		william_joyce = 10
+		john_m_keynes = 5
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

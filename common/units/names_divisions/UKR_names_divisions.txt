@@ -1,0 +1,1423 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+UKR_INF_01 = 
+{
+	name = "Rifle Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Striletska Dyviziya"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		5 = { "%dya 'Kyiv' Strilk. Div." }
+		6 = { "%dya 'Charkiv' Strilk. Div." }
+		7 = { "%dya 'Odessa' Strilk. Div." }
+		8 = { "%dya 'Dnepr' Strilk. Div." }
+		16 = { "%dya 'Donetsk' Strilk. Div." }
+		18 = { "%dya Striletska Dyviziya" }
+		21 = { "%dya 'Zaporizzja' Strilk. Div." }
+		22 = { "%dya 'Lvov' Strilk. Div." }
+		23 = { "%dya 'Kryvyi Rih' Strilk. Div." }		#######
+		24 = { "%dya Striletska Dyviziya" }
+		38 = { "%dya Striletska Dyviziya" }
+		49 = { "%dya Striletska Dyviziya" }
+		51 = { "%dya Striletska Dyviziya" }
+		2 = { "%dya Striletska Dyviziya" }
+		15 = { "%dya Striletska Dyviziya" }
+		31 = { "%dya Striletska Dyviziya" }
+		37 = { "%dya Striletska Dyviziya" }
+		56 = { "%dya Striletska Dyviziya" }
+		57 = { "%dya Striletska Dyviziya" }
+		17 = { "%dya Striletska Dyviziya" }
+		27 = { "%dya Striletska Dyviziya" }
+		29 = { "%dya Striletska Dyviziya" }
+		33 = { "%dya Striletska Dyviziya" }
+		48 = { "%dya Striletska Dyviziya" }
+		3 = { "%dya Striletska Dyviziya" }
+		4 = { "%dya Striletska Dyviziya" }
+		74 = { "%dya Striletska Dyviziya" }
+		10 = { "%dya Striletska Dyviziya" }
+		13 = { "%dya Striletska Dyviziya" }
+		14 = { "%dya Striletska Dyviziya" }
+		19 = { "%dya Striletska Dyviziya" }
+		39 = { "%dya Striletska Dyviziya" }
+		12 = { "%dya Striletska Dyviziya" }
+		46 = { "%dya Striletska Dyviziya" }
+		80 = { "%dya Striletska Dyviziya" }
+		81 = { "%dya Striletska Dyviziya" }
+		84 = { "%dya Striletska Dyviziya" }
+		95 = { "%dya Striletska Dyviziya" }
+		1 = { "%dya Striletska Dyviziya" }
+		43 = { "%dya Striletska Dyviziya" }
+		99 = { "%dya Striletska Dyviziya" }
+		100 = { "%dya Striletska Dyviziya" }
+		25 = { "%dya Striletska Dyviziya" }
+		40 = { "%dya Striletska Dyviziya" }
+		41 = { "%dya Striletska Dyviziya" }
+		55 = { "%dya Striletska Dyviziya" }
+		62 = { "%dya Striletska Dyviziya" }
+		75 = { "%dya Striletska Dyviziya" }
+		53 = { "%dya Striletska Dyviziya" }
+		65 = { "%dya Striletska Dyviziya" }
+		85 = { "%dya Striletska Dyviziya" }
+		59 = { "%dya Striletska Dyviziya" }
+		66 = { "%dya Striletska Dyviziya" }
+		69 = { "%dya Striletska Dyviziya" }
+		78 = { "%dya Striletska Dyviziya" }
+		82 = { "%dya Striletska Dyviziya" }
+		94 = { "%dya Striletska Dyviziya" }
+		61 = { "%dya Striletska Dyviziya" }
+		32 = { "%dya Striletska Dyviziya" }
+		34 = { "%dya Striletska Dyviziya" }
+		35 = { "%dya Striletska Dyviziya" }
+		36 = { "%dya Striletska Dyviziya" }
+		70 = { "%dya Striletska Dyviziya" }
+		71 = { "%dya Striletska Dyviziya" }
+		54 = { "%dya Striletska Dyviziya" }
+		64 = { "%dya Striletska Dyviziya" }
+		73 = { "%dya Striletska Dyviziya" }
+		26 = { "%dya Striletska Dyviziya" }
+		52 = { "%dya Striletska Dyviziya" }
+		87 = { "%dya Striletska Dyviziya" }
+		11 = { "%dya Striletska Dyviziya" }
+		45 = { "%dya Striletska Dyviziya" }
+		97 = { "%dya Striletska Dyviziya" }
+		98 = { "%dya Striletska Dyviziya" }
+		108 = { "%dya Striletska Dyviziya" }
+		116 = { "%dya Striletska Dyviziya" }
+		111 = { "%dya Striletska Dyviziya" }
+		67 = { "%dya Striletska Dyviziya" }
+		93 = { "%dya Striletska Dyviziya" }
+		92 = { "%dya Striletska Dyviziya" }
+		50 = { "%dya Striletska Dyviziya" }
+		105 = { "%dya Striletska Dyviziya" }
+		86 = { "%dya Striletska Dyviziya" }
+		90 = { "%dya Striletska Dyviziya" }
+		104 = { "%dya Striletska Dyviziya" }
+		118 = { "%dya Striletska Dyviziya" }
+		126 = { "%dya Striletska Dyviziya" }
+		127 = { "%dya Striletska Dyviziya" }
+		129 = { "%dya Striletska Dyviziya" }
+		130 = { "%dya Striletska Dyviziya" }
+		132 = { "%dya Striletska Dyviziya" }
+		133 = { "%dya Striletska Dyviziya" }
+		134 = { "%dya Striletska Dyviziya" }
+		135 = { "%dya Striletska Dyviziya" }
+		136 = { "%dya Striletska Dyviziya" }
+		137 = { "%dya Striletska Dyviziya" }
+		139 = { "%dya Striletska Dyviziya" }
+		140 = { "%dya Striletska Dyviziya" }
+		141 = { "%dya Striletska Dyviziya" }
+		142 = { "%dya Striletska Dyviziya" }
+		143 = { "%dya Striletska Dyviziya" }
+		144 = { "%dya Striletska Dyviziya" }
+		145 = { "%dya Striletska Dyviziya" }
+		146 = { "%dya Striletska Dyviziya" }
+		148 = { "%dya Striletska Dyviziya" }
+		149 = { "%dya Striletska Dyviziya" }
+		150 = { "%dya Striletska Dyviziya" }
+		151 = { "%dya Striletska Dyviziya" }
+		152 = { "%dya Striletska Dyviziya" }
+		155 = { "%dya Striletska Dyviziya" }
+		156 = { "%dya Striletska Dyviziya" }
+		157 = { "%dya Striletska Dyviziya" }
+		158 = { "%dya Striletska Dyviziya" }
+		159 = { "%dya Striletska Dyviziya" }
+		160 = { "%dya Striletska Dyviziya" }
+		162 = { "%dya Striletska Dyviziya" }
+		164 = { "%dya Striletska Dyviziya" }
+		166 = { "%dya Striletska Dyviziya" }
+		168 = { "%dya Striletska Dyviziya" }
+		169 = { "%dya Striletska Dyviziya" }
+		170 = { "%dya Striletska Dyviziya" }
+		171 = { "%dya Striletska Dyviziya" }
+		172 = { "%dya Striletska Dyviziya" }
+		173 = { "%dya Striletska Dyviziya" }
+		176 = { "%dya Striletska Dyviziya" }
+		178 = { "%dya Striletska Dyviziya" }
+		180 = { "%dya Striletska Dyviziya" }
+		182 = { "%dya Striletska Dyviziya" }
+		186 = { "%dya Striletska Dyviziya" }
+		187 = { "%dya Striletska Dyviziya" }
+		114 = { "%dya Striletska Dyviziya" }
+		120 = { "%dya Striletska Dyviziya" }
+		91 = { "%dya Striletska Dyviziya" }
+		102 = { "%dya Striletska Dyviziya" }
+		107 = { "%dya Striletska Dyviziya" }
+		115 = { "%dya Striletska Dyviziya" }
+		117 = { "%dya Striletska Dyviziya" }
+		119 = { "%dya Striletska Dyviziya" }
+		121 = { "%dya Striletska Dyviziya" }
+		123 = { "%dya Striletska Dyviziya" }
+		124 = { "%dya Striletska Dyviziya" }
+		125 = { "%dya Striletska Dyviziya" }
+		88 = { "%dya Striletska Dyviziya" }
+		89 = { "%dya Striletska Dyviziya" }
+		110 = { "%dya Striletska Dyviziya" }
+		112 = { "%dya Striletska Dyviziya" }
+		113 = { "%dya Striletska Dyviziya" }
+		122 = { "%dya Striletska Dyviziya" }
+		42 = { "%dya Striletska Dyviziya" }
+		106 = { "%dya Striletska Dyviziya" }
+		128 = { "%dya Striletska Dyviziya" }
+		153 = { "%dya Striletska Dyviziya" }
+		154 = { "%dya Striletska Dyviziya" }
+		161 = { "%dya Striletska Dyviziya" }
+		165 = { "%dya Striletska Dyviziya" }
+		167 = { "%dya Striletska Dyviziya" }
+		174 = { "%dya Striletska Dyviziya" }
+		175 = { "%dya Striletska Dyviziya" }
+		177 = { "%dya Striletska Dyviziya" }
+		179 = { "%dya Striletska Dyviziya" }
+		181 = { "%dya Striletska Dyviziya" }
+		183 = { "%dya Striletska Dyviziya" }
+		184 = { "%dya Striletska Dyviziya" }
+		188 = { "%dya Striletska Dyviziya" }
+		189 = { "%dya Striletska Dyviziya" }
+		190 = { "%dya Striletska Dyviziya" }
+		191 = { "%dya Striletska Dyviziya" }
+		193 = { "%dya Striletska Dyviziya" }
+		195 = { "%dya Striletska Dyviziya" }
+		196 = { "%dya Striletska Dyviziya" }
+		197 = { "%dya Striletska Dyviziya" }
+		199 = { "%dya Striletska Dyviziya" }
+		200 = { "%dya Striletska Dyviziya" }
+		206 = { "%dya Striletska Dyviziya" }
+		214 = { "%dya Striletska Dyviziya" }
+		217 = { "%dya Striletska Dyviziya" }
+		222 = { "%dya Striletska Dyviziya" }
+		227 = { "%dya Striletska Dyviziya" }
+		228 = { "%dya Striletska Dyviziya" }
+		229 = { "%dya Striletska Dyviziya" }
+		232 = { "%dya Striletska Dyviziya" }
+		233 = { "%dya Striletska Dyviziya" }
+		235 = { "%dya Striletska Dyviziya" }
+		237 = { "%dya Striletska Dyviziya" }
+		238 = { "%dya Striletska Dyviziya" }
+		201 = { "%dya Striletska Dyviziya" }
+		203 = { "%dya Striletska Dyviziya" }
+		207 = { "%dya Striletska Dyviziya" }
+		211 = { "%dya Striletska Dyviziya" }
+		223 = { "%dya Striletska Dyviziya" }
+		224 = { "%dya Striletska Dyviziya" }
+		225 = { "%dya Striletska Dyviziya" }
+		226 = { "%dya Striletska Dyviziya" }
+		230 = { "%dya Striletska Dyviziya" }
+		231 = { "%dya Striletska Dyviziya" }
+		234 = { "%dya Striletska Dyviziya" }
+		241 = { "%dya Striletska Dyviziya" }
+		243 = { "%dya Striletska Dyviziya" }
+		244 = { "%dya Striletska Dyviziya" }
+		245 = { "%dya Striletska Dyviziya" }
+		246 = { "%dya Striletska Dyviziya" }
+		247 = { "%dya Striletska Dyviziya" }
+		248 = { "%dya Striletska Dyviziya" }
+		249 = { "%dya Striletska Dyviziya" }
+		250 = { "%dya Striletska Dyviziya" }
+		251 = { "%dya Striletska Dyviziya" }
+		252 = { "%dya Striletska Dyviziya" }
+		253 = { "%dya Striletska Dyviziya" }
+		254 = { "%dya Striletska Dyviziya" }
+		255 = { "%dya Striletska Dyviziya" }
+		256 = { "%dya Striletska Dyviziya" }
+		257 = { "%dya Striletska Dyviziya" }
+		258 = { "%dya Striletska Dyviziya" }
+		259 = { "%dya Striletska Dyviziya" }
+		260 = { "%dya Striletska Dyviziya" }
+		261 = { "%dya Striletska Dyviziya" }
+		262 = { "%dya Striletska Dyviziya" }
+		263 = { "%dya Striletska Dyviziya" }
+		264 = { "%dya Striletska Dyviziya" }
+		265 = { "%dya Striletska Dyviziya" }
+		266 = { "%dya Striletska Dyviziya" }
+		267 = { "%dya Striletska Dyviziya" }
+		268 = { "%dya Striletska Dyviziya" }
+		269 = { "%dya Striletska Dyviziya" }
+		270 = { "%dya Striletska Dyviziya" }
+		271 = { "%dya Striletska Dyviziya" }
+		272 = { "%dya Striletska Dyviziya" }
+		273 = { "%dya Striletska Dyviziya" }
+		274 = { "%dya Striletska Dyviziya" }
+		275 = { "%dya Striletska Dyviziya" }
+		276 = { "%dya Striletska Dyviziya" }
+		277 = { "%dya Striletska Dyviziya" }
+		278 = { "%dya Striletska Dyviziya" }
+		279 = { "%dya Striletska Dyviziya" }
+		280 = { "%dya Striletska Dyviziya" }
+		281 = { "%dya Striletska Dyviziya" }
+		282 = { "%dya Striletska Dyviziya" }
+		283 = { "%dya Striletska Dyviziya" }
+		284 = { "%dya Striletska Dyviziya" }
+		285 = { "%dya Striletska Dyviziya" }
+		286 = { "%dya Striletska Dyviziya" }
+		287 = { "%dya Striletska Dyviziya" }
+		288 = { "%dya Striletska Dyviziya" }
+		289 = { "%dya Striletska Dyviziya" }
+		290 = { "%dya Striletska Dyviziya" }
+		291 = { "%dya Striletska Dyviziya" }
+		292 = { "%dya Striletska Dyviziya" }
+		293 = { "%dya Striletska Dyviziya" }
+		294 = { "%dya Striletska Dyviziya" }
+		295 = { "%dya Striletska Dyviziya" }
+		296 = { "%dya Striletska Dyviziya" }
+		297 = { "%dya Striletska Dyviziya" }
+		298 = { "%dya Striletska Dyviziya" }
+		299 = { "%dya Striletska Dyviziya" }
+		300 = { "%dya Striletska Dyviziya" }
+		301 = { "%dya Striletska Dyviziya" }
+		303 = { "%dya Striletska Dyviziya" }
+		304 = { "%dya Striletska Dyviziya" }
+		305 = { "%dya Striletska Dyviziya" }
+		306 = { "%dya Striletska Dyviziya" }
+		307 = { "%dya Striletska Dyviziya" }
+		308 = { "%dya Striletska Dyviziya" }
+		310 = { "%dya Striletska Dyviziya" }
+		311 = { "%dya Striletska Dyviziya" }
+		312 = { "%dya Striletska Dyviziya" }
+		313 = { "%dya Striletska Dyviziya" }
+		314 = { "%dya Striletska Dyviziya" }
+		315 = { "%dya Striletska Dyviziya" }
+		316 = { "%dya Striletska Dyviziya" }
+		317 = { "%dya Striletska Dyviziya" }
+		318 = { "%dya Striletska Dyviziya" }
+		319 = { "%dya Striletska Dyviziya" }
+		320 = { "%dya Striletska Dyviziya" }
+		321 = { "%dya Striletska Dyviziya" }
+		322 = { "%dya Striletska Dyviziya" }
+		323 = { "%dya Striletska Dyviziya" }
+		324 = { "%dya Striletska Dyviziya" }
+		325 = { "%dya Striletska Dyviziya" }
+		326 = { "%dya Striletska Dyviziya" }
+		327 = { "%dya Striletska Dyviziya" }
+		328 = { "%dya Striletska Dyviziya" }
+		329 = { "%dya Striletska Dyviziya" }
+		330 = { "%dya Striletska Dyviziya" }
+		332 = { "%dya Striletska Dyviziya" }
+		333 = { "%dya Striletska Dyviziya" }
+		334 = { "%dya Striletska Dyviziya" }
+		335 = { "%dya Striletska Dyviziya" }
+		336 = { "%dya Striletska Dyviziya" }
+		337 = { "%dya Striletska Dyviziya" }
+		339 = { "%dya Striletska Dyviziya" }
+		340 = { "%dya Striletska Dyviziya" }
+		341 = { "%dya Striletska Dyviziya" }
+		342 = { "%dya Striletska Dyviziya" }
+		343 = { "%dya Striletska Dyviziya" }
+		344 = { "%dya Striletska Dyviziya" }
+		345 = { "%dya Striletska Dyviziya" }
+		346 = { "%dya Striletska Dyviziya" }
+		348 = { "%dya Striletska Dyviziya" }
+		349 = { "%dya Striletska Dyviziya" }
+		350 = { "%dya Striletska Dyviziya" }
+		351 = { "%dya Striletska Dyviziya" }
+		352 = { "%dya Striletska Dyviziya" }
+		353 = { "%dya Striletska Dyviziya" }
+		354 = { "%dya Striletska Dyviziya" }
+		355 = { "%dya Striletska Dyviziya" }
+		356 = { "%dya Striletska Dyviziya" }
+		357 = { "%dya Striletska Dyviziya" }
+		358 = { "%dya Striletska Dyviziya" }
+		359 = { "%dya Striletska Dyviziya" }
+		360 = { "%dya Striletska Dyviziya" }
+		361 = { "%dya Striletska Dyviziya" }
+		362 = { "%dya Striletska Dyviziya" }
+		364 = { "%dya Striletska Dyviziya" }
+		365 = { "%dya Striletska Dyviziya" }
+		366 = { "%dya Striletska Dyviziya" }
+		367 = { "%dya Striletska Dyviziya" }
+		368 = { "%dya Striletska Dyviziya" }
+		369 = { "%dya Striletska Dyviziya" }
+		370 = { "%dya Striletska Dyviziya" }
+		371 = { "%dya Striletska Dyviziya" }
+		372 = { "%dya Striletska Dyviziya" }
+		373 = { "%dya Striletska Dyviziya" }
+		374 = { "%dya Striletska Dyviziya" }
+		375 = { "%dya Striletska Dyviziya" }
+		376 = { "%dya Striletska Dyviziya" }
+		377 = { "%dya Striletska Dyviziya" }
+		378 = { "%dya Striletska Dyviziya" }
+		379 = { "%dya Striletska Dyviziya" }
+		380 = { "%dya Striletska Dyviziya" }
+		381 = { "%dya Striletska Dyviziya" }
+		382 = { "%dya Striletska Dyviziya" }
+		383 = { "%dya Striletska Dyviziya" }
+		384 = { "%dya Striletska Dyviziya" }
+		386 = { "%dya Striletska Dyviziya" }
+		387 = { "%dya Striletska Dyviziya" }
+		388 = { "%dya Striletska Dyviziya" }
+		389 = { "%dya Striletska Dyviziya" }
+		390 = { "%dya Striletska Dyviziya" }
+		391 = { "%dya Striletska Dyviziya" }
+		393 = { "%dya Striletska Dyviziya" }
+		395 = { "%dya Striletska Dyviziya" }
+		396 = { "%dya Striletska Dyviziya" }
+		397 = { "%dya Striletska Dyviziya" }
+		399 = { "%dya Striletska Dyviziya" }
+		400 = { "%dya Striletska Dyviziya" }
+		402 = { "%dya Striletska Dyviziya" }
+		404 = { "%dya Striletska Dyviziya" }
+		405 = { "%dya Striletska Dyviziya" }
+		406 = { "%dya Striletska Dyviziya" }
+		407 = { "%dya Striletska Dyviziya" }
+		408 = { "%dya Striletska Dyviziya" }
+		409 = { "%dya Striletska Dyviziya" }
+		411 = { "%dya Striletska Dyviziya" }
+		412 = { "%dya Striletska Dyviziya" }
+		413 = { "%dya Striletska Dyviziya" }
+		414 = { "%dya Striletska Dyviziya" }
+		415 = { "%dya Striletska Dyviziya" }
+		416 = { "%dya Striletska Dyviziya" }
+		417 = { "%dya Striletska Dyviziya" }
+		422 = { "%dya Striletska Dyviziya" }
+		445 = { "%dya Striletska Dyviziya" }
+		410 = { "%dya Striletska Dyviziya" }
+		418 = { "%dya Striletska Dyviziya" }
+		419 = { "%dya Striletska Dyviziya" }
+		420 = { "%dya Striletska Dyviziya" }
+		421 = { "%dya Striletska Dyviziya" }
+		423 = { "%dya Striletska Dyviziya" }
+		424 = { "%dya Striletska Dyviziya" }
+		425 = { "%dya Striletska Dyviziya" }
+		426 = { "%dya Striletska Dyviziya" }
+		427 = { "%dya Striletska Dyviziya" }
+		428 = { "%dya Striletska Dyviziya" }
+		429 = { "%dya Striletska Dyviziya" }
+		430 = { "%dya Striletska Dyviziya" }
+		432 = { "%dya Striletska Dyviziya" }
+		433 = { "%dya Striletska Dyviziya" }
+		434 = { "%dya Striletska Dyviziya" }
+		435 = { "%dya Striletska Dyviziya" }
+		436 = { "%dya Striletska Dyviziya" }
+		437 = { "%dya Striletska Dyviziya" }
+		439 = { "%dya Striletska Dyviziya" }
+		440 = { "%dya Striletska Dyviziya" }
+		441 = { "%dya Striletska Dyviziya" }
+		442 = { "%dya Striletska Dyviziya" }
+		443 = { "%dya Striletska Dyviziya" }
+		444 = { "%dya Striletska Dyviziya" }
+		446 = { "%dya Striletska Dyviziya" }
+		448 = { "%dya Striletska Dyviziya" }
+		449 = { "%dya Striletska Dyviziya" }
+		450 = { "%dya Striletska Dyviziya" }
+		451 = { "%dya Striletska Dyviziya" }
+		452 = { "%dya Striletska Dyviziya" }
+		453 = { "%dya Striletska Dyviziya" }
+		454 = { "%dya Striletska Dyviziya" }
+		455 = { "%dya Striletska Dyviziya" }
+		456 = { "%dya Striletska Dyviziya" }
+		457 = { "%dya Striletska Dyviziya" }
+		458 = { "%dya Striletska Dyviziya" }
+		459 = { "%dya Striletska Dyviziya" }
+		460 = { "%dya Striletska Dyviziya" }
+		461 = { "%dya Striletska Dyviziya" }
+		462 = { "%dya Striletska Dyviziya" }
+		464 = { "%dya Striletska Dyviziya" }
+		465 = { "%dya Striletska Dyviziya" }
+		466 = { "%dya Striletska Dyviziya" }
+		467 = { "%dya Striletska Dyviziya" }
+		468 = { "%dya Striletska Dyviziya" }
+		469 = { "%dya Striletska Dyviziya" }
+		470 = { "%dya Striletska Dyviziya" }
+		471 = { "%dya Striletska Dyviziya" }
+		472 = { "%dya Striletska Dyviziya" }
+		473 = { "%dya Striletska Dyviziya" }
+		474 = { "%dya Striletska Dyviziya" }
+	}
+}
+
+UKR_CAV_01 = 
+{
+	name = "Cavalry Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Kavaleriys'ka Dyviziya"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Kavaleriys'ka Dyviziya" }
+		3 = { "%dya Kavaleriys'ka Dyviziya" }
+		4 = { "%dya Kavaleriys'ka Dyviziya" }
+		5 = { "%dya Kavaleriys'ka Dyviziya" }
+		6 = { "%dya Kavaleriys'ka Dyviziya" }
+		7 = { "%dya Kavaleriys'ka Dyviziya" }
+		8 = { "%dya Kavaleriys'ka Dyviziya" }
+		9 = { "%dya Kavaleriys'ka Dyviziya" }
+		10 = { "%dya Kavaleriys'ka Dyviziya" }
+		11 = { "%dya Kavaleriys'ka Dyviziya" }
+		12 = { "%dya Kavaleriys'ka Dyviziya" }
+		13 = { "%dya Kavaleriys'ka Dyviziya" }
+		14 = { "%dya Kavaleriys'ka Dyviziya" }
+		15 = { "%dya Kavaleriys'ka Dyviziya" }
+		16 = { "%dya Kavaleriys'ka Dyviziya" }
+		17 = { "%dya Kavaleriys'ka Dyviziya" }
+		18 = { "%dya Kavaleriys'ka Dyviziya" }
+		19 = { "%dya Kavaleriys'ka Dyviziya" }
+		20 = { "%dya Kavaleriys'ka Dyviziya" }
+		21 = { "%dya Kavaleriys'ka Dyviziya" }
+		22 = { "%dya Kavaleriys'ka Dyviziya" }
+		23 = { "%dya Kavaleriys'ka Dyviziya" }
+		24 = { "%dya Kavaleriys'ka Dyviziya" }
+		25 = { "%dya Kavaleriys'ka Dyviziya" }
+		26 = { "%dya Kavaleriys'ka Dyviziya" }
+		29 = { "%dya Kavaleriys'ka Dyviziya" }
+		30 = { "%dya Kavaleriys'ka Dyviziya" }
+		31 = { "%dya Kavaleriys'ka Dyviziya" }
+		32 = { "%dya Kavaleriys'ka Dyviziya" }
+		33 = { "%dya Kavaleriys'ka Dyviziya" }
+		34 = { "%dya Kavaleriys'ka Dyviziya" }
+		36 = { "%dya Kavaleriys'ka Dyviziya" }
+		48 = { "%dya Kavaleriys'ka Dyviziya" }
+		67 = { "%dya Kavaleriys'ka Dyviziya" }
+		301 = { "%dya Kavaleriys'ka Dyviziya" }
+		302 = { "%dya Kavaleriys'ka Dyviziya" }
+		303 = { "%dya Kavaleriys'ka Dyviziya" }
+		304 = { "%dya Kavaleriys'ka Dyviziya" }
+		305 = { "%dya Kavaleriys'ka Dyviziya" }
+		306 = { "%dya Kavaleriys'ka Dyviziya" }
+		27 = { "%dya Kavaleriys'ka Dyviziya" }
+		28 = { "%dya Kavaleriys'ka Dyviziya" }
+		35 = { "%dya Kavaleriys'ka Dyviziya" }
+		38 = { "%dya Kavaleriys'ka Dyviziya" }
+		40 = { "%dya Kavaleriys'ka Dyviziya" }
+		41 = { "%dya Kavaleriys'ka Dyviziya" }
+		43 = { "%dya Kavaleriys'ka Dyviziya" }
+		44 = { "%dya Kavaleriys'ka Dyviziya" }
+		46 = { "%dya Kavaleriys'ka Dyviziya" }
+		47 = { "%dya Kavaleriys'ka Dyviziya" }
+		49 = { "%dya Kavaleriys'ka Dyviziya" }
+		50 = { "%dya Kavaleriys'ka Dyviziya" }
+		51 = { "%dya Kavaleriys'ka Dyviziya" }
+		52 = { "%dya Kavaleriys'ka Dyviziya" }
+		53 = { "%dya Kavaleriys'ka Dyviziya" }
+		54 = { "%dya Kavaleriys'ka Dyviziya" }
+		55 = { "%dya Kavaleriys'ka Dyviziya" }
+		56 = { "%dya Kavaleriys'ka Dyviziya" }
+		57 = { "%dya Kavaleriys'ka Dyviziya" }
+		60 = { "%dya Kavaleriys'ka Dyviziya" }
+		61 = { "%dya Kavaleriys'ka Dyviziya" }
+		62 = { "%dya Kavaleriys'ka Dyviziya" }
+		63 = { "%dya Kavaleriys'ka Dyviziya" }
+		64 = { "%dya Kavaleriys'ka Dyviziya" }
+		66 = { "%dya Kavaleriys'ka Dyviziya" }
+		68 = { "%dya Kavaleriys'ka Dyviziya" }
+		70 = { "%dya Kavaleriys'ka Dyviziya" }
+		72 = { "%dya Kavaleriys'ka Dyviziya" }
+		73 = { "%dya Kavaleriys'ka Dyviziya" }
+		74 = { "%dya Kavaleriys'ka Dyviziya" }
+		75 = { "%dya Kavaleriys'ka Dyviziya" }
+		76 = { "%dya Kavaleriys'ka Dyviziya" }
+		77 = { "%dya Kavaleriys'ka Dyviziya" }
+		78 = { "%dya Kavaleriys'ka Dyviziya" }
+		79 = { "%dya Kavaleriys'ka Dyviziya" }
+		80 = { "%dya Kavaleriys'ka Dyviziya" }
+		81 = { "%dya Kavaleriys'ka Dyviziya" }
+		82 = { "%dya Kavaleriys'ka Dyviziya" }
+		83 = { "%dya Kavaleriys'ka Dyviziya" }
+		87 = { "%dya Kavaleriys'ka Dyviziya" }
+		91 = { "%dya Kavaleriys'ka Dyviziya" }
+		94 = { "%dya Kavaleriys'ka Dyviziya" }
+		97 = { "%dya Kavaleriys'ka Dyviziya" }
+		98 = { "%dya Kavaleriys'ka Dyviziya" }
+		99 = { "%dya Kavaleriys'ka Dyviziya" }
+		100 = { "%dya Kavaleriys'ka Dyviziya" }
+		101 = { "%dya Kavaleriys'ka Dyviziya" }
+		102 = { "%dya Kavaleriys'ka Dyviziya" }
+		103 = { "%dya Kavaleriys'ka Dyviziya" }
+		104 = { "%dya Kavaleriys'ka Dyviziya" }
+		105 = { "%dya Kavaleriys'ka Dyviziya" }
+		106 = { "%dya Kavaleriys'ka Dyviziya" }
+		107 = { "%dya Kavaleriys'ka Dyviziya" }
+		108 = { "%dya Kavaleriys'ka Dyviziya" }
+		109 = { "%dya Kavaleriys'ka Dyviziya" }
+		110 = { "%dya Kavaleriys'ka Dyviziya" }
+		111 = { "%dya Kavaleriys'ka Dyviziya" }
+		112 = { "%dya Kavaleriys'ka Dyviziya" }
+		113 = { "%dya Kavaleriys'ka Dyviziya" }
+		114 = { "%dya Kavaleriys'ka Dyviziya" }
+		115 = { "%dya Kavaleriys'ka Dyviziya" }
+		116 = { "%dya Kavaleriys'ka Dyviziya" }
+		307 = { "%dya Kavaleriys'ka Dyviziya" }
+		308 = { "%dya Kavaleriys'ka Dyviziya" }
+		309 = { "%dya Kavaleriys'ka Dyviziya" }
+		310 = { "%dya Kavaleriys'ka Dyviziya" }
+		311 = { "%dya Kavaleriys'ka Dyviziya" }
+		312 = { "%dya Kavaleriys'ka Dyviziya" }
+		313 = { "%dya Kavaleriys'ka Dyviziya" }
+		314 = { "%dya Kavaleriys'ka Dyviziya" }
+		315 = { "%dya Kavaleriys'ka Dyviziya" }
+		316 = { "%dya Kavaleriys'ka Dyviziya" }
+		317 = { "%dya Kavaleriys'ka Dyviziya" }
+		59 = { "%dya Kavaleriys'ka Dyviziya" }
+		84 = { "%dya Kavaleriys'ka Dyviziya" }
+	}
+}
+
+UKR_MOT_01 = 
+{
+	name = "Motor Rifle Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Motoryzovanyy Viddil"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Motoryzovanyy Viddil" }
+		36 = { "%dya Motoryzovanyy Viddil" }
+		57 = { "%dya Motoryzovanyy Viddil" }
+		15 = { "%dya Motoryzovanyy Viddil" }
+		81 = { "%dya Motoryzovanyy Viddil" }
+		82 = { "%dya Motoryzovanyy Viddil" }
+		84 = { "%dya Motoryzovanyy Viddil" }
+		7 = { "%dya Motoryzovanyy Viddil" }
+		29 = { "%dya Motoryzovanyy Viddil" }
+		69 = { "%dya Motoryzovanyy Viddil" }
+		103 = { "%dya Motoryzovanyy Viddil" }
+		109 = { "%dya Motoryzovanyy Viddil" }
+		131 = { "%dya Motoryzovanyy Viddil" }
+		163 = { "%dya Motoryzovanyy Viddil" }
+		185 = { "%dya Motoryzovanyy Viddil" }
+		198 = { "%dya Motoryzovanyy Viddil" }
+		202 = { "%dya Motoryzovanyy Viddil" }
+		204 = { "%dya Motoryzovanyy Viddil" }
+		205 = { "%dya Motoryzovanyy Viddil" }
+		208 = { "%dya Motoryzovanyy Viddil" }
+		209 = { "%dya Motoryzovanyy Viddil" }
+		210 = { "%dya Motoryzovanyy Viddil" }
+		212 = { "%dya Motoryzovanyy Viddil" }
+		213 = { "%dya Motoryzovanyy Viddil" }
+		215 = { "%dya Motoryzovanyy Viddil" }
+		216 = { "%dya Motoryzovanyy Viddil" }
+		218 = { "%dya Motoryzovanyy Viddil" }
+		219 = { "%dya Motoryzovanyy Viddil" }
+		220 = { "%dya Motoryzovanyy Viddil" }
+		221 = { "%dya Motoryzovanyy Viddil" }
+		236 = { "%dya Motoryzovanyy Viddil" }
+		239 = { "%dya Motoryzovanyy Viddil" }
+	}
+}
+
+UKR_MEC_01 = 
+{
+	name = "Mechanized Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Mekhanizovanyy Viddil"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		103 = { "%dya Mekhanizovanyy Viddil" }
+		109 = { "%dya Mekhanizovanyy Viddil" }
+		131 = { "%dya Mekhanizovanyy Viddil" }
+		163 = { "%dya Mekhanizovanyy Viddil" }
+		185 = { "%dya Mekhanizovanyy Viddil" }
+		198 = { "%dya Mekhanizovanyy Viddil" }
+		202 = { "%dya Mekhanizovanyy Viddil" }
+		204 = { "%dya Mekhanizovanyy Viddil" }
+		205 = { "%dya Mekhanizovanyy Viddil" }
+		208 = { "%dya Mekhanizovanyy Viddil" }
+		209 = { "%dya Mekhanizovanyy Viddil" }
+		210 = { "%dya Mekhanizovanyy Viddil" }
+		212 = { "%dya Mekhanizovanyy Viddil" }
+		213 = { "%dya Mekhanizovanyy Viddil" }
+		215 = { "%dya Mekhanizovanyy Viddil" }
+		216 = { "%dya Mekhanizovanyy Viddil" }
+		218 = { "%dya Mekhanizovanyy Viddil" }
+		219 = { "%dya Mekhanizovanyy Viddil" }
+		220 = { "%dya Mekhanizovanyy Viddil" }
+		221 = { "%dya Mekhanizovanyy Viddil" }
+		236 = { "%dya Mekhanizovanyy Viddil" }
+		239 = { "%dya Mekhanizovanyy Viddil" }
+		240 = { "%dya Mekhanizovanyy Viddil" }
+	}
+}
+
+UKR_ARM_01 = 
+{
+	name = "Tank Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Tankovyy Viddil"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Tankovyy Viddil" }
+		2 = { "%dya Tankovyy Viddil" }
+		3 = { "%dya Tankovyy Viddil" }
+		4 = { "%dya Tankovyy Viddil" }
+		5 = { "%dya Tankovyy Viddil" }
+		6 = { "%dya Tankovyy Viddil" }
+		7 = { "%dya Tankovyy Viddil" }
+		8 = { "%dya Tankovyy Viddil" }
+		9 = { "%dya Tankovyy Viddil" }
+		10 = { "%dya Tankovyy Viddil" }
+		11 = { "%dya Tankovyy Viddil" }
+		12 = { "%dya Tankovyy Viddil" }
+		13 = { "%dya Tankovyy Viddil" }
+		14 = { "%dya Tankovyy Viddil" }
+		15 = { "%dya Tankovyy Viddil" }
+		16 = { "%dya Tankovyy Viddil" }
+		17 = { "%dya Tankovyy Viddil" }
+		18 = { "%dya Tankovyy Viddil" }
+		19 = { "%dya Tankovyy Viddil" }
+		20 = { "%dya Tankovyy Viddil" }
+		21 = { "%dya Tankovyy Viddil" }
+		22 = { "%dya Tankovyy Viddil" }
+		23 = { "%dya Tankovyy Viddil" }
+		24 = { "%dya Tankovyy Viddil" }
+		25 = { "%dya Tankovyy Viddil" }
+		26 = { "%dya Tankovyy Viddil" }
+		27 = { "%dya Tankovyy Viddil" }
+		28 = { "%dya Tankovyy Viddil" }
+		29 = { "%dya Tankovyy Viddil" }
+		30 = { "%dya Tankovyy Viddil" }
+		31 = { "%dya Tankovyy Viddil" }
+		32 = { "%dya Tankovyy Viddil" }
+		33 = { "%dya Tankovyy Viddil" }
+		34 = { "%dya Tankovyy Viddil" }
+		35 = { "%dya Tankovyy Viddil" }
+		36 = { "%dya Tankovyy Viddil" }
+		37 = { "%dya Tankovyy Viddil" }
+		38 = { "%dya Tankovyy Viddil" }
+		39 = { "%dya Tankovyy Viddil" }
+		40 = { "%dya Tankovyy Viddil" }
+		41 = { "%dya Tankovyy Viddil" }
+		42 = { "%dya Tankovyy Viddil" }
+		43 = { "%dya Tankovyy Viddil" }
+		44 = { "%dya Tankovyy Viddil" }
+		45 = { "%dya Tankovyy Viddil" }
+		46 = { "%dya Tankovyy Viddil" }
+		47 = { "%dya Tankovyy Viddil" }
+		48 = { "%dya Tankovyy Viddil" }
+		49 = { "%dya Tankovyy Viddil" }
+		50 = { "%dya Tankovyy Viddil" }
+		51 = { "%dya Tankovyy Viddil" }
+		52 = { "%dya Tankovyy Viddil" }
+		53 = { "%dya Tankovyy Viddil" }
+		54 = { "%dya Tankovyy Viddil" }
+		55 = { "%dya Tankovyy Viddil" }
+		56 = { "%dya Tankovyy Viddil" }
+		57 = { "%dya Tankovyy Viddil" }
+		58 = { "%dya Tankovyy Viddil" }
+		59 = { "%dya Tankovyy Viddil" }
+		60 = { "%dya Tankovyy Viddil" }
+		61 = { "%dya Tankovyy Viddil" }
+		101 = { "%dya Tankovyy Viddil" }
+		102 = { "%dya Tankovyy Viddil" }
+		104 = { "%dya Tankovyy Viddil" }
+		105 = { "%dya Tankovyy Viddil" }
+		107 = { "%dya Tankovyy Viddil" }
+		108 = { "%dya Tankovyy Viddil" }
+		109 = { "%dya Tankovyy Viddil" }
+		110 = { "%dya Tankovyy Viddil" }
+		111 = { "%dya Tankovyy Viddil" }
+		112 = { "%dya Tankovyy Viddil" }
+	}
+}
+
+UKR_ARM_02 = 
+{
+	name = "Tank Corps"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Tankovyy Korpus"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Tankovyy Korpus" }
+		2 = { "%dya Tankovyy Korpus" }
+		3 = { "%dya Tankovyy Korpus" }
+		4 = { "%dya Tankovyy Korpus" }
+		5 = { "%dya Tankovyy Korpus" }
+		6 = { "%dya Tankovyy Korpus" }
+		7 = { "%dya Tankovyy Korpus" }
+		8 = { "%dya Tankovyy Korpus" }
+		9 = { "%dya Tankovyy Korpus" }
+		10 = { "%dya Tankovyy Korpus" }
+		11 = { "%dya Tankovyy Korpus" }
+		12 = { "%dya Tankovyy Korpus" }
+		13 = { "%dya Tankovyy Korpus" }
+		14 = { "%dya Tankovyy Korpus" }
+		15 = { "%dya Tankovyy Korpus" }
+		16 = { "%dya Tankovyy Korpus" }
+		17 = { "%dya Tankovyy Korpus" }
+		18 = { "%dya Tankovyy Korpus" }
+		19 = { "%dya Tankovyy Korpus" }
+		20 = { "%dya Tankovyy Korpus" }
+		21 = { "%dya Tankovyy Korpus" }
+		22 = { "%dya Tankovyy Korpus" }
+		23 = { "%dya Tankovyy Korpus" }
+		24 = { "%dya Tankovyy Korpus" }
+		25 = { "%dya Tankovyy Korpus" }
+		26 = { "%dya Tankovyy Korpus" }
+		27 = { "%dya Tankovyy Korpus" }
+		28 = { "%dya Tankovyy Korpus" }
+		29 = { "%dya Tankovyy Korpus" }
+		30 = { "%dya Tankovyy Korpus" }
+		31 = { "%dya Tankovyy Korpus" }
+		32 = { "%dya Tankovyy Korpus" }
+		33 = { "%dya Tankovyy Korpus" }
+		34 = { "%dya Tankovyy Korpus" }
+		35 = { "%dya Tankovyy Korpus" }
+		36 = { "%dya Tankovyy Korpus" }
+		37 = { "%dya Tankovyy Korpus" }
+		38 = { "%dya Tankovyy Korpus" }
+		39 = { "%dya Tankovyy Korpus" }
+		40 = { "%dya Tankovyy Korpus" }
+		41 = { "%dya Tankovyy Korpus" }
+		42 = { "%dya Tankovyy Korpus" }
+		43 = { "%dya Tankovyy Korpus" }
+		44 = { "%dya Tankovyy Korpus" }
+		45 = { "%dya Tankovyy Korpus" }
+		46 = { "%dya Tankovyy Korpus" }
+		47 = { "%dya Tankovyy Korpus" }
+		48 = { "%dya Tankovyy Korpus" }
+		49 = { "%dya Tankovyy Korpus" }
+		50 = { "%dya Tankovyy Korpus" }
+		51 = { "%dya Tankovyy Korpus" }
+		52 = { "%dya Tankovyy Korpus" }
+		53 = { "%dya Tankovyy Korpus" }
+		54 = { "%dya Tankovyy Korpus" }
+		55 = { "%dya Tankovyy Korpus" }
+		56 = { "%dya Tankovyy Korpus" }
+		57 = { "%dya Tankovyy Korpus" }
+		58 = { "%dya Tankovyy Korpus" }
+		59 = { "%dya Tankovyy Korpus" }
+		60 = { "%dya Tankovyy Korpus" }
+		61 = { "%dya Tankovyy Korpus" }
+		101 = { "%dya Tankovyy Korpus" }
+		102 = { "%dya Tankovyy Korpus" }
+		104 = { "%dya Tankovyy Korpus" }
+		105 = { "%dya Tankovyy Korpus" }
+		107 = { "%dya Tankovyy Korpus" }
+		108 = { "%dya Tankovyy Korpus" }
+		109 = { "%dya Tankovyy Korpus" }
+		110 = { "%dya Tankovyy Korpus" }
+		111 = { "%dya Tankovyy Korpus" }
+		112 = { "%dya Tankovyy Korpus" }
+	}
+}
+
+UKR_ARM_03 = 
+{
+	name = "Guard Tank Corps"
+
+	for_countries = { UKR }
+
+	can_use = { has_war = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Okhorontsi Tankovyy Korpus"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Okhorontsi Tankovyy Korpus" }
+		2 = { "%dya Okhorontsi Tankovyy Korpus" }
+		3 = { "%dya Okhorontsi Tankovyy Korpus" }
+		4 = { "%dya Okhorontsi Tankovyy Korpus" }
+		5 = { "%dya Okhorontsi Tankovyy Korpus" }
+		6 = { "%dya Okhorontsi Tankovyy Korpus" }
+		7 = { "%dya Okhorontsi Tankovyy Korpus" }
+		8 = { "%dya Okhorontsi Tankovyy Korpus" }
+		9 = { "%dya Okhorontsi Tankovyy Korpus" }
+		10 = { "%dya Okhorontsi Tankovyy Korpus" }
+		11 = { "%dya Okhorontsi Tankovyy Korpus" }
+		12 = { "%dya Okhorontsi Tankovyy Korpus" }
+		13 = { "%dya Okhorontsi Tankovyy Korpus" }
+		14 = { "%dya Okhorontsi Tankovyy Korpus" }
+		15 = { "%dya Okhorontsi Tankovyy Korpus" }
+		16 = { "%dya Okhorontsi Tankovyy Korpus" }
+		17 = { "%dya Okhorontsi Tankovyy Korpus" }
+		18 = { "%dya Okhorontsi Tankovyy Korpus" }
+		19 = { "%dya Okhorontsi Tankovyy Korpus" }
+		20 = { "%dya Okhorontsi Tankovyy Korpus" }
+		21 = { "%dya Okhorontsi Tankovyy Korpus" }
+		22 = { "%dya Okhorontsi Tankovyy Korpus" }
+		23 = { "%dya Okhorontsi Tankovyy Korpus" }
+		24 = { "%dya Okhorontsi Tankovyy Korpus" }
+		25 = { "%dya Okhorontsi Tankovyy Korpus" }
+		26 = { "%dya Okhorontsi Tankovyy Korpus" }
+		27 = { "%dya Okhorontsi Tankovyy Korpus" }
+		28 = { "%dya Okhorontsi Tankovyy Korpus" }
+		29 = { "%dya Okhorontsi Tankovyy Korpus" }
+		30 = { "%dya Okhorontsi Tankovyy Korpus" }
+		31 = { "%dya Okhorontsi Tankovyy Korpus" }
+		32 = { "%dya Okhorontsi Tankovyy Korpus" }
+		33 = { "%dya Okhorontsi Tankovyy Korpus" }
+		34 = { "%dya Okhorontsi Tankovyy Korpus" }
+		35 = { "%dya Okhorontsi Tankovyy Korpus" }
+		36 = { "%dya Okhorontsi Tankovyy Korpus" }
+		37 = { "%dya Okhorontsi Tankovyy Korpus" }
+		38 = { "%dya Okhorontsi Tankovyy Korpus" }
+		39 = { "%dya Okhorontsi Tankovyy Korpus" }
+		40 = { "%dya Okhorontsi Tankovyy Korpus" }
+		41 = { "%dya Okhorontsi Tankovyy Korpus" }
+		42 = { "%dya Okhorontsi Tankovyy Korpus" }
+		43 = { "%dya Okhorontsi Tankovyy Korpus" }
+		44 = { "%dya Okhorontsi Tankovyy Korpus" }
+		45 = { "%dya Okhorontsi Tankovyy Korpus" }
+		46 = { "%dya Okhorontsi Tankovyy Korpus" }
+		47 = { "%dya Okhorontsi Tankovyy Korpus" }
+		48 = { "%dya Okhorontsi Tankovyy Korpus" }
+		49 = { "%dya Okhorontsi Tankovyy Korpus" }
+		50 = { "%dya Okhorontsi Tankovyy Korpus" }
+		51 = { "%dya Okhorontsi Tankovyy Korpus" }
+		52 = { "%dya Okhorontsi Tankovyy Korpus" }
+		53 = { "%dya Okhorontsi Tankovyy Korpus" }
+		54 = { "%dya Okhorontsi Tankovyy Korpus" }
+		55 = { "%dya Okhorontsi Tankovyy Korpus" }
+		56 = { "%dya Okhorontsi Tankovyy Korpus" }
+		57 = { "%dya Okhorontsi Tankovyy Korpus" }
+		58 = { "%dya Okhorontsi Tankovyy Korpus" }
+		59 = { "%dya Okhorontsi Tankovyy Korpus" }
+		60 = { "%dya Okhorontsi Tankovyy Korpus" }
+		61 = { "%dya Okhorontsi Tankovyy Korpus" }
+		101 = { "%dya Okhorontsi Tankovyy Korpus" }
+		102 = { "%dya Okhorontsi Tankovyy Korpus" }
+		104 = { "%dya Okhorontsi Tankovyy Korpus" }
+		105 = { "%dya Okhorontsi Tankovyy Korpus" }
+		107 = { "%dya Okhorontsi Tankovyy Korpus" }
+		108 = { "%dya Okhorontsi Tankovyy Korpus" }
+		109 = { "%dya Okhorontsi Tankovyy Korpus" }
+		110 = { "%dya Okhorontsi Tankovyy Korpus" }
+		111 = { "%dya Okhorontsi Tankovyy Korpus" }
+		112 = { "%dya Okhorontsi Tankovyy Korpus" }
+	}
+}
+
+UKR_ARM_04 = 
+{
+	name = "Tank Brigade"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Tankovyy Bryhady"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Tankovyy Bryhady" }
+		2 = { "%dya Tankovyy Bryhady" }
+		3 = { "%dya Tankovyy Bryhady" }
+		4 = { "%dya Tankovyy Bryhady" }
+		5 = { "%dya Tankovyy Bryhady" }
+		6 = { "%dya Tankovyy Bryhady" }
+		7 = { "%dya Tankovyy Bryhady" }
+		8 = { "%dya Tankovyy Bryhady" }
+		9 = { "%dya Tankovyy Bryhady" }
+		10 = { "%dya Tankovyy Bryhady" }
+		11 = { "%dya Tankovyy Bryhady" }
+		12 = { "%dya Tankovyy Bryhady" }
+		13 = { "%dya Tankovyy Bryhady" }
+		14 = { "%dya Tankovyy Bryhady" }
+		15 = { "%dya Tankovyy Bryhady" }
+		16 = { "%dya Tankovyy Bryhady" }
+		17 = { "%dya Tankovyy Bryhady" }
+		18 = { "%dya Tankovyy Bryhady" }
+		19 = { "%dya Tankovyy Bryhady" }
+		20 = { "%dya Tankovyy Bryhady" }
+		21 = { "%dya Tankovyy Bryhady" }
+		22 = { "%dya Tankovyy Bryhady" }
+		23 = { "%dya Tankovyy Bryhady" }
+		24 = { "%dya Tankovyy Bryhady" }
+		25 = { "%dya Tankovyy Bryhady" }
+		26 = { "%dya Tankovyy Bryhady" }
+		27 = { "%dya Tankovyy Bryhady" }
+		28 = { "%dya Tankovyy Bryhady" }
+		29 = { "%dya Tankovyy Bryhady" }
+		30 = { "%dya Tankovyy Bryhady" }
+		31 = { "%dya Tankovyy Bryhady" }
+		32 = { "%dya Tankovyy Bryhady" }
+		33 = { "%dya Tankovyy Bryhady" }
+		34 = { "%dya Tankovyy Bryhady" }
+		35 = { "%dya Tankovyy Bryhady" }
+		36 = { "%dya Tankovyy Bryhady" }
+		37 = { "%dya Tankovyy Bryhady" }
+		38 = { "%dya Tankovyy Bryhady" }
+		39 = { "%dya Tankovyy Bryhady" }
+		40 = { "%dya Tankovyy Bryhady" }
+		41 = { "%dya Tankovyy Bryhady" }
+		42 = { "%dya Tankovyy Bryhady" }
+		43 = { "%dya Tankovyy Bryhady" }
+		44 = { "%dya Tankovyy Bryhady" }
+		45 = { "%dya Tankovyy Bryhady" }
+		46 = { "%dya Tankovyy Bryhady" }
+		47 = { "%dya Tankovyy Bryhady" }
+		48 = { "%dya Tankovyy Bryhady" }
+		49 = { "%dya Tankovyy Bryhady" }
+		50 = { "%dya Tankovyy Bryhady" }
+		51 = { "%dya Tankovyy Bryhady" }
+		52 = { "%dya Tankovyy Bryhady" }
+		53 = { "%dya Tankovyy Bryhady" }
+		54 = { "%dya Tankovyy Bryhady" }
+		55 = { "%dya Tankovyy Bryhady" }
+		56 = { "%dya Tankovyy Bryhady" }
+		57 = { "%dya Tankovyy Bryhady" }
+		58 = { "%dya Tankovyy Bryhady" }
+		59 = { "%dya Tankovyy Bryhady" }
+		60 = { "%dya Tankovyy Bryhady" }
+		61 = { "%dya Tankovyy Bryhady" }
+		101 = { "%dya Tankovyy Bryhady" }
+		102 = { "%dya Tankovyy Bryhady" }
+		104 = { "%dya Tankovyy Bryhady" }
+		105 = { "%dya Tankovyy Bryhady" }
+		107 = { "%dya Tankovyy Bryhady" }
+		108 = { "%dya Tankovyy Bryhady" }
+		109 = { "%dya Tankovyy Bryhady" }
+		110 = { "%dya Tankovyy Bryhady" }
+		111 = { "%dya Tankovyy Bryhady" }
+		112 = { "%dya Tankovyy Bryhady" }
+	}
+}
+
+UKR_PAR_01 = 
+{
+	name = "Paratrooper Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Povitryani Div."
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Povitryani Div." }
+		2 = { "%dya Povitryani Div." }
+		3 = { "%dya Povitryani Div." }
+		4 = { "%dya Povitryani Div." }
+		5 = { "%dya Povitryani Div." }
+		6 = { "%dya Povitryani Div." }
+		7 = { "%dya Povitryani Div." }
+		8 = { "%dya Povitryani Div." }
+		9 = { "%dya Povitryani Div." }
+		10 = { "%dya Povitryani Div." }
+		11 = { "%dya Povitryani Div." }
+		12 = { "%dya Povitryani Div." }
+		101 = { "1ya Gvds. Povitryani Div." }
+		102 = { "2ya Gvds. Povitryani Div." }
+		103 = { "3ya Gvds. Povitryani Div." }
+		104 = { "4ya Gvds. Povitryani Div." }
+		105 = { "5ya Gvds. Povitryani Div." }
+		106 = { "6ya Gvds. Povitryani Div." }
+		108 = { "8ya Gvds. Povitryani Div." }
+		109 = { "9ya Gvds. Povitryani Div." }
+		110 = { "10ya Gvds. Povitryani Div." }
+		111 = { "11ya Gvds. Povitryani Div." }
+		112 = { "12ya Gvds. Povitryani Div." }
+		113 = { "13ya Gvds. Povitryani Div." }
+		114 = { "14ya Gvds. Povitryani Div." }
+		115 = { "15ya Gvds. Povitryani Div." }
+		116 = { "16ya Gvds. Povitryani Div." }
+		121 = { "21ya Gvds. Povitryani Div." }
+		131 = { "31ya Gvds. Povitryani Div." }
+		203 = { "103ya Gvds. Povitryani Div." }
+		204 = { "104ya Gvds. Povitryani Div." }
+		214 = { "114ya Gvds. Povitryani Div." }
+	}
+}
+
+UKR_MAR_01 = 
+{
+	name = "Marine Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Viddil Mors'koyi Pikhoty"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Viddil Mors'koyi Pikhoty" }
+		2 = { "%dya Viddil Mors'koyi Pikhoty" }
+		3 = { "%dya Viddil Mors'koyi Pikhoty" }
+		4 = { "%dya Viddil Mors'koyi Pikhoty" }
+		5 = { "%dya Viddil Mors'koyi Pikhoty" }
+		6 = { "%dya Viddil Mors'koyi Pikhoty" }
+		7 = { "%dya Viddil Mors'koyi Pikhoty" }
+		8 = { "%dya Viddil Mors'koyi Pikhoty" }
+		9 = { "%dya Viddil Mors'koyi Pikhoty" }
+		10 = { "%dya Viddil Mors'koyi Pikhoty" }
+	}
+}
+
+UKR_MNT_01 = 
+{
+	name = "Mountain Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Hirsʹkyy Viddil"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		79 = { "%dya Hirsʹkyy Viddil" }
+		101 = { "%dya Hirsʹkyy Viddil" }
+		138 = { "%dya Hirsʹkyy Viddil" }
+		192 = { "%dya Hirsʹkyy Viddil" }
+		194 = { "%dya Hirsʹkyy Viddil" }
+		232 = { "%dya Hirsʹkyy Viddil" }
+		302 = { "%dya Hirsʹkyy Viddil" }
+	}
+}
+
+UKR_GAR_01 = 
+{
+	name = "Garrison Division"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Prykordonnyy Viddil"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Prykordonnyy Viddil" }
+		3 = { "%dya Prykordonnyy Viddil" }
+		4 = { "%dya Prykordonnyy Viddil" }
+		5 = { "%dya Prykordonnyy Viddil" }
+		6 = { "%dya Prykordonnyy Viddil" }
+	}
+}
+
+UKR_GRD_01 = 
+{
+	name = "Guards Rifles"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Storozhi Strilk. Div."
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		5 = { "%dya Storozhi Strilk. Div." }
+		6 = { "%dya Storozhi Strilk. Div." }
+		7 = { "%dya Storozhi Strilk. Div." }
+		8 = { "%dya Storozhi Strilk. Div." }
+		9 = { "%dya Storozhi Strilk. Div." }
+		10 = { "%dya Storozhi Strilk. Div." }
+		11 = { "%dya Storozhi Strilk. Div." }
+		12 = { "%dya Storozhi Strilk. Div." }
+		13 = { "%dya Storozhi Strilk. Div." }
+		14 = { "%dya Storozhi Strilk. Div." }
+		15 = { "%dya Storozhi Strilk. Div." }
+		16 = { "%dya Storozhi Strilk. Div." }
+		17 = { "%dya Storozhi Strilk. Div." }
+		18 = { "%dya Storozhi Strilk. Div." }
+		19 = { "%dya Storozhi Strilk. Div." }
+		20 = { "%dya Storozhi Strilk. Div." }
+		21 = { "%dya Storozhi Strilk. Div." }
+		22 = { "%dya Storozhi Strilk. Div." }
+		23 = { "%dya Storozhi Strilk. Div." }
+		24 = { "%dya Storozhi Strilk. Div." }
+		25 = { "%dya Storozhi Strilk. Div." }
+		26 = { "%dya Storozhi Strilk. Div." }
+		27 = { "%dya Storozhi Strilk. Div." }
+		28 = { "%dya Storozhi Strilk. Div." }
+		29 = { "%dya Storozhi Strilk. Div." }
+		30 = { "%dya Storozhi Strilk. Div." }
+		31 = { "%dya Storozhi Strilk. Div." }
+		32 = { "%dya Storozhi Strilk. Div." }
+		33 = { "%dya Storozhi Strilk. Div." }
+		34 = { "%dya Storozhi Strilk. Div." }
+		35 = { "%dya Storozhi Strilk. Div." }
+		36 = { "%dya Storozhi Strilk. Div." }
+		37 = { "%dya Storozhi Strilk. Div." }
+		38 = { "%dya Storozhi Strilk. Div." }
+		39 = { "%dya Storozhi Strilk. Div." }
+		40 = { "%dya Storozhi Strilk. Div." }
+		41 = { "%dya Storozhi Strilk. Div." }
+		42 = { "%dya Storozhi Strilk. Div." }
+		43 = { "%dya Storozhi Strilk. Div." }
+		44 = { "%dya Storozhi Strilk. Div." }
+		45 = { "%dya Storozhi Strilk. Div." }
+		46 = { "%dya Storozhi Strilk. Div." }
+		47 = { "%dya Storozhi Strilk. Div." }
+		48 = { "%dya Storozhi Strilk. Div." }
+		49 = { "%dya Storozhi Strilk. Div." }
+		50 = { "%dya Storozhi Strilk. Div." }
+		51 = { "%dya Storozhi Strilk. Div." }
+		52 = { "%dya Storozhi Strilk. Div." }
+		53 = { "%dya Storozhi Strilk. Div." }
+		54 = { "%dya Storozhi Strilk. Div." }
+		55 = { "%dya Storozhi Strilk. Div." }
+		56 = { "%dya Storozhi Strilk. Div." }
+		57 = { "%dya Storozhi Strilk. Div." }
+		58 = { "%dya Storozhi Strilk. Div." }
+		59 = { "%dya Storozhi Strilk. Div." }
+		60 = { "%dya Storozhi Strilk. Div." }
+		61 = { "%dya Storozhi Strilk. Div." }
+		62 = { "%dya Storozhi Strilk. Div." }
+		63 = { "%dya Storozhi Strilk. Div." }
+		64 = { "%dya Storozhi Strilk. Div." }
+		65 = { "%dya Storozhi Strilk. Div." }
+		66 = { "%dya Storozhi Strilk. Div." }
+		67 = { "%dya Storozhi Strilk. Div." }
+		68 = { "%dya Storozhi Strilk. Div." }
+		69 = { "%dya Storozhi Strilk. Div." }
+		70 = { "%dya Storozhi Strilk. Div." }
+		71 = { "%dya Storozhi Strilk. Div." }
+		72 = { "%dya Storozhi Strilk. Div." }
+		73 = { "%dya Storozhi Strilk. Div." }
+		74 = { "%dya Storozhi Strilk. Div." }
+		75 = { "%dya Storozhi Strilk. Div." }
+		76 = { "%dya Storozhi Strilk. Div." }
+		77 = { "%dya Storozhi Strilk. Div." }
+		78 = { "%dya Storozhi Strilk. Div." }
+		79 = { "%dya Storozhi Strilk. Div." }
+		80 = { "%dya Storozhi Strilk. Div." }
+		81 = { "%dya Storozhi Strilk. Div." }
+		82 = { "%dya Storozhi Strilk. Div." }
+		83 = { "%dya Storozhi Strilk. Div." }
+		84 = { "%dya Storozhi Strilk. Div." }
+		85 = { "%dya Storozhi Strilk. Div." }
+		86 = { "%dya Storozhi Strilk. Div." }
+		87 = { "%dya Storozhi Strilk. Div." }
+		88 = { "%dya Storozhi Strilk. Div." }
+		89 = { "%dya Storozhi Strilk. Div." }
+		90 = { "%dya Storozhi Strilk. Div." }
+		91 = { "%dya Storozhi Strilk. Div." }
+		92 = { "%dya Storozhi Strilk. Div." }
+		93 = { "%dya Storozhi Strilk. Div." }
+		94 = { "%dya Storozhi Strilk. Div." }
+		95 = { "%dya Storozhi Strilk. Div." }
+		96 = { "%dya Storozhi Strilk. Div." }
+		97 = { "%dya Storozhi Strilk. Div." }
+		98 = { "%dya Storozhi Strilk. Div." }
+		99 = { "%dya Storozhi Strilk. Div." }
+		100 = { "%dya Storozhi Strilk. Div." }
+		101 = { "%dya Storozhi Strilk. Div." }
+		102 = { "%dya Storozhi Strilk. Div." }
+		103 = { "%dya Storozhi Strilk. Div." }
+		104 = { "%dya Storozhi Strilk. Div." }
+		105 = { "%dya Storozhi Strilk. Div." }
+		106 = { "%dya Storozhi Strilk. Div." }
+		107 = { "%dya Storozhi Strilk. Div." }
+		108 = { "%dya Storozhi Strilk. Div." }
+		109 = { "%dya Storozhi Strilk. Div." }
+		110 = { "%dya Storozhi Strilk. Div." }
+		111 = { "%dya Storozhi Strilk. Div." }
+		112 = { "%dya Storozhi Strilk. Div." }
+		113 = { "%dya Storozhi Strilk. Div." }
+		114 = { "%dya Storozhi Strilk. Div." }
+		115 = { "%dya Storozhi Strilk. Div." }
+		116 = { "%dya Storozhi Strilk. Div." }
+		117 = { "%dya Storozhi Strilk. Div." }
+		118 = { "%dya Storozhi Strilk. Div." }
+		119 = { "%dya Storozhi Strilk. Div." }
+		120 = { "%dya Storozhi Strilk. Div." }
+		121 = { "%dya Storozhi Strilk. Div." }
+		122 = { "%dya Storozhi Strilk. Div." }
+		123 = { "%dya Storozhi Strilk. Div." }
+		124 = { "%dya Storozhi Strilk. Div." }
+		125 = { "%dya Storozhi Strilk. Div." }
+		126 = { "%dya Storozhi Strilk. Div." }
+		127 = { "%dya Storozhi Strilk. Div." }
+		128 = { "%dya Storozhi Strilk. Div." }
+		129 = { "%dya Storozhi Strilk. Div." }
+	}
+}
+
+UKR_GMC_01 = 
+{
+	name = "Guards Mechanized"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" "motorized" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Gvds. Mekhanizovanyy Korpus"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		2 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		3 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		4 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		6 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		7 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		8 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+		9 = { "%dya Gvds. Mekhanizovanyy Korpus" }
+	}
+}
+
+UKR_GTC_01 = 
+{
+	name = "Guards Tanks"
+
+	for_countries = { UKR }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { UKR_INF_01 }
+
+	fallback_name = "%dya Gvds. Tankovyy Korpus"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Gvds. Tankovyy Korpus" }
+		3 = { "%dya Gvds. Tankovyy Korpus" }
+		5 = { "%dya Gvds. Tankovyy Korpus" }
+		6 = { "%dya Gvds. Tankovyy Korpus" }
+		7 = { "%dya Gvds. Tankovyy Korpus" }
+		8 = { "%dya Gvds. Tankovyy Korpus" }
+		9 = { "%dya Gvds. Tankovyy Korpus" }
+		11 = { "%dya Gvds. Tankovyy Korpus" }
+		12 = { "%dya Gvds. Tankovyy Korpus" }
+	}
+}

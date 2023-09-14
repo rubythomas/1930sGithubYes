@@ -1,0 +1,1248 @@
+﻿add_namespace = ctusa_cw
+country_event = { #armybase supplies siezed
+	id = ctusa_cw.1
+	title = ctusa_cw.1.t
+	desc = ctusa_cw.1.d
+	picture = GFX_report_event_generic_truck	
+ 	is_triggered_only = yes
+	#mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctusa_cw.1.o1
+		#set_country_flag = ct_usa_roos
+		if = {
+			limit = {
+				has_equipment = {
+					infantry_equipment > 999
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+		}
+		else = {
+			add_stability = -0.05
+		}
+		add_to_variable = { var = usa_cw_arms_stockpile value = 1000 }
+		hidden_effect = {
+		}
+	}
+}
+
+country_event = { #gov ralies state troops
+	id = ctusa_cw.2
+	title = ctusa_cw.2.t
+	desc = ctusa_cw.2.d
+	picture = GFX_report_event_generic_army		
+ 	is_triggered_only = yes
+
+	 immediate = {
+		hidden_effect = {
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_confed_state = yes
+					not = { has_state_flag = ng_mobilized }
+				}
+				set_state_flag = ng_mobilized
+				save_event_target_as = usa_ng_mobilized
+			}
+		}
+	}
+	option = {
+		name = ctusa_cw.2.o1
+		event_target:usa_ng_mobilized = {
+			custom_effect_tooltip = citizen_militia_tt
+		}
+	}
+}
+
+country_event = { #1st csa state secedes
+	id = ctusa_cw.3
+	title = ctusa_cw.3.t
+	desc = ctusa_cw.3.d
+	picture = GFX_report_event_usa_macarthur_speech		
+ 	is_triggered_only = yes
+	 immediate = {
+		hidden_effect = {
+			CSA = { inherit_technology = ROOT }
+			set_global_flag = ct_confederacy_formed
+			random_owned_state = {
+				limit = {
+					is_confed_state = yes
+				}
+				CSA = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				save_event_target_as = CSAcapital
+				USA = { 
+					remove_state_core = PREV 
+					add_state_claim = PREV
+					USA_congress_remove_state = yes
+				}
+			}
+			country_event = { id = ctusa_cw.4 days = 2 }  #forms confederacy forms
+			if = {
+				limit = {
+					not = {
+						has_completed_focus = USA_national_employment_strategy
+					}
+				}
+				country_event = ctusa_cw.6 #forms neutral bloc
+			}	
+		}
+	}
+	option = {
+		name = ctusa_cw.3.o1
+		effect_tooltip = {
+			event_target:CSAcapital = {
+				CSA = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				USA = { 
+					remove_state_core = PREV 
+					add_state_claim = PREV
+					USA_congress_remove_state = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #confederacy forms
+	id = ctusa_cw.4
+	title = ctusa_cw.4.t
+	desc = ctusa_cw.4.d
+	picture = GFX_report_event_usa_pearl_harbor_airphoto	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_confed_state = yes
+				}
+				CSA = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				USA = { 
+					#remove_state_core = PREV 
+					#add_state_claim = PREV
+					USA_congress_remove_state = yes
+				}
+			}
+		}
+		hidden_effect = {
+			#news_event = { id = mtg_news.1 days = 3 }##############
+			#set_global_flag = USA_cw_fired
+			#USA_naval_mutinies_effect = yes####################
+			USA = {
+				add_stability = -0.75
+				remove_unit_leader = 57		 	
+				remove_unit_leader = 7709
+				remove_unit_leader = 7715
+				remove_unit_leader = 7718
+				remove_unit_leader = 7719
+				remove_unit_leader = 7720
+				remove_unit_leader = 7723
+				remove_unit_leader = 7730
+				remove_unit_leader = 7733
+				remove_unit_leader = 7738
+				remove_unit_leader = 7743
+				remove_unit_leader = 7744
+				remove_unit_leader = 7746
+				remove_unit_leader = 7748				
+				remove_unit_leader = 7749
+				remove_unit_leader = 7756
+				remove_unit_leader = 7758
+				remove_unit_leader = 7762
+				remove_unit_leader = 7764
+				remove_unit_leader = 7767
+				#remove_unit_leader = 7769 #Willis Crit MD
+				remove_unit_leader = 7773
+				#remove_unit_leader = 7779 #Hartle MD
+				remove_unit_leader = 7780
+				remove_unit_leader = 7784
+				remove_unit_leader = 7786
+				remove_unit_leader = 7790
+				#remove_unit_leader = 7793 #Spruance MD
+				remove_unit_leader = 7796
+			}
+			CSA = {
+				create_navy_leader = { #KY
+					name = "Husband E. Kimmel"
+					picture = "Portrait_USA_Husband_E_Kimmel.dds"
+					traits = { old_guard_navy }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					maneuvering_skill = 1
+					coordination_skill = 2
+				}
+				create_navy_leader = { #KY
+					name = "Willis A. Lee"
+					picture = "Portrait_USA_Willis_A_Lee.dds"
+					traits = { fly_swatter ironside gunnery_expert bold }
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					maneuvering_skill = 3
+					coordination_skill = 2
+				}
+				create_field_marshal = { #AR
+					name = "Douglas MacArthur"
+					id = 57
+					picture = "Portrait_USA_Douglas_MacArthur.dds"
+					traits = {  offensive_doctrine brilliant_strategist career_officer media_personality politically_connected }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				create_corps_commander = { #FL
+					name = "Roy Geiger"
+					picture = "Portrait_USA_Roy_Geiger.dds"
+					traits = { commando }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Virginia
+					name = "Samuel Cumming"
+					picture = "Portrait_USA_Samuel_C_Cumming.dds"
+					traits = { commando }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Virginia
+					name = "Alexander Vandegrift"
+					picture = "Portrait_USA_Alexander_Vandegrift.dds"
+					traits = { commando naval_invader infantry_leader }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 5
+					planning_skill = 2
+					logistics_skill = 3
+				}
+				create_corps_commander = {  #KY
+					name = "Carlos Brewer"
+					picture = "Portrait_USA_Carlos_Brewer.dds"
+					traits = { bearer_of_artillery }
+					skill = 2
+					id = 7723
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = { #VA
+					name = "Edward Almond"
+					picture = "Portrait_USA_Edward_Almond.dds"
+					traits = { }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				create_corps_commander = { #KY
+					name = "Franklin C. Sibert"
+					picture = "Portrait_USA_Franklin_C_Sibert.dds"
+					traits = { infantry_officer naval_invader }
+					skill = 2
+					attack_skill = 1
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = { #Alabama
+					name = "Holland Smith"
+					picture = "Portrait_USA_Holland_Smith.dds"
+					traits = { naval_invader trickster commando }
+					skill = 4
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = { #FL
+					name = "James Van Fleet"
+					picture = "Portrait_USA_James_Van_Fleet.dds"
+					traits = { infantry_officer }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				create_corps_commander = { #WV
+					name = "John Lucas"
+					picture = "Portrait_USA_John_P_Lucas.dds"
+					traits = { inflexible_strategist }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #AR
+					name = "John Wood"
+					picture = "Portrait_USA_John_Shirley_Wood.dds"
+					traits = { panzer_leader trickster trait_reckless brilliant_strategist }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #TN
+					name = "Julius Ochs Adler"
+					picture = "Portrait_USA_Julius_Ochs_Adler.dds"
+					traits = { }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Virginia
+					name = "Lemuel Shepherd Jr."
+					picture = "Portrait_USA_Lemuel_Shepherd_Jr.dds"
+					traits = { war_hero commando trait_reckless }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				create_corps_commander = { #Texas
+					name = "Roderick Allen"
+					picture = "Portrait_USA_Roderick_Allen.dds"
+					traits = { panzer_leader  }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				create_corps_commander = { #Confederate Son KY
+					name = "Simon Buckner Jr."
+					picture = "Portrait_USA_Simon_B_Buckner_Jr.dds"
+					traits = {  }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #MS 1cw Confed
+					name = "Troy Middleton"
+					picture = "Portrait_USA_Troy_Middleton.dds"
+					traits = { war_hero infantry_officer }
+					skill = 4
+					attack_skill = 2
+					defense_skill = 5
+					planning_skill = 4
+					logistics_skill = 3
+				}
+				create_corps_commander = { #Virginia
+					name = "Wade Haislip"
+					picture = "Portrait_USA_Wade_Haislip.dds"
+					traits = { infantry_officer }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Missouri
+					name = "William Hoge"
+					picture = "Portrait_USA_William_Morris_Hoge.dds"
+					traits = { war_hero trait_engineer }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 4
+					logistics_skill = 3
+				}
+				create_corps_commander = { #OK
+					name = "Lucian Truscott"
+					picture = "Portrait_USA_Lucian_Truscott.dds"
+					traits = { trait_engineer commando cavalry_officer }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Virginia
+					name = "Leonard Gerow"
+					picture = "Portrait_USA_Leonard_T_Gerow.dds"
+					traits = { infantry_officer }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 3
+				}
+				create_corps_commander = { #Texas
+					name = "William Simpson"
+					picture = "Portrait_USA_William_Hood_Simpson.dds"
+					traits = { infantry_officer }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 4
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = { #GA
+					name = "Courtney Hodges"
+					picture = "Portrait_USA_Cortney_Hodges.dds"
+					traits = {  panzer_leader career_officer infantry_officer }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = { #FL
+					name = "Joseph Stilwell"
+					picture = "Portrait_USA_Joseph_Stilwell.dds"
+					traits = { politically_connected infantry_officer career_officer harsh_leader }
+					skill = 1 
+					id = 601
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_navy_leader = { #Texas 
+					name = "Chester W. Nimitz"
+						picture = "Portrait_USA_Chester_W_Nimitz.dds"
+					traits = { gentlemanly blue_water_expert naval_lineage superior_tactician spotter }
+					skill = 5
+					attack_skill = 3
+					defense_skill = 3
+					maneuvering_skill = 5
+					coordination_skill = 5
+				}
+				create_navy_leader = { #AR
+					name = "Charles M. Cooke, Jr."
+						picture = "Portrait_USA_Charles_M_Cooke.dds"
+					traits = { career_officer }
+					skill = 2
+					attack_skill = 1
+					defense_skill = 1
+					maneuvering_skill = 2
+					coordination_skill = 3
+				}
+				create_country_leader = {
+					name = "John Nance Garner"
+					desc = "POLITICS_John_Nance_Garner_DESC"
+					picture = "Portrait_USA_John_Nance_Garner.dds"
+					expire = "1958.1.1"
+					ideology = conservatism
+					traits = {
+						strict_austerity_adherent
+					}
+				}
+				#create_country_leader = {
+				#	name = "Harry Byrd"
+				#	desc = "POLITICS_Harry_Byrd_DESC"
+				#	picture = "Portrait_USA_Harry_Byrd.dds"
+				#	expire = "1958.1.1"
+				#	ideology = conservatism
+				#	traits = {
+				#		#
+				#	}
+				#}	
+				create_country_leader = {
+					name = "Huey Long"
+					desc = "POLITICS_Floyd_Olson_DESC"
+					picture = "Portrait_USA_Huey_Long.dds"
+					expire = "1956.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}			
+				load_oob = "CSA_fascist_uprising"
+				#set_cosmetic_tag = USA_CSA
+				set_war_support = 0.75
+				set_stability = 0.5
+				add_political_power = 650
+				add_ideas = { 
+					limited_conscription
+					partial_economic_mobilisation 
+					usa_segregation
+					great_depression
+					idea_depression_paralysis
+				}
+				add_manpower = 200000
+				add_offsite_building = { type = industrial_complex level = USA.usa_fascists_funds }
+				add_offsite_building = { type = arms_factory level = 4 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 25000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 800
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 300
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = USA.usa_cw_arms_stockpile
+				}
+				#declare_war_on = { target = USA type = annex_everything }
+				add_ai_strategy = {
+					type = added_military_to_civilian_factory_ratio
+					value = 50
+				}
+				if = {
+					limit = {
+						any_owned_state = {
+							has_state_flag = ng_mobilized
+						}
+					}
+					division_template = {
+						name = "National Guard"
+						priority = 2
+						division_names_group = CSA_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 2 y = 0 }
+							artillery_brigade = { x = 2 y = 1 }
+							artillery_brigade = { x = 2 y = 2 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						366 = { has_state_flag = ng_mobilized }
+					}
+					366 = {
+						create_unit = {
+							division = "name = \"Florida National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						365 = { has_state_flag = ng_mobilized }
+					}
+					365 = {
+						create_unit = {
+							division = "name = \"Georgia National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						367 = { has_state_flag = ng_mobilized }
+					}
+					367 = {
+						create_unit = {
+							division = "name = \"Alabama National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						370 = { has_state_flag = ng_mobilized }
+					}
+					370 = {
+						create_unit = {
+							division = "name = \"Mississippi National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						362 = { has_state_flag = ng_mobilized }
+					}
+					362 = {
+						create_unit = {
+							division = "name = \"Virginia National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						363 = { has_state_flag = ng_mobilized }
+					}
+					363 = {
+						create_unit = {
+							division = "name = \"North Carolina National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						364 = { has_state_flag = ng_mobilized }
+					}
+					364 = {
+						create_unit = {
+							division = "name = \"South Carolina National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						371 = { has_state_flag = ng_mobilized }
+					}
+					371 = {
+						create_unit = {
+							division = "name = \"Louisiana National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						375 = { has_state_flag = ng_mobilized }
+					}
+					375 = {
+						create_unit = {
+							division = "name = \"Texas National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+				if = {
+					limit = {
+						372 = { has_state_flag = ng_mobilized }
+					}
+					372 = {
+						create_unit = {
+							division = "name = \"Arkansas National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+							owner = CSA
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { #stay w/ usa
+		name = ctusa_cw.4.o1
+		ai_chance = { base = 1000 }
+		#load focus section
+
+	}
+	option = { #confederate 
+		name = ctusa_cw.4.o2
+		ai_chance = { base = 0 }
+		CSA = { change_tag_from = ROOT }
+
+	}	
+}
+
+country_event = { #neutral bloc forms
+	id = ctusa_cw.5
+	title = ctusa_cw.5.t
+	desc = ctusa_cw.5.d
+	picture = GFX_report_event_king_speech	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_farmers_state = yes
+				}
+				USB = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				USA = { 
+					#remove_state_core = PREV 
+					#add_state_claim = PREV
+					USA_congress_remove_state = yes
+				}
+			}	
+			USA = {
+				remove_unit_leader = 7702 #Radford
+				remove_unit_leader = 7704 #Ofstie
+				remove_unit_leader = 7708 #Fitch
+				remove_unit_leader = 7711 #Ingram
+				remove_unit_leader = 7713 #Hart
+				remove_unit_leader = 7714 #Walden L. Ainsworth
+				remove_unit_leader = 7724 #Charles Billingslea
+				remove_unit_leader = 7731 #Emil Reinhardt
+				remove_unit_leader = 7737 #Hobart Gay
+				remove_unit_leader = 7745 #John Millikin
+				remove_unit_leader = 7755 #Robert Grow
+				remove_unit_leader = 7757 #Roscoe Woodruff
+				remove_unit_leader = 7763 #Vernon Prichard
+				remove_unit_leader = 7765 #Walter Short
+				remove_unit_leader = 7774 #Mark Clark
+				remove_unit_leader = 7777 #Leslie McNair
+				remove_unit_leader = 7792 #Frank Jack Fletcher
+			}
+			USB = {
+				set_stability = 0.5
+				set_war_support = 0.5
+				create_country_leader = {
+					name = "Floyd Olson"
+					desc = "POLITICS_Floyd_Olson_DESC"
+					picture = "Portrait_USA_Floyd_Olson.dds"
+					expire = "1936.1.1"
+					ideology = centrism
+					traits = {
+						#
+					}
+				}
+				create_navy_leader = { #IL
+					name = "Arthur Radford"
+					picture = "Portrait_USA_Arthur_Radford.dds"
+					traits = { air_controller }
+					skill = 2
+					id = 7702
+					attack_skill = 2
+					defense_skill = 3
+					maneuvering_skill = 2
+					coordination_skill = 3
+				}
+				create_navy_leader = { #WI
+					name = "Ralph Ofstie"
+					picture = "Portrait_USA_Ralph_Ofstie.dds"
+					traits = { fleet_protector ironside ground_pounder }
+					skill = 3
+					id = 7704
+					attack_skill = 3
+					defense_skill = 2
+					maneuvering_skill = 2
+					coordination_skill = 3
+				}
+				create_navy_leader = { #MI
+					name = "Aubrey Fitch"
+					picture = "Portrait_USA_Aubrey_W_Fitch.dds"
+					traits = { navy_career_officer aviation_enthusiast superior_tactician }
+					skill = 4
+					id = 7708
+					attack_skill = 5
+					defense_skill = 4
+					maneuvering_skill = 6
+					coordination_skill = 4
+				}
+				create_navy_leader = { #IN
+					name = "Jonas Ingram"
+					picture = "Portrait_USA_Jonas_Ingram.dds"
+					traits = { blockade_runner }
+					skill = 2
+					id = 7711
+					attack_skill = 4
+					defense_skill = 3
+					maneuvering_skill = 3
+					coordination_skill = 6
+				}
+				create_navy_leader = { #MI
+					name = "Thomas C. Hart"
+					picture = "Portrait_USA_Thomas_C._Hart.dds"
+					traits = {  }
+					skill = 2
+					id = 7713
+					attack_skill = 2
+					defense_skill = 2
+					maneuvering_skill = 3
+					coordination_skill = 3
+				}
+				create_navy_leader = { #MN
+					name = "Walden L. Ainsworth"
+					picture = "Portrait_USA_Walden_Ainsworth.dds"
+					traits = { ironside ground_pounder }
+					skill = 4
+					id = 7714
+					attack_skill = 4
+					defense_skill = 4
+					maneuvering_skill = 4
+					coordination_skill = 3
+				}
+				create_corps_commander = { #IL
+					name = "Charles Billingslea"
+					picture = "Portrait_USA_Charles_Billingslea.dds"
+					traits = {  }
+					skill = 2
+					id = 7724
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+				}
+				create_corps_commander = { #MI
+					name = "Emil Reinhardt"
+					picture = "Portrait_USA_Emil_Reinhardt.dds"
+					traits = { }
+					skill = 2
+					id = 7731
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				create_corps_commander = { #IL
+					name = "Hobart Gay"
+					picture = "Portrait_USA_Hobart_Gay.dds"
+					traits = { armor_officer trait_reckless }
+					skill = 4
+					id = 7737
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				create_corps_commander = { #IN
+					name = "John Millikin"
+					picture = "Portrait_USA_John_Millikin.dds"
+					traits = { old_guard trait_cautious }
+					skill = 1
+					id = 7745
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_corps_commander = { #IA
+					name = "Robert Grow"
+					picture = "Portrait_USA_Robert_W._Grow.dds"
+					traits = { panzer_leader }
+					skill = 2
+					id = 7755
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #IA
+					name = "Roscoe Woodruff"
+					picture = "Portrait_USA_Roscoe_Woodruff.dds"
+					traits = {  }
+					skill = 3
+					id = 7757
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = { #IA
+					name = "Vernon Prichard"
+					picture = "Portrait_USA_Vernon_E_Prichard.dds"
+					traits = { armor_officer }
+					skill = 2
+					id = 7763
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				create_corps_commander = { #IL
+					name = "Walter Short"
+					picture = "Portrait_USA_Walter_Short.dds"
+					traits = { old_guard }
+					skill = 1
+					id = 7765
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_corps_commander = { #IL
+					name = "Mark Clark"
+					picture = "Portrait_USA_Mark_W_Clark.dds"
+					traits = { infantry_officer trait_reckless }
+					skill = 3
+					id = 7774
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Minnesota
+					name = "Leslie McNair"
+					picture = "Portrait_USA_Lesley_McNair.dds"
+					traits = {  old_guard career_officer armor_officer }
+					skill = 3
+					id = 7777
+					attack_skill = 1
+					defense_skill = 2
+					planning_skill = 4
+					logistics_skill = 2
+				}
+				create_navy_leader = { #IA
+					name = "Frank Jack Fletcher"
+						picture = "Portrait_USA_Frank_Jack_Fletcher.dds"
+					traits = { gunnery_expert spotter }
+					skill = 3
+					id = 7792
+					attack_skill = 2
+					defense_skill = 2
+					maneuvering_skill = 3
+					coordination_skill = 1
+				}
+				load_oob = "USB_defense_force"
+			}
+		}
+	}
+	option = {	#can't deal with USB right now
+		name = ctusa_cw.5.o1
+		ai_chance = { base = 1000 }
+		USA = {
+			give_guarantee = USB
+		}
+		CSA = {
+			give_guarantee = USB
+		}
+	}	 
+	option = { #traitors all -    fine but MO joins csa
+		name = ctusa_cw.5.o2
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.1
+		add_war_support = -0.1
+		every_owned_state = {
+			limit = { state = 373 }
+			CSA = {
+				transfer_state = PREV
+				add_state_core = PREV
+			}
+			USA = {
+				USA_congress_remove_state = yes
+			}
+		}
+		#hidden_effect = {
+			#CSA = {
+				#USB = {
+				#	every_unit_leader = {
+				#		set_nationality = CSA
+				#	}
+				#}
+				#set_country_flag = ct_usb_high_command_absorbed
+				#annex_country = { target = USB transfer_troops = yes }
+				#add_offsite_building = { type = arms_factory level = 3 }
+				#add_manpower = 80000
+			#}
+		#}		
+	}
+	option = {   #join USB
+		name = ctusa_cw.5.o3
+		ai_chance = { base = 0 }
+		USB = { change_tag_from = ROOT }		
+	}
+}
+
+
+country_event = { #gov ralies state troops
+	id = ctusa_cw.6
+	title = ctusa_cw.6.t
+	desc = ctusa_cw.6.d
+	picture = GFX_report_event_generic_rally_3
+ 	is_triggered_only = yes
+
+	 immediate = {
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 393
+						state = 396
+						state = 394
+						state = 392
+						state = 395
+						state = 391
+					}
+				}
+				USB = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+				CSA = {
+					add_state_core = PREV
+				}
+				USA = {
+					USA_congress_remove_state = yes
+					
+				}
+			}		
+		}
+		hidden_effect = {
+			USA = {
+				remove_unit_leader = 7702 #Radford
+				remove_unit_leader = 7704 #Ofstie
+				remove_unit_leader = 7708 #Fitch
+				remove_unit_leader = 7711 #Ingram
+				remove_unit_leader = 7713 #Hart
+				remove_unit_leader = 7714 #Walden L. Ainsworth
+				remove_unit_leader = 7724 #Charles Billingslea
+				remove_unit_leader = 7731 #Emil Reinhardt
+				remove_unit_leader = 7737 #Hobart Gay
+				remove_unit_leader = 7745 #John Millikin
+				remove_unit_leader = 7755 #Robert Grow
+				remove_unit_leader = 7757 #Roscoe Woodruff
+				remove_unit_leader = 7763 #Vernon Prichard
+				remove_unit_leader = 7765 #Walter Short
+				remove_unit_leader = 7774 #Mark Clark
+				remove_unit_leader = 7777 #Leslie McNair
+				remove_unit_leader = 7792 #Frank Jack Fletcher
+			}
+			USB = {
+				set_stability = 1.0
+				set_war_support = 1.0
+				create_country_leader = {
+					name = "Floyd Olson"
+					desc = "POLITICS_Floyd_Olson_DESC"
+					picture = "Portrait_USA_Floyd_Olson.dds"
+					expire = "1936.1.1"
+					ideology = centrism
+					traits = {
+						#
+					}
+				}
+				create_navy_leader = { #IL
+					name = "Arthur Radford"
+					picture = "Portrait_USA_Arthur_Radford.dds"
+					traits = { air_controller }
+					skill = 2
+					id = 7702
+					attack_skill = 2
+					defense_skill = 3
+					maneuvering_skill = 2
+					coordination_skill = 3
+				}
+				create_navy_leader = { #WI
+					name = "Ralph Ofstie"
+					picture = "Portrait_USA_Ralph_Ofstie.dds"
+					traits = { fleet_protector ironside ground_pounder }
+					skill = 3
+					id = 7704
+					attack_skill = 3
+					defense_skill = 2
+					maneuvering_skill = 2
+					coordination_skill = 3
+				}
+				create_navy_leader = { #MI
+					name = "Aubrey Fitch"
+					picture = "Portrait_USA_Aubrey_W_Fitch.dds"
+					traits = { navy_career_officer aviation_enthusiast superior_tactician }
+					skill = 4
+					id = 7708
+					attack_skill = 5
+					defense_skill = 4
+					maneuvering_skill = 6
+					coordination_skill = 4
+				}
+				create_navy_leader = { #IN
+					name = "Jonas Ingram"
+					picture = "Portrait_USA_Jonas_Ingram.dds"
+					traits = { blockade_runner }
+					skill = 2
+					id = 7711
+					attack_skill = 4
+					defense_skill = 3
+					maneuvering_skill = 3
+					coordination_skill = 6
+				}
+				create_navy_leader = { #MI
+					name = "Thomas C. Hart"
+					picture = "Portrait_USA_Thomas_C._Hart.dds"
+					traits = {  }
+					skill = 2
+					id = 7713
+					attack_skill = 2
+					defense_skill = 2
+					maneuvering_skill = 3
+					coordination_skill = 3
+				}
+				create_navy_leader = { #MN
+					name = "Walden L. Ainsworth"
+					picture = "Portrait_USA_Walden_Ainsworth.dds"
+					traits = { ironside ground_pounder }
+					skill = 4
+					id = 7714
+					attack_skill = 4
+					defense_skill = 4
+					maneuvering_skill = 4
+					coordination_skill = 3
+				}
+				create_corps_commander = { #IL
+					name = "Charles Billingslea"
+					picture = "Portrait_USA_Charles_Billingslea.dds"
+					traits = {  }
+					skill = 2
+					id = 7724
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+				}
+				create_corps_commander = { #MI
+					name = "Emil Reinhardt"
+					picture = "Portrait_USA_Emil_Reinhardt.dds"
+					traits = { }
+					skill = 2
+					id = 7731
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 2
+				}
+				create_corps_commander = { #IL
+					name = "Hobart Gay"
+					picture = "Portrait_USA_Hobart_Gay.dds"
+					traits = { armor_officer trait_reckless }
+					skill = 4
+					id = 7737
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				create_corps_commander = { #IN
+					name = "John Millikin"
+					picture = "Portrait_USA_John_Millikin.dds"
+					traits = { old_guard trait_cautious }
+					skill = 1
+					id = 7745
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_corps_commander = { #IA
+					name = "Robert Grow"
+					picture = "Portrait_USA_Robert_W._Grow.dds"
+					traits = { panzer_leader }
+					skill = 2
+					id = 7755
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #IA
+					name = "Roscoe Woodruff"
+					picture = "Portrait_USA_Roscoe_Woodruff.dds"
+					traits = {  }
+					skill = 3
+					id = 7757
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 4
+				}
+				create_corps_commander = { #IA
+					name = "Vernon Prichard"
+					picture = "Portrait_USA_Vernon_E_Prichard.dds"
+					traits = { armor_officer }
+					skill = 2
+					id = 7763
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 3
+				}
+				create_corps_commander = { #IL
+					name = "Walter Short"
+					picture = "Portrait_USA_Walter_Short.dds"
+					traits = { old_guard }
+					skill = 1
+					id = 7765
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_corps_commander = { #IL
+					name = "Mark Clark"
+					picture = "Portrait_USA_Mark_W_Clark.dds"
+					traits = { infantry_officer trait_reckless }
+					skill = 3
+					id = 7774
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+				}
+				create_corps_commander = { #Minnesota
+					name = "Leslie McNair"
+					picture = "Portrait_USA_Lesley_McNair.dds"
+					traits = {  old_guard career_officer armor_officer }
+					skill = 3
+					id = 7777
+					attack_skill = 1
+					defense_skill = 2
+					planning_skill = 4
+					logistics_skill = 2
+				}
+				create_navy_leader = { #IA
+					name = "Frank Jack Fletcher"
+						picture = "Portrait_USA_Frank_Jack_Fletcher.dds"
+					traits = { gunnery_expert spotter }
+					skill = 3
+					id = 7792
+					attack_skill = 2
+					defense_skill = 2
+					maneuvering_skill = 3
+					coordination_skill = 1
+				}
+				load_oob = "USB_defense_force"
+				country_event = { id = mtg_usa_civil_war_fascists.230 days = 5 }
+			}
+		}
+	}
+	option = {
+		name = ctusa_cw.6.o1
+		ai_chance = { base = 1 }
+		USA = {
+			give_guarantee = USB
+		}
+		CSA = {
+			give_guarantee = USB
+		}
+	}
+	option = {
+		name = ctusa_cw.6.o2
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.1
+		add_war_support = -0.1
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 369 # two more states join CSA because you are a meanie!
+					state = 373
+				}
+			}
+			CSA = {
+				transfer_state = PREV
+				add_state_core = PREV
+			}
+			USA = {
+				USA_congress_remove_state = yes
+			}
+		}
+	}
+}

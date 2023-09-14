@@ -1,0 +1,34 @@
+﻿add_namespace = ctukr
+country_event = {
+	id = ctukr.1
+	title = ctukr.1.t
+	desc = ctukr.1.d
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctukr.1.o1
+		set_country_flag = ct_skoropadskyi_leader
+		create_country_leader = {
+			name = "Pavlo Skoropadskyi"
+			desc = "POLITICS_Pavlo_Skoropadskyi_DESC"
+			picture = "Portrait_Ukraine_Pavlo_Skoropadskyi2.dds"
+			expire = "1965.1.1"
+			ideology = moderatism
+			traits = {
+			}
+		}
+	}
+	option = {
+		name = ctukr.1.o2
+		set_country_flag = ct_king_wilhelm_leader
+		create_country_leader = {
+			name = "Wilhelm von Habsburg"
+			desc = "POLITICS_Wilhelm_von_Habsburg_DESC"
+			picture = "Portrait_Ukraine_Wilhelm_von_Habsburg.dds"
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {
+			}
+		}
+	}	
+}

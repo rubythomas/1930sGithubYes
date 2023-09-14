@@ -1,0 +1,346 @@
+# Categories:
+# ITA_colonial_investment_category
+# prospect_for_resources
+# ITA_industrial_development_category
+
+ITA_colonial_investment_category = {
+	ITA_industrialization_process_in_Libya_phase_I = {		
+		icon = generic_construction
+		available = {
+			owns_state = 448
+			has_tech = construction1
+			num_of_civilian_factories_available_for_projects > 2
+		}	
+		highlight_states = {
+			state = 448	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 3
+		}		
+		visible = {
+			owns_state = 448
+			controls_state = 448
+			448= {
+				NOT = {
+					has_state_flag = ITA_industrialization_process_in_Libya_phase_I_done
+				}
+			}
+		}		
+		ai_will_do = {
+			factor = 100
+		}		
+		remove_effect = {
+			448 = {		
+				set_state_flag = ITA_industrialization_process_in_Libya_phase_I_done
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	ITA_industrialization_process_in_Libya_phase_II = {
+		icon = generic_construction
+
+			available = {
+			owns_state = 450
+			has_tech = construction1
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		highlight_states = {
+			state = 450	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 3
+		}		
+		visible = {
+			owns_state = 450
+			controls_state = 450
+			450= {
+				NOT = {
+					has_state_flag = ITA_industrialization_process_in_Libya_phase_II_done
+				}
+			}
+		}		
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			450 = {		
+				set_state_flag = ITA_industrialization_process_in_Libya_phase_II_done
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	ITA_industrial_center_of_Italian_East_Africa = {		
+		icon = generic_construction
+		available = {
+			owns_state = 550
+			has_tech = construction1			
+			num_of_civilian_factories_available_for_projects > 1
+		}		
+		highlight_states = {
+			state = 550	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 3
+		}		
+		visible = {
+			owns_state = 550
+			550= {		
+				NOT = {		
+			        has_state_flag = ITA_industrial_center_of_Italian_East_Africa_done
+				}
+			}					
+		}		
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			550 = {		
+				set_state_flag = ITA_industrial_center_of_Italian_East_Africa_done
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	ITA_develop_italian_somaliland = {		
+		icon = generic_construction
+		available = {
+			owns_state = 559
+			has_tech = construction1			
+			num_of_civilian_factories_available_for_projects > 1
+		}		
+		highlight_states = {
+			state = 559	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 3
+		}		
+		visible = {
+			owns_state = 559
+			559= {		
+				NOT = {		
+			        has_state_flag = ITA_develop_italian_somaliland_done
+				}
+			}
+		}		
+		ai_will_do = {
+			factor = 100
+		}		
+		remove_effect = {
+			559 = {		
+				set_state_flag = ITA_develop_italian_somaliland_done
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+	
+ITA_prospect_for_resources_category = {
+	ITA_tripoli_oil_surveys = {		
+		icon = oil
+		available = {
+			owns_state = 448
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 1
+		}		
+		highlight_states = {
+			state = 448	
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 35
+		modifier = {
+			civilian_factory_use = 2
+		}
+		visible = {
+			owns_state = 448
+			controls_state = 448
+			448 = {
+				NOT = {
+					has_state_flag = ITA_tripoli_oil_surveys_done
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		remove_effect = {
+			448 = { set_state_flag = ITA_tripoli_oil_surveys_done } 
+			448 = {
+				add_resource = {
+					type = oil
+					amount = 6
+		        }			
+			}
+		}
+	}
+}	
+
+ITA_industrial_development_category = {
+	ITA_expand_the_crda_trieste_shipyard = {
+		icon = generic_naval
+		available = {
+			owns_state = 736
+			has_tech = construction1
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		highlight_states = {
+			state = 736	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		visible = {
+			owns_state = 736
+			controls_state = 736
+			736= {
+				NOT = {
+					has_state_flag = ITA_expand_the_crda_trieste_shipyard_done
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			736 = {		
+				set_state_flag = ITA_expand_the_crda_trieste_shipyard_done
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	ITA_crda_trieste_steel_works = {
+		icon = steel
+		available = {
+			owns_state = 736
+			has_tech = construction1
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		highlight_states = {
+			state = 736	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 3
+		}
+		visible = {
+			owns_state = 736
+			controls_state = 736
+			736= {
+				NOT = {
+					has_state_flag = ITA_crda_trieste_steel_works_done
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 736		
+			}
+			736 = {		
+				set_state_flag = ITA_crda_trieste_steel_works_done
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	ITA_autarky = {
+		icon = generic_construction
+		available = {
+			owns_state = 117
+			has_tech = construction1
+			num_of_civilian_factories_available_for_projects > 2		
+		}
+		highlight_states = {
+			state = 117	
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 70
+		modifier = {
+			civilian_factory_use = 2
+		}
+		allowed = {
+			original_tag = ITA
+		}
+		visible = {
+			owns_state = 117
+			controls_state = 117
+			117= {
+				NOT = {
+					has_state_flag = ITA_autarky_done
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			117 = {	
+				set_state_flag = ITA_autarky_done			
+				add_extra_state_shared_building_slots = 2				
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+}

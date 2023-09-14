@@ -1,0 +1,31 @@
+#sample_category = {
+#	icon = generic_crisis
+#	
+#	picture = GFX_decision_cat_picture_ger_case_anton
+#	
+#	priority = 100
+#	
+#	allowed = {
+#		has_dlc = "Waking the Tiger"
+#	}
+#	
+#	visible = {
+#		has_war = no
+#	}
+#}
+
+#ct_prospect_for_resources = {
+#	icon = generic_industry
+#}
+
+ITA_colonial_investment_category = {
+	icon = generic_industry
+}
+
+ITA_prospect_for_resources_category = {
+	icon = generic_industry
+}
+
+ITA_industrial_development_category = {
+	icon = generic_industry
+}

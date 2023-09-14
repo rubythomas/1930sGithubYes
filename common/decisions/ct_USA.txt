@@ -1,0 +1,42 @@
+# Categories:
+ct_USA_category = {
+	USA_statehood_for_baja_cal = {
+		icon = infiltrate_state
+		available = {
+			484 = {
+				not = { is_core_of = ROOT }
+			}
+			political_power_daily > 0.1
+		}
+		visible = {
+			owns_state = 484
+			484 = {
+				is_fully_controlled_by = USA
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		fire_only_once = yes
+		days_remove = 365
+		cost = 100
+		modifier = {
+			political_power_gain = -0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_dlc = "Man the Guns" 
+				}
+				USA_congress_add_state = yes
+				USA_calc_stars = yes
+			}
+			add_state_core = 484
+		}
+	}
+	
+}

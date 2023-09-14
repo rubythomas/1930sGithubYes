@@ -1,0 +1,32 @@
+# Categories:
+GER_war_category = {
+	GER_afrika_korp_phase_I = {		
+		icon = decision_generic_army_support
+		available = {
+			ITA = { owns_state = 448 }
+			has_war_with = ENG
+			ITA = { has_war_with = ENG }
+		}	
+		highlight_states = {
+			state = 448	
+		}
+		cost = 50
+		days_remove = 31
+		fire_only_once = yes	
+		visible = {
+			has_war = yes
+			tag = GER
+			ITA = { owns_state = 448 }
+			ITA = { controls_state = 448 }
+		}		
+		ai_will_do = {
+			factor = 100
+		}		
+		remove_effect = {
+			custom_effect_tooltip = GER_Africa_Korp_tt
+			hidden_effect = {
+				load_oob = "GER_Africa_Korp"
+			}
+		}
+	}
+}

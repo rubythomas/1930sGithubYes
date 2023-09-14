@@ -1,0 +1,29 @@
+﻿add_namespace = ctbel
+
+country_event = {
+	id = ctbel.1
+	title = ctbel.1.t
+	desc = ctbel.1.d
+	picture = GFX_report_event_wallonia
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = ctbel.1.o1
+		ai_chance = {
+			base = 10
+		}
+		FRA = {
+			country_event = { id = twentiesfra.13 }
+		}
+	}
+	#no deal
+	option = {
+		name = ctbel.1.o2
+		ai_chance = {
+			base = 0
+		}
+		FRA = {
+			country_event = { id = twentiesfra.12 }
+		}
+	}
+}

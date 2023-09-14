@@ -1,0 +1,396 @@
+﻿add_namespace = ctgerSP
+################################### Event To 
+# Event Triggered to POL
+country_event = {
+	id = ctgerSP.1
+	title = ctgerSP.1.t
+	desc = ctgerSP.1.desc
+	picture = GFX_report_event_polish_army
+	is_triggered_only = yes
+	option = { #AI Prob Choice
+		name = ctgerSP.1.a
+		trigger = {
+			is_ai = yes
+		}
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				POL = { has_opinion = { target = GER value < 0 } }
+			}
+			random_list = {
+				10 = { POL = { country_event = { id = ctgerSP.2 hours = 4 } } } #country votes yes
+				90 = { POL = { country_event = { id = ctgerSP.3 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					POL = { has_opinion = { target = GER value > 0 } }
+					POL = { has_opinion = { target = GER value < 51 } }
+				}
+			}
+			random_list = {
+				25 = { POL = { country_event = { id = ctgerSP.2 hours = 24 } } } #country votes yes
+				75 = { POL = { country_event = { id = ctgerSP.3 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				POL = { has_opinion = { target = GER value > 50 } }
+			}
+			random_list = {
+				40 = { POL = { country_event = { id = ctgerSP.2 hours = 24 } } } #country votes yes
+				60 = { POL = { country_event = { id = ctgerSP.3 hours = 24 } } } #country votes no
+			}
+		}
+	}
+	option = { #We Submit -Take Danzig
+		name = ctgerSP.1.b
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		POL = { country_event = { id = ctgerSP.2 hours = 24 } } #country votes yes
+	}
+	option = { #Never Swine
+		name = ctgerSP.1.c
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		POL = { country_event = { id = ctgerSP.3 hours = 24 } } #country votes no
+	}
+}
+
+#POL votes yes
+country_event = {
+	id = ctgerSP.2 
+	title = ctgerSP.2.t
+	desc = ctgerSP.2.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.2.a
+		#custom_effect_tooltip = GAME_OVER_TT
+		GER = { 
+			country_event = { id = ctgerSP.4 } 
+		}
+	}
+
+}
+#POL votes no
+country_event = {
+	id = ctgerSP.3 
+	title = ctgerSP.3.t
+	desc = ctgerSP.3.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.3.a
+		GER = { country_event = { id = ctgerSP.5 } }
+		LIT = { country_event = { id = ctgerSP.6 days = 7 } }
+		ENG = { 
+			country_event = { id = ctgerSP.5 } 
+			set_country_flag = GER_wants_POL_land
+		}
+	}
+
+}
+#POL votes gives up Danzig
+country_event = {
+	id = ctgerSP.4 
+	title = ctgerSP.4.t
+	desc = ctgerSP.4.desc
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.4.a
+		GER = { 
+			transfer_state = 85
+			add_state_core = 85
+			give_guarantee = POL
+			add_opinion_modifier = {				
+				target = ROOT
+				modifier = large_increase
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = "POL"			
+				value = 200
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = "POL"
+				value = 200
+			}
+		}
+		POL = {
+			add_ai_strategy = {
+				type = befriend
+				id = "GER"			
+				value = 200
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = "GER"			
+				value = 200
+			}
+		}
+	}
+}
+#POL votes no
+country_event = {
+	id = ctgerSP.5 
+	title = ctgerSP.5.t
+	desc = ctgerSP.5.desc
+	picture = GFX_report_event_polish_army
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.5.a
+	}
+}
+#Event to Give LIT the choice on whether or not to demand wilno POL land 
+country_event = {
+	id = ctgerSP.6 
+	title = ctgerSP.6.t
+	desc = ctgerSP.6.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.6.a
+		trigger = {
+			is_ai = yes
+		}
+		ai_chance = {
+			factor = 100
+		}
+		POL = { country_event = { id = ctgerSP.7 } } #Event for LIT to Demand Wilnius
+	}
+	option = { #human player wants Wilnius
+		name = ctgerSP.6.b
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		POL = { country_event = { id = ctgerSP.7 } } #Event for LIT to Demand Wilnius
+	}
+	option = { #human scared of POL
+		name = ctgerSP.6.c
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Event Triggered to POL wilno
+country_event = {
+	id = ctgerSP.7
+	title = ctgerSP.7.t
+	desc = ctgerSP.7.desc
+	picture = GFX_report_event_polish_tanks_01
+	is_triggered_only = yes
+	option = { #We Submit -Take Danzig
+		name = ctgerSP.7.a
+		ai_chance = {
+			factor = 0
+		}
+		POL = { country_event = { id = ctgerSP.8 hours = 24 } } #country votes yes
+	}
+	option = { #Never Swine
+		name = ctgerSP.7.b
+		ai_chance = {
+			factor = 100
+		}
+		POL = { country_event = { id = ctgerSP.9 hours = 24 } } #country votes no
+	}
+}
+
+#POL votes yes
+country_event = {
+	id = ctgerSP.8 
+	title = ctgerSP.8.t
+	desc = ctgerSP.8.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.8.a
+		#custom_effect_tooltip = GAME_OVER_TT
+		LIT = { 
+			country_event = { id = ctgerSP.10 } 
+		}
+	}
+
+}
+#POL votes no
+country_event = {
+	id = ctgerSP.9 
+	title = ctgerSP.9.t
+	desc = ctgerSP.9.desc
+	picture = GFX_report_event_polish_tanks_01
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.9.a
+		LIT = { country_event = { id = ctgerSP.11 } }
+		ENG = { 
+			country_event = { id = ctgerSP.12 } 
+			set_country_flag = LIT_wants_POL_land
+		}
+	}
+
+}
+#POL votes gives up wilno
+country_event = {
+	id = ctgerSP.10 
+	title = ctgerSP.10.t
+	desc = ctgerSP.10.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.10.a
+		LIT = { 
+			transfer_state = 784
+			add_state_core = 784  
+			give_guarantee = POL
+			add_opinion_modifier = {				
+				target = ROOT
+				modifier = large_increase
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = "POL"			
+				value = 200
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = "POL"
+				value = 200
+			}
+		}
+		POL = {
+			add_ai_strategy = {
+				type = befriend
+				id = "LIT"			
+				value = 200
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = "LIT"			
+				value = 200
+			}
+		}
+	}
+}
+#POL votes no
+country_event = {
+	id = ctgerSP.11 
+	title = ctgerSP.11.t
+	desc = ctgerSP.11.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.11.a
+	}
+}
+#ENG arbitrates
+country_event = {
+	id = ctgerSP.12
+	title = ctgerSP.12.t
+	desc = ctgerSP.12.desc
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.12.a
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { is_in_faction_with = GER }
+			}
+		}
+			if = {
+				limit = {
+					has_country_flag = LIT_wants_POL_land
+				}
+				LIT = { country_event = { id = ctgerSP.15 } }
+				POL = { country_event = { id = ctgerSP.15 } }
+			}
+			if = {
+				limit = {
+					has_country_flag = GER_wants_POL_land
+				}
+				GER = { country_event = { id = ctgerSP.14 } }
+				POL = { country_event = { id = ctgerSP.14 } }
+			}
+	}
+	option = { #ENG Refuses Arbitration
+		name = ctgerSP.12.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_war_with = GER
+			}
+		}
+		POL = { country_event = { id = ctgerSP.13 } }
+		LIT = { country_event = { id = ctgerSP.13 } }
+		GER = { country_event = { id = ctgerSP.13 } }
+	}
+}
+#ENG refuses arbitration
+country_event = {
+	id = ctgerSP.13
+	title = ctgerSP.13.t
+	desc = ctgerSP.13.desc
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.13.a
+	}
+}
+
+#ENG gives GER pozan and danzig
+country_event = {
+	id = ctgerSP.14
+	title = ctgerSP.14.t
+	desc = ctgerSP.14.desc
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.14.a
+		GER = { 
+			transfer_state = 85
+			add_state_core = 85
+			transfer_state = 86
+			add_state_core = 86
+		}
+	}
+}
+
+#ENG gives LIT wilno and wilejka
+country_event = {
+	id = ctgerSP.15
+	title = ctgerSP.15.t
+	desc = ctgerSP.15.desc
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctgerSP.15.a
+		LIT = { 
+			transfer_state = 784
+			add_state_core = 784  
+			transfer_state = 96
+			add_state_core = 96
+		}
+	}
+}

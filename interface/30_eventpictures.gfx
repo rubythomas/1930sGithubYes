@@ -1,0 +1,72 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_report_event_usa_election_roosevelt_smith"
+		texturefile = "gfx/event_pictures/report_event_usa_election_roosevelt_smith.dds"
+	}	
+	spriteType = {
+		name = "GFX_report_event_nikolaos_plastiras"
+		texturefile = "gfx/event_pictures/report_event_nikolaos_plastiras.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_cyp_enosis"
+		texturefile = "gfx/event_pictures/report_event_cyp_enosis.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_vatican"
+		texturefile = "gfx/event_pictures/report_event_vatican.dds"
+	}
+	spriteType = {
+		name = "GFX_news_enabling_act"
+		texturefile = "gfx/event_pictures/news_enabling_act.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_funeral"
+		texturefile = "gfx/event_pictures/report_event_funeral.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_fdr"
+		texturefile = "gfx/event_pictures/news_event_fdr.dds"
+	}
+	spriteType = {
+		name = "GFX_news_event_long"
+		texturefile = "gfx/event_pictures/news_event_long.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_hitler_sa"
+		texturefile = "gfx/event_pictures/report_event_hitler_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_von_hindenburg"
+		texturefile = "gfx/event_pictures/report_event_von_hindenburg.dds"
+	}
+	spriteType = {
+		name = "GFX_report_long_attempt"
+		texturefile = "gfx/event_pictures/report_long_attempt.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_germ_commy"
+		texturefile = "gfx/event_pictures/report_event_germ_commy.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_swiss"
+		texturefile = "gfx/event_pictures/report_event_swiss.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_iraq_oil"
+		texturefile = "gfx/event_pictures/report_event_iraq_oil.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_wallonia"
+		texturefile = "gfx/event_pictures/report_event_wallonia.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_wilhelm_four"
+		texturefile = "gfx/event_pictures/report_event_wilhelm_four.dds"
+	}	
+
+	
+}
+
+	
+	
+	

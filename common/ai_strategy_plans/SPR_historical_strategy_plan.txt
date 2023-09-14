@@ -1,0 +1,79 @@
+SPR_historical_plan = {
+	name = "SPR historical plan"
+	desc = ""
+
+	enable = {
+		original_tag = SPR
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = SPR_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = SPR_AI_RANDOM_COMMUNIST_HISTORICAL
+			has_game_rule = {
+				rule = SPR_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		#1930
+		SPR_no_reform
+		SPR_30_tech_slot
+		SPR_ini 
+		SPR_spanish_highways
+		SPR_abengoa
+		SPR_expand_irizar
+		SPR_expand_caf 
+		SPR_expand_fcc
+		SPR_economic_stabilization
+		SPR_expand_construcciones_aeronauticas
+		SPR_resources  
+		SPR_grupo_gea_perona 
+		SPR_economic_recovery
+		SPR_talgo 
+		SPR_prospect_for_oil		
+ 		SPR_cepsa_refineries
+		SPR_colonial_infrastructure
+		SPR_economic_recovery2
+		#SPR_coal_liquification
+		SPR_mining_techniques
+		SPR_expand_economic_prioritization
+		SPR_pegaso
+		SPR_ecia 
+		SPR_extra_tech_slot
+		#SPR_30_tech_slot_max
+		SPR_air_bases
+		SPR_air_innovation
+		SPR_army_modernization
+		SPR_army_maneuvers
+		SPR_small_arms
+		SPR_supremacy_of_defense
+		SPR_artillery_regiments
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		popular_figurehead = 5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

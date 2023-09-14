@@ -1,0 +1,4140 @@
+focus_tree = {
+	id = ukraine_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	
+	default = no 
+
+	continuous_focus_position = { x = 20 y = 2700 }
+
+##################################################################################
+##################################################################################
+############		M I L I T A R Y     T R E E     S T A R T 	      ############
+##################################################################################
+##################################################################################
+focus = {
+	id = UKR_military_modernization
+	continue_if_invalid = yes
+	icon = GFX_focus_generic_combined_arms
+	x = 41
+	y = 0
+	cost = 5
+	ai_will_do = {
+		factor = 10
+	}	
+	completion_reward = {
+		army_experience = 10
+		navy_experience = 10
+		air_experience = 10
+	}
+}
+
+focus = {
+	id = UKR_border_fortification 
+	icon = GFX_goal_generic_construct_military
+	prerequisite = { focus = UKR_military_modernization }
+	bypass = {
+		193 = { NOT = { is_controlled_by = ROOT } }		
+		221 = { NOT = { is_controlled_by = ROOT } }
+		225 = { NOT = { is_controlled_by = ROOT } }		
+		227 = { NOT = { is_controlled_by = ROOT } }
+		228 = { NOT = { is_controlled_by = ROOT } }
+	}
+	x = -1
+	y = 1
+	relative_position_id = UKR_military_modernization
+	cost = 5
+	available_if_capitulated = yes
+	completion_reward = {
+		193 = {
+			add_building_construction = {	type = bunker	province = 6589		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 238		level = 2	instant_build = yes	}
+		}
+		221 = {
+			add_building_construction = {	type = bunker	province = 11397	level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 418		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 9556		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 3409		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 11541	level = 2	instant_build = yes	}
+		}
+		225 = {
+			add_building_construction = {	type = bunker	province = 3225		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 11553	level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 6565		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 522		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 3520		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 501		level = 2	instant_build = yes	}
+		}
+		227 = {
+			add_building_construction = {	type = bunker	province = 3421		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 6493		level = 2	instant_build = yes	}
+		}
+		228 = {
+			add_building_construction = {	type = bunker	province = 570		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 11513	level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 547		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 9476		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 9461		level = 2	instant_build = yes	}
+			add_building_construction = {	type = bunker	province = 9446		level = 2	instant_build = yes	}
+		}
+	}
+}
+
+focus = {
+	id = UKR_anti_air_artillery 
+	icon = GFX_focus_generic_air_defense
+	prerequisite = { focus = UKR_border_fortification }
+	relative_position_id = UKR_border_fortification
+	x = 0
+	y = 2
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 3
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = GER_artillery_modernisation
+			bonus = 1.00
+			uses = 1
+			technology = interwar_antiair
+			technology = antiair1
+			technology = antiair2
+			technology = antiair3
+			technology = antiair4
+		}
+	}
+}	
+
+focus = {
+	id = UKR_combat_engineers
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = UKR_military_modernization }
+	x = 1
+	y = 1
+	relative_position_id = UKR_military_modernization
+	cost = 8
+	ai_will_do = {
+		factor = 60
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		army_experience = 5
+		add_tech_bonus = {
+			name = special_bonus
+			bonus = 1.0
+			uses = 3
+			technology = tech_recon
+			technology = tech_recon2
+			technology = tech_engineers
+			technology = tech_engineers2
+			technology = tech_maintenance_company
+			technology = tech_maintenance_company2
+			technology = tech_field_hospital
+			technology = tech_field_hospital2
+			technology = tech_logistics_company		
+			technology = tech_logistics_company2
+			technology = tech_signal_company	
+			technology = tech_signal_company2
+		}
+	}
+}
+
+focus = {
+	id = UKR_special_forces 
+	icon = GFX_goal_generic_special_forces
+	prerequisite = { focus = UKR_combat_engineers }
+	relative_position_id = UKR_combat_engineers
+	x = 0
+	y = 2
+	cost = 8
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 3
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = special_forces_bonus
+			bonus = 1.0
+			uses = 2
+			technology = paratroopers
+			technology = paratroopers2
+			technology = paratroopers3				
+			technology = marines
+			technology = marines2
+			technology = marines3
+			technology = tech_mountaineers
+			technology = tech_mountaineers2
+			technology = tech_mountaineers3
+		}
+	}
+}	
+
+focus = {
+	id = UKR_motorized_focus
+	icon = GFX_goal_generic_army_motorized		
+	prerequisite = { focus = UKR_combat_engineers }
+	prerequisite = { focus = UKR_border_fortification }		
+	x = -1
+	y = 1
+	relative_position_id = UKR_combat_engineers
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 1
+			category = motorized_equipment
+		}
+		division_template = {
+			name = "Motor Rifle Division" 
+			division_names_group = UKR_MOT_01
+			regiments = {
+				motorized = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+				motorized = { x = 1 y = 0 }
+				motorized = { x = 1 y = 1 }
+				motorized = { x = 1 y = 2 }
+				motorized = { x = 2 y = 0 }
+				motorized = { x = 2 y = 1 }
+				motorized = { x = 2 y = 2 }
+			}
+			support = {
+				artillery = { x = 0 y = 0 }
+			}
+		}
+		custom_effect_tooltip = Big_Motor_Division
+	}
+}
+focus = {
+	id = UKR_tank_focus 
+	prerequisite = { focus = UKR_motorized_focus }
+	icon = GFX_goal_generic_army_tanks
+	x = 0
+	y = 2
+	relative_position_id = UKR_motorized_focus
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 1.0
+			uses = 1
+			category = land_doctrine
+		}
+		add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 1
+			category = armor
+		}
+		division_template = {
+			name = "Tank Division"
+			division_names_group = UKR_ARM_01
+			regiments = {
+				light_armor = { x = 0 y = 0 }
+				light_armor = { x = 0 y = 1 }
+				light_armor = { x = 0 y = 2 }
+				light_armor = { x = 1 y = 0 }
+				light_armor = { x = 1 y = 1 }
+				light_armor = { x = 1 y = 2 }
+				motorized = { x = 2 y = 0 }
+				   motorized = { x = 2 y = 1 }
+				motorized = { x = 2 y = 2 }
+			}
+			support = {
+					artillery = { x = 0 y = 0 }
+			}
+		}
+		custom_effect_tooltip = Big_Panzer_Division
+	}
+}
+ 
+focus = {
+	id = UKR_army_innovation
+	icon = GFX_goal_generic_axis_build_infantry
+	prerequisite = { focus = UKR_tank_focus }
+	available = {
+		OR = {		
+			date > 1935.12.31
+			is_ai = no
+		}
+	}
+	x = 0
+	y = 1
+	relative_position_id = UKR_tank_focus
+	cost = 10
+	ai_will_do = {
+		factor = 40
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		army_experience = 10
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		#custom_effect_tooltip = available_chief_of_army
+		#show_ideas_tooltip = alan_brooke			
+	}
+}
+
+focus = {
+	id = UKR_tank_innovation
+	icon = GFX_goal_generic_army_tanks
+	prerequisite = { focus = UKR_army_innovation }
+	x = -1
+	y = 1
+	relative_position_id = UKR_army_innovation
+	cost = 5
+	ai_will_do = {
+		factor = 10
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 1
+			name = mech_army_bonus
+			technology = basic_medium_tank
+			technology = improved_medium_tank
+			technology = advanced_medium_tank
+			technology = mechanised_infantry
+		}	
+		army_experience = 10
+	} 
+}
+focus = { 
+	id = UKR_strategic_innovation 
+	icon = GFX_goal_generic_build_tank
+	prerequisite = { focus = UKR_army_innovation }
+	x = 0
+	y = 2
+	relative_position_id = UKR_army_innovation
+	cost = 10
+	ai_will_do = {
+		factor = 10
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		army_experience = 10
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+	}
+}
+
+focus = {
+	id = UKR_home_defence 
+	prerequisite = { focus = UKR_combat_engineers }
+	icon = GFX_focus_generic_home_defense
+	x = 1
+	y = 1
+	relative_position_id = UKR_combat_engineers
+	cost = 5
+	ai_will_do = {
+		factor = 10
+	}	
+	completion_reward = {
+		192 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				add_building_construction = {	type = coastal_bunker	province = 11670	level = 3	instant_build = yes	}
+			}
+		}
+		137 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				add_building_construction = {	type = coastal_bunker	province = 3686		level = 3	instant_build = yes	}
+				add_building_construction = {	type = coastal_bunker	province = 9680		level = 3	instant_build = yes	}
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_strategic_naval_planning 
+	icon = GFX_goal_generic_navy_cruiser
+	prerequisite = { focus = UKR_military_modernization }
+	x = -5
+	y = 1
+	relative_position_id = UKR_military_modernization
+	cost = 5
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 1
+			category = naval_doctrine
+		}
+	}
+}
+
+focus = {
+	id = UKR_carrier_plans
+	icon = GFX_goal_generic_navy_carrier
+	prerequisite = { focus = UKR_strategic_naval_planning }
+	x = -1
+	y = 1
+	relative_position_id = UKR_strategic_naval_planning
+	cost = 5
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 1
+			category = cv_tech
+		}
+		#custom_effect_tooltip = available_military_high_command
+		#show_ideas_tooltip = andrew_cunningham
+	} 
+}
+
+focus = { 
+	id = UKR_battleship_plans
+	icon = GFX_goal_generic_navy_battleship
+	prerequisite = { focus = UKR_strategic_naval_planning }
+	x = 1
+	y = 1
+	relative_position_id = UKR_strategic_naval_planning
+	cost = 5
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = capital_ships_bonus
+			bonus = 1.0
+			uses = 1
+			category = bb_tech
+		}
+		#custom_effect_tooltip = available_military_high_command
+		#show_ideas_tooltip = henry_harwood	
+	}
+}
+
+focus = {
+	id = UKR_shipyard_development
+	prerequisite = { focus = UKR_carrier_plans focus = UKR_battleship_plans }
+	icon = GFX_goal_generic_construct_naval_dockyard 
+	x = 0
+	y = 2
+	relative_position_id = UKR_strategic_naval_planning
+	available = {
+		#OR = {
+			#NOT = { has_government = democratic }
+			#has_completed_focus = UKR_win_over_commies
+		#}
+	}
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	bypass = {
+		custom_trigger_tooltip =  {
+			tooltip = naval_effort_tt
+			NOT = {
+				any_owned_state = {
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+			}
+		}
+	}
+	complete_tooltip = {
+		every_state = {
+			limit = { has_state_flag = UKR_UKR_shipyard_development_1dockyard }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	completion_reward = {
+		navy_experience = 50
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_UKR_shipyard_development_1dockyard
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_UKR_shipyard_development_1dockyard
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_UKR_shipyard_development_1dockyard
+		}
+	}
+}
+
+focus = {
+	id = UKR_naval_mining
+	prerequisite = { focus = UKR_shipyard_development }
+	icon = GFX_goal_generic_occupy_states_coastal
+	x = -2
+	y = 1
+	relative_position_id = UKR_shipyard_development
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	allow_branch = {
+		has_dlc = "Man the Guns"
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = UKR_naval_mining
+			bonus = 1.0
+			uses = 1
+			category = naval_minelaying
+		}
+		add_tech_bonus = {
+			name = UKR_naval_mining
+			bonus = 1.0
+			uses = 1
+			category = naval_minesweeping
+		}
+	}
+}
+
+focus = {
+	id = UKR_new_cruiser_plans
+	prerequisite = { focus = UKR_shipyard_development }
+	icon = GFX_focus_generic_cruiser2
+	x = 2
+	y = 1
+	relative_position_id = UKR_shipyard_development
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = no
+	completion_reward = {
+		add_tech_bonus = {
+			name = UKR_new_cruiser_plans
+			bonus = 1.0
+			uses = 1
+			category = cl_tech
+		}
+	}
+}
+
+focus = { 
+	id = UKR_new_destroyer_plans
+	prerequisite = { focus = UKR_shipyard_development }
+	icon = GFX_focus_generic_destroyer
+	x = -1
+	y = 2
+	relative_position_id = UKR_shipyard_development
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = dd_bonus
+			bonus = 1.0
+			uses = 1
+			category = dd_tech
+		}
+	}
+}
+
+focus = {
+	id = UKR_a_s_warfare
+	prerequisite = { focus = UKR_new_destroyer_plans }
+	icon = GFX_goal_generic_navy_anti_submarine
+	x = 0
+	y = 2
+	relative_position_id = UKR_new_destroyer_plans
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	allow_branch = {
+		has_dlc = "Man the Guns"
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = UKR_asw_warfare
+			bonus = 1.0
+			ahead_reduction = 2
+			uses = 1
+			category = asw_tech
+		}	
+	}
+}
+
+focus = {
+	id = UKR_convoy_focus
+	prerequisite = { focus = UKR_new_destroyer_plans }
+	icon = GFX_goal_generic_navy_cruiser
+	x = -1
+	y = 1
+	relative_position_id = UKR_new_destroyer_plans
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = british_convoy_discount
+	}
+}
+
+focus = {
+	id = UKR_anti_submarine_training_school
+	prerequisite = { focus = UKR_new_destroyer_plans }
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	x = 1
+	y = 1
+	relative_position_id = UKR_new_destroyer_plans
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = UKR_anti_submarine_training_school
+			bonus = 1.0
+			uses = 2
+			category = convoy_defense_tree
+		}
+	}
+}
+
+focus = { 
+	id = UKR_waves_focus
+	prerequisite = { focus = UKR_shipyard_development }
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	x = 1
+	y = 2
+	relative_position_id = UKR_shipyard_development
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		navy_experience = 10
+		add_tech_bonus = {
+			name = UKR_waves_focus
+			bonus = 1.0
+			uses = 1
+			category = naval_doctrine
+		}
+	}
+}
+focus = { 
+	id = UKR_amphibious_focus
+	prerequisite = { focus = UKR_shipyard_development }
+	icon = GFX_goal_generic_amphibious_assault
+	x = 0
+	y = 1
+	relative_position_id = UKR_shipyard_development
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes	
+	completion_reward = { 
+		custom_effect_tooltip = available_chief_of_navy
+		show_ideas_tooltip = louis_mountbatten
+		add_tech_bonus = {
+			name = UKR_amphibious_focus
+			bonus = 1.0
+			uses = 1
+			category = marine_tech
+		}
+		add_tech_bonus = {
+			name = UKR_amphibious_focus
+			bonus = 1.0
+			uses = 1
+			category = tp_tech
+		}
+	}
+}
+
+focus = {
+	id = UKR_fighter_development
+	icon = GFX_goal_generic_air_fighter
+	prerequisite = { focus = UKR_military_modernization }
+	x = 5
+	y = 1
+	relative_position_id = UKR_military_modernization
+	cost = 8
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = fighter_bonus
+			bonus = 1.0
+			uses = 1
+			technology = early_fighter
+			technology = fighter1
+			technology = fighter2
+			technology = fighter3
+			technology = heavy_fighter1
+			technology = heavy_fighter2
+			technology = heavy_fighter3
+		}
+	}
+}
+focus = {
+	id = UKR_air_prep
+	icon = GFX_goal_generic_build_airforce
+	prerequisite = { focus = UKR_fighter_development }
+	x = 1
+	y = 1
+	relative_position_id = UKR_fighter_development
+	cost = 8
+	available_if_capitulated = yes
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_air_prep"
+		#custom_effect_tooltip = available_chief_of_airforce
+		#show_ideas_tooltip = cyril_newall
+		add_tech_bonus = {
+			name = op_dest_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+	}
+}
+
+focus = {
+	id = UKR_airfield_development_initiative
+	prerequisite = { focus = UKR_fighter_development }
+	icon = GFX_goal_generic_air_doctrine
+	x = 0
+	y = 2
+	relative_position_id = UKR_fighter_development
+	cost = 8
+	ai_will_do = {
+		factor = 3
+	}
+	available = {
+		OR = {
+			NOT = { has_government = democratic }
+			has_completed_focus = UKR_win_over_commies
+		}
+	}
+	bypass = {
+		custom_trigger_tooltip =  {
+			tooltip = air_focus_bypass_tt
+			NOT = {
+				any_owned_state = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+			}
+		}
+	}
+	complete_tooltip = {
+		every_state = {
+			limit = { has_state_flag = UKR_airfield_development_initiative_2AirBase }
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}		
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		add_tech_bonus = {
+			name = op_dest_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+				OR = {
+					region = 1
+					region = 2
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_airfield_development_initiative_2AirBase
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+				OR = {
+					region = 1
+					region = 2
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}			
+			set_state_flag = UKR_airfield_development_initiative_2AirBase
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+				OR = {
+					region = 1
+					region = 2
+					region = 3
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}			
+			set_state_flag = UKR_airfield_development_initiative_2AirBase
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+				OR = {
+					region = 1
+					region = 2
+					region = 3
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}			
+			set_state_flag = UKR_airfield_development_initiative_2AirBase
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = air_base
+					size > 1
+				}
+				OR = {
+					region = 1
+					region = 2
+					region = 3
+				}
+			}
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}			
+			set_state_flag = UKR_airfield_development_initiative_2AirBase
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_owned_state = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+						OR = {
+							region = 1
+							region = 2
+							region = 3
+						}
+					}			
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = UKR_airfield_development_initiative_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = UKR_airfield_development_initiative_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = UKR_airfield_development_initiative_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = UKR_airfield_development_initiative_2AirBase
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_advanced_fighter_development
+	prerequisite = { focus = UKR_airfield_development_initiative }
+	icon = GFX_goal_generic_air_fighter
+	x = -1
+	y = 2
+	relative_position_id = UKR_airfield_development_initiative
+	cost = 10
+	ai_will_do = {
+		factor = 3
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		air_experience = 10
+		add_tech_bonus = {
+			name = UKR_advanced_fighter_development
+			bonus = 1.0
+			uses = 2
+			category = light_fighter
+			category = cat_heavy_fighter
+		}
+	}
+}
+
+focus = {
+	id = UKR_advanced_bomber_development
+	prerequisite = { focus = UKR_airfield_development_initiative }
+	icon = GFX_goal_generic_air_bomber
+	x = 0
+	y = 1
+	relative_position_id = UKR_airfield_development_initiative
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		air_experience = 25
+		add_tech_bonus = {
+			name = UKR_advanced_bomber_development
+			bonus = 1.0
+			uses = 2
+			category = cat_strategic_bomber
+			category = tactical_bomber
+			category = naval_bomber
+			category = cas_bomber
+		}
+	}
+}
+
+focus = { 
+	id = UKR_jet_focus
+	prerequisite = { focus = UKR_advanced_fighter_development focus = UKR_advanced_bomber_development }
+	icon = GFX_goal_generic_build_airforce
+	x = 1
+	y = 1
+	relative_position_id = UKR_advanced_fighter_development
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_tech_bonus = {
+			name = UKR_jet_focus
+			bonus = 1.0
+			uses = 4
+			category = jet_technology
+		}
+	}
+}
+##################################################################################
+##################################################################################
+############		M I L I T A R Y     T R E E     E N D 		      ############
+##################################################################################
+##################################################################################
+
+
+##################################################################################
+##################################################################################
+############		I N D U S T R Y     T R E E     S T A R T 	      ############
+##################################################################################
+##################################################################################
+focus = {
+	id = UKR_industrial_modernization
+	continue_if_invalid = yes
+	icon = GFX_goal_generic_construction
+	x = -11
+	y = 0
+	relative_position_id = UKR_military_modernization
+	cost = 5
+	ai_will_do = {
+		factor = 100
+	}	
+	completion_reward = {
+	}
+}
+
+focus = {
+	id = UKR_mining_initiative
+	icon = GFX_goal_generic_construction2
+	prerequisite = { focus = UKR_industrial_modernization }
+	x = 2
+	y = 1
+	relative_position_id = UKR_industrial_modernization
+	cost = 10
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+			add_stability = 0.02
+			add_tech_bonus = {
+				name = UKR_stuff
+				bonus = 1.0
+				uses = 2
+				technology = excavation0
+				technology = excavation1
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
+			}
+	}
+}
+
+focus = {
+	id = UKR_kryukiv_works
+	icon = GFX_goal_generic_construct_civ_factory
+	prerequisite = { focus = UKR_mining_initiative }
+	x = 0
+	y = 1
+	relative_position_id = UKR_mining_initiative
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 2
+	}
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size < 1
+					include_locked = yes
+				}					
+			}
+		}
+	}
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = industrial_complex
+			level = 2
+			instant_build = yes
+		}			
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 1
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_arsenal_factory
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = UKR_kryukiv_works }
+	x = 0
+	y = 1
+	relative_position_id = UKR_kryukiv_works
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 2
+	}
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+					include_locked = yes
+				}					
+			}
+		}
+	}
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_complex
+			level = 2
+			instant_build = yes
+		}			
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = arms_factory
+									size > 1
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_30_tech_slot
+	icon = GFX_focus_research
+	text = extra_tech_slot
+	prerequisite = { focus = UKR_industrial_modernization }		
+	relative_position_id = UKR_industrial_modernization
+	x = 0
+	y = 1
+	cost = 10
+	ai_will_do = {
+		factor = 4000
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_research_slot = 1
+	}
+}
+
+focus = { 
+	id = UKR_leave_gold
+	icon = GFX_focus_gold
+	available = {
+		OR = { 
+			date > 1931.8.30
+			is_ai = no
+		}
+	}
+	prerequisite = { focus = UKR_30_tech_slot }
+	x = 0
+	y = 1
+	relative_position_id = UKR_30_tech_slot
+	cost = 10
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+		USA_great_depression_level_down = yes
+	}
+}
+
+focus = {
+	id = UKR_begin_kryvorizkyi_basin_development
+	icon = GFX_goal_generic_construction
+	prerequisite = { focus = UKR_leave_gold }
+	x = 0
+	y = 1
+	relative_position_id = UKR_leave_gold
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 2
+	}
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size < 1
+					include_locked = yes
+				}					
+			}
+		}
+	}
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = industrial_complex
+			level = 2
+			instant_build = yes
+		}			
+	}
+	completion_reward = {
+		add_resource = {
+			type = steel
+			amount = 40
+			state = 226
+		}
+		random_owned_controlled_state = {
+			prioritize = { 226 }
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 1
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}	
+
+focus = { 
+	id = UKR_roads
+	icon = GFX_goal_generic_construct_infrastructure
+	prerequisite = { focus = UKR_industrial_modernization }
+	x = -2
+	y = 1
+	relative_position_id = UKR_industrial_modernization
+	cost = 10
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	available = {
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_roads"
+		#custom_effect_tooltip = UKR_autobahn_tt
+		#hidden_effect = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}				
+		#}		
+	}
+}
+
+focus = {
+	id = UKR_recruit_finance_experts
+	icon = GFX_goal_generic_intelligence_exchange
+	available = {
+		OR = {
+			date > 1932.12.31
+			is_ai = no
+		}
+	}
+	prerequisite = { focus = UKR_roads }
+	x = 0
+	y = 1
+	relative_position_id = UKR_roads 
+	cost = 5
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = borys_martos		
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = serhiy_ostapenko
+	}
+}
+
+focus = {
+	id = UKR_continue_kryvorizkyi_basin_development
+	icon = GFX_goal_generic_production
+	prerequisite = { focus = UKR_recruit_finance_experts }
+	x = 0
+	y = 1
+	relative_position_id = UKR_recruit_finance_experts
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 2
+	}
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size < 1
+					include_locked = yes
+				}					
+			}
+		}
+	}
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = industrial_complex
+			level = 2
+			instant_build = yes
+		}			
+	}
+	completion_reward = {
+		add_resource = {
+			type = steel
+			amount = 80
+			state = 226
+		}
+		random_owned_controlled_state = {
+			prioritize = { 226 }
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 1
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_financial_reconstruction
+	icon = GFX_focus_generic_industry_2 
+	prerequisite = { focus = UKR_begin_kryvorizkyi_basin_development }
+	prerequisite = { focus = UKR_continue_kryvorizkyi_basin_development focus = UKR_arsenal_factory }
+	available = {
+		OR = {
+			date > 1934.12.31
+			is_ai = no
+		}
+	} 
+	x = 0
+	y = 1
+	relative_position_id = UKR_begin_kryvorizkyi_basin_development
+	cost =  8
+	ai_will_do = {
+		factor = 80
+	}		
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			category = industry
+		}
+		USA_great_depression_level_down = yes
+	}
+}	
+
+focus = {
+	id = UKR_autarky
+	icon = GFX_goal_generic_construct_civilian
+	available = {
+		OR = {
+			is_ai = yes
+			date > 1935.12.31
+		}
+	}
+	prerequisite = { focus = UKR_financial_reconstruction }
+	x = 0
+	y = 1
+	relative_position_id = UKR_financial_reconstruction
+	cost = 10
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_autarky"
+		add_tech_bonus = {
+			name = UKR_autarky
+			bonus = 0.5
+			uses = 2
+			technology = excavation2
+			technology = excavation3
+			technology = excavation4
+			technology = excavation5
+		}
+		add_ideas = GER_autarky_idea
+		if = {
+			limit = { has_idea = great_depression }
+			remove_ideas = great_depression
+		}
+		if = {
+			limit = { has_idea = idea_depression_paralysis }
+			remove_ideas = {
+					idea_depression_paralysis
+			}
+		}
+		add_resource = {
+			type = steel
+			amount = 64
+			state = 221
+		}
+		add_resource = {
+			type = chromium
+			amount = 25
+			state = 196
+		}
+	}
+}
+focus = { 
+	id = UKR_rationalized_production
+	icon = GFX_goal_generic_production2
+	dynamic = yes
+	prerequisite = { focus = UKR_autarky }
+	mutually_exclusive = { focus = UKR_state_controlled_industry }
+	available = {
+		NOT = {  
+			has_government = communism 
+			has_government = fascism
+		}
+	}
+	x = 0
+	y = 1
+	relative_position_id = UKR_autarky
+	cost = 10
+	ai_will_do = {
+		factor = 200
+	}
+	available_if_capitulated = no
+	complete_tooltip = {
+		every_state = { 
+			limit = { has_state_flag = UKR_industrial_effort_2IC }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}			
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_rationalized_production"
+		USA_great_depression_level_down = yes
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+	}
+}
+focus = {
+	id = UKR_subsidize_auto_industry
+	icon = GFX_goal_generic_consumer_goods
+	dynamic = yes
+	prerequisite = { focus = UKR_rationalized_production }
+	x = 0
+	y = 1
+	relative_position_id = UKR_rationalized_production
+	cost = 10
+	ai_will_do = {
+		factor = 100
+	}
+	available_if_capitulated = no
+	complete_tooltip = {
+		every_state = {
+			limit = { has_state_flag = UKR_industrial_effort_2_2IC }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_rationalized_production"
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+	}
+}
+
+focus = {
+	id = UKR_state_controlled_industry
+	icon = GFX_goal_generic_construct_civ_factory
+	dynamic = yes
+	prerequisite = { focus = UKR_autarky }
+	mutually_exclusive = { focus = UKR_rationalized_production }
+	available = {
+		NOT = { 
+			has_government = democratic
+		}
+	}
+	x = 2
+	y = 1
+	relative_position_id = UKR_autarky
+	cost = 10
+	ai_will_do = {
+		factor = 200
+	}
+	available_if_capitulated = no
+	complete_tooltip = {
+		every_state = {
+			limit = { has_state_flag = UKR_industrial_effort_2IC }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}			
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_state_controlled_industry"
+		USA_great_depression_level_down = yes
+		swap_ideas = {
+			remove_idea = GER_autarky_idea
+			add_idea = GER_autarky_idea2
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		custom_effect_tooltip = GER_stifled_initiative_tt
+	}
+}
+
+focus = {
+	id = UKR_order_industrial_cartels
+	icon = GFX_goal_generic_construct_civ_factory
+	dynamic = yes
+	prerequisite = { focus = UKR_state_controlled_industry }
+	x = 0
+	y = 1
+	relative_position_id = UKR_state_controlled_industry
+	cost = 10
+	ai_will_do = {
+		factor = 100
+	}
+	available_if_capitulated = no
+	complete_tooltip = {
+		every_state = {
+			limit = { has_state_flag = UKR_industrial_effort_2_2IC }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_order_industrial_cartels"
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_industrial_effort_2IC
+		}
+	}
+}
+
+focus = {
+	id = UKR_coal_liquidization
+	icon = GFX_goal_generic_oil_refinery
+	prerequisite = { focus = UKR_autarky }
+	x = -2
+	y = 1
+	relative_position_id = UKR_autarky
+	cost = 10
+	ai_will_do = {
+		factor = 40
+	}
+	available = {
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_coal_liquidization"
+		add_tech_bonus = {
+			name = UKR_coal_liquidization
+			bonus = 0.75
+			uses = 1
+			category = synth_resources
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_synthetic_rubber
+	icon = GFX_focus_generic_rubber
+	prerequisite = { focus = UKR_coal_liquidization }
+	x = 0
+	y = 1
+	relative_position_id = UKR_coal_liquidization
+	cost = 10
+	ai_will_do = {
+		factor = 4
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_synthetic_rubber"
+		modify_building_resources = {
+		   building = synthetic_refinery
+		   resource = rubber
+		   amount = 2
+		}
+	}
+}
+focus = {
+	id = UKR_extra_tech_slot7
+	icon = GFX_focus_research
+	text = extra_tech_slot
+	prerequisite = { focus = UKR_order_industrial_cartels focus = UKR_synthetic_rubber focus = UKR_subsidize_auto_industry }
+	x = 0
+	y = 1
+	relative_position_id = UKR_subsidize_auto_industry
+	cost = 10
+	ai_will_do = {
+		factor = 10
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_extra_tech_slot"
+		add_research_slot = 1
+	}
+}
+
+focus = {  
+	id = UKR_extra_research_slot_max
+	icon = GFX_focus_research2
+	prerequisite = { focus = UKR_extra_tech_slot7 }
+	x = 0
+	y = 2
+	relative_position_id = UKR_extra_tech_slot7
+	available = {
+		num_of_factories > 200
+	}
+	cost = 10
+	ai_will_do = {
+		factor = 10
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UKR_extra_research_slot_max"
+		add_research_slot = 1
+	} 
+}
+
+#########################################################################
+#########################################################################
+########     I N D U S T R Y       U K R A I N E       E N D     ########
+#########################################################################
+#########################################################################
+
+
+
+#########################################################################
+#########################################################################
+########     P O L I T I C A L    U K R A I N E    S T A R T     ########
+#########################################################################
+#########################################################################
+focus = {
+	id = UKR_democracy
+	mutually_exclusive = { focus = UKR_one_man_rule }
+	continue_if_invalid = yes
+	icon = GFX_goal_support_democracy
+	x = 4
+	y = 0
+	cost = 8
+	ai_will_do = {
+		factor = 1000 
+		#modifier = {
+		#	factor = 0
+		#	OR = {
+		#		has_country_flag = UKR_abdication_crisis_normal_marriage
+		#		has_country_flag = UKR_abdication_crisis_morganatic_marriage
+		#	}
+		#}
+	}	
+	completion_reward = {
+		set_politics = {
+			ruling_party = democratic
+			last_election = "1930.1.1"
+			election_frequency = 60
+			elections_allowed = yes
+		}
+	}
+}
+
+focus = {
+	id = UKR_form_verkhovna_rada
+	icon = GFX_goal_generic_national_unity
+	prerequisite = { focus = UKR_democracy }
+	x = 0
+	y = 1
+	relative_position_id = UKR_democracy
+	cost = 10
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {		
+		add_political_power = 80
+		add_stability = 0.025	
+	}
+}
+focus = { 
+	id = UKR_general_election 
+	icon = GFX_focus_ballot_box
+	prerequisite = { focus = UKR_form_verkhovna_rada }
+	x = 0
+	y = 1
+	relative_position_id = UKR_form_verkhovna_rada
+	cost = 10
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+		add_ideas = {	FRA_support_the_centre_focus }
+	}
+}
+
+focus = {
+	id = UKR_conscription
+	icon = GFX_focus_generic_military_mission
+	prerequisite = { focus = UKR_general_election }
+	x = 0
+	y = 1
+	relative_position_id = UKR_general_election
+	cost = 5 
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = limited_conscription
+			}
+			add_ideas = extensive_conscription
+		}
+		else_if = {
+			limit = {
+				has_idea = volunteer_only
+			}
+			add_ideas = limited_conscription
+		}
+		else_if = {
+			limit = {
+				has_idea = disarmed_nation
+			}
+			add_ideas = volunteer_only
+		}	
+		add_stability = -0.08
+		add_political_power = -40	
+	}
+}
+
+focus = {
+	id = UKR_establish_constitution
+	icon = GFX_focus_generic_military_academy
+	prerequisite = { focus = UKR_democracy }
+	x = 2
+	y = 1
+	relative_position_id = UKR_democracy
+	cost = 10
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+		add_stability = 0.08
+		add_political_power = 40
+	}
+}
+
+focus = {
+	id = UKR_agricultural_recovery_act
+	icon = GFX_goal_generic_positive_trade_relations
+	prerequisite = { focus = UKR_establish_constitution }
+	x = 1
+	y = 1
+	relative_position_id = UKR_establish_constitution
+	cost = 5
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+		add_stability = 0.02
+		add_political_power = 50
+	}
+}	
+
+focus = {
+	id = UKR_ask_france_for_aid
+	icon = GFX_focus_chi_reach_out_to_france
+	prerequisite = { focus = UKR_democracy }
+	x = -2
+	y = 1
+	relative_position_id = UKR_democracy
+	cost = 10
+	ai_will_do = { factor = 50	}
+	bypass = {
+		FRA = { NOT = { has_government = democratic } }
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = { FRA = { has_government = democratic }	}
+			FRA = {
+				add_ai_strategy = {
+					type = befriend
+					id = "UKR"			
+					value = 200
+				}
+				add_opinion_modifier = {				
+					target = ROOT
+					modifier = france_aided_ukraine
+				}	
+			}		
+		}
+		custom_effect_tooltip = fra_aid_tt
+		add_offsite_building = { type = industrial_complex level = 2 }	
+	}
+}
+focus = {
+	id = UKR_housing_act
+	icon = GFX_focus_housing_act
+	prerequisite = { focus = UKR_establish_constitution }
+	x = 0
+	y = 2
+	relative_position_id = UKR_establish_constitution
+	cost = 10
+	ai_will_do = {	factor = 5	}
+	available_if_capitulated = yes
+	completion_reward = {		
+		add_stability = 0.04
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}			
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}			
+	}
+}
+
+focus = {
+	id = UKR_housing_act2
+	icon = GFX_focus_bill
+	prerequisite = { focus = UKR_housing_act }
+	x = 0
+	y = 1
+	relative_position_id = UKR_housing_act
+	cost = 10
+	ai_will_do = {	factor = 5	}
+	available_if_capitulated = yes
+	completion_reward = {		
+		add_stability = 0.04
+		add_political_power = 50
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {	is_on_continent = europe	}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+}
+focus = {
+	id = UKR_rally_the_party
+	icon = GFX_goal_generic_national_unity
+	prerequisite = { focus = UKR_ask_france_for_aid }
+	x = -1
+	y = 1
+	relative_position_id = UKR_ask_france_for_aid
+	cost = 5
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {		
+		add_political_power = 50
+	}
+}
+
+focus = {
+	id = UKR_social_insurance
+	icon = GFX_focus_generic_industry_2
+	available = {
+		OR = {
+			date > 1932.12.31
+			is_ai = no
+		}
+	}
+	prerequisite = { focus = UKR_ask_france_for_aid }
+	x = 0
+	y = 2
+	relative_position_id = UKR_ask_france_for_aid
+	cost = 10
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+			add_stability = 0.08
+	}
+}
+
+focus = {
+	id = UKR_unemployment_act
+	icon = GFX_focus_generic_treaty
+	available = {
+		OR = {
+			date > 1933.12.31
+			is_ai = no
+		}
+	}
+	prerequisite = { focus = UKR_social_insurance }
+	x = 0
+	y = 1
+	relative_position_id = UKR_social_insurance
+	cost = 10
+	ai_will_do = {
+		factor = 5
+	}
+	available_if_capitulated = yes
+	completion_reward = {			
+		add_stability = 0.08
+		add_political_power = 50
+	}
+}
+
+focus = {  
+	id = UKR_win_over_commies
+	icon = GFX_goal_generic_major_alliance
+	prerequisite = { focus = UKR_housing_act2 }
+	prerequisite = { focus = UKR_unemployment_act }
+	prerequisite = { focus = UKR_conscription }		
+	available = {
+		OR = {
+			AND = {
+				is_ai = no	
+				date > 1933.6.31				
+			}
+			date > 1934.12.31
+		}
+	}
+	x = 2
+	y = 1
+	relative_position_id = UKR_unemployment_act
+	cost = 14.3
+	ai_will_do = {
+		factor = 400
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit {
+				has_idea = communist_past
+			}
+			remove_ideas = communist_past
+		}
+		if = {
+			limit {
+				has_idea = communist_past2
+			}
+			remove_ideas = communist_past2
+		}
+	}
+}
+
+focus = { 
+	id = UKR_isolationism
+	icon = GFX_focus_generic_coastal_fort
+	available = {
+		#has_war = yes
+	}
+	prerequisite = { focus = UKR_win_over_commies }
+	mutually_exclusive = { focus = UKR_intervention }
+	x = -2
+	y = 1
+	relative_position_id = UKR_win_over_commies
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+	}
+}
+
+focus = {
+	id = UKR_neutral_policy
+	icon = GFX_goal_generic_neutrality_focus
+	 prerequisite = { focus = UKR_isolationism }
+	x = 0
+	y = 1
+	relative_position_id = UKR_isolationism
+	cost = 52.2
+	ai_will_do = {
+		factor = 100
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+			add_ideas = hist_neutrality
+			add_stability = 0.1
+	}
+}
+
+focus = { 
+	id = UKR_intervention
+	icon = GFX_focus_generic_provoke_border_clashes
+	available = {
+		#has_war = yes
+	}
+	prerequisite = { focus = UKR_win_over_commies }
+	mutually_exclusive = { focus = UKR_isolationism }
+	x = 2
+	y = 1
+	relative_position_id = UKR_win_over_commies
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+	}
+}
+focus = {
+	id = UKR_join_allies
+	icon = GFX_focus_eng_the_sun_never_sets
+	prerequisite = { focus = UKR_intervention }
+	mutually_exclusive = { focus = UKR_our_own_bloc }
+	available = {
+		has_government = democratic
+	}
+	x = 1
+	y = 2
+	relative_position_id = UKR_intervention
+	cost = 5
+	ai_will_do = {
+		factor = 99
+	} 
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = { 
+				ENG = { 
+					is_faction_leader = yes
+					has_government = democratic 
+				} 
+			}
+			ENG = { add_to_faction = UKR }
+		}
+		else_if = {
+			limit = { 
+				FRA = { 
+					is_faction_leader = yes
+					has_government = democratic 
+				} 
+			}
+			FRA = { add_to_faction = UKR }
+		}
+		else_if = {
+			limit = { 
+				GER = { 
+					is_faction_leader = yes
+					has_government = democratic 
+				} 
+			}
+			GER = { add_to_faction = UKR }
+		}
+	}
+}
+
+focus = {
+	id = UKR_our_own_bloc
+	icon = GFX_goal_generic_demand_territory
+	prerequisite = { focus = UKR_intervention }
+	mutually_exclusive = { focus = UKR_join_allies }
+	available = {
+		has_government = democratic
+	}
+	x = -1
+	y = 2
+	relative_position_id = UKR_intervention
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_political_power = 100
+		create_faction = european_security_sphere
+		add_to_faction = UKR
+	}
+}
+
+focus = {
+	id = UKR_free_ukranians_in_poland
+	prerequisite = { focus = UKR_our_own_bloc focus = UKR_join_allies }
+	available = {
+	} 
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	icon = GFX_goal_generic_territory_or_war
+	x = 1
+	y = 1
+	relative_position_id = UKR_our_own_bloc
+	cost = 10
+	ai_will_do = {
+		factor = 0
+	}	
+	will_lead_to_war_with = POL
+	completion_reward = {
+		create_wargoal = {
+			type = take_state_focus
+			target = POL
+			generator = { 89 91 93 }
+		}
+	}
+}
+
+focus = {
+	id = UKR_wartime_industry
+	prerequisite = { focus = UKR_intervention }
+	available = {
+		OR = {
+			threat > 0.05
+			has_war = yes
+			NOT = { has_government = democratic }
+		}
+	} 
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 2
+	y = 1
+	relative_position_id = UKR_intervention
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		custom_effect_tooltip = UKR_wartime_industry_tt
+		add_ideas = wartime_industry_focus	
+	}
+}
+
+focus = {
+	id = UKR_armament_focus
+	icon = GFX_focus_generic_combined_arms
+	prerequisite = { focus = UKR_intervention }
+	available = {
+		OR = {
+			date > 1935.5.31
+			is_ai = no
+		}
+		#threat > 0.20
+	}
+	relative_position_id = UKR_intervention
+	x = -2
+	y = 1
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		USA_great_depression_level_down = yes
+		if = {
+			limit = {
+				has_idea = civilian_economy
+			}
+			add_ideas = low_economic_mobilisation
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				is_core_of = ROOT
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_UKR_armament_focus_2IC
+		}
+	}
+}
+
+focus = { 
+	id = UKR_air_defense_focus
+	prerequisite = { focus = UKR_airfield_development_initiative }
+	available = {
+		if = {
+			limit = {
+				NOT = { has_dlc = "Man the Guns" }
+			}
+			OR = {
+				threat > 0.05
+				has_war = yes
+				NOT = { has_government = democratic }
+			}
+		}
+	}
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	icon = GFX_goal_generic_construct_military
+	x = 1
+	y = 2
+	relative_position_id = UKR_airfield_development_initiative
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = op_dest_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+		air_experience = 25
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 3
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 3
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_radar_focus
+	prerequisite = { focus = UKR_air_defense_focus }
+	icon = GFX_goal_generic_radar
+	x = 0
+	y = 2
+	relative_position_id = UKR_air_defense_focus
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		air_experience = 25
+		add_tech_bonus = {
+			name = UKR_radar_focus
+			bonus = 1.0
+			uses = 3
+			category = radar_tech
+		}
+	}
+}
+
+#######################################################################
+#######################################################################
+focus = {
+	id = UKR_one_man_rule
+	mutually_exclusive = { focus = UKR_democracy }
+	available = {
+		OR = {
+			date > 1933.5.31
+			is_ai = no
+		}
+	}
+	icon = GFX_focus_generic_strike_at_democracy2
+	x = 19
+	y = 0
+	#relative_position_id = UKR_democracy
+	cost = 0.2
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		#if = { 
+		#	limit = {
+		#		has_dlc = "Man the Guns"
+		#	}
+		#	add_timed_idea = { idea = UKR_one_man_rule_idea days = 365 }
+		#}
+		hidden_effect = {
+			POL = {
+				add_ai_strategy = {
+					type = alliance
+					id = "UKR"
+					value = -200
+				}
+			}
+			POL = {
+				add_ai_strategy = {
+					type = befriend
+					id = "UKR"
+					value = -200
+				}
+			}
+		}
+	}
+}
+focus = { 
+	id = UKR_a_fascist_imitation
+	prerequisite = { focus = UKR_one_man_rule }
+	mutually_exclusive = { 	focus = UKR_choose_a_hetman	}
+	icon = GFX_goal_support_fascism
+	x = -5
+	y = 1
+	relative_position_id = UKR_one_man_rule
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_timed_idea = {
+			idea = FRA_support_the_right_focus
+			days = 730
+		}
+	}
+}
+
+focus = {
+	id = UKR_sieze_eastern_provinces
+	icon = GFX_focus_generic_support_the_left_right
+	prerequisite = { focus = UKR_a_fascist_imitation focus = UKR_choose_a_hetman }
+	x = 5
+	y = 1
+	relative_position_id = UKR_a_fascist_imitation
+	available = {
+		AND = {
+			RUS = { exists = yes }
+			SOV = { exists = yes }
+		}
+		#OR = {
+		#	has_completed_focus = UKR_a_fascist_imitation
+		#	has_completed_focus = UKR_choose_a_hetman
+		#}
+	}
+	cost = 5
+	ai_will_do = {
+		factor = 0
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		transfer_state = 218
+		transfer_state = 234
+	}
+}
+
+focus = { 
+	id = UKR_integrate_eastern_provinces 
+	icon = GFX_goal_generic_position_armies
+	prerequisite = { focus = UKR_sieze_eastern_provinces }
+	cancel_if_invalid = yes
+	x = 0
+	y = 2
+	relative_position_id = UKR_sieze_eastern_provinces
+	available = {
+		is_puppet = no
+		has_full_control_of_state = 218
+		has_full_control_of_state = 234		
+		OR = {
+			POL = { has_capitulated = yes }
+			POL = { is_subject_of = ROOT }
+			NOT = {
+				any_country = {
+					original_tag = POL
+					exists = yes
+				}
+			}
+			has_full_control_of_state = 218	
+		}
+	}
+	cost = 5
+	ai_will_do = {	factor = 5 }
+	completion_reward = {
+		add_resource = {
+			type = tungsten
+			amount = 20
+			state = 234
+		}
+		add_state_core = 218
+		add_state_core = 234
+		if = {
+			limit = {	NOT = { owns_state = 218 }	}
+			transfer_state = 218
+		}
+		if = {
+			limit = {	NOT = { owns_state = 234 }	}
+			transfer_state = 234
+		}
+	}
+}
+
+focus = {
+	id = UKR_form_a_new_party
+	prerequisite = { focus = UKR_a_fascist_imitation }
+	icon = GFX_goal_generic_major_alliance
+	x = 0
+	y = 1
+	relative_position_id = UKR_a_fascist_imitation
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_political_power = 40
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = stepan_bandera
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+	}
+}
+
+focus = {
+	id = UKR_para_military_forces
+	prerequisite = { focus = UKR_form_a_new_party }
+	icon = GFX_goal_generic_military_deal
+	x = 0
+	y = 1
+	relative_position_id = UKR_form_a_new_party
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		#custom_effect_tooltip = available_political_advisor
+		#show_ideas_tooltip = william_joyce
+		add_stability = -0.08
+		add_political_power = 20
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+	}
+}
+
+focus = {  
+	id = UKR_ask_for_italian_aid 
+	prerequisite = { focus = UKR_para_military_forces }
+	icon = GFX_focus_generic_italy_first
+	x = -2
+	y = 1
+	relative_position_id = UKR_para_military_forces
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		} 
+		add_political_power = 20
+		if = {
+			custom_effect_tooltip = ger_aid_tt
+			limit = { GER = { has_government = fascism }	}
+			GER = { 
+				add_ai_strategy = {
+					type = befriend
+					id = "UKR"			
+					value = 200
+				}
+				add_opinion_modifier = {				
+					target = ROOT
+					modifier = germany_aided_ukraine
+				}				
+			}	
+			add_offsite_building = { type = industrial_complex level = 1 }	
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 10000
+			}	 	
+		}
+		if = {
+			custom_effect_tooltip = ita_aid_tt
+			limit = { ITA = { has_government = fascism }	}
+			ITA = {
+				add_ai_strategy = {
+					type = befriend
+					id = "UKR"			
+					value = 200
+				}
+				add_opinion_modifier = {		
+					target = ROOT
+					modifier = italy_aided_ukraine
+				}	
+			}	
+			add_offsite_building = { type = industrial_complex level = 1 }	
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 10000
+			}		
+		}
+	}
+}
+
+focus = { 
+	id = UKR_promise_socialist_reforms
+	prerequisite = { focus = UKR_ask_for_italian_aid }
+	icon = GFX_focus_generic_self_management
+	x = 0 
+	y = 1
+	relative_position_id = UKR_ask_for_italian_aid
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.04
+		}
+		add_stability = 0.01
+		add_political_power = 20
+	}
+}
+
+focus = {
+	id = UKR_denounce_communists_atrocities
+	prerequisite = { focus = UKR_para_military_forces }
+	icon = GFX_goal_anti_comintern_pact
+	x = 0
+	y = 1
+	relative_position_id = UKR_para_military_forces
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = 0.02
+		add_political_power = 20
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.04
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_court_conservative_support
+	prerequisite = { focus = UKR_para_military_forces }
+	icon = GFX_goal_generic_improve_relations
+	x = 2
+	y = 1
+	relative_position_id = UKR_para_military_forces
+	cost = 10
+	ai_will_do = { 
+		factor = 1 
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = 0.02
+		add_political_power = 30
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.04
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.04
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_expose_ussr_collectivization_plans
+	prerequisite = { focus = UKR_denounce_communists_atrocities }
+	icon = GFX_focus_generic_provoke_border_clashes
+	x = 0
+	y = 1
+	relative_position_id = UKR_denounce_communists_atrocities
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		swap_ideas = {
+			add_idea = communist_past2
+			remove_idea = communist_past
+		}
+	}
+}
+
+focus = {
+	id = UKR_promise_moderation
+	prerequisite = { focus = UKR_court_conservative_support }
+	icon = GFX_goal_generic_neutrality_focus
+	x = 0
+	y = 1
+	relative_position_id = UKR_court_conservative_support
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = 0.06
+		add_political_power = 20
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+		}
+	}
+}
+
+focus = {
+	id = UKR_accept_national_leadership
+	prerequisite = { focus = UKR_expose_ussr_collectivization_plans }
+	prerequisite = { focus = UKR_promise_socialist_reforms }
+	prerequisite = { focus = UKR_promise_moderation }
+	icon = GFX_focus_generic_diplomatic_treaty
+	x = 0
+	y = 1
+	relative_position_id = UKR_expose_ussr_collectivization_plans
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+	}
+}
+
+focus = {
+	id = UKR_fascist_state_radio
+	icon = GFX_goal_generic_radar
+	prerequisite = { focus = UKR_accept_national_leadership }
+	x = -2
+	y = 1
+	relative_position_id = UKR_accept_national_leadership
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_war_support = 0.10
+		add_political_power = 100
+		add_stability = 0.10
+	}
+}
+focus = {
+	id = UKR_organize_national_rallies
+	icon = GFX_goal_generic_propaganda
+	prerequisite = { focus = UKR_accept_national_leadership }
+	x = 0
+	y = 1
+	relative_position_id = UKR_accept_national_leadership
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_war_support = 0.10
+		add_political_power = 100
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+	}
+}
+focus = { 
+	id = UKR_win_over_commies2
+	icon = GFX_focus_people
+	prerequisite = { focus = UKR_accept_national_leadership }	
+	available = {
+		OR = {
+			is_ai = no
+			date > 1932.12.31
+		}
+	}
+	x = 2
+	y = 1
+	relative_position_id = UKR_accept_national_leadership
+	cost = 8
+	ai_will_do = {
+		factor = 400
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit {	has_idea = communist_past	}
+			remove_ideas = communist_past
+		}
+		if = {
+			limit {	has_idea = communist_past2	}
+			remove_ideas = communist_past2
+		}
+	}
+}
+ 
+focus = {
+	id = UKR_abolish_congress
+	icon = GFX_focus_ger_no_vote
+	prerequisite = { focus = UKR_accept_national_leadership }
+	x = -3
+	y = 2
+	relative_position_id = UKR_accept_national_leadership
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = -0.05
+		add_political_power = 150
+	}
+}
+
+focus = {
+	id = UKR_national_housing_program
+	icon = GFX_focus_usa_guarantee_the_american_dream
+	prerequisite = { focus = UKR_accept_national_leadership }
+	available = {
+		has_completed_focus = UKR_recruit_finance_experts
+	}
+	x = 3
+	y = 2
+	relative_position_id = UKR_accept_national_leadership
+	cost = 14.3
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		USA_great_depression_level_down = yes
+		add_stability = 0.1
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.20
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = limited_exports }
+				NOT = { has_idea = closed_economy }
+			}
+			add_ideas = limited_exports
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_in_home_area = yes
+				is_on_continent = europe
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+}
+
+focus = {
+	id = UKR_white_terror
+	icon = GFX_focus_eng_move_to_secure_the_dominions
+	prerequisite = { focus = UKR_abolish_congress }
+	#prerequisite = { focus = UKR_invent_communist_plot }
+	prerequisite = { focus = UKR_national_housing_program }
+	prerequisite = { focus = UKR_fascist_state_radio }
+	prerequisite = { focus = UKR_win_over_commies2 }
+	x = -3
+	y = 1
+	relative_position_id = UKR_national_housing_program
+	cost = 14.3
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		custom_effect_tooltip = white_terror_tt
+		add_timed_idea = {
+			idea = white_terror
+			days = 365
+		}
+	}
+}
+
+focus = { 
+	id = UKR_ubiquitous_propaganda
+	icon = GFX_goal_generic_propaganda
+	prerequisite = { focus = UKR_white_terror }
+	prerequisite = { focus = UKR_armament_focus2 }
+	prerequisite = { focus = UKR_eoconomic_mobil }
+	relative_position_id = UKR_white_terror
+	x = 0
+	y = 2 
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+		
+	}
+}
+
+focus = {
+	id = UKR_eoconomic_mobil
+	icon = GFX_goal_generic_production2
+	prerequisite = { focus = UKR_white_terror }
+	available = {
+	}
+	relative_position_id = UKR_white_terror
+	x = -1
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = {	has_idea = civilian_economy	}
+			add_ideas = low_economic_mobilisation
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				is_core_of = ROOT
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			set_state_flag = UKR_UKR_armament_focus_2IC
+		}
+	}
+}
+
+focus = {
+	id = UKR_armament_focus2
+	available = {
+	}
+	available_if_capitulated = yes
+	prerequisite = { focus = UKR_white_terror }
+	icon = GFX_goal_rhineland
+	x = 1
+	y = 1
+	relative_position_id = UKR_white_terror
+	cost = 5
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		set_rule = { can_send_volunteers = yes }
+		if = {
+			limit = { has_idea = limited_conscription	}
+			add_ideas = extensive_conscription
+		}
+		else_if = {
+			limit = {	has_idea = volunteer_only	}
+			add_ideas = limited_conscription
+		}
+		else_if = {
+			limit = {	has_idea = disarmed_nation	}
+			add_ideas = volunteer_only
+		}	
+	}
+} 
+
+focus = { 
+	id = UKR_recruit_youth
+	icon = GFX_focus_generic_military_mission
+	prerequisite = { focus = UKR_armament_focus2 }
+	relative_position_id = UKR_armament_focus2
+	available = {
+	}
+	x = 1
+	y = 1
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_ideas = military_youth_focus
+	}
+}
+
+focus = {  
+	id = UKR_empire
+	icon = GFX_focus_generic_strike_at_democracy1
+	prerequisite = { focus = UKR_ubiquitous_propaganda focus = UKR_for_king_and_country }
+	relative_position_id = UKR_ubiquitous_propaganda
+	available = {
+		has_completed_focus = UKR_army_innovation 
+	}
+	x = 4
+	y = 1
+	cost = 0.2
+	ai_will_do = {	factor = 1 }
+	available_if_capitulated = yes
+	completion_reward = {
+	}
+}
+
+focus = {
+	id = UKR_war_with_ussr
+	icon = GFX_focus_attack_soviet
+	prerequisite = { focus = UKR_empire }
+	available = {
+		is_puppet = no			
+		NOT = { is_in_faction_with = SOV }
+	}
+	x = 0
+	y = 1
+	relative_position_id = UKR_empire
+	cost = 10
+	bypass = {
+		OR = {
+			NOT = { country_exists = SOV }
+			has_war_with = SOV
+		}
+	}
+	historical_ai = {
+		date > 1939.1.1
+		NOT = {
+			any_neighbor_country = { has_war_with = ROOT	}		
+		}
+	}
+	ai_will_do = { 
+		factor = 10			
+		modifier = {
+			factor = 0.05
+			date < 1939.1.1
+		}
+	}	
+	completion_reward = {
+		add_named_threat = { threat = 2 }
+		 create_wargoal = {
+			 type = take_state_focus
+			 target = SOV
+			 generator = { 220 240 }
+		 }
+	}
+}
+
+focus = {
+	id = UKR_integrate_claims
+	icon = GFX_goal_generic_more_territorial_claims
+	prerequisite = { focus = UKR_war_with_ussr }
+	available = {
+		is_puppet = no
+		has_full_control_of_state = 220
+		has_full_control_of_state = 240
+		OR = {
+			SOV = { has_capitulated = yes }
+			SOV = { is_subject_of = ROOT }
+			NOT = {
+				any_country = {
+					original_tag = SOV
+					exists = yes
+				}
+			}
+			owns_state = 220
+		}
+	}
+	cancel_if_invalid = yes
+	x = 0
+	y = 2
+	relative_position_id = UKR_war_with_ussr
+	cost = 8
+	ai_will_do = {
+		factor = 20
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_integrate_northern_france"
+		add_state_core = 220
+		add_state_core = 240
+		if = {
+			limit = {	NOT = { owns_state = 220 }	}
+			transfer_state = 220
+		}
+		if = {
+			limit = {	NOT = { owns_state = 240 }	}
+			transfer_state = 240
+		}
+	}
+}	
+
+focus = {
+	id = UKR_reclaim_romanian_lands
+	icon = GFX_goal_generic_political_pressure		
+	prerequisite = { focus = UKR_empire }	
+	available = {
+		is_subject = no
+		country_exists = ROM
+		NOT = { is_in_faction_with = ROM }
+	}
+	bypass = {
+		OR = {
+			NOT = { country_exists = ROM }
+			is_in_faction_with = ROM
+		}
+	}
+	x = 2
+	y = 1
+	relative_position_id = UKR_empire
+	cost = 5
+	ai_will_do = {
+		factor = 2
+	}	
+	completion_reward = { 
+		create_wargoal = {
+			type = take_state_focus
+			target = ROM
+			generator = { 766 78 80 }
+		}
+	}
+}
+
+focus = {
+	id = UKR_integrate_romanian_lands 
+	icon = GFX_goal_generic_propaganda
+	prerequisite = { focus = UKR_reclaim_romanian_lands }
+	available = {
+		is_puppet = no
+		has_full_control_of_state = 766		
+		has_full_control_of_state = 78
+		#has_full_control_of_state = 80
+		OR = {
+			ROM = { has_capitulated = yes }
+			ROM = { is_subject_of = ROOT }
+			NOT = {
+				any_country = {
+					original_tag = ROM
+					exists = yes
+				}
+			}
+			owns_state = 766
+		}
+	}
+	cancel_if_invalid = yes
+	x = 0
+	y = 2
+	relative_position_id = UKR_reclaim_romanian_lands
+	cost = 14.3
+	ai_will_do = {
+		factor = 10
+	}
+	completion_reward = {
+		add_state_core = 766
+		add_state_core = 78
+		add_state_core = 80
+		if = {
+			limit = {	NOT = { owns_state = 766 }	}
+			transfer_state = 766
+		}
+		if = {
+			limit = {	NOT = { owns_state = 78 }	}
+			transfer_state = 78
+		}
+		if = {
+			limit = {	NOT = { owns_state = 80 }	}
+			transfer_state = 80
+		}
+	}
+}
+
+focus = {
+	id = UKR_west_ukrainian_liberation
+	prerequisite = { focus = UKR_empire }	
+	icon = GFX_goal_generic_major_war
+	x = -2
+	y = 1
+	relative_position_id = UKR_empire
+	available = {
+		is_subject = no
+		country_exists = POL
+		NOT = { is_in_faction_with = POL }
+	}
+	bypass = {
+		owns_state = 89
+		owns_state = 91
+		owns_state = 93
+	}
+	cost = 5
+	ai_will_do = {
+		factor = 10
+	}	
+	will_lead_to_war_with = POL
+	completion_reward = {
+		create_wargoal = {
+			type = take_state_focus
+			target = POL
+			generator = { 89 91 93 }
+		}
+	}
+}
+
+focus = {
+	id = UKR_integrate_west_ukrain   
+	icon = GFX_goal_generic_position_armies
+	prerequisite = { focus = UKR_west_ukrainian_liberation }
+	cancel_if_invalid = yes
+	x = 0
+	y = 2
+	relative_position_id = UKR_west_ukrainian_liberation
+	available = {
+		is_puppet = no
+		has_full_control_of_state = 89
+		has_full_control_of_state = 91
+		has_full_control_of_state = 93		
+		OR = {
+			POL = { has_capitulated = yes }
+			POL = { is_subject_of = ROOT }
+			NOT = {
+				any_country = {
+					original_tag = POL
+					exists = yes
+				}
+			}
+			has_full_control_of_state = 89	
+		}
+	}
+	cost = 8
+	ai_will_do = {	factor = 5 }
+	completion_reward = {
+		add_state_core = 89
+		add_state_core = 91
+		add_state_core = 93	
+		if = {
+			limit = {	NOT = { owns_state = 89 }	}
+			transfer_state = 89
+		}
+		if = {
+			limit = {	NOT = { owns_state = 91 }	}
+			transfer_state = 91
+		}
+		if = {
+			limit = {	NOT = { owns_state = 93 }	}
+			transfer_state = 93
+		}
+	}
+}
+
+### UNALIGNED BRANCH ###
+focus = {  
+	id = UKR_choose_a_hetman
+	icon = GFX_focus_generic_home_defense
+	prerequisite = { focus = UKR_one_man_rule }
+	mutually_exclusive = { 	focus = UKR_a_fascist_imitation	}
+	x = 5
+	y = 1
+	relative_position_id = UKR_one_man_rule
+	cost = 0.2
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		country_event = { id = ctukr.1 }	
+	}
+}
+
+focus = { 
+	id = UKR_infiltrate_opposition_parties
+	icon = GFX_goal_generic_dangerous_deal
+	prerequisite = { focus = UKR_choose_a_hetman }
+	available = {
+	}
+	x = -2
+	y = 1
+	relative_position_id = UKR_choose_a_hetman
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+		add_stability = 0.02
+		add_political_power = 20
+	}
+}
+focus = {  
+	id = UKR_court_centrist_support
+	icon = GFX_goal_generic_major_alliance
+	prerequisite = { focus = UKR_choose_a_hetman }
+	available = {
+	}
+	x = 0
+	y = 1
+	relative_position_id = UKR_choose_a_hetman
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_stability = 0.04
+		add_political_power = 40
+	}
+}
+
+focus = { 
+	id = UKR_ask_for_japanese_aid 
+	icon = GFX_focus_chi_collaboration_with_the_japanese
+	prerequisite = { focus = UKR_choose_a_hetman }
+	available = {
+	}
+	x = 2
+	y = 1
+	relative_position_id = UKR_choose_a_hetman
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		JAP = { 
+			add_ai_strategy = {
+				type = befriend
+				id = "UKR"			
+				value = 200
+			}
+			add_opinion_modifier = {				
+				target = ROOT
+				modifier = japan_aided_ukraine
+			}				
+		}	
+		custom_effect_tooltip = jap_aid_tt
+		add_offsite_building = { type = industrial_complex level = 1 }	
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 10000
+		}	 	
+	}
+}
+
+focus = {
+	id = UKR_promise_constitutional_methods
+	icon = GFX_focus_generic_self_management
+	prerequisite = { focus = UKR_choose_a_hetman }
+	available = {
+	}
+	x = -1
+	y = 2
+	relative_position_id = UKR_choose_a_hetman
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+		add_political_power = 40			
+	}
+}
+focus = { 
+	id = UKR_celebrate_hetman_tradition
+	icon = GFX_goal_anschluss
+	prerequisite = { focus = UKR_choose_a_hetman }
+	available = {
+	}
+	x = 1
+	y = 2
+	relative_position_id = UKR_choose_a_hetman
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		add_stability = 0.04
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+	}
+}
+focus = { 
+	id = UKR_purge_communist_officeholders 
+	icon = GFX_focus_generic_join_comintern
+	prerequisite = { focus = UKR_infiltrate_opposition_parties }
+	available = {
+	}
+	x = 0
+	y = 2
+	relative_position_id = UKR_infiltrate_opposition_parties
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_stability = -0.04
+		add_political_power = 50
+	}
+}
+focus = { 
+	id = UKR_expose_ussr_political_murders
+	icon = GFX_focus_YUG_pan_slavic_congress
+	prerequisite = { focus = UKR_ask_for_japanese_aid }
+	available = {
+	}
+	x = 0
+	y = 2
+	relative_position_id = UKR_ask_for_japanese_aid
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {	
+		add_political_power = 20
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.08
+		}
+		swap_ideas = {
+			add_idea = communist_past2
+			remove_idea = communist_past
+		}
+	}
+}
+
+focus = {
+	id = UKR_conscription23 
+	icon = GFX_focus_generic_military_mission
+	prerequisite = { focus = UKR_court_centrist_support }
+	prerequisite = { focus = UKR_expose_ussr_political_murders }	
+	prerequisite = { focus = UKR_purge_communist_officeholders }		
+	prerequisite = { focus = UKR_celebrate_hetman_tradition }	
+	prerequisite = { focus = UKR_promise_constitutional_methods }						
+	available = {
+	}
+	x = 0
+	y = 3
+	relative_position_id = UKR_court_centrist_support
+	cost = 8 
+	ai_will_do = {
+		factor = 50
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = {	has_idea = limited_conscription	}
+			add_ideas = extensive_conscription
+		}
+		else_if = {
+			limit = {	has_idea = volunteer_only	}
+			add_ideas = limited_conscription
+		}
+		else_if = {
+			limit = {	has_idea = disarmed_nation	}
+			add_ideas = volunteer_only
+		}	
+		add_stability = -0.02
+		add_political_power = -40	
+	}
+}
+
+focus = {
+	id = UKR_assert_total_control
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = UKR_conscription23 }
+	x = 0
+	y = 1
+	relative_position_id = UKR_conscription23
+	cost = 8
+	ai_will_do = {
+		factor = 0
+	}
+	available_if_capitulated = yes
+	completion_reward = {
+		add_political_power = -50
+		add_country_leader_trait = dictator
+	}
+}	
+
+focus = {
+	id = UKR_hetman_coronation 
+	prerequisite = { focus = UKR_assert_total_control }
+	available = {
+		is_subject = no
+		has_war = no
+	}
+	icon = GFX_goal_tfv_strengthen_commonwealth_ties
+	x = 0
+	y = 2
+	relative_position_id = UKR_assert_total_control
+	cost = 8
+	ai_will_do = {	factor = 1	}	
+	completion_reward = {
+		add_popularity = { ideology = neutrality popularity = 0.1 }	
+		add_stability = 0.1			
+	}
+} 
+
+focus = { 
+	id = UKR_rule_and_reign
+	prerequisite = { focus = UKR_hetman_coronation }
+	icon = GFX_focus_generic_home_defense
+	x = 0
+	y = 1
+	relative_position_id = UKR_hetman_coronation
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		add_stability = 0.08
+		add_political_power = 100
+	}
+}
+
+focus = {
+	id = UKR_mandatory_paramilitary
+	prerequisite = { focus = UKR_rule_and_reign }
+	prerequisite = { focus = UKR_ukrainian_coalition focus = UKR_brinkmanship }
+	icon = GFX_focus_generic_strike_at_democracy1
+	x = -1
+	y = 1
+	relative_position_id = UKR_rule_and_reign
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = {
+		add_war_support = 0.1
+		add_ideas = paramilitarism_focus
+	}
+}
+
+focus = {
+	id = UKR_eoconomic_mobil2
+	icon = GFX_goal_generic_more_territorial_claims
+	prerequisite = { 
+		focus = UKR_rule_and_reign 
+		#focus = UKR_great_purge 
+	}
+	available = {
+	}
+	relative_position_id = UKR_rule_and_reign
+	x = 1
+	y = 1
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	} 
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = {	has_idea = limited_conscription	}
+			add_ideas = extensive_conscription
+		}
+		else_if = {
+			limit = {	has_idea = volunteer_only	}
+			add_ideas = limited_conscription
+		}
+		else_if = {
+			limit = {	has_idea = disarmed_nation	}
+			add_ideas = volunteer_only
+		}
+		if = {
+			limit = { has_idea = partial_economic_mobilisation	}
+			add_ideas = war_economy
+		}
+		else_if = {
+			limit = {	has_idea = low_economic_mobilisation }
+			add_ideas = partial_economic_mobilisation
+		}
+		else_if = {
+			limit = {	has_idea = civilian_economy	}
+			add_ideas = low_economic_mobilisation
+		}
+		else_if = {
+			limit = {	has_idea = isolation }
+			add_ideas = civilian_economy
+		}
+	}
+}
+
+focus = {  
+	id = UKR_brinkmanship
+	prerequisite = { focus = UKR_hetman_coronation }
+	icon = GFX_goal_generic_forceful_treaty
+	x = -3
+	y = 1
+	relative_position_id = UKR_hetman_coronation
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = { 
+		add_ideas = brinkmanship
+	}
+}
+
+focus = {   
+	id = UKR_ukrainian_coalition
+	prerequisite = { focus = UKR_hetman_coronation }
+	icon = GFX_goal_generic_major_alliance
+	x = 3
+	y = 1
+	relative_position_id = UKR_hetman_coronation
+	cost = 8
+	ai_will_do = {
+		factor = 1
+	}	
+	completion_reward = { 
+		set_rule = {	can_create_factions = yes	}
+		create_faction = ukrainian_coalition
+		add_to_faction = ROOT
+		add_political_power = 120
+		add_war_support = 0.1
+	}
+}
+
+focus = { 
+	id = UKR_for_king_and_country
+	icon = GFX_focus_generic_little_entente		
+	prerequisite = { focus = UKR_mandatory_paramilitary }
+	prerequisite = { focus = UKR_eoconomic_mobil2 }	
+	x = 1
+	y = 1
+	relative_position_id = UKR_mandatory_paramilitary
+	cost = 10
+	ai_will_do = {
+		factor = 10
+	}	
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = for_king_and_country
+			add_idea = for_king_and_country2
+		}
+		add_war_support = 0.1
+	}
+}
+
+focus = { 
+	id = UKR_eoconomic_mobil3
+	icon = GFX_focus_generic_self_management
+	prerequisite = { focus = UKR_ubiquitous_propaganda focus = UKR_for_king_and_country }
+	relative_position_id = UKR_for_king_and_country
+	x = -1
+	y = 1
+	cost = 10
+	ai_will_do = {
+		factor = 1
+	} 
+	available_if_capitulated = yes
+	completion_reward = {
+		if = {
+			limit = { has_idea = limited_conscription	}
+			add_ideas = extensive_conscription
+		}
+		else_if = {
+			limit = { has_idea = volunteer_only }
+			add_ideas = limited_conscription
+		}
+		if = {
+			limit = { has_idea = partial_economic_mobilisation }
+			add_ideas = war_economy
+		}
+		else_if = {
+			limit = { has_idea = low_economic_mobilisation }
+			add_ideas = partial_economic_mobilisation
+		}
+		else_if = {
+			limit = { has_idea = civilian_economy	}
+			add_ideas = low_economic_mobilisation
+		}
+		else_if = {
+			limit = { has_idea = isolation }
+			add_ideas = civilian_economy
+		}
+	}
+}
+
+focus = { 
+	id = UKR_obtain_international_recognition 
+	icon = GFX_goal_generic_national_unity	
+	prerequisite = { focus = UKR_for_king_and_country }
+	x = 1
+	y = 1
+	relative_position_id = UKR_for_king_and_country
+	cost = 8
+	ai_will_do = {
+		factor = 10
+	}	
+	completion_reward = {
+		add_political_power = 100
+		add_stability = 0.05
+	}
+}
+#########################################################################
+#########################################################################
+########     P O L I T I C A L      U K R A I N E      E N D     ########
+#########################################################################
+#########################################################################
+
+}

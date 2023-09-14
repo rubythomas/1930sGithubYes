@@ -1,0 +1,467 @@
+﻿add_namespace = ctita
+
+country_event = {
+	id = ctita.1
+	title = ctita.1.t
+	desc = ctita.1.d
+	picture = GFX_report_event_swiss
+	is_triggered_only = yes
+	#deal
+	option = {
+		name = ctita.1.o1
+		ai_chance = {
+			base = 10
+		}
+		annex_country = {
+    			target = SWI
+		}
+		add_state_core = 151
+		151 = { set_state_name = "Western Tyrol" }
+		FRA = {
+			transfer_state = 3
+			country_event = { id = twentiesfra.9 }
+		}
+	}
+	#no deal
+	option = {
+		name = ctita.1.o2
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+country_event = {
+	id = ctita.2
+	title = ctita.2.t
+	desc = ctita.2.d
+	picture = GFX_report_event_generic_sign_treaty1	
+	fire_only_once = yes	
+	is_triggered_only = yes
+	option = {
+		name = ctita.2.o1
+		hidden_effect = {
+			set_capital = 675
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = fascism
+				size = 0.5
+				capital = 291
+				states = { 291 676 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = IRQ
+					has_government = fascism
+				}
+				declare_war_on = {
+					target = ENG
+					type = annex_everything
+				}
+				load_oob = "IRQ_Civil_War"
+				set_equipment_fraction = 0.5
+				set_stability = 0.9
+				set_war_support = 0.8
+				#country_event = { id = spain.3 days = 1 }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.30
+				}
+				transfer_state = 675
+			}
+			news_event = { hours = 6 id = news.1013 }
+			
+			set_equipment_fraction = 0.5
+			set_stability = 0.5
+			set_war_support = 0.5
+			
+			add_popularity = {
+				ideology = neutrality
+				popularity = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctita.3
+	title = ctita.3.t
+	desc = ctita.3.d
+	picture = GFX_report_event_vatican
+	fire_only_once = yes		
+	trigger = {
+		tag = ITA
+		AND = {
+			date > 1931.6.1
+		}
+	}
+	option = {#persecute the pope -civil war
+		name = ctita.3.o1
+		ai_chance = {
+			base = 0
+		}
+		set_country_flag = ct_persecute_pope
+		hidden_effect = {
+			country_event = { id = ctita.4 days = 3 }
+		}
+		custom_effect_tooltip = cw_ity
+	}
+	#no deal
+	option = { #minimize impact
+		name = ctita.3.o2
+		ai_chance = {
+			base = 100
+		}
+		set_country_flag = ct_reconcile_pope
+
+	}
+}
+
+country_event = { #king ve killed
+	id = ctita.4
+	title = ctita.4.t
+	desc = ctita.4.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+	option = {
+		name = ctita.4.o1
+		remove_ideas = victor_emmanuel
+		hidden_effect = {
+			country_event = { id = ctita.6 days = 3 }
+			news_event = { hours = 6 id = news_1930.26 }
+		}
+	}
+}
+
+country_event = { #civilwar
+	id = ctita.5
+	title = ctita.5.t
+	desc = ctita.5.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+	option = {
+		name = ctita.4.o1
+		hidden_effect = {
+			news_event = { hours = 6 id = news_1930.27 }
+		}
+	}
+}
+
+country_event = {
+	id = ctita.6
+	title = ctita.6.t
+	desc = ctita.6.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	option = { # Support Mussolini
+		name = ctita.6.a
+		hidden_effect = {
+			#remove_unit_leader = 445
+			set_capital = 2
+			start_civil_war = {
+				ruling_party = fascism
+				ideology = neutrality
+				size = 0.5
+				capital = 158
+				states = { 39 114 158 159 160 161 163 736 273 448 550 661 662 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ITA
+					has_government = neutrality
+				}
+				create_country_leader = {
+					name = "Umberto II"
+					desc = ""
+					picture = "Portrait_Italy_King_Umberto_di_Savoia.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				load_oob = "Civil_War_Umberto"
+				set_equipment_fraction = 0.5
+				set_stability = 0.9
+				set_war_support = 0.8
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+			}
+			#news_event = { hours = 6 id = news.63 }
+			set_global_flag = italian_civil_war
+			set_global_flag = cw_mussolini
+			load_oob = "Civil_War_Mussolini"
+			set_equipment_fraction = 0.5
+			set_stability = 0.9
+			set_war_support = 0.8
+			add_popularity = {
+				ideology = fascism
+				popularity = 1
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ITA
+					has_government = neutrality
+				}
+				set_cosmetic_tag = ITY
+			}
+		}
+		custom_effect_tooltip = support_mussolini
+	}
+	option = { # Support Umberto
+		name = ctita.6.b
+		trigger = { is_ai = no }
+		hidden_effect = {
+			set_capital = 158
+			create_country_leader = {
+				name = "Umberto II"
+				desc = ""
+				picture = "Portrait_Italy_King_Umberto_di_Savoia.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.5
+			}
+			start_civil_war = {
+				ideology = fascism
+				size = 0.5
+				capital = 2
+				states = { 2 115 117 156 157 162 449 450 451 559 663 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ITA
+					has_government = fascism
+				}
+				set_equipment_fraction = 0.5
+				set_stability = 0.9
+				set_war_support = 0.8
+				load_oob = "Civil_War_Mussolini"
+				if = {
+					limit = { 
+						NOT = { 
+							has_idea = great_depression 
+						}
+					}
+					add_ideas = great_depression
+				}
+			}
+			set_global_flag = italian_civil_war
+			set_global_flag = cw_umberto
+			add_popularity = {
+				ideology = fascism
+				popularity = -1
+			}	
+			random_other_country = {
+				limit = {
+					original_tag = ITA
+					has_government = fascism
+				}
+				set_cosmetic_tag = ITY
+			}
+			load_oob = "Civil_War_Umberto"
+			set_equipment_fraction = 0.5
+			set_stability = 0.9
+			set_war_support = 0.8
+			if = {
+				limit = { 
+					NOT = { 
+						has_idea = great_depression 
+					}
+				}
+				add_ideas = great_depression
+			}
+			if = {
+				limit = { has_idea = vittoria_mutilata }
+				remove_ideas = vittoria_mutilata
+			}
+		}
+		custom_effect_tooltip = support_umberto
+	}
+}
+
+country_event = {
+	id = ctita.7
+	title = ctita.7.t
+	desc = ctita.7.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+	option = {
+		name = ctita.7.o1
+		ai_chance = {
+			base = 50
+		}
+		create_country_leader = {
+			name = "Alcide de Gasperi"
+			desc = ""
+			picture = "Portrait_Italy_Alcide_de_Gasperi.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	option = {
+		name = ctita.7.o2
+		ai_chance = {
+			base = 50
+		}
+		create_country_leader = {
+			name = "Ferruccio Parri"
+			desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+			picture = "GFX_portrait_italy_ferruccio_parri"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { #offer bulg east greece
+	id = ctita.8
+	title = ctita.8.t
+	desc = ctita.8.d
+	picture = GFX_report_event_funeral
+	is_triggered_only = yes
+
+	option = { #yes pls
+		name = ctita.8.o1
+		ai_chance = {
+			base = 99
+		}
+		ITA = { country_event = { id = ctita.9 days = 1 } }
+	}
+	option = { #no thx
+		name = ctita.8.o2
+		ai_chance = {
+			base = 1
+		}
+		ITA = { country_event = { id = ctita.10 days = 1 } }
+	}
+}
+
+country_event = { #bulg agreece
+	id = ctita.9
+	title = ctita.9.t
+	desc = ctita.9.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	is_triggered_only = yes
+	option = { #no thx
+		name = ctita.9.o1
+		GRE = { country_event = { id = ctita.11 days = 1 } }
+	}
+}
+
+country_event = { #bulg doesnt 
+	id = ctita.10
+	title = ctita.10.t
+	desc = ctita.10.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ctita.10.o1
+	}
+}
+
+country_event = { #ultimatum to Greece
+	id = ctita.11
+	title = ctita.11.t
+	desc = ctita.11.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = { #surrender
+		name = ctita.11.o1
+		ai_chance = {
+			factor = 100 
+			modifier = {
+				factor = 0
+				is_in_faction_with = GER
+				is_in_faction_with = FRA
+				is_in_faction_with = ENG
+			}
+		}
+		ITA = { 
+			country_event = { id = ctita.12 } 
+		}
+		BUL = { 
+			country_event = { id = ctita.13 } 
+		}
+	}
+	option = { #never
+		name = ctita.11.o2
+		ai_chance = {
+			factor = 0 
+			modifier = {
+				factor = 100
+				NOT = { is_in_faction_with = GER }
+				NOT = { is_in_faction_with = FRA }
+				NOT = { is_in_faction_with = ENG }
+			}
+		}
+		ITA = { 
+			country_event = { id = ctita.14 } 
+			create_wargoal = {
+				type = take_state_focus
+				target = GRE
+				generator = { 182 185 }
+			}
+			add_state_claim = 182
+		}
+		BUL = { 
+			country_event = { id = ctita.14 } 
+			create_wargoal = {
+				type = take_state_focus
+				target = GRE
+				generator = { 184 731 }
+			}
+		}
+	}
+}
+
+country_event = { #ita prizes
+	id = ctita.12
+	title = ctita.12.t
+	desc = ctita.12.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ctita.12.o1
+		transfer_state = 182
+		puppet = GRE
+	}
+}
+
+country_event = { #bul prizes
+	id = ctita.13
+	title = ctita.13.t
+	desc = ctita.13.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = ctita.13.o1
+		transfer_state = 731
+		transfer_state = 184
+	}
+}
+
+country_event = { #no prizes
+	id = ctita.14
+	title = ctita.14.t
+	desc = ctita.14.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = {
+		name = ctita.14.o1
+	}
+}

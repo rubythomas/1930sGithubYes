@@ -1,0 +1,81 @@
+ideas = {
+
+	political_advisor = {
+
+		XIK_phuntsok_wangyal = {
+
+			picture = generic_political_advisor_asia_3
+			
+			allowed = {
+				original_tag = XIK
+			}
+			
+			traits = { popular_figurehead }
+		}
+	}	
+
+	army_chief = {
+		
+		XIK_sun_yue = {
+			
+			picture = generic_army_asia_3
+
+			allowed = {
+				original_tag = XIK
+			}
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+	}
+
+	air_chief = {
+	}
+	
+	navy_chief = {
+	}
+
+	high_command = {
+		
+		XIK_hu_jingyi = {
+			ledger = air
+			picture = generic_army_asia_5
+			
+			allowed = {
+				original_tag = XIK
+			}
+			
+			traits = { air_air_combat_training_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+
+
+	theorist = {
+		XIK_feng_yuxiang = {
+			ledger = army
+			picture = generic_army_asia_2
+			
+			allowed = {
+				original_tag = XIK
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+	}
+
+
+
+}

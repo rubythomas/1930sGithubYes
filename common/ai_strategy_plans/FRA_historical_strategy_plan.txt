@@ -1,0 +1,120 @@
+FRA_historical_plan = {
+	name = "France historical plan"
+	desc = "Historical behavior for France"
+
+	enable = {
+		original_tag = FRA
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = FRA_ai_behavior
+					option = DEFAULT
+				}	
+			}
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+		}
+	}
+	abort = {
+		OR = {
+			OR = {
+				GER = { has_completed_focus = GER_german_october }	
+				GER = { has_completed_focus = GER_monarchist_germany }				
+				GER = { has_completed_focus = GER_democratic_germany }				
+			}
+			AND = {
+				ENG = { has_completed_focus = ENG_a_change_in_course }
+				NOT = { GER = {	has_completed_focus = GER_german_october } }
+				NOT = { GER = {	has_completed_focus = GER_monarchist_germany } }
+				NOT = { GER = {	has_completed_focus = GER_democratic_germany } }									
+			}
+		}
+		has_game_rule = {
+			rule = FRA_ai_behavior
+			option = DEFAULT
+		}
+	}
+
+	ai_national_focuses = {
+		FRA_the_maginot_line
+		FRA_metropolitan_france 
+		FRA_industrial_expansion
+		FRA_internal_growth
+		FRA_pre_army
+		FRA_combat_engineers
+		FRA_extra_research_slot_pre
+		FRA_defensive_focus
+		FRA_colonial_france
+		FRA_de_dion_bouton
+		FRA_pre_industrial_expansion
+		FRA_mining_initiative
+		FRA_support_status_quo
+		FRA_go_with_britain
+		FRA_call_on_experts
+		FRA_initiate_government_reform
+		FRA_coal_liquidization
+		FRA_economic_recovery_legislation
+		FRA_steel_production_expansion
+		FRA_pre_military_factories
+		FRA_rhone_arms
+		FRA_provide_industial_incentives
+		FRA_pre_research_slot
+		FRA_social_wellfare_legislation
+		FRA_industrial_expansion
+		FRA_strengthen_government_support
+		FRA_social_mobilization
+		FRA_algerie_france
+		FRA_military_factories
+		FRA_colonial_industry
+		FRA_defensive_strategems
+		FRA_colonial_military_factories
+		FRA_extra_research_slot
+		FRA_fortification_focus
+		FRA_infantry_focus
+		FRA_alpine_forts
+		FRA_artillery_focus
+		FRA_heavy_armor_focus
+		FRA_army_reform
+		FRA_go_with_britain
+		FRA_navy_focus
+		FRA_capital_ship_focus
+		FRA_defensive_focus
+		FRA_fortification_focus
+		FRA_infantry_focus
+		FRA_artillery_focus	
+		FRA_heavy_armor_focus	
+		FRA_military_factories
+		FRA_improved_screen_ships
+		FRA_algerie_france 	
+		FRA_colonial_industry 			
+		FRA_colonial_military_factories
+		FRA_extra_research_slot
+		FRA_naval_doctrine
+		FRA_alpine_forts 				
+		FRA_extend_the_maginot_line
+		FRA_blum_viollette_proposal
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

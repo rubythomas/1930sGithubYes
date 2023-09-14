@@ -1,0 +1,252 @@
+﻿add_namespace = ctgre
+
+country_event = {  #bank run
+	id = ctgre.1
+	title = ctgre.1.t
+	desc = ctgre.1.d
+	picture = GFX_fra_com
+	fire_only_once = yes	
+	trigger = {
+		tag = GRE
+		date > 1931.9.25
+	}
+	option = {
+		name = ctgre.1.o1
+		add_stability = -0.05
+		47 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		186 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctgre.2
+	title = ctgre.2.t
+	desc = ctgre.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		tag = GRE
+		date > 1932.3.15
+	}
+	#restructure
+	option = {
+		name = ctgre.2.o1
+		ai_chance = {
+			base = 100
+		}
+		swap_ideas = {
+			add_idea = ct_repayment2
+		    remove_idea = ct_repayment
+		}
+	}
+	#repudiate debt
+	option = {
+		name = ctgre.2.o2
+		ai_chance = {
+			base = 0
+		}
+		remove_ideas = ct_repayment
+		add_political_power = -200
+		47 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 2
+			}
+		}
+		731 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctgre.3
+	title = ctgre.3.t
+	desc = ctgre.3.d
+	picture = GFX_report_event_cyp_enosis
+	is_triggered_only = yes
+	#restructure
+	option = {
+		name = ctgre.3.o1
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = { id = ctgre.4 days = 2 }
+		}
+		custom_effect_tooltip = cyp_independent
+	}
+	#repudiate debt
+	option = {
+		name = ctgre.3.o2
+		ai_chance = { factor = 100 }
+		release = CYP
+			CYP = {
+				set_politics = {
+					ruling_party = neutrality
+					last_election = "1936.1.1"
+					election_frequency = 48
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic = 26
+					fascism = 9
+					communism = 4
+					neutrality = 61
+				}
+			}
+		hidden_effect = {
+			GRE = { country_event = { id = ctgre.5 days = 10 } }
+		}
+	}
+}
+
+country_event = {  #REB
+	id = ctgre.4
+	title = ctgre.4.t
+	desc = ctgre.4.d
+	picture = GFX_fra_com
+	is_triggered_only = yes
+	option = {
+		name = ctgre.4.o1
+		hidden_effect = {
+			release = CYP
+			CYP = {
+				declare_war_on = {
+    					target = ENG
+    					type = take_core_state
+				}
+				set_stability = 0.9
+				set_war_support = 0.8
+				load_oob = "CYP_1930"
+			}
+		}
+	}
+}
+
+country_event = {  #enosis
+	id = ctgre.5
+	title = ctgre.5.t
+	desc = ctgre.5.d
+	picture = GFX_report_event_cyp_enosis
+	is_triggered_only = yes
+	option = {
+		name = ctgre.5.o1
+		183 = {
+			if = {
+				limit = { is_owned_by = CYP }
+				add_core_of = GRE
+			}
+		}
+		CYP = {
+			every_unit_leader = {
+				set_nationality = GRE
+			}
+		}
+		annex_country = { target = CYP transfer_troops = yes }
+		add_political_power = 50
+		set_country_flag = CYP_annexed
+		add_war_support = 0.1
+		add_stability = 0.05
+	}
+}
+
+country_event = {
+	id = ctgre.6
+	title = ctgre.6.t
+	desc = ctgre.6.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	#surrender
+	option = {
+		name = ctgre.6.o1
+		ai_chance = { 
+			factor = 99 
+			modifier = { # If u stand a chance fight
+				factor = 0
+				strength_ratio = {
+					tag = GRE
+					ratio > 0.75
+				}
+			}
+			modifier = {
+				factor = 0 #if u lead a faction, fight
+				is_faction_leader = yes
+			}
+			modifier = {
+				factor = 0.05 #if u r in a faction, maybe fight
+				is_faction_leader = no
+				is_in_faction = yes
+			}
+		}
+		GRE = { country_event = { id = ctgre.7 days = 1 } }
+		effect_tooltip = {		
+			GRE = { transfer_state = 805 }
+		}
+	}
+	#nope
+	option = {
+		name = ctgre.6.o2
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		GRE = { country_event = { id = ctgre.8 days = 1 } }
+		effect_tooltip = {		
+			GRE = { 
+				create_wargoal = {
+					type = take_state_focus
+					target = ALB
+					generator = { 805 }
+				}
+			}
+		}
+	}
+}
+
+country_event = {  #alb surrender
+	id = ctgre.7
+	title = ctgre.7.t
+	desc = ctgre.7.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = {
+		name = ctgre.7.o1
+		if = {
+			limit = {
+				805 = { is_owned_by = ALB }
+			}
+			GRE = { transfer_state = 805 }
+			805 = { add_core_of = GRE }
+		}
+	}
+}
+country_event = {  #alb refuses 2 surrender
+	id = ctgre.8
+	title = ctgre.8.t
+	desc = ctgre.8.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = {
+		name = ctgre.8.o1
+		create_wargoal = {
+			type = take_state_focus
+			target = ALB
+			generator = { 805 }
+		}
+	}
+}

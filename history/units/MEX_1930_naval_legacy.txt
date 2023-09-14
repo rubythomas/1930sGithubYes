@@ -1,0 +1,15 @@
+﻿units = {
+
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Armada de México"
+		naval_base = 12810 # Veracruz
+		task_force = {				
+			name = "Armada de México"
+			location = 12810 # Veracruz
+			ship = { name = "ARM Nicolás Bravo" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = MEX version_name = "Nicolás Bravo Class" } } }
+			ship = { name = "ARM Durango" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = MEX version_name = "Durango Class" } } } 
+		}
+	}
+}
+

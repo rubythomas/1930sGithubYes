@@ -1,0 +1,99 @@
+BRA_fascism_plan = {
+	name = "BRA integralist plan"
+	desc = ""
+
+	enable = {
+		original_tag = BRA
+		OR = {
+			has_country_flag = BRA_AI_INTEGRALIST
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = INTEGRALIST
+			}
+		}
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		#1930
+		BRA_industry
+		BRA_1930_election
+		BRA_rule_by_decree
+		BRA_social_welfare_program
+		BRA_military_modernization
+		BRA_tech_slot 
+		BRA_new_constitution
+		BRA_press_censorship
+		#1931
+		BRA_gerdau_industry
+		BRA_army_engineers
+		BRA_rural_electrification
+		BRA_expand_varig
+		BRA_industrial_incentives
+		BRA_expand_comgas
+		#1932
+		BRA_cult_of_personality
+		BRA_obtain_army_loyalty 
+		BRA_voice_of_brazil
+		BRA_road_building
+		BRA_ally_labor
+		BRA_nationalist_rhetoric
+		#1933
+		BRA_industrial_stim
+		BRA_abandon_gold
+		BRA_expand_research_funding
+		BRA_ally_labor
+		BRA_combat_communism 
+		#1934
+		BRA_move_right
+		BRA_the_cohen_plan
+		BRA_right_wing_rhetoric
+		BRA_integralists_mbga
+		BRA_father_of_the_poor
+		BRA_reconstruction
+		BRA_mining
+		#1935
+		BRA_electronics
+		BRA_integralists_youth
+		BRA_further_industrial_incentives
+		BRA_taurus
+		BRA_expand_iochpe_maxion
+		BRA_cosan
+		#1936
+		BRA_expand_telequartz 
+		BRA_stimulated_growth
+		BRA_nationalize_industry
+		BRA_industrial_cartels
+		BRA_reconstruction2
+		BRA_foreign_policy
+		#1937
+		BRA_aggressive_diplomacy
+		BRA_bolivia
+		BRA_dev_bolivia_industry 
+		BRA_paraguay
+		BRA_dev_paraguay_industry 
+		#1938		
+		BRA_special_forces
+		BRA_extra_tech_slot
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		popular_figurehead = 5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,140 @@
+﻿division_template = {
+	name = "Milice Francaise"
+	priority = 1
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+
+	support = {
+		engineer = { x = 0 y = 0 }
+		military_police = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	division= {
+		name = "1. Milice Francaise"
+		location = 3594
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "2. Milice Francaise"
+		location = 3594
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "3. Milice Francaise"
+		location = 3594
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "4. Milice Francaise"
+		location = 3594
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "5. Milice Francaise"
+		location = 3594
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "6. Milice Francaise"
+		location = 620
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "7. Milice Francaise"
+		location = 620
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "8. Milice Francaise"
+		location = 6766
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "9. Milice Francaise"
+		location = 6766
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "10. Milice Francaise"
+		location = 9898
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "11. Milice Francaise"
+		location = 9898
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "12. Milice Francaise"
+		location = 11834
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "13. Milice Francaise"
+		location = 911
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "14. Milice Francaise"
+		location = 3768
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "15. Milice Francaise"
+		location = 3768
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "16. Milice Francaise"
+		location = 7132
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "17. Milice Francaise"
+		location = 7132
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "18. Milice Francaise"
+		location = 1145
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "19. Milice Francaise"
+		location = 1145
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+	division= {
+		name = "20. Milice Francaise"
+		location = 1145
+		division_template = "Milice Francaise"
+		start_experience_factor = 0.1
+	}
+}

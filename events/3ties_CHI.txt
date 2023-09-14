@@ -1,0 +1,92 @@
+﻿add_namespace = ctchi
+country_event = {
+	id = ctchi.1
+	title = ctchi.1.t
+	desc = ctchi.1.d
+	picture = GFX_report_event_chinese_soldiers_fighting	
+	trigger = {
+		surrender_progress > 0.25
+		NOT = { has_global_flag = ct_stalemate }
+		JAP = { is_ai = yes }
+		CHI = { is_ai = yes }
+		tag = CHI
+		date<1935.12.31
+	}
+	fire_only_once = yes
+	option = {
+		name = ctchi.1.o1
+		load_oob = "CHI_stalemate"
+		set_global_flag = ct_stalemate
+	}
+}
+
+country_event = {
+	id = ctchi.2
+	title = ctchi.2.t
+	desc = ctchi.2.d
+	picture = GFX_report_event_chinese_soldiers_01
+	fire_only_once = yes
+	trigger = {
+		tag = CHI
+		JAP = { is_ai = yes }
+		CHI = { has_war_with = JAP }
+		CHI = {	controls_state = 613	controls_state = 608	}
+		NOT = {	JAP = {	controls_state = 609	}	}
+		NOT = {	MEN = {	controls_state = 611	}	}
+		NOT = {	MAN = {		controls_state = 610	}	}
+		NOT = {	MAN = {		controls_state = 328	}	}
+		NOT = { has_global_flag = white_peace_japan }
+	}
+	immediate = {	set_global_flag = white_peace_japan	}
+	option = {
+		name = ctchi.2.a 
+		CHI = {
+			transfer_state = 609
+			transfer_state = 524
+			transfer_state = 745
+			annex_country = { target = MAN }
+		}
+		PRC = {
+			annex_country = { target = MEN }
+			transfer_state = 612
+			transfer_state = 611
+		}
+		CHI = {	white_peace = JAP }
+		PRC = {	white_peace = JAP }
+		CHI = {	diplomatic_relation = { country = JAP relation = non_aggression_pact } }	
+		PRC = {	diplomatic_relation = { country = JAP relation = non_aggression_pact }	}
+		CHI = {		add_ideas = divided_china	}
+		PRC = {		add_ideas = communism_shall_prevail	}
+	}
+}
+country_event = {
+	id = ctchi.3
+	title = ctchi.3.t
+	desc = ctchi.3.d
+	picture = GFX_report_event_chinese_soldiers_02
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		OR = { 
+			CHI = { is_in_faction_with = JAP }
+			CHI = { is_puppet_of = JAP }
+		}
+		OR = {
+			CHI = { has_idea = desperate_defense }
+			CHI = { has_idea = resistance_japan }
+		}
+		NOT = { has_global_flag = japan_puppet_master }
+	}
+	immediate = {
+		set_global_flag = japan_puppet_master
+	}
+	option = {
+		name = ctchi.3.a 
+		CHI = {
+			remove_ideas = desperate_defense
+			remove_ideas = resistance_japan
+		}
+	}
+}

@@ -1,0 +1,100 @@
+﻿add_namespace = ctspain
+
+country_event = { #Juan Carlos
+	id = ctspain.1
+	title = ctspain.1.t
+	desc = ctspain.1.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctspain.1.o1
+		set_country_flag = ct_juan_carlos	
+		create_country_leader = {
+			name = "Juan Carlos I"
+			desc = "POLITICS_JUAN_CARLOS_I_DESC"
+			picture = "Portrait_Spain_Juan_Carlos_I.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {	
+				ct30_popular_reformer
+			}
+		}
+		set_politics = { ruling_party = democratic	}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+		}
+		hidden_effect = { news_event = { hours = 6 id = news_1930.6 }	}
+	}
+}
+
+country_event = { #Niceto Alcala Zamora
+	id = ctspain.2
+	title = ctspain.2.t
+	desc = ctspain.2.d
+	picture = GFX_report_event_king_speech	
+	fire_only_once = yes	
+	trigger = {
+		tag = SPR
+		AND = {
+			date > 1931.3.1
+			date < 1935.1.1
+			NOT = { has_global_flag = scw_over }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctspain.2.o1	
+		create_country_leader = {
+			name = "Niceto Alcala Zamora"
+			desc = "POLITICS_NICETO_ALCALA_ZAMORA_DESC"
+			picture = "Portrait_Spain_Niceto_Alcala_Zamora.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {	
+				#
+			}
+		}
+		set_politics = {
+			ruling_party = democratic
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_country_flag = ct_alphonso_XIII_exiled
+	}
+}
+
+country_event = {
+	id = ctspain.3
+	title = ctspain.3.t
+	desc = ctspain.3.d
+	picture = GFX_report_event_king_speech	
+	fire_only_once = yes	
+	trigger = {
+		tag = SPR
+		AND = {
+			always = no
+			NOT = { has_country_flag = ct_juancarlos }
+			has_country_flag = ct_alphonso_XIII_exiled
+			date > 1936.5.1
+			#has_country_flag = ct_spr
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctspain.3.o1	
+		create_country_leader = {
+			name = "Manuel Azana"
+			desc = "POLITICS_MANUEL_AZANA_DESC"
+			picture = "Portrait_Spain_Manuel_Azana.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {	
+				#
+			}
+		}
+	}
+}

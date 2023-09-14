@@ -1,0 +1,322 @@
+# Categories:
+
+ct_TAG_category = {
+	FRA_arrest_strikers = {
+		icon = generic_nationalism
+		fire_only_once = no
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = fascism				
+			}
+		}
+		visible = {
+			OR = {
+				AND = {
+					tag = FRA
+					has_idea = FRA_factory_strikes					
+				}
+				has_idea = strikes_1
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 25
+		complete_effect = {
+			remove_ideas = strikes_1
+			remove_ideas = FRA_factory_strikes
+		}
+	}
+	FIN_seize_rus_land = {
+		icon = generic_nationalism
+		fire_only_once = no
+		available = {
+			tag = FIN
+		}
+		visible = {
+			tag = FIN
+			RUS = { exists = yes }
+			SOV = { exists = yes }
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 25
+		complete_effect = {
+			transfer_state = 213
+			transfer_state = 215
+			transfer_state = 216
+			SOV = { country_event = ctsov.6 }
+			RUS = { country_event = ctsov.6 }
+			add_state_core = 213
+			add_state_core = 215
+			add_state_core = 216
+		}
+	}
+	HUN_educate_otto = {
+		icon = generic_nationalism
+		fire_only_once = yes
+		available = {
+			has_country_leader = {
+				name = "Otto von Habsburg"
+				ruling_only = yes
+			}
+		}
+		visible = {
+			tag = HUN
+			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 25
+		complete_effect = {
+			add_country_leader_trait = constitutional_monarch
+		}
+	}
+	HUN_warmonger = {
+		icon = generic_nationalism
+		fire_only_once = yes
+		available = {
+			has_idea = HUN_habsburg_restored
+		}
+		visible = {
+			tag = HUN
+			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 25
+		complete_effect = {
+			swap_ideas = {
+				add_idea = HUN_habsburg_restored2
+				remove_idea = HUN_habsburg_restored
+			}
+		}
+	}
+
+
+	ENG_ridicule_mosley = {
+		icon = generic_nationalism
+		available = {
+			OR = {
+				has_country_leader_with_trait = champion_of_peace_5
+				has_country_leader_with_trait = champion_of_peace_4
+				has_country_leader_with_trait = champion_of_peace_3
+				has_country_leader_with_trait = champion_of_peace_2
+				has_country_leader_with_trait = champion_of_peace_1
+			}
+		}
+		visible = { 
+			tag = ENG
+			has_government = fascism
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			ENG_mosley_pacifism_level_down = yes
+		}
+	}
+	ENG_educate_edward = {
+		icon = generic_nationalism
+		fire_only_once = yes
+		available = {
+				has_country_leader_with_trait = inexperienced_imperialist
+		}
+		visible = { 
+			tag = ENG
+			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		cost = 50
+		complete_effect = {
+			if = {
+				limit = {
+					has_country_leader_with_trait = inexperienced_imperialist
+				}
+				swap_ruler_traits = { remove = inexperienced_imperialist add = autocratic_imperialist }
+			}
+		}
+	}
+	vote_no_conf = {
+		icon = generic_nationalism
+		fire_only_once = yes
+		available = {
+			has_country_leader = {
+				name = "Neville Chamberlain"
+				ruling_only = yes
+			}
+		}
+		visible = { 
+			has_completed_focus = ENG_abandon_10_year_rule
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 0  #britain.9 does this as too. This is just a dec to allow earlier Winny
+			modifier = {
+				is_historical_focus_on = no
+				factor = 1000
+			}
+		}
+		cost = 50
+		complete_effect = {
+			create_country_leader = {
+				name = "Winston Churchill"
+				desc = "POLITICS_WINSTON_CHURCHILL_DESC"
+				picture = "Portrait_Britain_Winston_Churchill.dds"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+					british_bulldog
+				}
+			}
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+
+	bavarian_hun_union = { 
+		icon = generic_nationalism
+		fire_only_once = yes
+		available = {
+			is_subject = no
+			owns_state = 153
+		}
+		visible = { 
+			BAY = {
+				exists = yes
+				is_subject = no
+			}
+			OR = {
+				has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary
+				original_tag = AUS
+			}
+		}
+		ai_will_do = {
+			factor = 0 
+			modifier = {
+				is_historical_focus_on = no
+				factor = 10
+			}
+			modifier = {
+				original_tag = HUN
+				factor = 1000
+			}			
+		}
+		cost = 100
+		complete_effect = {
+			BAY = {		every_unit_leader = {	set_nationality = HUN	}		}
+			annex_country = { target = BAY transfer_troops = yes }
+			set_country_flag = BAY_annexed_peacefully # Used to change division name lists for HUN
+			add_state_core = 52
+			add_state_core = 53
+			add_state_core = 54
+		}
+	}
+	#ENG_threaten_edward = { 
+	#	icon = generic_nationalism
+	#	available = {
+	#			has_idea = ENG_king_edward
+	#	}
+	#	visible = { 
+	#		tag = ENG
+	#		has_government = fascism
+	#		NOT = {
+	#			has_country_flag = ct_deal_ed8
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 100
+	#	}
+	#	cost = 25
+	#	complete_effect = {
+	#		set_country_flag = ct_deal_ed8
+	#		swap_ideas = {
+	#			remove_idea = ENG_king_edward
+	#			add_idea = ENG_king_edward2
+	#		}
+	#	}
+	#}	
+	ins_aquisition = {	
+		icon = generic_form_nation
+        cost = 25
+		fire_only_once = yes
+		available = {
+		    #CRC = { has_country_flag = ct_greater_malaysia_created }
+			INS = { is_subject_of = ROOT }
+			MAL = { is_subject_of = ROOT }			
+		}
+		visible = {
+			MAL = { 	is_subject_of = ROOT	exists = yes	}
+			INS = {		is_subject_of = ROOT	exists = yes 	}			
+			is_subject = no
+			has_war = no
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { tag = ENG }  }
+				INS = {
+					if = {
+						limit = { MAL = { is_subject_of = ROOT }	}
+						every_state = {
+							limit = {	is_owned_by = MAL	}
+							INS = {
+								add_state_core = PREV
+								transfer_state = PREV
+							}
+						}
+					}													
+				}
+			}
+			if = {
+				limit = { tag = ENG }
+				MAL = {
+					if = {
+						limit = { INS = { is_subject_of = ROOT }	}
+						every_state = {
+							limit = {	is_owned_by = INS	}
+							MAL = {
+								add_state_core = PREV
+								transfer_state = PREV
+							}
+						}
+					}													
+				}
+			}
+		}
+		ai_will_do = { factor = 5 }
+	}
+
+
+}

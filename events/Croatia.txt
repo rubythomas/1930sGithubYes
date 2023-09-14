@@ -1,0 +1,114 @@
+﻿add_namespace = croatia
+
+country_event = {
+	id = croatia.1
+	title = croatia.1.t
+	desc = croatia.1.d
+	picture = GFX_report_event_hitler_handshake
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER
+		109 = {
+			CONTROLLER = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+		}
+		103 = {
+			CONTROLLER = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+		}
+		104 = {
+			CONTROLLER = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+		}
+		NOT = { has_global_flag = end_yugo_puppet_croatia }
+		
+	}
+	
+	immediate = {
+		set_global_flag = end_yugo_puppet_croatia
+	}
+			
+	option = {
+		name = croatia.1.a 
+		CRO = {
+			transfer_state = 109
+			transfer_state = 104
+			transfer_state = 103
+		}
+		CRO = { load_oob = "CRO_YUG_independence" }
+		GER = { puppet = CRO }		
+	}
+	option = {
+		name = croatia.1.b		
+	}
+}
+country_event = {
+	id = croatia.2
+	title = croatia.2.t
+	desc = croatia.2.d
+	picture = GFX_report_event_hitler_handshake
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ITA
+		109 = {
+			CONTROLLER = {
+				OR = {
+					tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		103 = {
+			CONTROLLER = {
+				OR = {
+					tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		104 = {
+			CONTROLLER = {
+				OR = {
+					tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		NOT = { has_global_flag = end_yugo_puppet_croatia }
+		
+	}
+	
+	immediate = {
+		set_global_flag = end_yugo_puppet_croatia
+	}
+			
+	option = {
+		name = croatia.2.a 
+		CRO = {
+			transfer_state = 109
+			transfer_state = 104
+			transfer_state = 103
+		}
+		CRO = { load_oob = "CRO_YUG_independence" }
+		ITA = { puppet = CRO }		
+	}
+	option = {
+		name = croatia.2.b		
+	}
+}

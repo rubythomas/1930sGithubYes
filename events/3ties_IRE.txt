@@ -1,0 +1,32 @@
+﻿add_namespace = twentiesire
+
+country_event = {
+	id = twentiesire.1
+	title = twentiesire.1.t
+	desc = twentiesire.1.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = IRE
+		AND = {
+			date > 1932.3.8
+			NOT = { has_country_flag = ct_ire_de_valera }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = twentiesire.1.o1
+		set_country_flag = ct_ire_de_valera
+		create_country_leader = {
+			name = "Éamon de Valera"
+
+			desc = "POLITICS_ÉAMON_DE_VALERA_DESC"
+			picture = "Portrait_Ireland_Eamon_de_Valera.dds"
+			expire = "1965.1.1"
+
+			ideology = conservatism
+			traits = {
+			}
+		}
+	}
+}

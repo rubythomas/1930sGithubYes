@@ -1,0 +1,30 @@
+is_confed_state = {
+	OR = {
+		state = 362
+		state = 363
+		state = 364
+		state = 365
+		state = 366
+		state = 367
+		state = 368
+		state = 369
+		state = 370
+		state = 371
+		state = 372
+		state = 374
+		state = 375
+	}
+}
+
+is_farmers_state = {
+	OR = {
+		state = 389
+		state = 390
+		state = 391
+		state = 392
+		state = 393
+		state = 394
+		state = 395
+		state = 396
+	}
+}

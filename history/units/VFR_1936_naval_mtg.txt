@@ -1,0 +1,31 @@
+﻿
+units= {
+	### METRPOLITAN FRANCE ###
+	fleet = {
+	name = "1ère Flotte"
+	naval_base = 1145
+	task_force = {			
+		name = "1. Armée Navale"			
+		location = 1145		
+		ship = { name = "Achille" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = VFR version_name = "Bourrasque Class" } } }
+		ship = { name = "Le Polonais" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = VFR version_name = "Bourrasque Class" } } }
+		ship = { name = "La Gracieuse" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = VFR version_name = "Bourrasque Class" } } }
+		ship = { name = "Inflexible" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = VFR version_name = "Chacal Class" } } }
+		ship = { name = "Le Magnanime" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = VFR version_name = "Chacal Class" } } }
+		ship = { name = "Le Juste" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = VFR version_name = "Duguay-Trouin Class" } } }
+		ship = { name = "Foudroyant" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = VFR version_name = "Duguay-Trouin Class" } } }
+		ship = { name = "Duguay-Trouin" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = VFR version_name = "Duguay-Trouin Class" } } }
+		ship = { name = "L'Ambitieux" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = VFR version_name = "Suffren Class" } } }
+		ship = { name = "Amiral Charner" definition = battleship equipment = { ship_hull_heavy_1 = { amount = 1 owner = VFR version_name = "Courbet Class" } } }   
+	}
+	task_force = {			
+		name = "1. Escadron Sous-Marins" 			
+		location = 1145 
+		ship = { name = "Espadon" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "L'Orient" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "Solitaire" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = VFR version_name = "Redoutable Class" } } }
+		ship = { name = "Jean Bart" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = VFR version_name = "630 Series" } } }
+		ship = { name = "Centaure" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = VFR version_name = "630 Series" } } }				
+	}
+	}
+}

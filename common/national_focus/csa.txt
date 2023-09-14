@@ -1,0 +1,2702 @@
+focus_tree = {
+	id = csa_focus
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			original_tag = CSA
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 100 y = 1700 }
+
+	focus = {
+		id = CSA_secure_our_future
+		icon = GFX_goal_generic_military_deal
+		x = 14
+		y = 0
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = CSA_strike_southwest
+		icon = GFX_focus_mex_jefe_maximo
+		prerequisite = { focus = CSA_secure_our_future }
+		available = { 
+			MEX = { exists = yes }
+			NOT = { is_in_faction_with = MEX }
+			has_war = no
+		} 
+		x = -1
+		y = 1
+		relative_position_id = CSA_secure_our_future
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MEX
+			}
+		}
+	}
+	focus = {
+		id = CSA_strike_southeast
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = CSA_secure_our_future }
+		available = { 
+			CUB = { exists = yes }
+			NOT = { is_in_faction_with = CUB }
+			has_war = no
+		}
+		x = 1
+		y = 1
+		relative_position_id = CSA_secure_our_future
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CUB
+			}
+		}
+	}
+	focus = {
+		id = CSA_strike_north
+		icon = GFX_focus_generic_strike_at_democracy3
+		prerequisite = { focus = CSA_secure_our_future }
+		available = { 
+			USA = { exists = yes }
+			NOT = { is_in_faction_with = USA }
+			has_war = no
+		}
+		x = 0
+		y = 2
+		relative_position_id = CSA_secure_our_future
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = USA
+			}
+		}
+	}
+ 
+	focus = {
+		id = CSA_a_house_united
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CSA_strike_north }
+		available = { 
+			USB = { exists = yes }
+			NOT = { is_in_faction_with = USB }
+			has_war = no
+		}
+		x = 0
+		y = 2
+		relative_position_id = CSA_strike_north
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = USB
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_support_status_quo
+		icon = GFX_goal_support_democracy
+	 	mutually_exclusive = {
+ 			focus = CSA_support_monarchy
+	 	}
+		x = 2
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 100
+			#modifier = {
+			#	factor = 0.5
+			#	ai_irrationality > 30
+			#}
+			#modifier = {
+			#	factor = 0
+			#	has_idea = GER_communist_refugees
+			#}
+			#modifier = {
+			#	factor = 100
+				#GER = { has_completed_focus = GER_reestablish_free_elections }
+				#GER = { has_completed_focus = GER_monarchist_germany }
+			#}
+		}
+		completion_reward = {
+			#add_ideas = {	CSA_support_the_centre_focus }
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = CSA_build_republican_support
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = CSA_support_status_quo }
+		x = -1
+		y = 1
+		relative_position_id = CSA_support_status_quo 
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	} 
+	focus = {
+		id = CSA_deflationary_policies
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = CSA_support_status_quo }
+		x = 1
+		y = 1
+		relative_position_id = CSA_support_status_quo 
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {	is_ai = yes }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_support_monarchy
+		icon = GFX_focus_generic_home_defense
+	 	mutually_exclusive = {
+ 			focus = CSA_support_status_quo
+	 	}
+		x = 7
+		y = 0
+		relative_position_id = CSA_support_status_quo
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = CSA_royal_fascism
+		icon = GFX_focus_generic_strike_at_democracy1
+	 	mutually_exclusive = {
+	 		focus = CSA_monarchy
+		 }
+		available = {
+			OR = {
+				NOT = { USA = { has_completed_focus = USA_america_first } }
+				is_ai = yes
+			}
+		}
+	 	prerequisite = { focus = CSA_support_monarchy }
+		x = -2
+		y = 1
+		relative_position_id = CSA_support_monarchy
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_timed_idea = {
+   				 idea = fascist_influence
+   		 		days = 730
+			}
+		}
+	}
+	focus = {
+		id = CSA_macarthur
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = CSA_royal_fascism }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = CSA_royal_fascism
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = robert_welch
+			set_country_flag = ct_george_II_fasc
+			create_country_leader = {
+				name = "Douglas MacArthur"
+				desc = "POLITICS_IOANNIS_METAXAS_DESC"
+				picture = "Portrait_USA_Douglas_MacArthur.dds"
+				expire = "1965.1.1"
+				ideology = rexism
+				traits = {
+					american_caesar
+				}
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = CSA_support_macarthur
+		icon = GFX_goal_generic_demand_territory
+	 	prerequisite = { focus = CSA_macarthur }
+		x = -1
+		y = 1
+		relative_position_id = CSA_macarthur
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+		}
+	}
+
+	focus = { 
+		id = CSA_national_youth_organisation
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = CSA_macarthur focus = CSA_huey_long }
+		x = 2
+		y = 1
+		relative_position_id = CSA_macarthur
+		cost = 8
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = national_youth_organisation
+		}
+	}
+	
+	focus = {
+		id = CSA_scw_intervention_nationalists
+		icon = GFX_goal_generic_military_deal
+	 	available = {
+	 		AND = {
+	 			SPR = {	has_civil_war = yes }
+				has_global_flag = spanish_civil_war
+			}
+		}
+		prerequisite = { focus = CSA_macarthur }
+		x = 0
+		y = 2
+		relative_position_id = CSA_macarthur
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = SPR
+					has_government = fascism
+				}
+				add_opinion_modifier = {				
+					target = ROOT
+					modifier = FRA_scw_intervention_nationalists_SPA
+				}
+			}
+			SPR = {
+				add_opinion_modifier = {				
+					target = ROOT
+					modifier = FRA_scw_intervention_nationalists_SPR
+				}
+			}
+			set_rule = {
+				can_send_volunteers = yes
+			}
+			add_ideas = {	FRA_scw_intervention_nationalists_focus	} ## does not seem to work. ask someone
+			hidden_effect = {
+				random_other_country = {
+					limit = {
+						original_tag = SPR
+						has_government = fascism
+					}
+					add_ai_strategy = {
+						type = befriend
+						id = ROOT
+						value = 200
+					}
+					add_ai_strategy = {
+						type = alliance
+						id = ROOT
+						value = 200
+					}
+					add_ai_strategy = {
+						type = antagonize
+						id = ROOT
+						value = -200
+					}
+					FRA = {
+						add_ai_strategy = {
+							type = befriend
+							id = PREV
+							value = 200
+						}
+						add_ai_strategy = {
+							type = protect
+							id = PREV
+							value = 200
+						}
+						add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PREV
+							value = 200
+						}
+						add_ai_strategy = {
+							type = support
+							id = PREV
+							value = 200
+						}
+						add_ai_strategy = {
+							type = alliance
+							id = PREV
+							value = 200
+						}
+						add_ai_strategy = {
+							type = antagonize
+							id = PREV
+							value = -200
+						}
+					}
+				}
+			}
+		}
+	}
+	
+
+
+	focus = {
+		id = CSA_monarchy
+		icon = GFX_focus_generic_diplomatic_treaty
+	 	mutually_exclusive = {
+	 		focus = CSA_royal_fascism
+	 	}
+	 	prerequisite = { focus = CSA_support_monarchy }
+		x = 2
+		y = 1
+		relative_position_id = CSA_support_monarchy
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = neutrality_influence
+				days = 730
+			}
+		}
+	}
+
+	focus = { 
+		id = CSA_huey_long
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = CSA_monarchy }
+		available = {
+			#has_government = neutrality
+		}
+		x = 0
+		y = 1
+		relative_position_id = CSA_monarchy
+		cost = 10
+		ai_will_do = {
+			factor = 0
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = oscar_allen
+			create_country_leader = {
+				name = "Huey Long"
+				desc = "POLITICS_huey_DESC"
+				picture = "Portrait_USA_Huey_Long.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					dictator
+				}
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = CSA_support_huey
+		icon = GFX_focus_generic_strike_at_democracy2
+	 	prerequisite = { focus = CSA_huey_long }
+		x = 1
+		y = 1
+		relative_position_id = CSA_huey_long
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { 
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.10
+			}
+		}
+	}
+ 
+	focus = {
+		id = CSA_strengthen_government_support
+		icon = GFX_focus_bill
+		available = {
+			has_government = democratic
+		}
+		prerequisite = { focus = CSA_build_republican_support }
+		prerequisite = { focus = CSA_deflationary_policies }
+		x = -1
+		y = 1
+		relative_position_id = CSA_deflationary_policies
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+				idea = FRA_strengthen_government_support_focus
+				days = 365
+			}
+		}
+	}	
+
+	focus = {
+		id = CSA_the_first_election
+		icon = GFX_focus_ballot_box
+		available = {
+			has_government = democratic
+		}
+		prerequisite = { focus = CSA_strengthen_government_support }
+		x = 0
+		y = 1
+		relative_position_id = CSA_strengthen_government_support
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {####################################### Event #########
+			country_event = { id = ctusa.21 days = 1 }
+		}
+	}	
+
+	############################
+	####### ARMY SECTION #######
+	############################
+	focus = {
+		id = CSA_military_modernization
+		icon = GFX_focus_secret_rearmament
+		x = 31
+		y = 0
+		cost = 8
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 20
+			navy_experience = 20
+			air_experience = 20
+		}
+	}
+	
+	focus = {
+		id = CSA_conscription 
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = CSA_military_modernization }
+		x = -7
+		y = 2
+		relative_position_id = CSA_military_modernization
+		cost = 8 
+		ai_will_do = {
+			factor = 50
+		}
+
+		bypass = {
+			has_idea = limited_conscription
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				add_ideas = extensive_conscription
+			}
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				add_ideas = limited_conscription
+			}			
+		}
+	}
+	
+	focus = {
+		id = CSA_army_engineers
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CSA_military_modernization }
+		x = -4
+		y = 1
+		relative_position_id = CSA_military_modernization
+		cost = 8
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = special_bonus
+				ahead_reduction = 1
+				bonus = 0.5
+				uses = 1
+				technology = tech_engineers
+			}
+		}
+	}
+	focus = {
+		id = CSA_anti_air_artillery
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = CSA_army_engineers}
+		relative_position_id = CSA_army_engineers
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 4
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_artillery_modernisation
+				bonus = 0.75
+				uses = 1
+				technology = interwar_antiair
+				technology = antiair1
+				technology = antiair2
+				technology = antiair3
+				technology = antiair4
+				technology = antiair5
+			}
+		}
+	}
+	focus = {
+		id = CSA_tank_development
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = CSA_military_modernization }
+		x = -2
+		y = 0
+		relative_position_id = CSA_army_engineers
+		cost = 8
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 5
+				add_tech_bonus = {
+					name = armor_bonus
+					bonus = 1.0
+					uses = 1
+					category = armor
+				}
+		}
+	}
+	focus = {
+		id = CSA_prepare_for_the_next_war
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = CSA_tank_development }
+		prerequisite = { focus = CSA_army_engineers }
+		available = {
+			OR = {
+				is_ai = no
+				date > 1935.12.31 				
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = CSA_tank_development
+		cost = 8
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = CSA_special_forces
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = CSA_prepare_for_the_next_war}
+		x = 0
+		y = 2
+		relative_position_id = CSA_prepare_for_the_next_war
+		cost = 8
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 2
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+	focus = {
+		id = CSA_the_defence_of_csa
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = CSA_prepare_for_the_next_war }
+		x = 1
+		y = 1
+		relative_position_id = CSA_prepare_for_the_next_war
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_bridgehead_strategy
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = CSA_the_defence_of_csa }
+		x = 0
+		y = 2
+		relative_position_id = CSA_the_defence_of_csa
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = { 
+			add_tech_bonus = {
+				name = CSA_bridgehead_strategy
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_standardisation_of_equipment
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CSA_prepare_for_the_next_war }
+		x = -1
+		y = 1
+		relative_position_id = CSA_prepare_for_the_next_war
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_modernising_the_cavalry
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = CSA_standardisation_of_equipment }
+		x = -1
+		y = 1
+		relative_position_id = CSA_standardisation_of_equipment
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.25
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_study_foreign_tanks
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CSA_modernising_the_cavalry }
+		x = 0
+		y = 1
+		relative_position_id = CSA_modernising_the_cavalry
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_cruiser_tank_experiments
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = CSA_study_foreign_tanks }
+		x = 0
+		y = 1
+		relative_position_id = CSA_study_foreign_tanks
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				technology = basic_medium_tank
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_artillery_modernisation
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = CSA_bridgehead_strategy }
+		x = 1
+		y = 1
+		relative_position_id = CSA_bridgehead_strategy
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_anti_tank_guns
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = CSA_bridgehead_strategy }
+		x = -1
+		y = 1
+		relative_position_id = CSA_bridgehead_strategy
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = cat_anti_tank
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_army_modernisation
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = CSA_artillery_modernisation focus = CSA_anti_tank_guns }
+		x = -1
+		y = 1
+		relative_position_id = CSA_artillery_modernisation
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+	############################
+	##### AIRFORCE SECTION #####
+	############################
+	focus = {
+		id = CSA_air_base_expansion
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = CSA_pre_air_base_expansion focus = CSA_early_plane_models }
+		available = {
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = CSA_military_modernization
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			random_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_air_base_expansion_1 
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 363 }
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+			random_owned_controlled_state = {
+				prioritize = { 375 }
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+			random_owned_controlled_state = {
+				prioritize = { 372 }
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+		}
+	}
+	focus = {
+		id = CSA_early_plane_models
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = CSA_military_modernization }
+		x = -1
+		y = -1
+		relative_position_id = CSA_air_base_expansion
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = light_air
+			}
+		}
+	}
+	focus = {
+		id = CSA_pre_air_base_expansion
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = CSA_military_modernization }
+		x = 1
+		y = -1
+		relative_position_id = CSA_air_base_expansion
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_air_base_expansion_1
+			}	
+		}
+	}
+	focus = {
+		id = CSA_fighter_modernisation
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = CSA_air_base_expansion }
+		x = 1
+		y = 1
+		relative_position_id = CSA_air_base_expansion
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+	focus = {
+		id = CSA_air_innovations
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = CSA_air_base_expansion }
+		x = -1
+		y = 1
+		relative_position_id = CSA_air_base_expansion
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_air_innovations
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_heavy_fighter_concept
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = CSA_air_innovations focus = CSA_fighter_modernisation }
+		x = 1
+		y = 1
+		relative_position_id = CSA_air_innovations
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_heavy_fighter_concept
+				bonus = 0.5
+				uses = 1				
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_naval_bomber_experiments
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = CSA_air_innovations }
+		x = -1
+		y = 1
+		relative_position_id = CSA_air_innovations
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_naval_bomber_experiments
+				bonus = 0.5
+				uses = 1				
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_medium_bomber_focus
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = CSA_heavy_fighter_concept focus = CSA_air_innovations }
+		mutually_exclusive = { focus = CSA_light_bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = CSA_heavy_fighter_concept
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_medium_bomber_focus
+				bonus = 0.5
+				uses = 1				
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_light_bomber_focus
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = CSA_heavy_fighter_concept focus = CSA_fighter_modernisation }
+		mutually_exclusive = { focus = CSA_medium_bomber_focus }
+		x = 1
+		y = 1
+		relative_position_id = CSA_heavy_fighter_concept
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_light_bomber_focus
+				bonus = 0.5
+				uses = 1				
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_air_modernisations_programme
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = CSA_light_bomber_focus focus = CSA_medium_bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = CSA_light_bomber_focus
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_air_modernisations_programme
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_rocket_development
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = CSA_air_modernisations_programme }
+		x = 0
+		y = 1
+		relative_position_id = CSA_air_modernisations_programme
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CSA_rocket_development
+				bonus = 1.0
+				uses = 2
+				category = jet_technology
+				category = rocketry
+			}
+		}
+	}
+
+	############################
+	####### NAVY SECTION #######
+	############################
+
+	focus = {   #Newport news
+		id = CSA_develop_ship_building
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CSA_military_modernization }
+		available = {
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = 5
+		y = 1
+		relative_position_id = CSA_military_modernization
+		cost = 10
+		ai_will_do = {
+			factor = 2
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			random_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_develop_ship_building_1 }
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 362 }
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = CSA_develop_ship_building_1
+			}		
+		}
+	}
+
+	focus = {
+		id = CSA_destroyer_models
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CSA_develop_ship_building }
+		x = 1
+		y = 1
+		relative_position_id = CSA_develop_ship_building
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_a_cruiser_navy
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = CSA_destroyer_models }
+		
+		x = 1
+		y = 1
+		relative_position_id = CSA_destroyer_models
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_submarine_technology
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = CSA_develop_ship_building }
+		x = -1
+		y = 1
+		relative_position_id = CSA_develop_ship_building
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_commerce_attack
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = CSA_submarine_technology }
+		x = -1
+		y = 1
+		relative_position_id = CSA_submarine_technology
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = submarine_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_the_twin_threats
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = CSA_submarine_technology focus = CSA_destroyer_models }
+		x = 1
+		y = 1
+		relative_position_id = CSA_submarine_technology
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_coastal_defense
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = CSA_the_twin_threats }
+		mutually_exclusive = { focus = CSA_strike_force }
+		x = 1
+		y = 1
+		relative_position_id = CSA_the_twin_threats
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = CSA_strike_force
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = CSA_the_twin_threats }
+		mutually_exclusive = { focus = CSA_coastal_defense }
+		x = -1
+		y = 1
+		relative_position_id = CSA_the_twin_threats
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = CSA_navy
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = CSA_strike_force focus = CSA_coastal_defense }
+		x = 1
+		y = 1 
+		relative_position_id = CSA_strike_force
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+
+#########################################################################
+#########      I N D U S T R Y    G R E E C E    S T A R T      #########
+#########################################################################
+	focus = {
+		id = CSA_industry
+		icon = GFX_goal_generic_production
+		x = 20
+		y = 0
+		cost = 0.2
+		ai_will_do = {
+			factor = 150
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_industry"
+		}
+	}
+	focus = {
+		id = CSA_marlin_firearms
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CSA_industry }
+		x = -2
+		y = 1
+		relative_position_id = CSA_industry
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 150		
+		}
+		complete_tooltip = {
+			random_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_develop_marlin }
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_marlin_firearms"
+			random_owned_controlled_state = {
+				prioritize = { 363 }
+				limit = { 
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_develop_marlin
+			}
+		}
+	}
+	focus = {
+		id = CSA_rural_electrification
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CSA_marlin_firearms }
+		x = 0
+		y = 1
+		relative_position_id = CSA_marlin_firearms
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 150		
+		}
+		available = {
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_rural_electrification"
+			#hidden_effect = {
+				random_owned_controlled_state = {
+					prioritize = { 365 }
+					limit = { 
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 370 }
+					limit = { 
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 369 }
+					limit = { 
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 371 }
+					limit = { 
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 372 }
+					limit = { 
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			#}		
+		}
+	}
+	focus = {
+		id = CSA_expand_army_arsenals
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CSA_rural_electrification }
+		x = 0
+		y = 1
+		relative_position_id = CSA_rural_electrification
+		cost = 8
+		ai_will_do = {
+			factor = 4000
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = CSA_armd_effort_2IC }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_expand_army_arsenals"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = CSA_armd_effort_2IC
+			}
+		}
+	}
+	focus = { 
+		id = CSA_tech_slot 
+		icon = GFX_focus_research
+		prerequisite = { focus = CSA_industry }
+		text = extra_tech_slot
+		x = 0
+		y = 1
+		relative_position_id = CSA_industry
+		cost = 8
+		ai_will_do = {
+			factor = 4000
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_tech_slot"
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = CSA_industrial_stim
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = CSA_tech_slot }
+		x = 0
+		y = 1
+		relative_position_id = CSA_tech_slot
+		cost = 8
+		ai_will_do = {
+			factor = 25
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_industrial_stim"
+			USA_great_depression_level_down = yes
+			hidden_effect = {
+				country_event = { id = ctgre.2 hours = 2 }
+			}			
+		}
+	} 
+	
+	focus = {
+		id = CSA_abandon_gold
+		icon = GFX_focus_gold
+		prerequisite = { focus = CSA_industrial_stim }
+		x = 0
+		y = 1
+		relative_position_id = CSA_industrial_stim
+		cost = 8
+		ai_will_do = {
+			factor = 25
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_abandon_gold"
+			add_stability = 0.1			
+		}
+	} 
+	
+	focus = {
+		id = CSA_industrial_incentives
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CSA_industry }
+		x = 2
+		y = 1
+		relative_position_id = CSA_industry
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_industrial_incentives"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}	 
+	focus = {
+		id = CSA_expand_humble_oil
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = CSA_industrial_incentives }
+		x = 0
+		y = 1
+		relative_position_id = CSA_industrial_incentives
+		cost = 8
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = CSA_armd_effort_2IC }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_expand_humble_oil"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_armd_effort_2IC
+			}
+		}
+	}	
+	focus = {
+		id = CSA_road_building
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CSA_expand_humble_oil }
+		x = 0
+		y = 1
+		relative_position_id = CSA_expand_humble_oil
+		cost = 8
+		ai_will_do = {
+			factor = 4
+		}
+		available = {
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_road_building"
+			#custom_effect_tooltip = CSA_autobahn_tt
+			#hidden_effect = {
+				random_owned_controlled_state = {
+					prioritize = { 366 }
+					limit = {
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 367 }
+					limit = {
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 362 }
+					limit = {
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 364 }
+					limit = {
+						is_on_continent = north_america
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			#}		
+		}
+	}
+	focus = {
+		id = CSA_reconstruction
+		icon = GFX_focus_generic_industry_2 
+		prerequisite = { focus = CSA_abandon_gold }
+		prerequisite = { focus = CSA_expand_army_arsenals }
+		prerequisite = { focus = CSA_road_building }
+		available = {
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = 0
+		y = 4
+		relative_position_id = CSA_industry
+		cost =  8
+		ai_will_do = {
+			factor = 80
+		}		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_reconstruction"
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = industry
+			}
+			USA_great_depression_level_down = yes
+		}
+	}	
+
+	focus = {
+		id = CSA_mining
+		icon = GFX_goal_generic_construct_civilian
+		available = {
+			OR = {
+				is_ai = no
+				date > 1935.12.31
+			}
+		}
+		prerequisite = { focus = CSA_reconstruction }
+		x = 0
+		y = 1
+		relative_position_id = CSA_reconstruction
+		cost = 8
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_mining"
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				technology = excavation1
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
+			}
+		}
+	}
+	focus = {
+		id = CSA_experts_in_finance
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = CSA_reconstruction }
+		x = 2
+		y = 1
+		relative_position_id = CSA_reconstruction
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_experts_in_finance"
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = walter_george
+		}
+	}	
+	focus = {
+		id = CSA_further_industrial_incentives
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CSA_mining }
+		x = 0
+		y = 1
+		relative_position_id = CSA_mining
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_further_industrial_incentives"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}	
+	 
+	focus = {
+		id = CSA_hughes_tool_co
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CSA_mining }
+		x = -2
+		y = 1
+		relative_position_id = CSA_mining
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = CSA_armd_effort_2SC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_hughes_tool_co"
+			random_owned_controlled_state = {
+				prioritize = { 375 }
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_armd_effort_2SC
+			}
+		}
+	}
+	focus = {
+		id = CSA_expand_marmon_herrington
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CSA_mining }
+		x = 2
+		y = 1
+		relative_position_id = CSA_mining
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_armd_effort_2YC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_expand_marmon_herrington"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_armd_effort_2YC
+			}
+		}
+	}	
+	focus = {
+		id = CSA_expand_steel_prod
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CSA_mining }
+		x = -3
+		y = 2
+		relative_position_id = CSA_mining
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_tungsten_production_expansion"
+			add_resource = {
+   				type = steel
+   			 	amount = 32
+    			state = 363
+			}
+			add_resource = {
+   				type = steel
+   			 	amount = 32
+    			state = 362
+			}
+		}
+	}
+	
+	focus = {
+		id = CSA_expand_alumin_prod
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = CSA_expand_steel_prod }
+		x = 0 
+		y = 1
+		relative_position_id = CSA_expand_steel_prod
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_heavy_metals"
+			add_resource = {
+   				type = aluminium
+   			 	amount = 18
+    			state = 372
+			}
+			add_resource = {
+   				type = aluminium
+   			 	amount = 25
+    			state = 374
+			}
+			add_resource = {
+   				type = aluminium
+   			 	amount = 72
+    			state = 375
+			}				
+		}
+	}
+	
+	focus = {
+		id = CSA_stimulated_growth
+		icon = GFX_goal_generic_production2
+		dynamic = yes
+		prerequisite = { focus = CSA_mining }
+		mutually_exclusive = { focus = CSA_nationalize_industry }
+		available = {
+			NOT = { 
+				has_government = communism 
+				has_government = fascism
+			}
+		}
+		x = -1
+		y = 2
+		relative_position_id = CSA_mining
+		cost = 8
+		ai_will_do = {
+			factor = 200
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = CSA_industrial_effort_2IC }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_stimulated_growth"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2IC
+			}
+			if = {
+				limit = { 
+					USA = { exists = no }
+					owns_state = 386
+					owns_state = 358					
+				 }
+				 random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}	
+				random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}								 
+			}
+		}
+	}
+	focus = {
+		id = CSA_subsidize_auto_industry
+		icon = GFX_goal_generic_consumer_goods
+		dynamic = yes
+		prerequisite = { focus = CSA_stimulated_growth }
+		x = 0
+		y = 1
+		relative_position_id = CSA_stimulated_growth
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_industrial_effort_2_2IC }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_subsidize_auto_industry"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2_2IC
+			}
+			if = {
+				limit = { 
+					USA = { exists = no }
+					owns_state = 386
+					owns_state = 358					
+				 }
+				 random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}	
+				random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}								 
+			}
+		}
+	}
+	focus = {
+		id = CSA_nationalize_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		prerequisite = { focus = CSA_mining }
+		mutually_exclusive = { focus = CSA_stimulated_growth }
+		available = {
+			NOT = { 
+				has_government = democratic
+			}
+		}
+		x = 1
+		y = 2
+		relative_position_id = CSA_mining
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_industrial_effort_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_nationalize_industry"
+			add_ideas = stifled_initiative
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2IC
+			}
+			if = {
+				limit = { 
+					USA = { exists = no }
+					owns_state = 386
+					owns_state = 358					
+				 }
+				 random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = industrial_complex
+						level = 4
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}	
+				random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 3
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = industrial_complex
+						level = 4
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2IC
+				}								 
+			}
+		}
+	}
+	focus = {
+		id = CSA_industrial_cartels
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		prerequisite = { focus = CSA_nationalize_industry }
+		x = 0
+		y = 1
+		relative_position_id = CSA_nationalize_industry
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					is_on_continent = north_america
+					has_state_flag = CSA_industrial_effort_2_2IC }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_industrial_cartels"
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = CSA_industrial_effort_2_2IC
+			}
+			if = {
+				limit = { 
+					USA = { exists = no }
+					owns_state = 386
+					owns_state = 358					
+				 }
+				 random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2_2IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_on_continent = north_america
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = CSA_industrial_effort_2_2IC
+				}								 
+			}
+		}
+	}
+	focus = {
+		id = CSA_coal_liquidization
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CSA_mining }
+		x = 3
+		y = 2
+		relative_position_id = CSA_mining
+		cost = 8
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_coal_liquidization"
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = synth_resources
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = north_america
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}				
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = CSA_synthetic_rubber
+		icon = GFX_focus_generic_rubber
+		prerequisite = { focus = CSA_coal_liquidization }
+		x = 0
+		y = 1
+		relative_position_id = CSA_coal_liquidization
+		cost = 8
+		ai_will_do = {
+			factor = 4
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_synthetic_rubber"
+        	modify_building_resources = {
+        	   building = synthetic_refinery
+        	   resource = rubber
+        	   amount = 1
+        	}
+		}
+	}
+	
+	focus = {
+		id = CSA_reconstruction2
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CSA_industrial_cartels focus = CSA_synthetic_rubber focus = CSA_subsidize_auto_industry focus = CSA_expand_alumin_prod }
+		available = {
+			OR = {
+				date > 1935.12.31
+				is_ai = no
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = CSA_industrial_cartels
+		cost =  8
+		ai_will_do = {
+			factor = 80
+		}		
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_reconstruction"
+			add_tech_bonus = {
+				name = CSA_reconstruction
+				bonus = 0.75
+				uses = 1
+				category = industry
+			}
+			USA_great_depression_level_down = yes
+		}
+	}	
+	
+	focus = {
+		id = CSA_extra_tech_slot
+		icon = GFX_focus_research
+		text = extra_tech_slot
+		prerequisite = { focus = CSA_reconstruction2 }
+		x = 0
+		y = 1
+		relative_position_id = CSA_reconstruction2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CSA_extra_tech_slot"
+			add_research_slot = 1
+		}
+	}
+
+
+
+}

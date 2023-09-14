@@ -1,0 +1,230 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Strelkovaya Diviziya"	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+
+division_template = {
+	name = "Kavaleriyskaya Diviziya" 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+##### OOB #####
+units = {			
+	division= {			
+		name = "1. Strelkovaya Diviziya"		
+		location = 546
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}	
+	division= {			
+		name = "2. Strelkovaya Diviziya"		
+		location = 238
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "3. Strelkovaya Diviziya"		
+		location = 11553
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "4. Strelkovaya Diviziya"		
+		location = 3225
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "5. Strelkovaya Diviziya"		
+		location = 522
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "6. Strelkovaya Diviziya"		
+		location = 3520
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	division= {			
+		name = "7. Strelkovaya Diviziya"		
+		location = 6474
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}	
+	division= {			
+		name = "8. Strelkovaya Diviziya"		
+		location = 463
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "9. Strelkovaya Diviziya"		
+		location = 3480
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "10. Strelkovaya Diviziya"		
+		location = 11541
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "11. Strelkovaya Diviziya"		
+		location = 11397
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "12. Strelkovaya Diviziya"		
+		location = 6493
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "13. Strelkovaya Diviziya"		
+		location = 3409
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}	
+	division= {			
+		name = "14. Strelkovaya Diviziya"		
+		location = 418
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "15. Strelkovaya Diviziya"		
+		location = 9477
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "16. Strelkovaya Diviziya"		
+		location = 6508
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "17. Strelkovaya Diviziya"		
+		location = 6554
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division= {			
+		name = "18. Strelkovaya Diviziya"		
+		location = 6505
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}		
+	division= {			
+		name = "1. Kavaleriyskaya Diviziya"		
+		location = 9437
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division= {			
+		name = "2. Kavaleriyskaya Diviziya"		
+		location = 9437
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}			
+	division= {			
+		name = "3. Kavaleriyskaya Diviziya"		
+		location = 6776
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division= {			
+		name = "4. Kavaleriyskaya Diviziya"		
+		location = 9680
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division= {			
+		name = "5. Kavaleriyskaya Diviziya"		
+		location = 502
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}			
+	division= {			
+		name = "6. Kavaleriyskaya Diviziya"		
+		location = 6578
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}					
+}						
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "UKR"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "UKR" 
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 1
+	}
+}

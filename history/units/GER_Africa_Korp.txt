@@ -1,0 +1,28 @@
+﻿division_template = {
+	name = "Afrika Korps"
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+        		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		motorized = { x = 2 y = 0 }
+        		motorized = { x = 2 y = 1 }
+	}
+	support = {
+        		recon = { x = 0 y = 0 }
+        		engineer = { x = 0 y = 1 }
+        		artillery = { x = 0 y = 2 }
+	}
+}
+units = {
+	division= {
+		name = "21st Panzer Division"
+		location = 1149
+		division_template = "Afrika Korps"
+	}
+	division= {
+		name = "15th Panzer Division"
+		location = 1149
+		division_template = "Afrika Korps"
+	}
+}

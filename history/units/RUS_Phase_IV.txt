@@ -1,0 +1,94 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Strelkovaya Diviziya"	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+division_template = {
+	name = "Kavaleriyskaya Diviziya" 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+##### OOB #####
+units = {			
+	division= {			
+		name = "29. Strelkovaya Diviziya"		
+		location = 12574
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "30. Strelkovaya Diviziya"		
+		location = 4817
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "31. Strelkovaya Diviziya"		
+		location = 1768
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "32. Strelkovaya Diviziya"		
+		location = 10529
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "33. Strelkovaya Diviziya"		
+		location = 1765
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "34. Strelkovaya Diviziya"		
+		location = 12679
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "35. Strelkovaya Diviziya"		
+		location = 7680
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+	division= {			
+		name = "36. Strelkovaya Diviziya"		
+		location = 1797
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+	}
+
+	division= {			
+		name = "11. Kavaleriyskaya Diviziya"		
+		location = 12517
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.3
+	}
+	division= {			
+		name = "12. Kavaleriyskaya Diviziya"		
+		location = 10713
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.3
+	}				
+}				

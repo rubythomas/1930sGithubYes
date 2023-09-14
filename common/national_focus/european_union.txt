@@ -1,0 +1,183 @@
+﻿shared_focus = {
+	id = EU_codify_legal_code
+	icon = GFX_goal_generic_intelligence_exchange
+	x = 93
+	y = 0
+	offset = {
+		x = -6
+		y = 0
+		trigger = {	tag = PRC	}
+	}
+	offset = {
+		x = -16
+		y = 0
+		trigger = {	 tag = MAN 	}
+	}
+	allow_branch = { has_country_flag = ct_formed_eu }
+	cost = 8
+	available = {
+		#OR = {	NOT = { tag = PRC }	is_ai = no	date > 1935.12.31 }
+	}
+	ai_will_do = {
+		factor = 1
+		#modifier = { factor = 4 tag = CHI }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {
+		add_stability = 0.1
+		add_political_power = 50
+	}
+}
+
+shared_focus = {
+	id = EU_outline_military_standards
+	icon = GFX_goal_generic_position_armies
+	prerequisite = { focus = EU_codify_legal_code }
+	x = -2
+	y = 1
+	relative_position_id = EU_codify_legal_code
+	#allowed = { has_global_flag = form_european_union_flag	has_country_flag = ct_formed_eu	}
+	#visible = {	has_global_flag = form_european_union_flag	has_country_flag = ct_formed_eu	}
+	cost = 8
+	available = {
+		#OR = {	NOT = { tag = PRC }	is_ai = no	date > 1935.12.31 }
+	}
+	ai_will_do = {
+		factor = 1
+		#modifier = { factor = 4 tag = CHI }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {
+		army_experience = 10
+		navy_experience = 10
+		air_experience = 10
+	}
+}
+
+shared_focus = {
+	id = EU_create_military_conscription				#EU_create_command_structure
+	icon = GFX_focus_generic_little_entente
+	prerequisite = { focus = EU_outline_military_standards }
+	x = 0
+	y = 2
+	relative_position_id = EU_outline_military_standards
+	cost = 8
+	ai_will_do = {	factor = 1	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {
+		swap_ideas = {
+			add_idea = eu_military_troubles2
+			remove_idea = eu_military_troubles
+		}
+	}
+}
+shared_focus = {
+	id = EU_create_command_structure
+	icon = GFX_goal_rhineland
+	prerequisite = { focus = EU_create_military_conscription }
+	x = 0
+	y = 2
+	relative_position_id = EU_create_military_conscription
+	cost = 8
+	ai_will_do = {	factor = 1	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {	remove_ideas = eu_military_troubles2	}
+}
+
+shared_focus = {
+	id = EU_provide_regional_legislatures
+	icon = GFX_focus_ballot_box
+	prerequisite = { focus = EU_codify_legal_code }
+	x = 0
+	y = 2
+	relative_position_id = EU_codify_legal_code
+	cost = 8
+	ai_will_do = {	factor = 1 }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {	
+		swap_ideas = {
+			add_idea = eu_nationalism_troubles2
+			remove_idea = eu_nationalism_troubles
+		}
+	 }
+}
+
+shared_focus = {
+	id = EU_appeal_to_paneuropean_nationalism
+	icon = GFX_goal_generic_propaganda
+	prerequisite = { focus = EU_provide_regional_legislatures }
+	x = 0
+	y = 2
+	relative_position_id = EU_provide_regional_legislatures
+	cost = 8
+	ai_will_do = {	factor = 1 }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {	
+		remove_ideas = eu_nationalism_troubles2
+	 }
+}
+
+shared_focus = {
+	id = EU_issue_european_currency
+	icon = GFX_goal_NOR_tax
+	prerequisite = { focus = EU_codify_legal_code }
+	x = 2
+	y = 1
+	relative_position_id = EU_codify_legal_code
+	cost = 8
+	ai_will_do = {	factor = 1 }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {	add_stability = 0.05 }
+}
+
+shared_focus = {
+	id = EU_negotiate_global_trade_standards
+	icon = GFX_goal_generic_positive_trade_relations
+	prerequisite = { focus = EU_issue_european_currency }
+	x = 0
+	y = 2
+	relative_position_id = EU_issue_european_currency
+	cost = 8
+	ai_will_do = {
+		factor = 1
+		#modifier = { factor = 4 tag = CHI }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {
+		swap_ideas = {
+			add_idea = eu_financial_troubles2
+			remove_idea = eu_financial_troubles
+		}
+	}
+}
+
+shared_focus = {
+	id = EU_complete_debt_settlement
+	icon = GFX_focus_generic_diplomatic_treaty
+	prerequisite = { focus = EU_negotiate_global_trade_standards }
+	x = 0
+	y = 2
+	relative_position_id = EU_negotiate_global_trade_standards
+	cost = 8
+	ai_will_do = { factor = 1 }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	completion_reward = {	remove_ideas = eu_financial_troubles2	}
+}

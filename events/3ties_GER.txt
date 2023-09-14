@@ -1,0 +1,2104 @@
+﻿add_namespace = ctger
+
+country_event = { #Nazi Popularity
+	id = ctger.1
+	title = ctger.1.t
+	desc = ctger.1.d
+	picture = GFX_report_event_fascist_gathering
+
+	fire_only_once = yes		
+	
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1928.3.19
+			date < 1929.12.15
+			NOT = { has_country_flag = ct_nazi_pop_one }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = ctger.1.o1
+		set_country_flag = ct_nazi_pop_one
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #Nazi Popularity1930
+	id = ctger.2
+	title = ctger.2.t
+	desc = ctger.2.d
+	picture = GFX_report_event_fascist_speech
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1930.9.1
+			date < 1933.1.1
+			NOT = { has_country_flag = ct_nazi_pop_two }
+		}
+	}
+	option = {
+		name = ctger.2.o1
+		set_country_flag = ct_nazi_pop_two	
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.15
+		}
+	}
+}
+
+country_event = { #Nazi Popularity1932
+	id = ctger.3
+	title = ctger.3.t
+	desc = ctger.3.d
+	picture = GFX_report_event_hitler_parade
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1932.7.1
+			date < 1933.1.1
+			NOT = { has_country_flag = ct_nazi_pop_three }
+			NOT = { has_country_flag = ct_demo_gov }
+			NOT = { has_country_flag = ct_ger_papen }
+			NOT = { has_country_flag = ct_commy_gov }
+			NOT = { has_country_flag = ct_hitler }
+		}
+	}
+	option = {
+		name = ctger.3.o1
+		ai_chance = { factor = 100 }
+		set_country_flag = ct_nazi_pop_three	
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.20
+		}
+	}
+	option = {
+		name = ctger.3.o2
+		ai_chance = { factor = 0 }
+		set_country_flag = ct_nazi_pop_three
+		country_event = { id = ctger.15 }
+	}
+}
+############################## German Election ##################################
+country_event = { #Heinrich Bruning 1930
+	id = ctger.4
+	title = ctger.4.t
+	desc = ctger.4.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1930.3.29
+			date < 1933.1.1
+			NOT = { has_country_flag = ct_demo_gov }
+			NOT = { has_country_flag = ct_ger_papen }
+			NOT = { has_country_flag = ct_commy_gov }
+			NOT = { has_country_flag = ct_hitler }
+		}
+	}
+	option = {
+		name = ctger.4.o1
+		set_country_flag = ct_ger_bruning	
+		create_country_leader = {
+			name = "Heinrich Bruning"
+			desc = "POLITICS_HEINRICH_BRUNING_DESC"
+			picture = "Portrait_GER_Heinrich_Bruning.dds"
+			expire = "1939.1.16"
+			ideology = conservatism
+			traits = {
+			}
+		}
+	}
+}
+country_event = { #Von Papen 1932
+	id = ctger.5
+	title = ctger.5.t
+	desc = ctger.5.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1932.6.1
+			date < 1933.1.1
+			NOT = { has_country_flag = ct_demo_gov }
+			NOT = { has_country_flag = ct_ger_papen }
+			NOT = { has_country_flag = ct_commy_gov }
+			NOT = { has_country_flag = ct_hitler }
+		}
+	}
+	option = {
+		name = ctger.5.o1
+		set_country_flag = ct_ger_papen	
+		create_country_leader = {
+			name = "Franz Von Papen"
+			desc = "POLITICS_FRANZ_VON_PAPEN_DESC"
+			picture = "Portrait_GER_Franz_Von_Papen.dds"
+			expire = "1945.1.16"
+			ideology = conservatism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { #Von Schleicher 1932
+	id = ctger.6
+	title = ctger.6.t
+	desc = ctger.6.d
+	picture = GFX_report_event_hitler_croatia_handshake
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1932.12.1
+			NOT = { has_country_flag = ct_demo_gov }
+			NOT = { has_country_flag = ct_ger_papen }
+			NOT = { has_country_flag = ct_commy_gov }
+			NOT = { has_country_flag = ct_hitler }
+		}
+	}
+	option = {
+		name = ctger.6.o1
+		set_country_flag = ct_ger_schleicher
+		create_country_leader = {
+			name = "Kurt Von Schleicher"
+			desc = "POLITICS_KURT_VON_SCHLEICHER_DESC"
+			picture = "Portrait_GER_Kurt_Von_Schleicher.dds"
+			expire = "1945.1.16"
+			ideology = conservatism
+			traits = {
+			}
+		}
+	}
+}
+
+############################################################
+country_event = { #Non-USA Grt Depression Recovery
+	id = ctger.7
+	title = ctger.7.t
+	desc = ctger.7.d
+	picture = GFX_report_event_generic_factory
+	fire_only_once = no
+	trigger = {
+		AND = {
+			NOT = { tag = USA  }
+			date > 1935.6.15
+			OR = {
+				has_idea = great_depression
+				has_idea = great_depression_2
+				has_idea = great_depression_lopp
+				has_idea = idea_depression_paralysis
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctger.7.o1
+		hidden_effect = {
+			remove_ideas = great_depression
+			remove_ideas = usa_great_depression2
+			remove_ideas = usa_great_depression3
+			remove_ideas = great_depression_2
+			remove_ideas = great_depression_lopp
+			remove_ideas = idea_depression_paralysis
+		}
+	}
+}
+
+country_event = {
+	id = ctger.8
+	title = ctger.8.t
+	desc = ctger.8.d
+	picture = GFX_report_event_fascist_gathering
+	is_triggered_only = yes
+	option = {
+		name = ctger.8.o1
+		set_country_flag = ct_hitler	
+		create_country_leader = {
+			name = "Adolf Hitler"
+			desc = "POLITICS_ADOLF_HITLER_DESC"
+			picture = "Portrait_Germany_Hitler.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {	
+				dictator
+			}
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.20
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news_1930.1 }
+			complete_national_focus = GER_third_reich
+		}
+	}
+}
+country_event = { #Rohm
+	id = ctger.9
+	title = ctger.9.t
+	desc = ctger.9.d
+	picture = GFX_report_event_hitler_sa
+	fire_only_once = yes	
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1933.4.28
+			has_country_flag = ct_hitler
+		}
+	}
+	mean_time_to_happen = { days = 60 }
+	option = {
+		name = ctger.9.o1
+		set_country_flag = ct_rohm_plot
+	}
+}
+
+country_event = { #USA Grt Dep para Recovery
+	id = ctger.10
+	title = ctger.10.t
+	desc = ctger.10.d
+	picture = GFX_report_event_generic_factory
+	fire_only_once = no
+	trigger = {
+		has_idea = idea_depression_paralysis
+		AND = {
+			tag = USA  
+			date > 1935.6.15
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctger.10.o1
+		remove_ideas = idea_depression_paralysis
+	}
+}
+
+country_event = {
+	id = ctger.11
+	title = ctger.11.t
+	desc = ctger.11.d
+	picture = GFX_report_event_crowd_in_prague
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1930.3.1
+			date < 1933.1.1
+			NOT = { has_country_flag = ct_ger_econ_crisis1 }
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctger.11.o1
+		set_country_flag = ct_ger_econ_crisis1
+		add_stability = -0.10
+		52 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		54 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		64 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		64 = {
+			remove_building = {
+			    type = arms_factory
+			    level = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ctger.12
+	title = ctger.12.t
+	desc = ctger.12.d
+	picture = GFX_report_event_fascist_speech
+	trigger = {
+		NOT = { has_global_flag = ct_stupid_ai }
+		GER = { is_ai = yes }
+		tag = GER
+		has_army_manpower = { size > 199999 }
+		date > 1934.12.31
+		date < 1935.12.31
+	}
+	fire_only_once = yes
+	option = {
+		name = ctger.12.o1
+		load_oob = "GER_AI"
+		add_political_power = 500
+		add_equipment_to_stockpile = {
+    			type = infantry_equipment
+   			amount = 50000
+    			producer = GER
+		}
+		add_equipment_to_stockpile = {
+    			type = fighter_equipment_1
+   			amount = 500
+    			producer = GER
+		}
+		set_global_flag = ct_stupid_ai
+	}
+}
+country_event = { #hindenburg
+	id = ctger.13
+	title = ctger.13.t
+	desc = ctger.13.d
+	picture = GFX_report_event_von_hindenburg
+	trigger = {
+		tag = GER
+		AND = {
+			date > 1934.6.28
+			NOT = { has_country_flag = ct_hindenburg_fallen }
+		}
+	}
+	mean_time_to_happen = { days = 20 }
+	option = {
+		name = ctger.13.o1
+		set_country_flag = ct_hindenburg_fallen
+	}
+}
+country_event = { 
+	id = ctger.14
+	title = ctger.14.t
+	desc = ctger.14.d
+	picture = GFX_report_event_military_planning
+	fire_only_once = yes		
+	trigger = {
+		tag = GER
+		AND = {
+			has_country_flag = ct_hitler
+			has_completed_focus = GER_demand_sudetenland
+			has_country_flag = ct_afg_setup
+			has_government = fascism
+		}
+	}
+	mean_time_to_happen = {days = 5}
+	option = { 
+		name = ctger.14.o1
+		ai_chance = { factor = 90 }
+		remove_unit_leader = 129
+		remove_unit_leader = 38		
+		remove_unit_leader = 44
+		remove_unit_leader = 17		
+	}
+	option = { 
+		name = ctger.14.o2
+		ai_chance = { factor = 10 }
+		add_stability = -0.1
+	}
+}
+country_event = { 
+	id = ctger.15
+	title = ctger.15.t
+	desc = ctger.15.d
+	picture = GFX_report_event_ast_parliament_house
+	is_triggered_only = yes
+	mean_time_to_happen = {days = 1}
+	option = { 
+		name = ctger.15.o1
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.09
+		}
+	}
+}
+country_event = { 
+	id = ctger.16
+	title = ctger.16.t
+	desc = ctger.16.d
+	picture = GFX_report_event_germ_commy
+	is_triggered_only = yes
+	option = { 
+		name = ctger.16.o1
+		set_country_flag = ct_commy_gov	
+		set_politics = {
+			ruling_party = communism
+		}
+		add_ideas = rightist_judiciary
+		add_ideas = army_unrest
+	}
+}
+country_event = { #german initiated russian revo pre event
+	id = ctger.17
+	title = ctger.17.t
+	desc = ctger.17.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { #investigate possible threat asap
+		name = ctger.17.o1
+		ai_chance = {
+			factor = 5
+		}
+		SOV = {
+			country_event = { id = ctger.26 days = 1 }
+		}
+		GER = {
+			country_event = { id = ctger.27 }
+		}
+	}
+	option = { #dont worry abt it fam
+		name = ctger.17.o2
+		ai_chance = {
+			factor = 95
+		}
+		SOV = {
+			clr_country_flag = ct_stalin_fate
+			set_global_flag = ct_tzar
+			hidden_effect = {
+				country_event = { id = ctrus.1 }
+				complete_national_focus = SOV_return_of_tzar
+			}
+		}
+	}
+}
+
+
+
+# AUS Referendum - event to allow it
+country_event = {
+	id = ctger.18
+	title = ctger.18.t
+	desc = ctger.18.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = { #sure
+		name = ctger.18.a
+		ai_chance = {
+			factor = 80
+		}
+		if = {
+			limit = {
+				AUS = { has_opinion = { target = GER value < 0 } }
+			}
+			random_list = {
+				40 = { AUS = { country_event = { id = ctger.19 hours = 4 } } } #country votes yes
+				60 = { AUS = { country_event = { id = ctger.20 hours = 4 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					AUS = { has_opinion = { target = GER value > 0 } }
+					AUS = { has_opinion = { target = GER value < 51 } }
+				}
+			}
+			random_list = {
+				90 = { AUS = { country_event = { id = ctger.19 hours = 24 } } } #country votes yes
+				10 = { AUS = { country_event = { id = ctger.20 hours = 24 } } } #country votes no
+			}
+		}
+		if = {
+			limit = {
+				AUS = { has_opinion = { target = GER value > 50 } }
+			}
+			random_list = {
+				99 = { AUS = { country_event = { id = ctger.19 hours = 24 } } } #country votes yes
+				1 = { AUS = { country_event = { id = ctger.20 hours = 24 } } } #country votes no
+			}
+		}
+	}
+}
+#AUS votes yes
+country_event = {
+	id = ctger.19 
+	title = ctger.19.t
+	desc = ctger.19.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.19.a
+		custom_effect_tooltip = GAME_OVER_TT
+		GER = { country_event = { id = ctger.21 } }
+		
+	}
+}
+#AUS votes no
+country_event = {
+	id = ctger.20 
+	title = ctger.20.t
+	desc = ctger.20.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.20.a
+		GER = { country_event = { id = ctger.22 } }
+	}
+}
+#AUS votes yes
+country_event = {
+	id = ctger.21 
+	title = ctger.21.t
+	desc = ctger.21.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.21.a
+		AUS = {
+			every_unit_leader = {
+				set_nationality = GER
+			}
+		}
+		4 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = GER
+			}
+		}
+		152 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = GER
+			}
+		}
+		153 = {
+			if = {
+				limit = { is_owned_by = AUS }
+				add_core_of = GER
+			}
+		}
+		GER = { annex_country = { target = AUS transfer_troops = yes } }
+		GER = { set_country_flag = AUS_annexed_peacefully } # Used to change division name
+	}
+}
+#AUS votes no
+country_event = {
+	id = ctger.22 
+	title = ctger.22.t
+	desc = ctger.22.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.22.a
+	}
+}
+
+country_event = {  #CZE decides
+	id = ctger.23 
+	title = ctger.23.t
+	desc = ctger.23.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.23.a
+		ai_chance = {
+			factor = 95
+		}
+		GER = { country_event = { id = ctger.24 } }
+	}
+	option = {
+		name = ctger.23.b
+		ai_chance = {
+			factor = 5
+		}
+		GER = { country_event = { id = ctger.25 } }
+	}
+}
+country_event = {  #ger gets land
+	id = ctger.24
+	title = ctger.24.t
+	desc = ctger.24.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.24.a
+		69 = { add_core_of = GER }
+		GER = { transfer_state = 69 }
+		74 = { add_core_of = GER }
+		GER = { transfer_state = 74 }
+		set_country_flag = sudetenland_acquired
+		add_war_support = 0.1
+		add_stability = 0.05
+	}
+}
+country_event = {  #ger gets war goal
+	id = ctger.25
+	title = ctger.25.t
+	desc = ctger.25.desc
+	picture = GFX_report_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = ctger.25.a
+		if = {
+			limit = {
+				75 = {
+					is_owned_and_controlled_by = CZE
+				}
+			}
+			add_state_claim = 75
+		}
+		if = {
+			limit = {
+				9 = {
+					is_owned_and_controlled_by = CZE
+				}
+			}
+			add_state_claim = 9
+		}
+		69 = { add_core_of = GER }
+		74 = { add_core_of = GER }
+		create_wargoal = {
+			type = annex_everything
+			target = CZE
+		}
+	}
+}
+
+country_event = { #Event to Russia: #Russians detect threat
+	id = ctger.26
+	title = ctger.26.t
+	desc = ctger.26.d
+	picture = GFX_report_event_stalin_02
+	is_triggered_only = yes
+	option = { #war
+		name = ctger.26.o1
+		ai_chance = {
+			factor = 70
+		}
+		SOV = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
+		}
+	}
+	option = { #diplo
+		name = ctger.26.o2
+		ai_chance = {
+			factor = 30
+		}
+		SOV = {
+			add_opinion_modifier = {				
+				target = GER
+				modifier = large_decrease
+			}
+		}
+	}
+}
+
+country_event = { #Event to Germany: #Russians detect threat
+	id = ctger.27
+	title = ctger.27.t
+	desc = ctger.27.d
+	picture = GFX_report_event_soviet_tanks
+	is_triggered_only = yes
+	option = { #investigate possible threat asap
+		name = ctger.27.o1
+	}
+}
+
+country_event = {
+	id = ctger.30
+	title = ctger.30.t
+	desc = ctger.30.d
+	picture = GFX_rommel_atlantic	
+	is_triggered_only = yes	
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = { #Normal
+		name = ctger.30.a
+		ai_chance = {
+			base = 100
+		}
+		add_timed_idea = { idea = GER_atlantic_wall days = 180 }
+		19 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6621
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9737
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11565
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 9737
+						instant_build = yes
+					}
+				}
+			}
+		}
+		23 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9597
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6657
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11600
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6657
+						instant_build = yes
+					}
+				}
+			}
+		}
+		30 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11465
+						instant_build = yes
+					}
+				}
+			}
+		}
+		14 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9510
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 9510
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6536
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6536
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3552
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 3552
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 542
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 542
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6572
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		15 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9550
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6449
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6449
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3579
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9434
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 485
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 485
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		29 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11420
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 575
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 575
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		6 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6446
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6560
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6560
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		7 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9431
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 9498
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9498
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3211
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 68
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3314
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 3314
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		36 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6336
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6336
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9335
+						instant_build = yes
+					}
+				}
+			}
+		}
+		56 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11360
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 241
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 241
+						instant_build = yes
+					}
+				}
+			}
+		}
+		59 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6349
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6325
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6325
+						instant_build = yes
+					}
+				}
+			}
+		}
+		58 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9347
+						instant_build = yes
+					}
+				}
+			}
+		}
+		142 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 9296
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9296
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 11367
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 6176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 53
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 122
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 122
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6145
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3114
+						instant_build = yes
+					}
+				}
+			}
+		}
+		143 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 21
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 3022
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3022
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 6038
+						instant_build = yes
+					}
+				}
+			}
+		}
+		144 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3034
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 192
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 192
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 3145
+						instant_build = yes
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news.1002 }
+		}
+	}
+	option = { #Big
+		name = ctger.30.b
+		ai_chance = {
+			base = 100
+		}
+		add_timed_idea = { idea = GER_atlantic_wall days = 360 }
+		19 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6621
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9737
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11565
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9737
+						instant_build = yes
+					}
+				}
+			}
+		}
+		23 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9597
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6657
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11600
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6657
+						instant_build = yes
+					}
+				}
+			}
+		}
+		30 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11465
+						instant_build = yes
+					}
+				}
+			}
+		}
+		14 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9510
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9510
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6536
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6536
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3552
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3552
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 542
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 542
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6572
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		15 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9550
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6449
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6449
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3579
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9434
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 485
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 485
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		29 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11420
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 575
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 575
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		6 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6446
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6560
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6560
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		7 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9431
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9498
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9498
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3211
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 68
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3314
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3314
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		36 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6336
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6336
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9335
+						instant_build = yes
+					}
+				}
+			}
+		}
+		56 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11360
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 241
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 241
+						instant_build = yes
+					}
+				}
+			}
+		}
+		59 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6349
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6325
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6325
+						instant_build = yes
+					}
+				}
+			}
+		}
+		58 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9347
+						instant_build = yes
+					}
+				}
+			}
+		}
+		142 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9296
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9296
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11367
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 6176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6176
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 53
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 122
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 122
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6145
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3114
+						instant_build = yes
+					}
+				}
+			}
+		}
+		143 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 21
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 3022
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3022
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 6038
+						instant_build = yes
+					}
+				}
+			}
+		}
+		144 = {
+			if = {
+				limit = { is_controlled_by = ROOT }
+				hidden_effect = {
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3034
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 192
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 192
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3145
+						instant_build = yes
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news.1002 }
+		}
+	}
+}
+#STO
+country_event = {
+	id = ctger.31
+	title = ctger.31.t
+	desc = ctger.31.d
+	picture = GFX_sto_e
+	is_triggered_only = yes
+	option = {
+		name = ctger.31.a
+	}
+}
+#Guerre sous-marine à outrance
+country_event = {
+	id = ctger.32
+	title = ctger.32.t
+	desc = ctger.32.d
+	picture = GFX_guerre_sm
+	fire_only_once = yes
+	trigger = {
+		has_idea = donitz
+		tag = GER
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = ctger.32.a
+		add_timed_idea = {
+			idea = sm2_idea
+			days = 730
+		}
+	}
+}
+#Char tchécoslovaquie
+country_event = {
+	id = ctger.33
+	title = ctger.33.t
+	desc = ctger.33.d
+	picture = GFX_char_cze
+	fire_only_once = yes	
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = ctger.33.a
+		GER = { add_equipment_to_stockpile = { type = light_tank_equipment_2 amount = 438 producer = CZE } }
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.1002 }
+		#}
+	}
+}
+#Accès a la Suède
+country_event = {
+	id = ctger.34
+	title = ctger.34.t
+	desc = ctger.34.d
+	picture = GFX_swe_train
+	fire_only_once = yes
+	trigger = {
+		tag = GER
+		110 = {
+			OR = {
+				is_controlled_by = GER
+				controller = { is_in_faction_with = GER }
+			}
+		}
+		142 = {
+			OR = {
+				is_controlled_by = GER
+				controller = { is_in_faction_with = GER }
+			}
+		}
+		143 = {
+			OR = {
+				is_controlled_by = GER
+				controller = { is_in_faction_with = GER }
+			}
+		}
+		#144 = {
+		#	OR = {
+		#		is_controlled_by = GER
+		#		controller = { is_in_faction_with = GER }
+		#	}
+		#}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = ctger.34.a
+		SWE = {
+			add_stability = -0.20
+			add_opinion_modifier = { target = GER modifier = SWE_access }
+		}
+		GER = {
+			give_military_access = SWE
+		}	
+	}
+}
+#Partage de Technologie
+country_event = {
+	id = ctger.35
+	title = ctger.35.t
+	desc = ctger.35.d
+	picture = GFX_jet_it_jp
+	is_triggered_only = yes
+	option = {
+		name = ctger.35.a
+	}
+}
+
+#GER colonies 2 ENG
+country_event = {
+	id = ctger.36
+	title = ctger.36.t
+	desc = ctger.36.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {#take them
+		name = ctger.36.o1
+		ai_chance = { factor = 100 }
+		FRA = {
+			country_event = { id = ctger.38 }
+		}
+	}
+	option = {#nope
+		name = ctger.36.o2
+		ai_chance = { factor = 0 }
+		GER = {
+			country_event = { id = ctger.37 }
+		}
+	}
+}
+
+#GER colonies: ENG 2 GER nope
+country_event = {
+	id = ctger.37
+	title = ctger.37.t
+	desc = ctger.37.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = {
+		name = ctger.37.o1
+	}
+}
+
+#GER colonies 2 FRA
+country_event = {
+	id = ctger.38
+	title = ctger.38.t
+	desc = ctger.38.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {#take them
+		name = ctger.38.o1
+		ai_chance = { factor = 100 }
+		GER = {
+			country_event = { id = ctger.39 }
+		}
+	}
+	option = {#nope
+		name = ctger.38.o2
+		ai_chance = { factor = 0 }
+		GER = {
+			country_event = { id = ctger.37 }
+		}
+	}
+}
+
+#GER colonies: ENG 2 GER take them
+country_event = {
+	id = ctger.39
+	title = ctger.39.t
+	desc = ctger.39.d
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctger.39.o1
+		GER = { 
+			transfer_state = 773 
+			transfer_state = 546 
+			transfer_state = 737
+			transfer_state = 777
+		}
+		773 = {	set_state_name = "Kamerun" }
+	}
+}
+
+#GER colonies: ENG 2 GER take them
+country_event = {
+	id = ctger.40
+	title = ctger.40.t
+	desc = ctger.40.d
+	picture = GFX_report_event_chamberlain
+	is_triggered_only = yes
+	option = {
+		name = ctger.40.o1
+		788 = {
+			set_demilitarized_zone = no
+		}
+	}
+}
+
+#GER 2 DEN - schleswig & faction
+country_event = {
+	id = ctger.41
+	title = ctger.41.t
+	desc = ctger.41.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {#schles $faction
+		name = ctger.41.o1
+		ai_chance = { 
+			factor = 70 
+		}
+		GER = {	
+			country_event = { id = ctger.42 } 
+		}
+	}
+	option = {#faction only
+		name = ctger.41.o2
+		ai_chance = { 
+			factor = 20
+		}
+		GER = {	
+			country_event = { id = ctger.43 } 
+		}
+	}
+	option = {#nothin
+		name = ctger.41.o3
+		ai_chance = { factor = 5 }
+		GER = {	country_event = { id = ctger.44 } }
+	}	
+}
+
+#  DEN 2 GER- schleswig & faction
+country_event = {
+	id = ctger.42
+	title = ctger.42.t
+	desc = ctger.42.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {#schles $puppet
+		name = ctger.42.o1
+		if = {	limit = { DEN = { owns_state = 812 } }	transfer_state = 812 add_state_core = 812 }
+		puppet = FROM
+	}
+}
+
+#  DEN 2 GER-  faction only
+country_event = {
+	id = ctger.43
+	title = ctger.43.t
+	desc = ctger.43.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = { #schles $faction
+		name = ctger.43.o1
+		DEN = {
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Thorvald Stauning"
+				desc = "POLITICS_THORVALD_STAUNING_DESC"
+				picture = "Portrait_Denmark_Thorvald_Stauning.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {	}
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.20
+			}
+		}	
+		add_to_faction = DEN	
+	}
+}
+
+#  DEN 2 GER- nothin
+country_event = {
+	id = ctger.44
+	title = ctger.44.t
+	desc = ctger.44.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	option = {#schles $faction
+		name = ctger.44.o1
+		create_wargoal = {
+			type = take_state
+			generator = { 812 }
+			target = DEN
+		}
+	}
+}

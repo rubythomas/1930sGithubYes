@@ -1,0 +1,31 @@
+#increase_military_level = yes
+
+increase_military_level = {
+	if = {
+		limit = {
+			has_idea = usa_military3
+		}
+		swap_ideas = {
+			remove_idea = usa_military3
+			add_idea = usa_military4
+		}
+	}
+	if = {
+		limit = {
+			has_idea = usa_military2
+		}
+		swap_ideas = {
+			remove_idea = usa_military2
+			add_idea = usa_military3
+		}
+	}
+	if = {
+		limit = {
+			has_idea = usa_military1
+		}
+		swap_ideas = {
+			remove_idea = usa_military1
+			add_idea = usa_military2
+		}
+	}
+}

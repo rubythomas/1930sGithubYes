@@ -1,0 +1,701 @@
+﻿add_namespace = ctusa
+country_event = {	#roos elected	
+	id = ctusa.1
+	title = ctusa.1.t
+	desc = ctusa.1.d
+	picture = GFX_report_event_election_vote
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1933.3.5
+			NOT = { has_country_flag = ct_usa_roos }
+			has_country_flag = ct_fdr_setup
+		}
+	}
+	option = {
+		name = ctusa.1.o1
+		create_country_leader = {
+			name = "Franklin Delano Roosevelt"
+			desc = "POLITICS_FRANKLIN_DELANO_ROOSEVELT_DESC"
+			picture = "Portrait_USA_FDR.dds"
+			expire = "1947.1.1"
+			ideology = liberalism
+			traits = {
+				dislikes_germany
+			}
+		}
+		hidden_effect = {
+			set_country_flag = ct_usa_roos
+			news_event = { hours = 6 id = news_1930.3 }
+		}
+	}
+}
+
+country_event = {		#bank crisis	-10% stability
+	id = ctusa.2
+	title = ctusa.2.t
+	desc = ctusa.2.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1933.1.23
+			NOT = { has_country_flag = ct_usa_bank_crisis }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctusa.2.o1
+		set_country_flag = ct_usa_bank_crisis
+		add_stability = -0.12
+	}
+}
+
+country_event = {	#bank crisis 2	-10% stability	-1 Civ factory
+	id = ctusa.3
+	title = ctusa.3.t
+	desc = ctusa.3.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1930.4.3
+			NOT = { has_country_flag = ct_usa_bank_crisis2 }
+		}
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ctusa.3.o1
+		set_country_flag = ct_usa_bank_crisis2
+		add_stability = -0.12
+		393 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+	}
+}
+
+
+country_event = {	#bank crisis 3	-12% stability	-3 Civ factory
+	id = ctusa.4
+	title = ctusa.4.t
+	desc = ctusa.4.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1930.12.3
+			NOT = { has_country_flag = ct_usa_bank_crisis3 }
+		}
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ctusa.4.o1
+		set_country_flag = ct_usa_bank_crisis3
+		add_stability = -0.12
+		357 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		358 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		360 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+	}
+}
+
+
+country_event = {  #bank crisis 4	-5% stability	-4 Civ factory
+	id = ctusa.5
+	title = ctusa.5.t
+	desc = ctusa.5.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1931.5.3
+			NOT = { has_country_flag = ct_usa_bank_crisis4 }
+		}
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ctusa.5.o1
+		set_country_flag = ct_usa_bank_crisis4
+		add_stability = -0.1
+		387 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		359 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		395 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 2
+			}
+		}
+	}
+}
+
+country_event = { #bank crisis 5	-10% stability	-2 Civ factory
+	id = ctusa.6
+	title = ctusa.6.t
+	desc = ctusa.6.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1931.7.13
+			NOT = { has_country_flag = ct_usa_bank_crisis5 }
+		}
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ctusa.6.o1
+		set_country_flag = ct_usa_bank_crisis5
+		add_stability = -0.12
+		384 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 2
+			}
+		}
+	}
+}
+
+
+country_event = { #bank crisis 6	-10% stability	-4 Civ factory
+	id = ctusa.7
+	title = ctusa.7.t
+	desc = ctusa.7.d
+	picture = GFX_report_event_crowd_in_prague
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1932.7.3
+			NOT = { has_country_flag = ct_usa_bank_crisis6 }
+		}
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = ctusa.7.o1
+		set_country_flag = ct_usa_bank_crisis6
+		add_stability = -0.12
+		378 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		395 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 3
+			}
+		}
+	}
+}
+country_event = { #hueyassasin
+	id = ctusa.8
+	title = ctusa.8.t
+	desc = ctusa.8.d
+	picture = GFX_report_long_attempt
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		owns_state = 371
+		CSA = { exists = no }
+		OR = {
+			has_completed_focus = USA_fdr
+			has_completed_focus = USA_smith			
+		}
+		AND = {
+			date > 1935.9.7
+			NOT = { has_country_flag = ct_huey_lives }
+			NOT = { has_country_flag = ct_huey_dies }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctusa.8.o1
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = ct_huey_lives
+	}
+	option = {
+		name = ctusa.8.o2
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = ct_huey_dies
+	}
+}
+country_event = { #huey president
+	id = ctusa.9
+	title = ctusa.9.t
+	desc = ctusa.9.d
+	picture = GFX_report_event_election_votes
+	fire_only_once = yes		
+	trigger = {
+		OR = {
+			has_completed_focus = USA_fdr
+			has_completed_focus = USA_smith			
+		}
+		tag = USA
+		owns_state = 371
+		date > 1935.11.1
+	}
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ctusa.9.o1
+	}
+	option = {
+		name = ctusa.9.o2
+		trigger = { has_country_flag = ct_huey_lives }
+		set_country_flag = ct_huey_prez
+		create_country_leader = {
+			name = "Huey Long"
+			desc = "POLITICS_HUEY_LONG_DESC"
+			picture = "Portrait_USA_Huey_Long.dds"
+			expire = "1947.1.1"
+			ideology = liberalism
+			traits = {
+				ct30_kingfish
+			}
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news_1930.3 }
+		}
+	}
+}
+country_event = { #philip independence
+	id = ctusa.10
+	title = ctusa.10.t
+	desc = ctusa.10.d
+	picture = GFX_report_event_election_votes
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		has_subject = PHI
+		AND = {
+			date > 1935.5.1
+			NOT = { has_country_flag = ct_phil_independence }
+		}
+	}
+	mean_time_to_happen = { days = 10 }
+	option = {
+		name = ctusa.10.o1
+		ai_chance = { factor = 100 }
+		set_country_flag = ct_phil_independence
+		release_puppet = PHI
+		hidden_effect = {
+			#news_event = { hours = 6 id = news_1930.3 }
+		}
+	}
+	option = {
+		name = ctusa.10.o2
+		ai_chance = { factor = 0 }
+		add_stability = -0.05
+		USA_congress_small_opposition = yes
+	}
+}
+country_event = { #smoot hawley     
+	id = ctusa.11
+	title = ctusa.11.t
+	desc = ctusa.11.d
+	picture = GFX_report_event_election_votes
+	is_triggered_only = yes
+	option = {
+		name = ctusa.11.o1
+		ai_chance = { factor = 75 }
+		add_political_power = 50
+		360 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 2
+			}
+		}
+		371 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		392 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+	}
+	option = {
+		name = ctusa.11.o2
+		ai_chance = { factor = 25 }
+		#add_political_power = -120
+		USA_congress_medium_opposition = yes
+	}
+}
+country_event = {
+	id = ctusa.12
+	title = ctusa.12.t
+	desc = ctusa.12.d
+	picture = GFX_d_day	
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ctusa.12.a
+		USA = { add_ideas = usa_big_nep }
+	}
+	option = {
+		name = ctusa.12.b
+		USA = { add_ideas = usa_sma_nep }
+		ENG = { add_ideas = com_nep }
+		CAN = { add_ideas = com_nep }
+		SAF = { add_ideas = com_nep }
+		RAJ = { add_ideas = com_nep }
+		AST = { add_ideas = com_nep }
+		NZL = { add_ideas = com_nep }
+	}
+	option = {
+		name = ctusa.12.c
+		USA = { add_ideas = usa_sma_nep }
+		#FRA = { add_ideas = fra_nep }
+	}
+}
+country_event = {
+	id = ctusa.13
+	title = ctusa.13.t
+	desc = ctusa.13.d
+	picture = GFX_ll_act
+	is_triggered_only = yes
+	option = {
+		name = ctusa.13.a
+	}
+}
+
+country_event = {
+	id = ctusa.14
+	title = ctusa.14.t
+	desc = ctusa.14.d
+	picture = GFX_fra_com
+	is_triggered_only = yes
+	option = {
+		name = ctusa.14.a
+		add_political_power = -50
+		add_stability = -0.05
+	}
+}
+
+country_event = { #dearborn mich Ford Hunger March
+	id = ctusa.15
+	title = ctusa.15.t
+	desc = ctusa.15.d
+	picture = GFX_fra_com
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		date > 1932.3.6
+		date < 1932.6.1		
+	}
+	option = { 
+		name = ctusa.15.a
+		ai_chance = {base = 99 }
+		add_political_power = 20
+		add_stability = -0.01
+	}
+	option = {
+		name = ctusa.15.b
+		ai_chance = { base = 1 }
+		add_political_power = -20
+		add_stability = 0.01
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+}
+
+country_event = { #Dad Joiner Discovers ETex Field
+	id = ctusa.16
+	title = ctusa.16.t
+	desc = ctusa.16.d
+	picture = GFX_report_event_iraq_oil
+	is_triggered_only = yes
+	option = { 
+		name = ctusa.16.a
+		add_resource = {
+			type = oil
+			amount = 150
+			state = 375
+		}
+	}
+}
+
+country_event = { #DNC 32     ######################################.+
+	id = ctusa.17
+	title = ctusa.17.t
+	desc = ctusa.17.d
+	picture = GFX_report_event_usa_election_roosevelt_smith
+	fire_only_once = yes		
+	is_triggered_only = yes
+	option = { 				#FDR
+		name = ctusa.17.a
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 0 
+				OR = {
+					has_country_flag = USA_AI_RANDOM_CSA
+					has_game_rule = {
+						rule = USA_ai_behavior
+						option = CONFEDERATE
+					}					
+					has_country_flag = USA_AI_RANDOM_FASCIST
+					has_game_rule = {
+						rule = USA_ai_behavior
+						option = FASCIST
+					}
+				}
+			}
+		}
+		set_country_flag = ct_fdr_setup		
+	}						#Al Smith
+	option = {
+		name = ctusa.17.b
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				factor = 100 
+				OR = {
+					has_country_flag = USA_AI_RANDOM_CSA
+					has_game_rule = {
+						rule = USA_ai_behavior
+						option = CONFEDERATE
+					}	
+				}
+			}
+		}
+		set_country_flag = ct_smith_setup		
+	}
+	option = {			#Communists bomb the DNC
+		name = ctusa.17.c
+		ai_chance = {
+			factor = 0
+			modifier = {
+				OR = {
+					has_country_flag = USA_AI_RANDOM_FASCIST
+					has_game_rule = {
+						rule = USA_ai_behavior
+						option = FASCIST
+					}
+				}
+				factor = 100
+			}
+		}		
+		country_event = { id = ctusa.22 days = 1 }
+	}
+}
+
+country_event = {	#smith elected	
+	id = ctusa.18
+	title = ctusa.18.t
+	desc = ctusa.18.d
+	picture = GFX_report_event_usa_election_generic
+	fire_only_once = yes		
+	trigger = {
+		tag = USA
+		AND = {
+			date > 1933.3.5
+			NOT = { has_country_flag = ct_usa_smith }
+			has_country_flag = ct_smith_setup
+		}
+	}
+	option = {
+		name = ctusa.18.o1
+		create_country_leader = {
+			name = "Al Smith"
+			desc = "POLITICS_Al_Smith_DESC"
+			picture = "Portrait_USA_Al_Smith.dds"
+			expire = "1948.1.1"
+			ideology = conservatism
+			traits = {}
+		}
+		hidden_effect = {
+			set_country_flag = ct_usa_smith
+			news_event = { hours = 6 id = news_1930.3 }
+			country_event = { id = ctusa.19 days = 33 }
+		}
+	}
+} 
+
+country_event = { #riots in midwest - olsen
+	id = ctusa.19
+	title = ctusa.19.t
+	desc = ctusa.19.d
+	picture = GFX_report_event_generic_rally
+	fire_only_once = yes		
+	is_triggered_only = yes
+	option = { 				#not good		
+		name = ctusa.19.a
+		add_stability = -0.04
+		add_political_power = -20
+		261 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}
+		359 = {
+			remove_building = {
+			    type = industrial_complex
+			    level = 1
+			}
+		}	
+		hidden_effect = {
+			country_event = { id = ctusa.20 days = 9 }	
+			country_event = { id = ctusa_cw.2 days = 3 }									
+		}		
+
+	}				
+}
+
+country_event = { #CSA prep 
+	id = ctusa.20
+	title = ctusa.20.t
+	desc = ctusa.20.d
+	picture = GFX_report_event_gathering_protest
+	fire_only_once = yes		
+	is_triggered_only = yes
+	option = { 				#not good		
+		name = ctusa.20.a
+		add_stability = -0.04
+		add_political_power = -20
+		hidden_effect = {
+			country_event = { id = ctusa_cw.1 days = 3 }
+			country_event = { id = ctusa_cw.2 days = 5 }			
+			country_event = { id = ctusa_cw.3 days = 30 }				
+		}	
+	}				
+}
+
+country_event = { #CSA election
+	id = ctusa.21
+	title = ctusa.21.t
+	desc = ctusa.21.d
+	picture = GFX_report_event_usa_election_generic	
+	is_triggered_only = yes
+	option = { 				#Garner		
+		name = ctusa.21.a
+		add_political_power = 100
+		create_country_leader = {
+			name = "John Nance Garner"
+			desc = "POLITICS_John_Nance_Garner_DESC"
+			picture = "Portrait_USA_John_Nance_Garner.dds"
+			expire = "1958.1.1"
+			ideology = conservatism
+			traits = {
+				strict_austerity_adherent
+			}
+		}
+	}	
+	option = { 				#Byrd		
+		name = ctusa.21.b
+		create_country_leader = {
+			name = "Harry Byrd"
+			desc = "POLITICS_Harry_Byrd_DESC"
+			picture = "Portrait_USA_Harry_Byrd.dds"
+			expire = "1958.1.1"
+			ideology = conservatism
+			traits = {
+			}
+		}	
+	}	
+	option = { 				#Long	
+		name = ctusa.21.c
+		add_political_power = -100
+		create_country_leader = {
+			name = "Huey Long"
+			desc = "POLITICS_Huey_Long_DESC"
+			picture = "Portrait_USA_Huey_Long.dds"
+			expire = "1958.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}	
+	}				
+}
+
+country_event = { #DNC Booooooooooooom
+	id = ctusa.22
+	title = ctusa.22.t
+	desc = ctusa.22.d
+	picture = GFX_report_event_usa_funeral
+	fire_only_once = yes		
+	is_triggered_only = yes
+	option = { 		
+		name = ctusa.22.a
+		hidden_effect = {	country_event = { id = ctusa.23 days = 1 } }	
+	}				
+}
+
+country_event = { #Mac Arrests Hoover
+	id = ctusa.23
+	title = ctusa.23.t
+	desc = ctusa.23.d
+	picture = GFX_report_event_usa_election_generic
+	fire_only_once = yes		
+	is_triggered_only = yes
+	option = {	#Mac
+		set_country_flag = ct_mac_setup		
+		name = ctusa.23.a
+		add_ideas = desire4_political_representation
+		remove_ideas = home_of_the_free
+		if = {
+			limit = {	has_idea = MTG_naval_treaty_adherent }
+			remove_ideas = MTG_naval_treaty_adherent
+		}
+		add_political_power = -100
+		create_country_leader = {
+			name = "Douglas MacArthur"
+			desc = ""
+			picture = "Portrait_USA_Douglas_MacArthur5.dds"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {	}
+		}
+	}				
+}
