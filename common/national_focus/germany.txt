@@ -21,7 +21,7 @@ focus_tree = {
 #########################################################################	
 	focus = {
 		id = GER_monarchist_germany
-		icon = GFX_focus_generic_home_defensef
+		icon = GFX_focus_generic_home_defense
 		mutually_exclusive = { focus = GER_german_october }
 		mutually_exclusive = { focus = GER_third_reich }
 		mutually_exclusive = { focus = GER_democratic_germany }
@@ -1749,7 +1749,7 @@ focus_tree = {
 		mutually_exclusive = { focus = GER_monarchist_germany }
 		x = 4
 		y = 0
-		cost = 0.2
+		cost = 0
 		ai_will_do = {
 			factor = 0
 		}
@@ -1764,13 +1764,12 @@ focus_tree = {
 	focus = {
 		id = GER_kdp
 		icon = GFX_focus_kdp
-		prerequisite = { focus = GER_demand_chancelo }
-		available = {
-			has_government = communism 
+		prerequisite = { focus = GER_rightist_judiciary }
+		available = { 
 		}
 		x = 0
-		y = 7
-		relative_position_id = GER_german_october
+		y = 1
+		relative_position_id = GER_rightist_judiciary
 		cost = 10
 		ai_will_do = {
 			factor = 0
@@ -1817,11 +1816,11 @@ focus_tree = {
 	focus = {
 		id = GER_popular_front
 		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = GER_munzenberg }
+		prerequisite = { focus = GER_munzenberg focus = GER_thalmann }
 		available = {
 			NOT = { has_government = fascism }
 		}
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_munzenberg
 		cost = 10
@@ -1870,7 +1869,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_thalmann
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 0
 		}
@@ -1907,9 +1906,8 @@ focus_tree = {
 		icon = GFX_focus_roter_frontkampferbund
 		prerequisite = { focus = GER_thalmann focus = GER_popular_front }
 		x = 1
-		y = 3
-		relative_position_id = GER_german_october
-		cost = 10
+		y = 1
+		relative_position_id = GER_popular_front
 		ai_will_do = {
 			factor = 0
 		}
@@ -1922,8 +1920,8 @@ focus_tree = {
 	focus = {
 		id = GER_battle_for_streets
 		icon = GFX_goal_generic_demand_territory
-		prerequisite = { focus = GER_rally_the_roter_frontkampferbund }
-		x = 0
+		prerequisite = { focus = GER_rally_the_roter_frontkampferbund focus = GER_infiltrate_SDP }
+		x = -1
 		y = 1
 		relative_position_id = GER_rally_the_roter_frontkampferbund
 		cost = 10
@@ -1938,17 +1936,18 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.04
 			}
+			add_stability = -0.05
 		}
 	}
 	
 	focus = {
 		id = GER_expose_nazi_putsch 
 		icon = GFX_focus_generic_combined_arms
-		prerequisite = { focus = GER_battle_for_streets }
-		x = 0
+		prerequisite = { focus = GER_munzenberg }
+		x = 1
 		y = 1
-		relative_position_id = GER_battle_for_streets
-		cost = 10
+		relative_position_id = GER_munzenberg
+		cost = 5
 		ai_will_do = {
 			factor = 0
 		}
@@ -1969,11 +1968,11 @@ focus_tree = {
 	focus = {
 		id = GER_instigate_labor_strikes
 		icon = GFX_goal_generic_soviet_construction
-		prerequisite = { focus = GER_infiltrate_SDP }
+		prerequisite = { focus = GER_battle_for_streets }
 		x = 0
 		y = 1
-		relative_position_id = GER_infiltrate_SDP
-		cost = 10
+		relative_position_id = GER_battle_for_streets
+		cost = 5
 		ai_will_do = {
 			factor = 0
 		}
@@ -1984,7 +1983,10 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.04
 			}
-			add_ideas = strikes_1
+			add_stability = -0.02
+			hidden_effect = {
+				add_ideas = strikes_1
+			}
 		}
 	}
 	focus = {
@@ -1994,7 +1996,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_instigate_labor_strikes
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 0
 		}
@@ -2005,18 +2007,20 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.04
 			}
-			swap_ideas = {
-				add_idea = strikes_3
-			    remove_idea = strikes_1
+			add_stability = -0.02
+			hidden_effect = {
+				swap_ideas = {
+					add_idea = strikes_3
+					remove_idea = strikes_1
+				}
 			}
 		}
 	}	
 	focus = {
 		id = GER_demand_chancelo
 		icon = GFX_focus_generic_soviet_politics
-		prerequisite = { focus = GER_expose_nazi_putsch }
 		prerequisite = { focus = GER_general_strikes }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = GER_general_strikes
 		cost = 5
@@ -2032,11 +2036,11 @@ focus_tree = {
 	focus = { 
 		id = GER_young_communist_league
 		icon = GFX_focus_generic_military_academy
-		prerequisite = { focus = GER_commy_enabling_act }
-		x = 1
-		y = 2
-		relative_position_id = GER_kdp
-		cost = 10
+		prerequisite = { focus = GER_red_papers }
+		x = 0
+		y = 1
+		relative_position_id = GER_red_papers
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}
@@ -2049,11 +2053,11 @@ focus_tree = {
 	focus = {
 		id = GER_rightist_judiciary
 		icon = GFX_goal_generic_neutrality_focus
-		prerequisite = { focus = GER_commy_enabling_act }
+		prerequisite = { focus = GER_red_radio }
 		x = 1
 		y = 1
-		relative_position_id = GER_young_communist_league
-		cost = 10
+		relative_position_id = GER_red_radio
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}
@@ -2066,15 +2070,13 @@ focus_tree = {
 	focus = {
 		id = GER_saarland4
 		icon = GFX_focus_saarland
-		prerequisite = { focus = GER_planned_mobilizaton }
-		prerequisite = { focus = GER_rightist_judiciary }
-		prerequisite = { focus = GER_national_industry }
+		prerequisite = { focus = GER_purify_military }
 		available = {
 			date > 1934.12.31
 		}
 		x = 0
 		y = 1
-		relative_position_id = GER_rightist_judiciary
+		relative_position_id = GER_purify_military
 		cost = 5
 		ai_will_do = {
 			factor = 200
@@ -2139,13 +2141,12 @@ focus_tree = {
 	focus = {
 		id = GER_nulify_versailles
 		icon = GFX_goal_generic_forceful_treaty
-		prerequisite = { focus = GER_kdp }
+		prerequisite = { focus = GER_form_fourth_international }
 		available = {
-			has_country_flag = ct_enabling_act
 		}
 		x = -1
 		y = 1
-		relative_position_id = GER_kdp
+		relative_position_id = GER_form_fourth_international
 		cost = 10
 		ai_will_do = {
 			factor = 5
@@ -2162,10 +2163,10 @@ focus_tree = {
 		id = GER_planned_mobilizaton
 		icon = GFX_focus_secret_rearmament
 		prerequisite = { focus = GER_nulify_versailles }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = GER_nulify_versailles
-		cost = 14.3
+		cost = 28.6
 		available_if_capitulated = yes
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_planned_mobilizaton"
@@ -2222,10 +2223,10 @@ focus_tree = {
 	focus = {
 		id = GER_clandestine_rearmament_com
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = GER_nulify_versailles }
-		x = 0
+		prerequisite = { focus = GER_form_fourth_international focus = GER_join_comintern }
+		x = 1
 		y = 1
-		relative_position_id = GER_nulify_versailles
+		relative_position_id = GER_form_fourth_international
 		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -2271,13 +2272,13 @@ focus_tree = {
 	focus = {
 		id = GER_commy_enabling_act
 		icon = GFX_focus_generic_soviet_politics
-		prerequisite = { focus = GER_kdp }
+		prerequisite = { focus = GER_clandestine_rearmament_com }
 		available = {
 			communism > 0.66
 		}
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = GER_kdp
+		relative_position_id = GER_clandestine_rearmament_com
 		cost = 10
 		ai_will_do = {
 			factor = 5
@@ -2293,10 +2294,10 @@ focus_tree = {
 	focus = {
 		id = GER_red_radio
 		icon = GFX_goal_generic_radar
-		prerequisite = { focus = GER_kdp }
-		x = -3
-		y = 1
-		relative_position_id = GER_kdp
+		prerequisite = { focus = GER_join_comintern }
+		x = 2
+		y = 2
+		relative_position_id = GER_join_comintern
 		cost = 10
 		ai_will_do = {
 			factor = 5
@@ -2318,9 +2319,8 @@ focus_tree = {
 		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = GER_red_radio }
 		available = {
-			has_country_flag = ct_enabling_act
 		}
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_red_radio
 		cost = 10
@@ -2333,7 +2333,7 @@ focus_tree = {
 			add_stability = 0.1		
 			add_popularity = {
 				ideology = communism
-				popularity = 0.08
+				popularity = 0.04
 			}
 		}
 	}
@@ -2342,7 +2342,7 @@ focus_tree = {
 		id = GER_national_industry
 		icon = GFX_goal_generic_soviet_construction
 		prerequisite = { focus = GER_commy_enabling_act }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = GER_commy_enabling_act
 		cost = 10
@@ -2390,13 +2390,13 @@ focus_tree = {
 	focus = {
 		id = GER_purify_military
 		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = GER_kdp }
+		prerequisite = { focus = GER_national_industry }
+		prerequisite = { focus = GER_planned_mobilizaton focus = GER_red_papers }
 		available = {
-			has_country_flag = ct_enabling_act
 		}
-		x = 3
+		x = 0
 		y = 1
-		relative_position_id = GER_kdp
+		relative_position_id = GER_national_industry
 		cost = 10
 		ai_will_do = {
 			factor = 5
@@ -2420,14 +2420,15 @@ focus_tree = {
 	focus = {
 		id = GER_join_comintern
 		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = GER_demand_chancelo }
 		mutually_exclusive = { focus = GER_form_fourth_international }
 		available = {
 			has_government = communism 
 			has_country_flag = ct_enabling_act
 		}
 		x = 1
-		y = 2
-		relative_position_id = GER_red_radio
+		y = 1
+		relative_position_id = GER_demand_chancelo
 		cost = 10
 		ai_will_do = {
 			factor = 80
@@ -2442,14 +2443,15 @@ focus_tree = {
 	focus = {
 		id = GER_form_fourth_international
 		icon = GFX_goal_support_fourth_int
+		prerequisite = { focus = GER_demand_chancelo }
 		mutually_exclusive = { focus = GER_join_comintern }
 		available = {
 			has_government = communism 
 			has_country_flag = ct_enabling_act
 		}
 		x = -1
-		y = 2
-		relative_position_id = GER_red_radio
+		y = 1
+		relative_position_id = GER_demand_chancelo
 		cost = 10
 		ai_will_do = {
 			factor = 80
