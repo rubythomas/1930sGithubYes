@@ -745,7 +745,7 @@ focus_tree = {
 		mutually_exclusive = { focus = GER_monarchist_germany }
 		x = 20
 		y = 0
-		cost = 0.2
+		cost = 0
 		ai_will_do = {
 			factor = 0
 		}
@@ -765,7 +765,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_democratic_germany
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -783,6 +783,7 @@ focus_tree = {
 					popularity = 0.04
 				}
 			}
+			add_stability = 0.02
 		}
 	}
 	focus = {
@@ -792,7 +793,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_SDP_vote_expans
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -812,7 +813,7 @@ focus_tree = {
 				}
 			}
 			add_stability = 0.05
-			add_political_power = 50
+			add_political_power = -50
 		}
 	}
 	focus = {
@@ -822,7 +823,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_bav_autonomy
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -833,15 +834,7 @@ focus_tree = {
 				ideology = democratic
 				popularity = 0.04
 			}
-			add_stability = 0.1
-			if = {
-				limit = {	is_ai = yes }
-				add_stability = 0.05				
-				add_popularity = {
-					ideology = democratic
-					popularity = 0.04
-				}
-			}
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -851,14 +844,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_democratic_germany
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
 		available_if_capitulated = yes
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_currency_deflation"
-			add_stability = -0.05
+			add_stability = -0.2
 		}
 	}
 	focus = {
@@ -868,7 +861,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_currency_deflation
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 500
 		}
@@ -876,14 +869,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_winterhilfswerk"
 			add_stability = 0.05
-			if = {
-				limit = {	is_ai = yes }
-				add_stability = 0.05				
-				add_popularity = {
-					ideology = democratic
-					popularity = 0.04
-				}
-			}
+			add_political_power = 20
 		}
 	}
 	focus = {
@@ -893,7 +879,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_winterhilfswerk
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 80
 		}
@@ -901,7 +887,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_cancel_wage_cuts"
 			add_stability = 0.05
-			add_political_power = 100
+			add_political_power = 20
 		}
 	}
 	focus = {
@@ -911,7 +897,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_democratic_germany
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -922,7 +908,7 @@ focus_tree = {
 				ideology = democratic
 				popularity = 0.04
 			}
-			add_political_power = 100
+			add_stability = 0.02
 		}
 	}	
 	focus = {
@@ -932,14 +918,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_blackmail_hindenburg
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 500
 		}
 		available_if_capitulated = yes
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_emergency_welfare_support"
-			add_stability = 0.1
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -949,7 +935,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_emergency_welfare_support
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 500
 		}
@@ -958,7 +944,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_wheel_and_deal"
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.04
+				popularity = 0.02
 			}
 		}
 	}
@@ -974,7 +960,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = GER_outlaw_paramilitaries
-		cost = 10
+		cost = 20
 		ai_will_do = {
 			factor = 80
 		}
@@ -1908,6 +1894,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_popular_front
+		cost = 10
 		ai_will_do = {
 			factor = 0
 		}
@@ -2459,9 +2446,11 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus GER_form_fourth_international"
-			add_political_power = 100
+			add_political_power = 50
 			create_faction = fourth_international
-			add_to_faction = GER
+			hidden_effect = {
+				add_to_faction = GER
+			}
 		}
 	}
 #########################################################################
