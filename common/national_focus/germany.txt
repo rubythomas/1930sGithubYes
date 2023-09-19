@@ -3704,7 +3704,7 @@ focus_tree = {
 		available = {
 			NOT = { has_completed_focus = GER_anti_soviet_pact }
 			OR = {
-				NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
+				NOT = { has_completed_focus = GER_bulwark_against_bolshevism1 }
 				NOT = { has_completed_focus = GER_the_great_red_menace }
 			}
 		}
@@ -3712,7 +3712,7 @@ focus_tree = {
 			OR = {
 				has_war_with = SOV
 				NOT = { country_exists = SOV }
-				has_completed_focus = GER_bulwark_against_bolshevism
+				has_completed_focus = GER_bulwark_against_bolshevism1
 				has_completed_focus = GER_the_great_red_menace
 			}
 		}
@@ -3761,7 +3761,7 @@ focus_tree = {
 				NOT = { has_war_with = GER }
 				country_exists = SOV
 			}
-			NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
+			NOT = { has_completed_focus = GER_bulwark_against_bolshevism1 }
 			NOT = { has_completed_focus = GER_the_great_red_menace }
 		}
 		cancel = {
@@ -10713,7 +10713,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GER_bulwark_against_bolshevism
+		id = GER_bulwark_against_bolshevism1
 		icon = GFX_focus_ger_bulwark_against_bolshevism
 		available = {
 			is_puppet = no
@@ -10732,9 +10732,9 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus GER_bulwark_against_bolshevism"
-			add_ideas = GER_bulwark_against_bolshevism
-			custom_effect_tooltip = GER_bulwark_against_bolshevism_tt
+			log = "[GetDateText]: [Root.GetName]: Focus GER_bulwark_against_bolshevism1"
+			add_ideas = GER_bulwark_against_bolshevism1
+			custom_effect_tooltip = GER_bulwark_against_bolshevism1_tt
 			SOV = { 
 				add_opinion_modifier = { target = GER modifier = embargo } 
 			}
@@ -12020,7 +12020,7 @@ focus_tree = {
 		id = GER_danzig_for_guarantees
 		icon = GFX_focus_generic_polish_deal
 		prerequisite = { focus = GER_see_to_the_eastern_front }
-		prerequisite = { focus = GER_bulwark_against_bolshevism }
+		prerequisite = { focus = GER_bulwark_against_bolshevism1 }
 		mutually_exclusive = { focus = GER_partition_poland }
 		available = { 
 			is_puppet = no
@@ -12155,7 +12155,7 @@ focus_tree = {
 		id = GER_partition_poland 
 		icon = GFX_focus_ger_revive_kaiserreich
 		prerequisite = { focus = GER_see_to_the_eastern_front }
-		prerequisite = { focus = GER_bulwark_against_bolshevism }
+		prerequisite = { focus = GER_bulwark_against_bolshevism1 }
 		mutually_exclusive = { focus = GER_danzig_for_guarantees }
 		available = { 
 			POL = { exists = yes }
@@ -12622,7 +12622,7 @@ focus_tree = {
 		id = GER_central_european_alliance
 		icon = GFX_goal_generic_national_unity
 		prerequisite = { focus = GER_the_great_red_menace }
-		prerequisite = { focus = GER_bulwark_against_bolshevism }
+		prerequisite = { focus = GER_bulwark_against_bolshevism1 }
 		available = {
 			is_puppet = no
 			has_war = no
