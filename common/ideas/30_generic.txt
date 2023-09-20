@@ -996,37 +996,7 @@ ideas = {
 				}
 			}
 		}
-		hobart_idea = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				has_government = democratic
-			}
-			picture = hobart_idea
-			removal_cost = -1
-			equipment_bonus = {
-				amphibious_tank_equipment = {
-					instant = yes
-					soft_attack = 0.10
-					breakthrough = 0.10
-				}
-				medium_tank_equipment = {
-					instant = yes
-					maximum_speed = 0.05
-					reliability = 0.05
-				}
-				heavy_tank_equipment = {
-					instant = yes
-					soft_attack = 0.05
-					maximum_speed = 0.10
-				}
-				heavy_tank_artillery_equipment = {
-					instant = yes
-					soft_attack = 0.10
-				}
-			}
-		}
+		
 		ten_year_rule = {			
 			allowed = {
 				always = yes
